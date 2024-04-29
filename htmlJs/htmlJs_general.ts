@@ -4,15 +4,21 @@
 /**************************************************************/
 MODULENAME = "htmlJs_general.js";
 console.log('%c' + MODULENAME + ': ', 'color: red;');
-/**************************************************************/
-// Variables and constants
-/**************************************************************/
-// Contains the pages to be generated on the navBar
-const general_PAGES = [{url: '/../index.html', name: 'Home'}, 
-{url: '/html/html_mediaQueries.html', name: 'Media Queries'},
-{url: '/html/html_cssGrid.html', name: 'CSS grid'},
-{url: '/html/html_dataBase.html', name: 'Database'}
-];
+
+class NavBar {
+  /**************************************************************/
+  // Variables and constants
+  /**************************************************************/
+  // Contains the pages to be generated on the navBar
+  static readonly general_PAGES = [{url: '/../index.html', name: 'Home'}, 
+  {url: '/html/html_mediaQueries.html', name: 'Media Queries'},
+  {url: '/html/html_cssGrid.html', name: 'CSS grid'},
+  {url: '/html/html_dataBase.html', name: 'Database'}
+  ];
+  
+}
+
+
 
 //The media query break point where the device is considered no longer a computer
 const general_MEDIA_QUERY_BREAK_POINT = 1200;
