@@ -1,0 +1,30 @@
+/*------------------------------------------------------------*
+  index.html page styling
+/*------------------------------------------------------------*/
+
+/*-- variables *******************************************--*/
+:root {
+  /*-- overiding the general styling --*/
+  --h1Size: 8vh !important;
+}
+
+/*-- flex containers *******************************************--*/
+.index_topHalf, .index_bottomHalf {
+  display: flex;
+  justify-content: center;
+}  
+
+/*-- top division *******************************************--*/
+.index_topHalf {
+  height: var(--topHalf);
+  background: var(--backGroundDark);
+  flex-direction: column;
+}
+
+/*-- bottom division *******************************************--*/
+.index_bottomHalf {
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+  height: var(--bottomHalf);
+}

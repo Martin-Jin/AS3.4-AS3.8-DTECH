@@ -1,0 +1,133 @@
+/*------------------------------------------------------------*
+  General page styling used by every html page
+/*------------------------------------------------------------*/
+
+/*-- variables *******************************************--*/
+:root {
+  /*-- colours --*/
+  --backGroundLight: #EAE6E5;
+  --backGroundDark: #222222;
+  --backGroundLightDark: #333333;
+  --text: #F4EAE4;
+  --subtitle: #F5CDAF;
+  --header: #DFC4B4;
+  /*-- container sizes --*/
+  --navBarSize: 7vh;
+  --footerSize: calc(0.9 * var(--navBarSize));
+  /*-- font sizes --*/
+  --h1Size: 4em;
+  --h2Size: calc(0.7 * var(--h1Size));
+  --h3Size: calc(0.5 * var(--h1Size));
+  --pSize: calc(0.3 * var(--h1Size));
+  /*-- border sizes --*/
+  --navBarBorder: 0.5vh;
+  /*-- hover colours --*/
+  --backGroundHover: #444444;
+  /*-- container sizes --*/
+  --demoContainerHeight: 300px;
+  --demoContainerWidth: 300px;
+  --topHalf: 45vh;
+  --headerContainer: calc(var(--topHalf) - var(--navBarSize));
+  --bottomHalf: calc(200vh - var(--topHalf));
+}
+
+/*-- font *******************************************--*/
+.aleo-general {
+  font-family: "Aleo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*-- html *******************************************--*/
+html, body {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Aleo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*-- navBar *******************************************--*/
+.general_navBar {
+  background-color: var(--backGroundLightDark);
+  height: var(--navBarSize);
+  display: flex;
+}  
+
+.general_navBar button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.general_navBar button.active {
+  border-bottom: var(--navBarBorder) solid var(--backGroundLight);
+}
+
+.general_navBar button:hover {
+  background-color: var(--backGroundHover);
+}
+
+/*-- headers *******************************************--*/
+h1, h2, h3, p{
+  text-align: center;
+  margin: 0;
+}
+
+h1, h3 {color: var(--header);}
+
+h1 {
+  font-size: var(--h1Size);
+}
+
+h2 {
+  font-size: var(--h2Size);
+  color: var(--subtitle);
+  font-weight: 300;
+}
+
+h3 {
+  font-size: var(--h3Size);
+}
+
+p, button {
+  font-size: var(--pSize);
+}
+
+/*-- containers *******************************************--*/
+.general_headerContainer, .general_container{
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+.general_headerContainer {
+  height: var(--headerContainer);
+}
+
+/*-- containers *******************************************--*/
+.general_container {
+  background-color: var(--backGroundLightDark);
+  height: var(--demoContainerHeight);
+  width: var(--demoContainerWidth);
+}
+
+/*-- footer *******************************************--*/
+footer {
+  background-color: var(--backGroundLight);
+  height: var(--footerSize);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: var(--backGroundDark);
+}
