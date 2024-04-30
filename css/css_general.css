@@ -22,13 +22,13 @@
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
-  --backGroundHover: #444444;
-  /*-- container sizes --*/
-  --demoContainerHeight: 300px;
-  --demoContainerWidth: 300px;
-  --topHalf: 45vh;
-  --headerContainer: calc(var(--topHalf) - var(--navBarSize));
-  --bottomHalf: calc(200vh - var(--topHalf));
+  --backGroundHover: rgba(244, 234, 228, 0.1);
+  /*-- container margin --*/
+  --containerTopBottomMargin: 2.5vh;
+  /*-- nav button --*/
+  --navButtonWidth: 200px;
+  /*-- drop down buttons --*/
+  --dropDownHover: #efefef;
 }
 
 /*-- font *******************************************--*/
@@ -51,13 +51,12 @@ html, body {
 
 /*-- navBar *******************************************--*/
 .general_navBar {
-  background-color: var(--backGroundLightDark);
+  background-color: transparent;
   height: var(--navBarSize);
   display: flex;
 }  
 
-.general_navBar button {
-  width: 100%;
+.general_navBar button{
   height: 100%;
   padding: 0;
   border: none;
@@ -72,6 +71,41 @@ html, body {
 
 .general_navBar button:hover {
   background-color: var(--backGroundHover);
+}
+
+/*-- collapsed navBar styling*******************************************--*/
+/*-- The container needed to position the dropdown content --*/
+.general_dropDown, .general_dropDown *, .general_navBar button{
+  width: 100%;
+}
+
+/*-- Dropdown content --*/
+.general_dropDown-content {
+  display: none;
+  position: absolute;
+}
+
+.general_dropDown-content button {
+  background-color: white;
+  color: var(--backGroundDark);
+  height: var(--navBarSize);
+  /*-- Makes sure that the content inside the drop down menu isn't underlined --*/
+  border: none !important;
+}
+
+/*-- Change color of dropdown links on hover --*/
+.general_dropDown-content button:hover {background-color: var(--dropDownHover);}
+
+/*-- Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) --*/
+.show {display:block;}
+
+/*-- media queries to rearrange container --*/
+@media screen and (min-width: 1200px) {
+  .general_bottomHalf {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+  }
 }
 
 /*-- headers *******************************************--*/

@@ -4,27 +4,29 @@
 
 /*-- variables *******************************************--*/
 :root {
-  /*-- overiding the general styling --*/
-  --h1Size: 8vh !important;
+  /*-- container sizes --*/
+  --topHalf: 45vh;
+  --headerContainer: calc(var(--topHalf) - var(--navBarSize));
+  --bottomHalf: calc(200vh - var(--topHalf));
 }
-
-/*-- flex containers *******************************************--*/
-.index_topHalf, .index_bottomHalf {
-  display: flex;
-  justify-content: center;
-}  
 
 /*-- top division *******************************************--*/
 .index_topHalf {
   height: var(--topHalf);
-  background: var(--backGroundDark);
-  flex-direction: column;
+  background-image: url(/images/images_bg/bg_landing.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.index_headerContainer {
+  height: var(--headerContainer);
 }
 
 /*-- bottom division *******************************************--*/
 .index_bottomHalf {
-  flex-wrap: wrap;
-  align-content: space-around;
-  justify-content: space-around;
-  height: var(--bottomHalf);
+  overflow: auto;
+}
+
+.index_bottomHalf div{
+  margin: var(--containerTopBottomMargin) auto;
 }
