@@ -8,10 +8,14 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 // Variables and constants
 /**************************************************************/
 //Contains the pages to be generated on the navBar
-const general_PAGES = [{url: '/../index.html', name: 'Home'}];
+const general_PAGES = [{ url: '/../index.html', name: 'Home' },
+{ url: '/html/html_about', name: 'About us' },
+{ url: '/html/html_contact', name: 'Contact us' },
+{ url: '/html/html_products', name: 'Products' },
+{ url: '/html/html_orders', name: 'Orders' },];
 
 //The media query break point where the device is considered no longer a computer
-const general_MEDIA_QUERY_BREAK_POINT = 1200;
+const general_MEDIA_QUERY_BREAK_POINT = 1000;
 //Mobile by deafult, set to true when break point triggered
 let general_mobile = true;
 
@@ -23,36 +27,43 @@ const general_NAVBAR = document.getElementById("navBar");
 /**************************************************************/
 
 //Initialising firebase on load
-if (window.location.href === 'https://jvyoappjjl-2362147004-a.codehs.me/html/html_dataBase.html') {fbR_initialise();}
+if (window.location.href === 'https://jvyoappjjl-2362147004-a.codehs.me/html/html_dataBase.html') { fbR_initialise(); }
 //Collapsing nav on load for mobile
 htmlJs_collapseNav();
 
 /**************************************************************/
-// function general_generateNav(navElements, navBar);
-// generates a navbar
+// function general_generateNav(navElements, navBar, styling);
+// generates a navbar by appending buttons to a given id
 // Input: array of objects that have the url and name of the page, and the navBar element
+// also optional styling parameter to add any extra classes
 // Called by multiple functions to generate navBar buttons for navBar and also drop down menu
 /**************************************************************/
-function general_generateNav(navElements, navBar) {
+function general_generateNav(navElements, navBar, styling) {
   //console.log("general_generateNav();");
-  //Clearing the navBar before generating it
-  navBar.innerHTML = ``;
   //Iterating through all an array of objects which contain the name of the page and the url
   //This is then displayed on the navBar
   for (i = 0; i < navElements.length; i++) {
-    console.log(navElements);
     let page = navElements[i];
     let classes = "aleo-general";
     //If the the href of the users page includes the pages url, that must be the page the users is on
-    //Also specifically check for index.html because url for Flex box page is not exactly index.html
+    //Also specifically check for index.html because url for home page is not exactly index.html
     if (window.location.href.includes(page.url) || window.location.href.includes(page.url.replace('/../', '')))
     //Put an under line of the page the user is on
-    {classes = "aleo-general active";};
-    let button = 
-    `<button onclick="(function() { window.location = '${page.url}' })()" 
-    class='${classes}'>${page.name}</button>`;
+    { classes = "aleo-general active"; };
+    let button =
+      `<button onclick="(function() { window.location = '${page.url}' })()" 
+    class='${classes} ${styling}'>${page.name}</button>`;
     navBar.innerHTML += button;
   }
+}
+
+/**************************************************************/
+// function general_clearNav(navBar);
+// clears a given navBar
+/**************************************************************/
+function general_clearNav(navBar) {
+  //console.log("general_clearNav();");
+  navBar.innerHTML = "";
 }
 
 /**************************************************************/
@@ -68,7 +79,7 @@ function htmlJs_mediaQuery(mediaQueryListObject, callBack) {
     callBack();
     general_mobile = false;
     //Other wise collapse navBar since user is on mobile
-  } else {general_mobile = true; htmlJs_collapseNav();}
+  } else { general_mobile = true; htmlJs_collapseNav(); }
 }
 
 /**************************************************************/
@@ -78,13 +89,14 @@ function htmlJs_mediaQuery(mediaQueryListObject, callBack) {
 /**************************************************************/
 function htmlJs_collapseNav() {
   //If user on desktop don't collapse navBar
-  if (general_mobile === false) {return;}
-  console.log("htmlJs_collapseNav();");
+  if (general_mobile === false) { return; }
+  //console.log("htmlJs_collapseNav();");
   //Regenerating the navbar so that there is only the home button
+  general_clearNav(general_NAVBAR);
   general_generateNav([general_PAGES[0]], general_NAVBAR);
   //Adding drop down button to navBar
   general_NAVBAR.innerHTML +=
-  `<div class="general_dropDown">
+    `<div class="general_dropDown">
     <button onclick="(function() { document.getElementById('dropDown').classList.toggle('show'); })()" 
       id="general_dropBtn" class="aleo-general">
         Dropdown
@@ -114,13 +126,13 @@ function htmlJs_collapseNav() {
 // Called on load at each page
 /**************************************************************/
 function htmlJs_setUpMediaQuery(mediaQueries) {
-  console.log("htmlJs_setUpMediaQuery();");
+  //console.log("htmlJs_setUpMediaQuery();");
   for (i = 0; i < mediaQueries.length; i++) {
     let mediaQuery = mediaQueries[i].mediaQuery;
     let callBack = mediaQueries[i].callBack;
-    mediaQuery.addEventListener("change", ()=> {
+    mediaQuery.addEventListener("change", () => {
       htmlJs_mediaQuery(mediaQuery, callBack);
-    }); 
+    });
     //Calling the function right away so if the user loads into the page on a desktop
     //it will trigger the media query
     //Other wise media query won't be triggered until the user changes tab size

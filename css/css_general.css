@@ -24,11 +24,12 @@
   /*-- hover colours --*/
   --backGroundHover: rgba(244, 234, 228, 0.1);
   /*-- container margin --*/
-  --containerTopBottomMargin: 2.5vh;
-  /*-- nav button --*/
-  --navButtonWidth: 200px;
+  --signInMargin: 5%;
   /*-- drop down buttons --*/
   --dropDownHover: #efefef;
+  /*-- button sizes --*/
+  --signInBtnSize: 65%;
+  --signInBtnMargin: 2.9167%;
 }
 
 /*-- font *******************************************--*/
@@ -39,7 +40,8 @@
 }
 
 /*-- html *******************************************--*/
-html, body {
+html,
+body {
   min-width: 100vw;
   min-height: 100vh;
   padding: 0;
@@ -54,15 +56,22 @@ html, body {
   background-color: transparent;
   height: var(--navBarSize);
   display: flex;
-}  
+}
 
-.general_navBar button{
+.general_navBar button {
   height: 100%;
   padding: 0;
   border: none;
   background: transparent;
   color: var(--text);
   cursor: pointer;
+}
+
+.general_signInBtn {
+  background: var(--backGroundDark) !important;
+  border-radius: 45px;
+  width: var(--signInBtnSize) !important;
+  margin: 0 var(--signInBtnMargin) !important;
 }
 
 .general_navBar button.active {
@@ -75,7 +84,9 @@ html, body {
 
 /*-- collapsed navBar styling*******************************************--*/
 /*-- The container needed to position the dropdown content --*/
-.general_dropDown, .general_dropDown *, .general_navBar button{
+.general_dropDown,
+.general_dropDown *,
+.general_navBar button {
   width: 100%;
 }
 
@@ -94,13 +105,17 @@ html, body {
 }
 
 /*-- Change color of dropdown links on hover --*/
-.general_dropDown-content button:hover {background-color: var(--dropDownHover);}
+.general_dropDown-content button:hover {
+  background-color: var(--dropDownHover);
+}
 
 /*-- Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) --*/
-.show {display:block;}
+.show {
+  display: block;
+}
 
 /*-- media queries to rearrange container --*/
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
   .general_bottomHalf {
     display: flex;
     align-content: space-around;
@@ -109,12 +124,18 @@ html, body {
 }
 
 /*-- headers *******************************************--*/
-h1, h2, h3, p{
+h1,
+h2,
+h3,
+p {
   text-align: center;
   margin: 0;
 }
 
-h1, h3 {color: var(--header);}
+h1,
+h3 {
+  color: var(--header);
+}
 
 h1 {
   font-size: var(--h1Size);
@@ -130,12 +151,14 @@ h3 {
   font-size: var(--h3Size);
 }
 
-p, button {
+p,
+button {
   font-size: var(--pSize);
 }
 
 /*-- containers *******************************************--*/
-.general_headerContainer, .general_container{
+.general_headerContainer,
+.general_container {
   flex-direction: column;
   justify-content: center;
   display: flex;
