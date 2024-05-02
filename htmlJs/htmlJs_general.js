@@ -8,14 +8,14 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 // Variables and constants
 /**************************************************************/
 //Contains the pages to be generated on the navBar
-const general_PAGES = [{ url: '/../index.html', name: 'Home' },
-{ url: '/html/html_about', name: 'About us' },
-{ url: '/html/html_contact', name: 'Contact us' },
-{ url: '/html/html_products', name: 'Products' },
-{ url: '/html/html_orders', name: 'Orders' },];
+const general_PAGES = [{ url: '/../index.html', name: 'Home', icon: '/images/images_icons/icons_logo.png' },
+{ url: '/html/html_about', name: 'About us', icon: '/images/images_icons/icons_about.png' },
+{ url: '/html/html_contact', name: 'Contact us', icon: '/images/images_icons/icons_contact.png' },
+{ url: '/html/html_products', name: 'Products', icon: '/images/images_icons/icons_products.png' },
+{ url: '/html/html_orders', name: 'Orders', icon: '/images/images_icons/icons_orders.png' },];
 
 //The media query break point where the device is considered no longer a computer
-const general_MEDIA_QUERY_BREAK_POINT = 1100;
+const general_MEDIA_QUERY_BREAK_POINT = 1000;
 //Mobile by deafult, set to true when break point triggered
 let general_mobile = true;
 
@@ -50,9 +50,15 @@ function general_generateNav(navElements, navBar, styling) {
     if (window.location.href.includes(page.url) || window.location.href.includes(page.url.replace('/../', '')))
     //Put an under line of the page the user is on
     { classes = "aleo-general active"; };
+    //If given an icon then put it in the button
+    if (page.icon != undefined) {img = `<img src='${page.icon}' 
+    alt='${page.icon}' class='general_icon'>`} else {img = ``;}
+    //Creating the button to go on the navbar
     let button =
       `<button onclick="(function() { window.location = '${page.url}' })()" 
-    class='${classes} ${styling}'>${page.name}</button>`;
+    class='${classes} ${styling}'>
+    ${page.name} ${img}
+    </button>`;
     navBar.innerHTML += button;
   }
 }

@@ -29,8 +29,10 @@
   --dropDownHover: #efefef;
   /*-- button sizes --*/
   --signInBtnSize: 40%;
-  --signInBtnHeight: 70%;
+  --signInBtnHeight: 80%;
   --signInBtnMargin: 1%;
+  /*-- icon size --*/
+  --iconSize: calc(0.8 * var(--pSize));
 }
 
 /*-- font *******************************************--*/
@@ -66,7 +68,9 @@ body {
   background: transparent;
   color: var(--text);
   cursor: pointer;
-  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .general_signInBtn {
@@ -112,13 +116,21 @@ body {
   background-color: var(--dropDownHover);
 }
 
+/*-- Styling of the icon that goes on the navbar --*/
+.general_icon {
+  height: auto;
+  width: var(--iconSize);
+  margin-left: 5px;
+  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+}
+
 /*-- Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) --*/
 .show {
   display: block;
 }
 
 /*-- media queries to rearrange container --*/
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1000px) {
   .general_bottomHalf {
     display: flex;
     align-content: space-around;
