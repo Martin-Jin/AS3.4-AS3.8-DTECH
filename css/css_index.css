@@ -16,11 +16,18 @@
   background-image: url(/images/images_bg/bg_landing.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  /*-- Grid container ***--*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  'nav nav nav nav nav nav'
+  'header header header header header header'
+  'sub sub sub sub sub sub';
 }
 
-.index_headerContainer {
-  height: var(--headerContainer);
-}
+.index_header { grid-area: header; }
+.index_sub { grid-area:sub; }
+.index_nav { grid-area: nav; }
 
 /*-- bottom division *******************************************--*/
 .index_bottomHalf {

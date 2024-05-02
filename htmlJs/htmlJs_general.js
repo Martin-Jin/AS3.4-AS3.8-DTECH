@@ -15,7 +15,7 @@ const general_PAGES = [{ url: '/../index.html', name: 'Home' },
 { url: '/html/html_orders', name: 'Orders' },];
 
 //The media query break point where the device is considered no longer a computer
-const general_MEDIA_QUERY_BREAK_POINT = 1000;
+const general_MEDIA_QUERY_BREAK_POINT = 1100;
 //Mobile by deafult, set to true when break point triggered
 let general_mobile = true;
 

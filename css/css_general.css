@@ -28,8 +28,9 @@
   /*-- drop down buttons --*/
   --dropDownHover: #efefef;
   /*-- button sizes --*/
-  --signInBtnSize: 65%;
-  --signInBtnMargin: 2.9167%;
+  --signInBtnSize: 40%;
+  --signInBtnHeight: 70%;
+  --signInBtnMargin: 1%;
 }
 
 /*-- font *******************************************--*/
@@ -65,13 +66,15 @@ body {
   background: transparent;
   color: var(--text);
   cursor: pointer;
+  flex-grow: 1;
 }
 
 .general_signInBtn {
   background: var(--backGroundDark) !important;
   border-radius: 45px;
   width: var(--signInBtnSize) !important;
-  margin: 0 var(--signInBtnMargin) !important;
+  height: var(--signInBtnHeight) !important;
+  margin: auto var(--signInBtnMargin);
 }
 
 .general_navBar button.active {
@@ -115,7 +118,7 @@ body {
 }
 
 /*-- media queries to rearrange container --*/
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
   .general_bottomHalf {
     display: flex;
     align-content: space-around;
