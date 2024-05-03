@@ -5,29 +5,63 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- container sizes --*/
-  --topHalf: 45vh;
+  --topHalf: 100vh;
   --headerContainer: calc(var(--topHalf) - var(--navBarSize));
   --bottomHalf: calc(200vh - var(--topHalf));
+  /*-- margin --*/
+  --topHalfMargin: 5vw;
+  --headerMargin: 5vh;
+  --buttonMargin: 2.5vh;
+  /*-- button --*/
+  --buttonWidth: 200px;
+  --buttonSize: 5vh;
 }
 
 /*-- top division *******************************************--*/
 .index_topHalf {
   height: var(--topHalf);
-  background-image: url(/images/images_bg/bg_landing.png);
-  background-size: 100% 100%;
+  background-image: url(/images/images_bg/bg_landing.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   /*-- Grid container ***--*/
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0fr 0fr 0fr 0.1fr;
   grid-template-areas:
-  'nav nav nav nav nav nav'
-  'header header header header header header'
-  'sub sub sub sub sub sub';
+  'nav nav nav nav nav nav nav'
+  'header header header header header header header'
+  'sub sub sub sub sub sub sub'
+  'button button space space space space space';
 }
 
-.index_header { grid-area: header; }
-.index_sub { grid-area:sub; }
+.index_header { grid-area: header; margin-top: var(--headerMargin);}
+.index_sub { grid-area: sub; }
 .index_nav { grid-area: nav; }
+
+/*-- headers *******************************************--*/
+.index_header, .index_sub {
+  text-align: left;
+  margin-left: var(--topHalfMargin);
+  height: fit-content;
+}
+
+/*-- button *******************************************--*/
+.index_button {
+  grid-area: button;
+  height: var(--buttonSize);
+  width: 200px;
+  padding: 0;
+  background: var(--backGroundLightDark);
+  color: var(--text);
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: -2.5px 2.5px var(--subtitle);
+  margin-left: var(--topHalfMargin);
+  margin-top: var(--buttonMargin);
+}
 
 /*-- bottom division *******************************************--*/
 .index_bottomHalf {

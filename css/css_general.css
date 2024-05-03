@@ -54,6 +54,11 @@ body {
   font-style: normal;
 }
 
+/*-- hide scrollbar --*/
+::-webkit-scrollbar {
+    display: none;
+}
+
 /*-- navBar *******************************************--*/
 .general_navBar {
   background-color: transparent;

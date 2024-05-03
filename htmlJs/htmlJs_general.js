@@ -44,7 +44,8 @@ function general_generateNav(navElements, navBar, styling) {
   //This is then displayed on the navBar
   for (i = 0; i < navElements.length; i++) {
     let page = navElements[i];
-    let classes = "aleo-general";
+    //Giving the button font styling, and any additional given stylings
+    let classes = ("aleo-general " + styling).trim();
     //If the the href of the users page includes the pages url, that must be the page the users is on
     //Also specifically check for index.html because url for home page is not exactly index.html
     if (window.location.href.includes(page.url) || window.location.href.includes(page.url.replace('/../', '')))
@@ -56,7 +57,7 @@ function general_generateNav(navElements, navBar, styling) {
     //Creating the button to go on the navbar
     let button =
       `<button onclick="(function() { window.location = '${page.url}' })()" 
-    class='${classes} ${styling}'>
+    class='${classes}'>
     ${page.name} ${img}
     </button>`;
     navBar.innerHTML += button;
