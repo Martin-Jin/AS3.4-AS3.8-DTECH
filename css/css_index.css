@@ -14,13 +14,12 @@
   --buttonMargin: 2.5vh;
   /*-- button --*/
   --buttonWidth: 200px;
-  --buttonSize: 5vh;
 }
 
 /*-- top division *******************************************--*/
 .index_topHalf {
   height: var(--topHalf);
-  background-image: url(/images/images_bg/bg_landing.jpg);
+  background-image: url(/images/images_bg/bg_landing.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -50,7 +49,7 @@
 /*-- button *******************************************--*/
 .index_button {
   grid-area: button;
-  height: var(--buttonSize);
+  height: 100%;
   width: 200px;
   padding: 0;
   background: var(--backGroundLightDark);

@@ -9,10 +9,15 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 /**************************************************************/
 //Contains the pages to be generated on the navBar
 const general_PAGES = [{ url: '/../index.html', name: 'Home', icon: '/images/images_icons/icons_logo.png' },
-{ url: '/html/html_about', name: 'About us', icon: '/images/images_icons/icons_about.png' },
-{ url: '/html/html_contact', name: 'Contact us', icon: '/images/images_icons/icons_contact.png' },
-{ url: '/html/html_products', name: 'Products', icon: '/images/images_icons/icons_products.png' },
-{ url: '/html/html_orders', name: 'Orders', icon: '/images/images_icons/icons_orders.png' },];
+{ url: '/html/html_about', name: 'About us',
+ icon: '/images/images_icons/icons_about.png',
+ alt: 'about' },
+{ url: '/html/html_contact', name: 'Contact us',
+ icon: '/images/images_icons/icons_contact.png', alt: 'contact' },
+{ url: '/html/html_products', name: 'Products',
+ icon: '/images/images_icons/icons_products.png', alt: 'products' },
+{ url: '/html/html_orders', name: 'Orders',
+ icon: '/images/images_icons/icons_orders.png', alt: 'orders' },];
 
 //The media query break point where the device is considered no longer a computer
 const general_MEDIA_QUERY_BREAK_POINT = 1000;
@@ -53,7 +58,7 @@ function general_generateNav(navElements, navBar, styling) {
     { classes = "aleo-general active"; };
     //If given an icon then put it in the button
     if (page.icon != undefined) {img = `<img src='${page.icon}' 
-    alt='${page.icon}' class='general_icon'>`} else {img = ``;}
+    alt='${page.alt}' class='general_icon'>`} else {img = ``;}
     //Creating the button to go on the navbar
     let button =
       `<button onclick="(function() { window.location = '${page.url}' })()" 
