@@ -8,16 +8,17 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 // Variables and constants
 /**************************************************************/
 //Contains the pages to be generated on the navBar
-const general_PAGES = [{ url: '/../index.html', name: 'Home', icon: '/images/images_icons/icons_logo.png' },
-{ url: '/html/html_about', name: 'About us',
- icon: '/images/images_icons/icons_about.png',
- alt: 'about' },
-{ url: '/html/html_contact', name: 'Contact us',
- icon: '/images/images_icons/icons_contact.png', alt: 'contact' },
-{ url: '/html/html_products', name: 'Products',
- icon: '/images/images_icons/icons_products.png', alt: 'products' },
-{ url: '/html/html_orders', name: 'Orders',
- icon: '/images/images_icons/icons_orders.png', alt: 'orders' },];
+const general_PAGES = [
+{ url: '/../index.html', name: 'Home', icon: '/images/images_icons/icons_logo.png', 
+ alt: 'coffee_icon'},
+{ url: '/html/html_about', name: 'About us', icon: '/images/images_icons/icons_about.png', 
+ alt: 'info_icon' },
+{ url: '/html/html_contact', name: 'Contact us', icon: '/images/images_icons/icons_contact.png', 
+ alt: 'phone_icon' },
+{ url: '/html/html_products', name: 'Products', icon: '/images/images_icons/icons_products.png', 
+ alt:'coffee_icon' },
+{ url: '/html/html_orders', name: 'Orders', icon: '/images/images_icons/icons_orders.png', 
+ alt: 'basket_icon' },];
 
 //The media query break point where the device is considered no longer a computer
 const general_MEDIA_QUERY_BREAK_POINT = 1000;

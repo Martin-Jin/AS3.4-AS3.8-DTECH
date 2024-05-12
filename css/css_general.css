@@ -28,7 +28,7 @@
   /*-- drop down buttons --*/
   --dropDownHover: #efefef;
   /*-- button sizes --*/
-  --signInBtnSize: 40%;
+  --signInBtnSize: 45%;
   --signInBtnHeight: 80%;
   --signInBtnMargin: 1%;
   /*-- icon size --*/
@@ -81,7 +81,7 @@ body {
 .general_signInBtn {
   background: var(--backGroundDark) !important;
   border-radius: 45px;
-  width: var(--signInBtnSize) !important;
+  flex-basis: var(--signInBtnSize) !important;
   height: var(--signInBtnHeight) !important;
   margin: auto var(--signInBtnMargin);
 }
