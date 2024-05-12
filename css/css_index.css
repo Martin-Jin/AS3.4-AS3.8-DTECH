@@ -9,16 +9,14 @@
   --headerContainer: calc(var(--topHalf) - var(--navBarSize));
   --bottomHalf: calc(200vh - var(--topHalf));
   /*-- margin --*/
-  --topHalfMargin: 5vw;
-  --headerMargin: 5vh;
+  --UILeftMargin: 5vw;
   --buttonMargin: 2.5vh;
   /*-- button --*/
-  --buttonWidth: 200px;
-  --buttonHeight: calc(--buttonWidth / 3);
+  --buttonHeight: 40px;
   --buttonRaidus: 20px;
   --buttonPadding: 20px;
   /*-- headers --*/
-  --headerWidth: 70vw;
+  --headerWidth: 65vw;
   --subtitleWidth: 50vw;
 }
 
@@ -32,42 +30,41 @@
   background-position: center;
   /*-- Grid container ***--*/
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0fr 0fr 0fr 0.1fr;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas:
-    'nav nav nav nav nav nav nav'
-    'header header header header header header header'
-    'sub sub sub sub sub sub sub'
-    'button button button button button button button';
-}
-
-.index_header {
-  grid-area: header;
-  margin-top: var(--headerMargin);
-  width: var(--headerWidth);
-}
-
-.index_sub {
-  grid-area: sub;
-  width: var(--subtitleWidth);
+    'nav nav nav nav nav nav'
+    'ui ui ui ui ui ui'
+    'space space space space space space'
 }
 
 .index_nav {
   grid-area: nav;
 }
 
+.index_ui {
+  grid-area: ui;
+  margin-left: var(--UILeftMargin);
+}
 /*-- headers *******************************************--*/
 .index_header,
 .index_sub {
   text-align: left;
-  margin-left: var(--topHalfMargin);
   height: fit-content;
+}
+
+.index_header {
+  max-width: var(--headerWidth);
+}
+
+.index_sub {
+  max-width: var(--subtitleWidth);
 }
 
 /*-- button *******************************************--*/
 .index_button {
   grid-area: button;
-  height: var(--buttonHeight);
+  min-height: var(--buttonHeight);
   width: max-content;
   padding: 0 var(--buttonPadding);
   background: var(--backGroundLightDark);
@@ -76,7 +73,6 @@
   border-color: transparent;
   border-radius: var(--buttonRaidus);
   box-shadow: -2.5px 2.5px var(--subtitle);
-  margin-left: var(--topHalfMargin);
   margin-top: var(--buttonMargin);
 }
 
