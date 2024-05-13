@@ -15,7 +15,7 @@
   --navBarSize: 7vh;
   --footerSize: calc(0.9 * var(--navBarSize));
   /*-- font sizes --*/
-  --h1Size: 4em;
+  --h1Size: 4rem;
   --h2Size: calc(0.7 * var(--h1Size));
   --h3Size: calc(0.5 * var(--h1Size));
   --pSize: calc(0.3 * var(--h1Size));

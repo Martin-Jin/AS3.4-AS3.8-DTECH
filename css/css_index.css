@@ -9,8 +9,9 @@
   --headerContainer: calc(var(--topHalf) - var(--navBarSize));
   --bottomHalf: calc(200vh - var(--topHalf));
   /*-- margin --*/
-  --UILeftMargin: 5vw;
+  --UILeftMargin: 3vw;
   --buttonMargin: 2.5vh;
+  --UIIconMargin: 0.5vw;
   /*-- button --*/
   --buttonHeight: 40px;
   --buttonRaidus: 20px;
@@ -18,6 +19,10 @@
   /*-- headers --*/
   --headerWidth: 65vw;
   --subtitleWidth: 50vw;
+  --UIHeaderSize: 3rem;
+  --UISubHeaderSize: calc(var(--UIHeaderSize) / 2);
+  /*-- icons --*/
+  --UIiconSize: calc(1.5 * var(--UISubHeaderSize));
 }
 
 /*-- top division *******************************************--*/
@@ -35,7 +40,7 @@
   grid-template-areas:
     'nav nav nav nav nav nav'
     'ui ui ui ui ui ui'
-    'space space space space space space'
+    'space space space space space space';
 }
 
 .index_nav {
@@ -46,11 +51,15 @@
   grid-area: ui;
   margin-left: var(--UILeftMargin);
 }
+
 /*-- headers *******************************************--*/
 .index_header,
-.index_sub {
+.index_sub,
+.index_UIHeader,
+.index_UISubHeader {
   text-align: left;
   height: fit-content;
+  width: fit-content;
 }
 
 .index_header {
@@ -59,6 +68,24 @@
 
 .index_sub {
   max-width: var(--subtitleWidth);
+}
+
+.index_UIHeader {
+  font-size: var(--UIHeaderSize);
+  grid-area: UIHeader;
+}
+
+.index_UISubHeader {
+  font-size: var(--UISubHeaderSize);
+  grid-area: UISubHeader;
+}
+
+/*-- icons *******************************************--*/
+.index_UIIcon {
+  width: var(--UIiconSize);
+  grid-area: icon;
+  margin: auto;
+  margin-right: var(--UIIconMargin);
 }
 
 /*-- button *******************************************--*/
@@ -78,7 +105,31 @@
 
 /*-- bottom division *******************************************--*/
 .index_bottomHalf {
-  overflow: auto;
+  background-color: var(--backGroundDark);
+  padding-left: var(--UILeftMargin);
+  padding-top: var(--UILeftMargin);
+}
+
+.index_offers {
+  /*-- Grid container --*/
+  display: grid;
+  grid-template-columns: 0fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'icon UIHeader UIHeader offers offers offers'
+    'icon_space  UISubHeader UISubHeader offers offers offers'
+    'description description description offers offers offers'
+    'description  description description offers offers offers';
+}
+
+.index_recommanded {
+  /*-- Grid container --*/
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    ''
+    '';
 }
 
 .index_bottomHalf div {
