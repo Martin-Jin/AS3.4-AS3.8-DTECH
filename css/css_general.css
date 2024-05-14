@@ -18,7 +18,7 @@
   --h1Size: 4rem;
   --h2Size: calc(0.7 * var(--h1Size));
   --h3Size: calc(0.5 * var(--h1Size));
-  --pSize: calc(0.3 * var(--h1Size));
+  --pSize: calc(0.35 * var(--h1Size));
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -28,8 +28,8 @@
   /*-- drop down buttons --*/
   --dropDownHover: #efefef;
   /*-- button sizes --*/
-  --signInBtnSize: 45%;
-  --signInBtnHeight: 80%;
+  --signInBtnSize: 120px;
+  --signInBtnHeight: 50px;
   --signInBtnMargin: 1%;
   /*-- icon size --*/
   --iconSize: calc(0.8 * var(--pSize));
@@ -56,7 +56,7 @@ body {
 
 /*-- hide scrollbar --*/
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /*-- navBar *******************************************--*/
@@ -81,8 +81,8 @@ body {
 .general_signInBtn {
   background: var(--backGroundDark) !important;
   border-radius: 45px;
-  flex-basis: var(--signInBtnSize) !important;
-  height: var(--signInBtnHeight) !important;
+  max-width: var(--signInBtnSize);
+  max-height: var(--signInBtnHeight);
   margin: auto var(--signInBtnMargin);
 }
 

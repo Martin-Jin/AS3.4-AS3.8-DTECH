@@ -12,8 +12,9 @@
   --UILeftMargin: 3vw;
   --buttonMargin: 2.5vh;
   --UIIconMargin: 0.5vw;
+  --slideMargin: 0.5vw;
   /*-- button --*/
-  --buttonHeight: 40px;
+  --buttonHeight: 50px;
   --buttonRaidus: 20px;
   --buttonPadding: 20px;
   /*-- headers --*/
@@ -23,6 +24,12 @@
   --UISubHeaderSize: calc(var(--UIHeaderSize) / 2);
   /*-- icons --*/
   --UIiconSize: calc(1.5 * var(--UISubHeaderSize));
+  /*-- slide show --*/
+  --slideShowHeight: 500px;
+  --slideShowWidth: calc(1.2 * var(--slideImageHeight));
+  --slideArrow: 30px;
+  --slideArrowPadding: calc(var(--slideArrow) / 4);
+  --slideBorderRadius: calc(var(--slideArrow) / 10);
 }
 
 /*-- top division *******************************************--*/
@@ -49,7 +56,9 @@
 
 .index_ui {
   grid-area: ui;
+  margin: auto 0;
   margin-left: var(--UILeftMargin);
+  height: max-content;
 }
 
 /*-- headers *******************************************--*/
@@ -106,20 +115,19 @@
 /*-- bottom division *******************************************--*/
 .index_bottomHalf {
   background-color: var(--backGroundDark);
-  padding-left: var(--UILeftMargin);
-  padding-top: var(--UILeftMargin);
 }
 
 .index_offers {
+  padding: var(--UILeftMargin) 0 var(--UILeftMargin) var(--UILeftMargin);
   /*-- Grid container --*/
   display: grid;
   grid-template-columns: 0fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas:
     'icon UIHeader UIHeader offers offers offers'
     'icon_space  UISubHeader UISubHeader offers offers offers'
-    'description description description offers offers offers'
-    'description  description description offers offers offers';
+    'slide slide slide offers offers offers'
+    'slide  slide slide offers offers offers';
 }
 
 .index_recommanded {
@@ -132,6 +140,52 @@
     '';
 }
 
-.index_bottomHalf div {
-  margin: var(--containerTopBottomMargin) auto;
+/*-- slide show *******************************************--*/
+.index_slideShow {
+  position: relative;
+  grid-area: slide;
+  margin-top: var(--slideMargin);
+  width: var(--slideShowWidth);
+  height: var(--slideShowHeight);
+  border-radius: var(--buttonRaidus);
+}
+
+/* Next & previous buttons */
+.index_prev, .index_next {
+  cursor: pointer;
+  width: auto;
+  color: white;
+  font-weight: bold;
+  font-size: var(--slideArrow);
+  padding: var(--slideArrowPadding);
+  transition: 0.6s ease;
+  border-radius: 0 var(--slideBorderRadius) var(--slideBorderRadius) 0;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%)
+}
+
+/* Position the "next button" to the right */
+.index_next {
+  right: 0;
+  border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
+}
+
+.index_prev {
+  left: 0;
+  border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.index_prev:hover, .index_next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.index_slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--buttonRaidus);
 }
