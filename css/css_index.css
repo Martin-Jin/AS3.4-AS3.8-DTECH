@@ -9,10 +9,9 @@
   --headerContainer: calc(var(--topHalf) - var(--navBarSize));
   --bottomHalf: calc(200vh - var(--topHalf));
   /*-- margin --*/
-  --UILeftMargin: 3vw;
+  --UIMargin: 2vw;
   --buttonMargin: 2.5vh;
-  --UIIconMargin: 0.5vw;
-  --slideMargin: 0.5vw;
+  --UIIconMargin: 0.8vw;
   /*-- button --*/
   --buttonHeight: 50px;
   --buttonRaidus: 20px;
@@ -20,16 +19,19 @@
   /*-- headers --*/
   --headerWidth: 65vw;
   --subtitleWidth: 50vw;
-  --UIHeaderSize: 3rem;
+  --UIHeaderSize: 3.5rem;
   --UISubHeaderSize: calc(var(--UIHeaderSize) / 2);
   /*-- icons --*/
   --UIiconSize: calc(1.5 * var(--UISubHeaderSize));
   /*-- slide show --*/
-  --slideShowHeight: 500px;
-  --slideShowWidth: calc(1.2 * var(--slideImageHeight));
+  --slideHeight: 500px;
   --slideArrow: 30px;
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   --slideBorderRadius: calc(var(--slideArrow) / 10);
+  /*-- description --*/
+  --descriptionSize: calc(0.8 * var(--pSize));
+  --quoteSize: calc(0.8 * var(--descriptionSize));
+  --pfpSize: 50px;
 }
 
 /*-- top division *******************************************--*/
@@ -57,7 +59,7 @@
 .index_ui {
   grid-area: ui;
   margin: auto 0;
-  margin-left: var(--UILeftMargin);
+  margin-left: var(--UIMargin);
   height: max-content;
 }
 
@@ -113,21 +115,27 @@
 }
 
 /*-- bottom division *******************************************--*/
+.index_review,
+.index_author,
+.index_offers,
+.index_slideHeader {
+  display: grid;
+}
+
 .index_bottomHalf {
   background-color: var(--backGroundDark);
 }
 
 .index_offers {
-  padding: var(--UILeftMargin) 0 var(--UILeftMargin) var(--UILeftMargin);
+  padding: var(--UIMargin);
   /*-- Grid container --*/
-  display: grid;
-  grid-template-columns: 0fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr 1fr;
   grid-template-areas:
-    'icon UIHeader UIHeader offers offers offers'
-    'icon_space  UISubHeader UISubHeader offers offers offers'
-    'slide slide slide offers offers offers'
-    'slide  slide slide offers offers offers';
+    'slideHeader slideHeader'
+    'slide slide_space'
+    'slide description'
+    'slide review';
 }
 
 .index_recommanded {
@@ -140,18 +148,89 @@
     '';
 }
 
+/*-- description *******************************************--*/
+.index_description {
+  grid-area: description;
+  margin: auto;
+  color: #F4EAE4;
+  margin-left: var(--UIMargin);
+}
+
+.index_description p {
+  font-size: var(--descriptionSize);
+}
+
+/*-- review *******************************************--*/
+.index_review * {
+  color: #F4EAE4;
+  font-size: var(--quoteSize);
+}
+
+.index_review {
+  grid-area: review;
+  /*-- Grid container --*/
+  grid-template-rows: auto;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    'author quote'
+}
+
+.index_author {
+  margin: auto 0 auto auto;
+  grid-area: author;
+  /*-- Grid container --*/
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'picture'
+    'name';
+}
+
+.index_pfp {
+  grid-area: picture;
+  height: var(--pfpSize);
+  width: var(--pfpSize);
+  object-fit: cover;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.index_name {
+  grid-area: name;
+}
+
+.index_quote {
+  margin: auto auto auto var(--UIMargin);
+  grid-area: quote;
+}
+
 /*-- slide show *******************************************--*/
-.index_slideShow {
-  position: relative;
-  grid-area: slide;
-  margin-top: var(--slideMargin);
-  width: var(--slideShowWidth);
-  height: var(--slideShowHeight);
+.index_slideShow,
+.index_slideImage {
+  width: 100%;
   border-radius: var(--buttonRaidus);
 }
 
+.index_slideShow {
+  position: relative;
+  grid-area: slide;
+  height: var(--slideHeight);
+  margin-top: var(--UIMargin);
+}
+
+.index_slideHeader {
+  grid-area: slideHeader;
+  /*-- Grid container --*/
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'icon UIHeader'
+    'icon_space  UISubHeader'
+}
+
 /* Next & previous buttons */
-.index_prev, .index_next {
+.index_prev,
+.index_next {
   cursor: pointer;
   width: auto;
   color: white;
@@ -177,15 +256,13 @@
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 
-
 /* On hover, add a black background color with a little bit see-through */
-.index_prev:hover, .index_next:hover {
-  background-color: rgba(0,0,0,0.8);
+.index_prev:hover,
+.index_next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .index_slideImage {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  border-radius: var(--buttonRaidus);
+  height: 100%;
 }

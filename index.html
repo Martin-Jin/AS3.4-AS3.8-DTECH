@@ -36,8 +36,8 @@
     <!-- container for the header and button to center them -->
     <div class="index_ui">
       <!-- header and subtitle -->
-      <h1 class="index_header">Welcome to HVHS coffee house</h1>
-      <h2 class="index_sub">Fresh coffee at your finger tips.</h2>
+      <h1 class="index_header aleo-general">Welcome to HVHS coffee house</h1>
+      <h2 class="index_sub aleo-general">Fresh coffee at your finger tips.</h2>
       <!-- browse button -->
       <button class='index_button aleo-general'>Browse our coffee</button>
     </div>
@@ -52,16 +52,37 @@
   <div class="index_bottomHalf">
     <div class="index_offers">
       <!-- header and subtitle -->
-      <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_UIIcon'>
-      <h1 class="index_UIHeader">
-        Special offers</h1>
-      <h2 class="index_UISubHeader">
-        Get them while they last</h2>
+      <div class="index_slideHeader">
+        <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_UIIcon'>
+        
+        <h1 class="index_UIHeader aleo-general">
+          Special offers</h1>
+        <h2 class="index_UISubHeader aleo-general">
+          Get them while they last</h2>
+      </div>
       <!-- slide -->
       <div class="index_slideShow">
         <img id="index_slideImage" class="index_slideImage" src='/images/images_slide/slide_coffee.jpg'>
         <a class="index_prev" onclick="index_displaySlide(-1)">❮</a>
         <a class="index_next" onclick="index_displaySlide(1)">❯</a>
+      </div>
+      <!-- description of coffee -->
+      <div class="index_description aleo-general">
+        <h2>Coffee name here</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus ipsum, blandit non orci suscipit,
+          malesuada vulputate sem. Donec eu purus scelerisque, dapibus nisl sed, consequat risus. Ut tincidunt
+          gravida tincidunt. Vestibulum bibendum viverra lorem, eget consequat dui blandit in. In vel laoreet
+          mauris. Aenean at turpis vehicula justo iaculis semper.</p>
+      </div>
+      <!-- review -->
+      <div class="index_review aleo-general"">
+        <!-- author of the review -->
+        <div class=" index_author">
+          <img class="index_pfp" src="/images/images_slide/slide_coffee.jpg" alt="pfp">
+          <p class="index_name">John Doe</p>
+        </div>
+        <!-- quote -->
+        <p class="index_quote">"It was the best coffee I have ever had in my life. (It's my first cup ever)."</p>
       </div>
     </div>
     <div class="index_recommanded"></div>
