@@ -13,25 +13,26 @@
   --buttonMargin: 2.5vh;
   --UIIconMargin: 0.8vw;
   /*-- button --*/
-  --buttonHeight: 50px;
+  --buttonHeight: calc(var(--navBarSize) * 0.95);
   --buttonRaidus: 20px;
   --buttonPadding: 20px;
   /*-- headers --*/
   --headerWidth: 65vw;
   --subtitleWidth: 50vw;
-  --UIHeaderSize: 3.5rem;
-  --UISubHeaderSize: calc(var(--UIHeaderSize) / 2);
+  --UIHeaderSize: calc(var(--h1Size) * 0.95);
+  --UISubHeaderSize: calc(var(--UIHeaderSize) * 0.4);
   /*-- icons --*/
-  --UIiconSize: calc(1.5 * var(--UISubHeaderSize));
+  --UIiconSize: calc(1.7 * var(--UISubHeaderSize));
   /*-- slide show --*/
-  --slideHeight: 500px;
-  --slideArrow: 30px;
+  --slideHeight: 35vw;
+  --slideArrow: calc(var(--UIiconSize) * 0.5);
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   --slideBorderRadius: calc(var(--slideArrow) / 10);
   /*-- description --*/
-  --descriptionSize: calc(0.8 * var(--pSize));
+  --descriptionSize: calc(0.9 * var(--pSize));
   --quoteSize: calc(0.8 * var(--descriptionSize));
-  --pfpSize: 50px;
+  --pfpSize: calc(var(--UIiconSize) * 1.2);
+  --descriptionPadding: 10px;
 }
 
 /*-- top division *******************************************--*/
@@ -44,12 +45,12 @@
   background-position: center;
   /*-- Grid container ***--*/
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto;
   grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas:
-    'nav nav nav nav nav nav'
-    'ui ui ui ui ui ui'
-    'space space space space space space';
+    'nav'
+    'ui'
+    'space';
 }
 
 .index_nav {
@@ -101,8 +102,7 @@
 
 /*-- button *******************************************--*/
 .index_button {
-  grid-area: button;
-  min-height: var(--buttonHeight);
+  height: var(--buttonHeight);
   width: max-content;
   padding: 0 var(--buttonPadding);
   background: var(--backGroundLightDark);
@@ -130,12 +130,10 @@
   padding: var(--UIMargin);
   /*-- Grid container --*/
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     'slideHeader slideHeader'
-    'slide slide_space'
     'slide description'
-    'slide review';
 }
 
 .index_recommanded {
@@ -152,11 +150,18 @@
 .index_description {
   grid-area: description;
   margin: auto;
+  background-color: var(--backGroundLightDark);
+  margin-left: var(--UIMargin);
+  border-radius: var(--buttonRaidus);
+  padding: var(--descriptionPadding);
+}
+
+.index_aboutCoffee {
   color: #F4EAE4;
   margin-left: var(--UIMargin);
 }
 
-.index_description p {
+.index_aboutCoffee p {
   font-size: var(--descriptionSize);
 }
 
@@ -167,12 +172,12 @@
 }
 
 .index_review {
-  grid-area: review;
+  height: max-content;
   /*-- Grid container --*/
   grid-template-rows: auto;
   grid-template-columns: auto auto;
   grid-template-areas:
-    'author quote'
+    'author quote';
 }
 
 .index_author {

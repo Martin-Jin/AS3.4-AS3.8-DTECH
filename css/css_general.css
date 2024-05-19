@@ -12,13 +12,13 @@
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
   /*-- container sizes --*/
-  --navBarSize: 7vh;
+  --navBarSize: 3vw;
   --footerSize: calc(0.9 * var(--navBarSize));
   /*-- font sizes --*/
-  --h1Size: 4rem;
+  --h1Size: 4vw;
   --h2Size: calc(0.7 * var(--h1Size));
   --h3Size: calc(0.5 * var(--h1Size));
-  --pSize: calc(0.35 * var(--h1Size));
+  --pSize: calc(0.4 * var(--h1Size));
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -28,8 +28,8 @@
   /*-- drop down buttons --*/
   --dropDownHover: #efefef;
   /*-- button sizes --*/
-  --signInBtnSize: 120px;
-  --signInBtnHeight: 50px;
+  --signInBtnSize: calc(var(--pSize) * 5);
+  --signInBtnHeight: calc(var(--signInBtnSize) * 0.35);
   --signInBtnMargin: 1%;
   /*-- icon size --*/
   --iconSize: calc(0.8 * var(--pSize));
@@ -76,10 +76,12 @@ body {
 }
 
 .general_signInBtn {
+  flex-grow: 0;
+  flex-shrink: 0;
   background: var(--backGroundDark) !important;
   border-radius: 45px;
-  max-width: var(--signInBtnSize);
-  max-height: var(--signInBtnHeight);
+  flex-basis: var(--signInBtnSize) !important;
+  height: var(--signInBtnHeight) !important;
   margin: auto var(--signInBtnMargin);
 }
 
