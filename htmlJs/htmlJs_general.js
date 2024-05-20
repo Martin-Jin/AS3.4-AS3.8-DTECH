@@ -56,7 +56,7 @@ function general_generateNav(navElements, navBar, styling) {
     //Also specifically check for index.html because url for home page is not exactly index.html
     if (window.location.href.includes(page.url) || window.location.href.includes(page.url.replace('/../', '')))
     //Put an under line of the page the user is on
-    { classes = "aleo-general active"; };
+    { classes += " active"; };
     //If given an icon then put it in the button
     if (page.icon != undefined) {img = `<img src='${page.icon}' 
     alt='${page.alt}' class='general_icon'>`} else {img = ``;}

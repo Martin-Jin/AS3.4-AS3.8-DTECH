@@ -12,7 +12,7 @@
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
   /*-- container sizes --*/
-  --navBarSize: 3vw;
+  --navBarSize: 4vw;
   --footerSize: calc(0.9 * var(--navBarSize));
   /*-- font sizes --*/
   --h1Size: 4vw;
@@ -58,9 +58,10 @@ body {
 
 /*-- navBar *******************************************--*/
 .general_navBar {
-  background-color: transparent;
   height: var(--navBarSize);
   display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
 }
 
 .general_navBar button {
@@ -90,7 +91,7 @@ body {
 }
 
 .general_navBar button:hover {
-  background-color: var(--backGroundHover);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /*-- collapsed navBar styling*******************************************--*/

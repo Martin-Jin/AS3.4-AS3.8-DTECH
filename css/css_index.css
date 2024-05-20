@@ -150,10 +150,17 @@
 .index_description {
   grid-area: description;
   margin: auto;
-  background-color: var(--backGroundLightDark);
+  /* background-color: var(--backGroundLightDark); */
   margin-left: var(--UIMargin);
+  /* border-radius: var(--buttonRaidus); */
+  /* padding: var(--descriptionPadding); */
+}
+
+.index_container {
+  background-color: var(--backGroundLightDark);
   border-radius: var(--buttonRaidus);
   padding: var(--descriptionPadding);
+  margin: var(--UIMargin);
 }
 
 .index_aboutCoffee {
