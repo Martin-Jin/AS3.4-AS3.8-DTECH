@@ -42,6 +42,10 @@
   font-style: normal;
 }
 
+.aleo-bold {
+  font-weight: 500;
+}
+
 /*-- html *******************************************--*/
 html,
 body {

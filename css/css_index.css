@@ -16,6 +16,9 @@
   --buttonHeight: calc(var(--navBarSize) * 0.95);
   --buttonRaidus: 20px;
   --buttonPadding: 20px;
+  /*-- UI --*/
+  --UIRadius: 15px;
+  --LineMargin: 1vw;
   /*-- headers --*/
   --headerWidth: 65vw;
   --subtitleWidth: 50vw;
@@ -29,10 +32,10 @@
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   --slideBorderRadius: calc(var(--slideArrow) / 10);
   /*-- description --*/
-  --descriptionSize: calc(0.9 * var(--pSize));
-  --quoteSize: calc(0.8 * var(--descriptionSize));
+  --descriptionSize: calc(0.8 * var(--pSize));
+  --quoteSize: calc(0.9 * var(--descriptionSize));
   --pfpSize: calc(var(--UIiconSize) * 1.2);
-  --descriptionPadding: 10px;
+  --descriptionPadding: 1vw;
 }
 
 /*-- top division *******************************************--*/
@@ -133,7 +136,7 @@
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'slideHeader slideHeader'
-    'slide description'
+    'slide description';
 }
 
 .index_recommanded {
@@ -150,22 +153,20 @@
 .index_description {
   grid-area: description;
   margin: auto;
-  /* background-color: var(--backGroundLightDark); */
+  background-color: var(--backGroundLightDark);
   margin-left: var(--UIMargin);
-  /* border-radius: var(--buttonRaidus); */
-  /* padding: var(--descriptionPadding); */
+  border-radius: var(--UIRadius);
+  padding: calc(2 * var(--descriptionPadding)) var(--descriptionPadding) calc(2 * var(--descriptionPadding)) var(--descriptionPadding);
 }
 
-.index_container {
-  background-color: var(--backGroundLightDark);
-  border-radius: var(--buttonRaidus);
-  padding: var(--descriptionPadding);
-  margin: var(--UIMargin);
+.index_seperator {
+  border-top: 1px solid var(--subtitle);
+  border-radius: var(--UIRadius);
+  margin: var(--LineMargin);
 }
 
 .index_aboutCoffee {
-  color: #F4EAE4;
-  margin-left: var(--UIMargin);
+  color: var(--text);
 }
 
 .index_aboutCoffee p {
@@ -174,7 +175,7 @@
 
 /*-- review *******************************************--*/
 .index_review * {
-  color: #F4EAE4;
+  color: var(--text);
   font-size: var(--quoteSize);
 }
 
@@ -220,7 +221,7 @@
 .index_slideShow,
 .index_slideImage {
   width: 100%;
-  border-radius: var(--buttonRaidus);
+  border-radius: var(--UIRadius);
 }
 
 .index_slideShow {
