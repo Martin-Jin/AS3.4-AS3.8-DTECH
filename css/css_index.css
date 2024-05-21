@@ -19,6 +19,7 @@
   /*-- UI --*/
   --UIRadius: 15px;
   --LineMargin: 1vw;
+  
   /*-- headers --*/
   --headerWidth: 65vw;
   --subtitleWidth: 50vw;
@@ -93,6 +94,7 @@
 .index_UISubHeader {
   font-size: var(--UISubHeaderSize);
   grid-area: UISubHeader;
+  margin: 0 auto var(--UIMargin) auto;
 }
 
 /*-- icons *******************************************--*/
@@ -156,13 +158,17 @@
   background-color: var(--backGroundLightDark);
   margin-left: var(--UIMargin);
   border-radius: var(--UIRadius);
-  padding: calc(2 * var(--descriptionPadding)) var(--descriptionPadding) calc(2 * var(--descriptionPadding)) var(--descriptionPadding);
+  padding: var(--descriptionPadding);
 }
 
-.index_seperator {
-  border-top: 1px solid var(--subtitle);
+.index_separator {
+  border: 1px solid var(--subtitle);
   border-radius: var(--UIRadius);
-  margin: var(--LineMargin);
+  margin: var(--LineMargin) auto;
+}
+
+.index_separator_short {
+  width: 80%;
 }
 
 .index_aboutCoffee {
@@ -181,6 +187,8 @@
 
 .index_review {
   height: max-content;
+  width: 70%;
+  margin: auto;
   /*-- Grid container --*/
   grid-template-rows: auto;
   grid-template-columns: auto auto;
@@ -228,7 +236,6 @@
   position: relative;
   grid-area: slide;
   height: var(--slideHeight);
-  margin-top: var(--UIMargin);
 }
 
 .index_slideHeader {
@@ -238,7 +245,7 @@
   grid-template-rows: auto auto;
   grid-template-areas:
     'icon UIHeader'
-    'icon_space  UISubHeader'
+    'UISubHeader  UISubHeader'
 }
 
 /* Next & previous buttons */

@@ -46,6 +46,10 @@
   font-weight: 500;
 }
 
+.aleo-thin {
+  font-weight: 300;
+}
+
 /*-- html *******************************************--*/
 html,
 body {
