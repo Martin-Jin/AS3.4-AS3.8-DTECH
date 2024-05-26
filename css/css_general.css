@@ -11,6 +11,7 @@
   --text: #F4EAE4;
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
+  --textContrast: #FF5D55;
   /*-- container sizes --*/
   --navBarSize: 4vw;
   --footerSize: calc(0.9 * var(--navBarSize));

@@ -16,10 +16,11 @@
   --buttonHeight: calc(var(--navBarSize) * 0.95);
   --buttonRaidus: 20px;
   --buttonPadding: 20px;
+  --buttonShadow: 0.15vw;
   /*-- UI --*/
   --UIRadius: 15px;
-  --LineMargin: 1vw;
-  
+  --separatorMargin: 1vw;
+  --separatorHeight: 0.15vw;
   /*-- headers --*/
   --headerWidth: 65vw;
   --subtitleWidth: 50vw;
@@ -29,7 +30,8 @@
   --UIiconSize: calc(1.7 * var(--UISubHeaderSize));
   /*-- slide show --*/
   --slideHeight: 35vw;
-  --slideArrow: calc(var(--UIiconSize) * 0.5);
+  --slideArrow: calc(var(--UIiconSize) * 0.7);
+  --slideDiscount: calc(var(--slideArrow) * 2.5);
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   --slideBorderRadius: calc(var(--slideArrow) / 10);
   /*-- description --*/
@@ -47,7 +49,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  /*-- Grid container ***--*/
+  /*-- Grid container --*/
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr 3fr 1fr;
@@ -115,7 +117,7 @@
   cursor: pointer;
   border-color: transparent;
   border-radius: var(--buttonRaidus);
-  box-shadow: -2.5px 2.5px var(--subtitle);
+  box-shadow: calc(-1 * var(--buttonShadow)) var(--buttonShadow) var(--subtitle);
   margin-top: var(--buttonMargin);
 }
 
@@ -162,9 +164,9 @@
 }
 
 .index_separator {
-  border: 1px solid var(--subtitle);
+  border: var(--separatorHeight) solid var(--subtitle);
   border-radius: var(--UIRadius);
-  margin: var(--LineMargin) auto;
+  margin: var(--separatorMargin) auto;
 }
 
 .index_separator_short {
@@ -232,10 +234,29 @@
   border-radius: var(--UIRadius);
 }
 
-.index_slideShow {
-  position: relative;
-  grid-area: slide;
+.index_slideShow, .index_filter {
   height: var(--slideHeight);
+  position: relative;
+}
+
+.index_slideShow {
+  grid-area: slide;
+}
+
+.index_filter {
+  /*-- Setting brightness at max initially then lowering it later --*/
+  filter: brightness(100%);
+}
+
+.index_filter:hover, .index_viewButton:hover ~ .index_filter:hover {
+  /*-- Lowering the brightness on hover --*/
+  filter: brightness(40%);
+  transition: all 1s ease;
+}
+
+/*-- displays button on hover --*/
+.index_filter:hover + .index_viewButton, .index_viewButton:hover {
+  display: block;
 }
 
 .index_slideHeader {
@@ -248,7 +269,7 @@
     'UISubHeader  UISubHeader'
 }
 
-/* Next & previous buttons */
+/*-- Next & previous buttons --*/
 .index_prev,
 .index_next {
   cursor: pointer;
@@ -265,7 +286,44 @@
   transform: translate(0%, -50%)
 }
 
-/* Position the "next button" to the right */
+
+/*-- Discount text --*/
+.index_discount {
+  height: var(--slideDiscount);
+  width: 15%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--text);
+  color: var(--textContrast);
+  border-radius: 0 var(--UIRadius) 0 0;
+}
+
+.index_discount * {
+  width: 100%;
+  margin: 0;
+}
+
+/*-- View button --*/
+.index_viewButton {
+  display: none;
+  height: var(--buttonHeight);
+  width: max-content;
+  padding: 0 var(--buttonPadding);
+  background: var(--backGroundLightDark);
+  color: var(--text);
+  cursor: pointer;
+  border: none;
+}
+
+.index_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*-- Position the "next button" to the right --*/
 .index_next {
   right: 0;
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
@@ -276,7 +334,7 @@
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 
-/* On hover, add a black background color with a little bit see-through */
+/*-- On hover, add a black background color with a little bit see-through --*/
 .index_prev:hover,
 .index_next:hover {
   background-color: rgba(0, 0, 0, 0.8);
