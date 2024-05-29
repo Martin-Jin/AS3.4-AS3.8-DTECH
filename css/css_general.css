@@ -13,13 +13,13 @@
   --header: #DFC4B4;
   --textContrast: #FF5D55;
   /*-- container sizes --*/
-  --navBarSize: 4vw;
+  --navBarSize: 3.5rem;
   --footerSize: calc(0.9 * var(--navBarSize));
   /*-- font sizes --*/
-  --h1Size: 4vw;
+  --h1Size: 3.5rem;
   --h2Size: calc(0.7 * var(--h1Size));
   --h3Size: calc(0.5 * var(--h1Size));
-  --pSize: calc(0.4 * var(--h1Size));
+  --pSize: calc(0.3 * var(--h1Size));
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -37,7 +37,7 @@
 }
 
 /*-- font *******************************************--*/
-.aleo-general {
+.aleo-general, body, html, p, h1, h2, h3 {
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;
@@ -143,15 +143,6 @@ body {
   display: block;
 }
 
-/*-- media queries to rearrange container --*/
-@media screen and (min-width: 1000px) {
-  .general_bottomHalf {
-    display: flex;
-    align-content: space-around;
-    justify-content: space-around;
-  }
-}
-
 /*-- headers *******************************************--*/
 h1,
 h2,
@@ -183,25 +174,6 @@ h3 {
 p,
 button {
   font-size: var(--pSize);
-}
-
-/*-- containers *******************************************--*/
-.general_headerContainer,
-.general_container {
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-}
-
-.general_headerContainer {
-  height: var(--headerContainer);
-}
-
-/*-- containers *******************************************--*/
-.general_container {
-  background-color: var(--backGroundLightDark);
-  height: var(--demoContainerHeight);
-  width: var(--demoContainerWidth);
 }
 
 /*-- footer *******************************************--*/

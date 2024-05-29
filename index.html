@@ -11,6 +11,7 @@
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
   <link rel="stylesheet" href="/css/css_index.css">
+  <link rel="stylesheet" href="/css/css_indexMediaQueries.css">
   <!-- imported font(s) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,8 +37,8 @@
     <!-- container for the header and button to center them -->
     <div class="index_ui">
       <!-- header and subtitle -->
-      <h1 class="index_header aleo-general">Welcome to HVHS coffee house</h1>
-      <h2 class="index_sub aleo-general">Fresh coffee at your finger tips.</h2>
+      <h1 class="index_header">Welcome to HVHS coffee house</h1>
+      <h2 class="index_sub">Fresh coffee at your finger tips.</h2>
       <!-- browse button -->
       <button class='index_button aleo-general'>Browse our coffee</button>
     </div>
@@ -55,9 +56,9 @@
       <div class="index_slideHeader">
         <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_UIIcon'>
 
-        <h1 class="index_UIHeader aleo-general">
+        <h1 class="index_UIHeader">
           Special offers</h1>
-        <h2 class="index_UISubHeader aleo-general">
+        <h2 class="index_UISubHeader">
           Get them while they last</h2>
       </div>
       <!-- slide -->
@@ -67,33 +68,34 @@
           <a class="index_prev" onclick="index_displaySlide(-1)">❮</a>
           <a class="index_next" onclick="index_displaySlide(1)">❯</a>
           <div class="index_discount">
-            <p class="aleo-general aleo-bold index_center">99% off</p>
+            <p class="aleo-bold index_center">99% off</p>
           </div>
         </div>
-        <button class="index_viewButton index_center">View</button>
+        <div class="index_slideHover index_center">
+          <h3><span id="index_coffeePrice">Original price: $1</span>
+           <span id="index_discountPrice">Now only: $0.1</span></h3>
+          <button class="index_button aleo-general">View</button>
+        </div>
       </div>
-
       <!-- description of coffee -->
       <div class="index_description">
-        <div class="index_aboutCoffee aleo-general">
+        <div class="index_aboutCoffee">
           <h2 class="aleo-bold">Coffee name here</h2>
           <hr class="index_separator">
           <p class="aleo-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus ipsum, blandit non
             orci suscipit,
-            malesuada vulputate sem. Donec eu purus scelerisque, dapibus nisl sed, consequat risus. Ut tincidunt
-            gravida tincidunt. Vestibulum bibendum viverra lorem, eget consequat dui blandit in. In vel laoreet
-            mauris. Aenean at turpis vehicula justo iaculis semper.</p>
+            malesuada vulputate sem. Donec eu purus scelerisque, dapibus nisl sed, consequat risus.</p>
         </div>
         <!-- review -->
         <hr class="index_separator index_separator_short">
-        <div class="index_review aleo-general">
+        <div class="index_review">
           <!-- author of the review -->
           <div class=" index_author">
             <img class="index_pfp" src="/images/images_slide/slide_coffee.jpg" alt="pfp">
             <p class="index_name">John Doe</p>
           </div>
           <!-- quote -->
-          <p class="index_quote">"It was the best coffee I have ever had in my life. (It's my first cup ever)."</p>
+          <p class="index_quote">"The coffee is great."</p>
         </div>
       </div>
     </div>

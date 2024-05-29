@@ -6,39 +6,40 @@
 :root {
   /*-- container sizes --*/
   --topHalf: 100vh;
-  --headerContainer: calc(var(--topHalf) - var(--navBarSize));
-  --bottomHalf: calc(200vh - var(--topHalf));
+  --UISize: 5rem;
   /*-- margin --*/
-  --UIMargin: 2vw;
-  --buttonMargin: 2.5vh;
-  --UIIconMargin: 0.8vw;
+  --UIMargin: 1.5rem; 
+  --buttonMargin: calc(var(--UIMargin) * 0.9);
+  --UIIconMargin: calc(var(--UIMargin) * 0.5);
+  --separatorMargin: calc(var(--UIMargin) * 0.5);
+  /*-- padding --*/
+  --UIpadding: 1.5vw;
+  --buttonPadding: calc(var(--UIpadding) * 0.8);
+  --descriptionPadding: calc(var(--UIpadding) * 0.9);
   /*-- button --*/
-  --buttonHeight: calc(var(--navBarSize) * 0.95);
+  --buttonHeight: calc(var(--navBarSize) * 0.85);
   --buttonRaidus: 20px;
-  --buttonPadding: 20px;
-  --buttonShadow: 0.15vw;
+  --buttonShadow: 0.15rem;
   /*-- UI --*/
   --UIRadius: 15px;
-  --separatorMargin: 1vw;
-  --separatorHeight: 0.15vw;
+  --separatorHeight: 0.1rem;
   /*-- headers --*/
-  --headerWidth: 65vw;
-  --subtitleWidth: 50vw;
+  --headerWidth: calc(var(--UISize) * 12);
+  --subtitleWidth: calc(var(--headerWidth) * 0.8);
   --UIHeaderSize: calc(var(--h1Size) * 0.95);
-  --UISubHeaderSize: calc(var(--UIHeaderSize) * 0.4);
+  --UISubHeaderSize: calc(var(--h1Size) * 0.45);
   /*-- icons --*/
   --UIiconSize: calc(1.7 * var(--UISubHeaderSize));
   /*-- slide show --*/
-  --slideHeight: 35vw;
+  --slideHeight: calc(var(--UISize) * 5.5);
   --slideArrow: calc(var(--UIiconSize) * 0.7);
   --slideDiscount: calc(var(--slideArrow) * 2.5);
-  --slideArrowPadding: calc(var(--slideArrow) / 4);
   --slideBorderRadius: calc(var(--slideArrow) / 10);
+  --slideArrowPadding: calc(var(--slideArrow) / 4);
   /*-- description --*/
-  --descriptionSize: calc(0.8 * var(--pSize));
-  --quoteSize: calc(0.9 * var(--descriptionSize));
+  --descriptionSize: calc(1.2 * var(--pSize));
+  --quoteSize: calc(0.8 * var(--descriptionSize));
   --pfpSize: calc(var(--UIiconSize) * 1.2);
-  --descriptionPadding: 1vw;
 }
 
 /*-- top division *******************************************--*/
@@ -109,8 +110,8 @@
 
 /*-- button *******************************************--*/
 .index_button {
-  height: var(--buttonHeight);
-  width: max-content;
+  min-height: var(--buttonHeight);
+  min-width: max-content;
   padding: 0 var(--buttonPadding);
   background: var(--backGroundLightDark);
   color: var(--text);
@@ -231,6 +232,7 @@
 .index_slideShow,
 .index_slideImage {
   width: 100%;
+  height: 100%;
   border-radius: var(--UIRadius);
 }
 
@@ -248,15 +250,15 @@
   filter: brightness(100%);
 }
 
-.index_filter:hover, .index_viewButton:hover ~ .index_filter:hover {
+.index_slideShow:hover > .index_filter {
   /*-- Lowering the brightness on hover --*/
   filter: brightness(40%);
   transition: all 1s ease;
 }
 
 /*-- displays button on hover --*/
-.index_filter:hover + .index_viewButton, .index_viewButton:hover {
-  display: block;
+.index_filter:hover + .index_slideHover, .index_slideHover:hover {
+  display: flex;
 }
 
 .index_slideHeader {
@@ -304,16 +306,22 @@
   margin: 0;
 }
 
-/*-- View button --*/
-.index_viewButton {
+#index_coffeePrice {
+  text-decoration: line-through;
+}
+
+#index_discountPrice {
+  color: var(--textContrast);
+}
+
+/*-- Container for what to display when the slide show is hovered on --*/
+.index_slideHover {
   display: none;
-  height: var(--buttonHeight);
-  width: max-content;
-  padding: 0 var(--buttonPadding);
-  background: var(--backGroundLightDark);
-  color: var(--text);
-  cursor: pointer;
-  border: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .index_center {
