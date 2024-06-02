@@ -29,7 +29,7 @@
   /*-- drop down buttons --*/
   --dropDownHover: #efefef;
   /*-- button sizes --*/
-  --signInBtnSize: calc(var(--pSize) * 5);
+  --signInBtnSize: calc(var(--pSize) * 6);
   --signInBtnHeight: calc(var(--signInBtnSize) * 0.35);
   --signInBtnMargin: 1%;
   /*-- icon size --*/

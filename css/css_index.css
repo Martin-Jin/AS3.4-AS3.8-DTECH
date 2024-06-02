@@ -7,19 +7,21 @@
   /*-- container sizes --*/
   --topHalf: 100vh;
   --UISize: 5rem;
+  --offersContainer: calc(var(--UISize) * 8);
   /*-- margin --*/
-  --UIMargin: 1.5rem; 
+  --UIMargin: 1.5rem;
   --buttonMargin: calc(var(--UIMargin) * 0.9);
   --UIIconMargin: calc(var(--UIMargin) * 0.5);
+  --QuoteMargin: calc(var(--UIMargin) * 0.3);
   --separatorMargin: calc(var(--UIMargin) * 0.5);
   /*-- padding --*/
-  --UIpadding: 1.5vw;
-  --buttonPadding: calc(var(--UIpadding) * 0.8);
-  --descriptionPadding: calc(var(--UIpadding) * 0.9);
+  --UIpadding: 1.5rem;
+  --buttonPadding: calc(var(--UIpadding) * 0.45);
+  --descriptionPadding: calc(var(--UIpadding) * 0.4);
   /*-- button --*/
   --buttonHeight: calc(var(--navBarSize) * 0.85);
   --buttonRaidus: 20px;
-  --buttonShadow: 0.15rem;
+  --buttonShadow: 0.1rem;
   /*-- UI --*/
   --UIRadius: 15px;
   --separatorHeight: 0.1rem;
@@ -37,8 +39,8 @@
   --slideBorderRadius: calc(var(--slideArrow) / 10);
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   /*-- description --*/
-  --descriptionSize: calc(1.2 * var(--pSize));
-  --quoteSize: calc(0.8 * var(--descriptionSize));
+  --descriptionP: calc(1.2 * var(--pSize));
+  --quoteSize: calc(0.9 * var(--descriptionP));
   --pfpSize: calc(var(--UIiconSize) * 1.2);
 }
 
@@ -48,7 +50,6 @@
   background-image: url(/images/images_bg/bg_landing.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
   /*-- Grid container --*/
   display: grid;
@@ -66,8 +67,7 @@
 
 .index_ui {
   grid-area: ui;
-  margin: auto 0;
-  margin-left: var(--UIMargin);
+  margin: auto auto auto var(--UIMargin);
   height: max-content;
 }
 
@@ -104,15 +104,14 @@
 .index_UIIcon {
   width: var(--UIiconSize);
   grid-area: icon;
-  margin: auto;
-  margin-right: var(--UIIconMargin);
+  margin: auto var(--UIIconMargin) auto auto;
 }
 
 /*-- button *******************************************--*/
 .index_button {
-  min-height: var(--buttonHeight);
+  height: fit-content;
   min-width: max-content;
-  padding: 0 var(--buttonPadding);
+  padding: calc(var(--buttonPadding) / 1.5) var(--buttonPadding);
   background: var(--backGroundLightDark);
   color: var(--text);
   cursor: pointer;
@@ -135,12 +134,23 @@
 }
 
 .index_offers {
-  padding: var(--UIMargin);
+  padding: var(--UIpadding);
   /*-- Grid container --*/
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'slideHeader slideHeader'
+    'container container';
+}
+
+.index_offersContainer {
+  grid-area: container;
+  display: grid;
+  margin: auto;
+  /*-- Grid container --*/
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
     'slide description';
 }
 
@@ -156,10 +166,11 @@
 
 /*-- description *******************************************--*/
 .index_description {
+  display: block;
+  max-width: var(--offersContainer);
   grid-area: description;
-  margin: auto;
+  margin: auto auto auto var(--UIMargin);
   background-color: var(--backGroundLightDark);
-  margin-left: var(--UIMargin);
   border-radius: var(--UIRadius);
   padding: var(--descriptionPadding);
 }
@@ -179,7 +190,7 @@
 }
 
 .index_aboutCoffee p {
-  font-size: var(--descriptionSize);
+  font-size: var(--descriptionP);
 }
 
 /*-- review *******************************************--*/
@@ -190,7 +201,7 @@
 
 .index_review {
   height: max-content;
-  width: 70%;
+  width: 80%;
   margin: auto;
   /*-- Grid container --*/
   grid-template-rows: auto;
@@ -224,7 +235,7 @@
 }
 
 .index_quote {
-  margin: auto auto auto var(--UIMargin);
+  margin: auto auto auto var(--QuoteMargin);
   grid-area: quote;
 }
 
@@ -232,32 +243,34 @@
 .index_slideShow,
 .index_slideImage {
   width: 100%;
-  height: 100%;
   border-radius: var(--UIRadius);
 }
 
-.index_slideShow, .index_filter {
-  height: var(--slideHeight);
+.index_slideShow,
+.index_filter {
   position: relative;
 }
 
 .index_slideShow {
   grid-area: slide;
+  height: var(--slideHeight);
 }
 
 .index_filter {
   /*-- Setting brightness at max initially then lowering it later --*/
   filter: brightness(100%);
+  height: 100%;
 }
 
-.index_slideShow:hover > .index_filter {
+.index_slideShow:hover>.index_filter {
   /*-- Lowering the brightness on hover --*/
   filter: brightness(40%);
   transition: all 1s ease;
 }
 
 /*-- displays button on hover --*/
-.index_filter:hover + .index_slideHover, .index_slideHover:hover {
+.index_filter:hover+.index_slideHover,
+.index_slideHover:hover {
   display: flex;
 }
 
@@ -304,6 +317,7 @@
 .index_discount * {
   width: 100%;
   margin: 0;
+  font-size: var(--descriptionP);
 }
 
 #index_coffeePrice {
@@ -350,5 +364,5 @@
 
 .index_slideImage {
   object-fit: cover;
-  height: 100%;
+  max-height: 100%;
 }
