@@ -20,6 +20,7 @@
   --h2Size: calc(0.7 * var(--h1Size));
   --h3Size: calc(0.5 * var(--h1Size));
   --pSize: calc(0.3 * var(--h1Size));
+  --UIFontSize: calc(var(--pSize) * 1.1);
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -83,6 +84,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: var(--UIFontSize);
 }
 
 .general_signInBtn {
@@ -171,8 +173,7 @@ h3 {
   font-size: var(--h3Size);
 }
 
-p,
-button {
+p {
   font-size: var(--pSize);
 }
 

@@ -25,6 +25,7 @@
   /*-- UI --*/
   --UIRadius: 15px;
   --separatorHeight: 0.1rem;
+  --UIProductSize: calc(var(--UISize) * 3);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
@@ -47,7 +48,7 @@
 /*-- top division *******************************************--*/
 .index_topHalf {
   height: var(--topHalf);
-  background-image: url(/images/images_bg/bg_landing.webp);
+  background-image: url(/images/images_bg/bg_landing.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -75,10 +76,18 @@
 .index_header,
 .index_sub,
 .index_UIHeader,
-.index_UISubHeader {
+.index_UISubHeader,
+.index_aboutHeader {
   text-align: left;
   height: fit-content;
   width: fit-content;
+}
+
+.index_aboutHeader,
+.index_UIHeader,
+.index_recommendedHeader {
+  margin: auto;
+  font-size: var(--UIHeaderSize);
 }
 
 .index_header {
@@ -90,7 +99,6 @@
 }
 
 .index_UIHeader {
-  font-size: var(--UIHeaderSize);
   grid-area: UIHeader;
 }
 
@@ -100,11 +108,43 @@
   margin: 0 auto var(--UIMargin) auto;
 }
 
+/*-- description/text *******************************************--*/
+.index_description {
+  display: block;
+  max-width: var(--offersContainer);
+  grid-area: description;
+  margin-left: var(--UIMargin);
+}
+
+.index_separator {
+  border: var(--separatorHeight) solid var(--subtitle);
+  margin: var(--separatorMargin) auto;
+}
+
+.index_separator_short {
+  width: 80%;
+}
+
+.index_aboutCoffee, .index_about, .index_product p {
+  color: var(--text);
+}
+
+.index_aboutCoffee p {
+  font-size: var(--descriptionP);
+}
+
 /*-- icons *******************************************--*/
 .index_UIIcon {
   width: var(--UIiconSize);
   grid-area: icon;
   margin: auto var(--UIIconMargin) auto auto;
+}
+
+/*-- UI with curved borders *******************************************--*/
+.index_slideShow,
+img,
+index_separator {
+  border-radius: var(--UIRadius);
 }
 
 /*-- button *******************************************--*/
@@ -119,13 +159,18 @@
   border-radius: var(--buttonRaidus);
   box-shadow: calc(-1 * var(--buttonShadow)) var(--buttonShadow) var(--subtitle);
   margin-top: var(--buttonMargin);
+  font-size: var(--UIFontSize);
 }
 
 /*-- bottom division *******************************************--*/
 .index_review,
 .index_author,
 .index_offers,
-.index_slideHeader {
+.index_slideHeader,
+.index_offersContainer,
+.index_recommended,
+.index_product,
+.index_recommendedContainer {
   display: grid;
 }
 
@@ -144,53 +189,85 @@
 }
 
 .index_offersContainer {
-  grid-area: container;
-  display: grid;
   margin: auto;
+  width:max-content;
+  grid-area: container;
   /*-- Grid container --*/
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr 1fr auto;
   grid-template-rows: auto;
   grid-template-areas:
-    'slide description';
+    'prev slide description next';
+  align-items: center;
 }
 
-.index_recommanded {
+.index_recommended {
+  padding: var(--UIpadding);
+  background-image: url(/images/images_bg/coffee.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   /*-- Grid container --*/
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    ''
-    '';
+    'aboutHeader recommendedHeader'
+    'about recommendedContainer';
 }
 
-/*-- description *******************************************--*/
-.index_description {
-  display: block;
-  max-width: var(--offersContainer);
-  grid-area: description;
-  margin: auto auto auto var(--UIMargin);
+/*-- About section *******************************************--*/
+.index_about {
+  grid-area: about;
+  height: max-content;
+}
+
+.index_aboutHeader {
+  grid-area: aboutHeader;
+}
+
+/*-- Reconmmended section *******************************************--*/
+.index_recommendedContainer {
+  grid-area: recommendedContainer;
+  /*-- Grid container --*/
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.index_recommendedHeader {
+  width: max-content;
+  grid-area: recommendedHeader;
+}
+
+.index_product {
+  padding: 0 !important;
+  width: var(--UIProductSize);
+  height: max-content;
+  margin: var(--UIMargin);
+  /*-- Grid container --*/
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+}
+
+.index_product img {
+  object-fit: cover;
+  max-height: 100%;
+  width: 100%;
+  border-radius: var(--UIRadius) var(--UIRadius) 0 0;
+}
+
+.index_product p {
+  margin: var(--QuoteMargin);
+}
+
+/*-- basic container styling *******************************************--*/
+.index_description,
+.index_about,
+.index_recommendedHeader,
+.index_aboutHeader,
+.index_product {
   background-color: var(--backGroundLightDark);
   border-radius: var(--UIRadius);
   padding: var(--descriptionPadding);
-}
-
-.index_separator {
-  border: var(--separatorHeight) solid var(--subtitle);
-  border-radius: var(--UIRadius);
-  margin: var(--separatorMargin) auto;
-}
-
-.index_separator_short {
-  width: 80%;
-}
-
-.index_aboutCoffee {
-  color: var(--text);
-}
-
-.index_aboutCoffee p {
-  font-size: var(--descriptionP);
 }
 
 /*-- review *******************************************--*/
@@ -243,7 +320,6 @@
 .index_slideShow,
 .index_slideImage {
   width: 100%;
-  border-radius: var(--UIRadius);
 }
 
 .index_slideShow,
@@ -275,6 +351,8 @@
 }
 
 .index_slideHeader {
+  margin: auto;
+  width: max-content;
   grid-area: slideHeader;
   /*-- Grid container --*/
   grid-template-columns: auto auto;
@@ -288,17 +366,12 @@
 .index_prev,
 .index_next {
   cursor: pointer;
-  width: auto;
   color: white;
   font-weight: bold;
   font-size: var(--slideArrow);
   padding: var(--slideArrowPadding);
   transition: 0.6s ease;
-  border-radius: 0 var(--slideBorderRadius) var(--slideBorderRadius) 0;
   user-select: none;
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%)
 }
 
 
@@ -347,12 +420,16 @@
 
 /*-- Position the "next button" to the right --*/
 .index_next {
+  grid-area: next;
   right: 0;
+  margin-left: var(--UIMargin);
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 
 .index_prev {
+  grid-area: prev;
   left: 0;
+  margin-right: var(--UIMargin);
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 

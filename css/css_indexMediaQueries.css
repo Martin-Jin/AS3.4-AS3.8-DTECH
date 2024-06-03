@@ -6,18 +6,18 @@
 @media screen and (max-width: 1350px) {
   .index_offersContainer {
     /*-- Make grid container stack in a column instead of side by side --*/
-    grid-template-columns: auto;
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: auto auto;
     grid-template-areas:
-      'slide'
-      'description';
+      'prev slide next'
+      'prev description next';
   }
   .index_description {
     margin: var(--UIMargin) auto auto auto;
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 780px) {
   .index_slideShow {
     height: auto;
   }
