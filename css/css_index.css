@@ -14,6 +14,7 @@
   --UIIconMargin: calc(var(--UIMargin) * 0.5);
   --QuoteMargin: calc(var(--UIMargin) * 0.3);
   --separatorMargin: calc(var(--UIMargin) * 0.5);
+  --productMargin: calc(var(--UIMargin) * 0.4);
   /*-- padding --*/
   --UIpadding: 1.5rem;
   --buttonPadding: calc(var(--UIpadding) * 0.45);
@@ -25,7 +26,7 @@
   /*-- UI --*/
   --UIRadius: 15px;
   --separatorHeight: 0.1rem;
-  --UIProductSize: calc(var(--UISize) * 3);
+  --UIProductSize: calc(var(--UISize) * 2.5);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
@@ -43,6 +44,9 @@
   --descriptionP: calc(1.2 * var(--pSize));
   --quoteSize: calc(0.9 * var(--descriptionP));
   --pfpSize: calc(var(--UIiconSize) * 1.2);
+  /*-- recommended section --*/
+  --recommendedBackground: #dcd6d4;
+  
 }
 
 /*-- top division *******************************************--*/
@@ -125,7 +129,7 @@
   width: 80%;
 }
 
-.index_aboutCoffee, .index_about, .index_product p {
+.index_aboutCoffee {
   color: var(--text);
 }
 
@@ -200,25 +204,32 @@ index_separator {
   align-items: center;
 }
 
+/*-- recommended section *******************************************--*/
 .index_recommended {
   padding: var(--UIpadding);
-  background-image: url(/images/images_bg/coffee.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: var(--recommendedBackground);
   /*-- Grid container --*/
   align-items: center;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     'aboutHeader recommendedHeader'
     'about recommendedContainer';
 }
 
+.index_aboutHeader, .index_recommendedHeader {
+  color: black;
+}
+
 /*-- About section *******************************************--*/
 .index_about {
   grid-area: about;
   height: max-content;
+}
+
+.index_about p {
+  font-size: var(--descriptionP);
+  color: white;
 }
 
 .index_aboutHeader {
@@ -229,8 +240,10 @@ index_separator {
 .index_recommendedContainer {
   grid-area: recommendedContainer;
   /*-- Grid container --*/
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  align-content: space-between;
+  justify-content: space-between;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
 }
 
 .index_recommendedHeader {
@@ -242,7 +255,6 @@ index_separator {
   padding: 0 !important;
   width: var(--UIProductSize);
   height: max-content;
-  margin: var(--UIMargin);
   /*-- Grid container --*/
   grid-template-columns: auto;
   grid-template-rows: auto auto;
@@ -256,15 +268,13 @@ index_separator {
 }
 
 .index_product p {
+  color: white;
   margin: var(--QuoteMargin);
 }
 
 /*-- basic container styling *******************************************--*/
 .index_description,
-.index_about,
-.index_recommendedHeader,
-.index_aboutHeader,
-.index_product {
+.index_product, .index_about {
   background-color: var(--backGroundLightDark);
   border-radius: var(--UIRadius);
   padding: var(--descriptionPadding);
