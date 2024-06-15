@@ -10,13 +10,14 @@
   --offersContainer: calc(var(--UISize) * 8);
   /*-- margin --*/
   --UIMargin: 1.5rem;
+  --arrowMargin: calc(var(--UIMargin) * 0.6);
   --buttonMargin: calc(var(--UIMargin) * 0.9);
   --UIIconMargin: calc(var(--UIMargin) * 0.5);
   --QuoteMargin: calc(var(--UIMargin) * 0.3);
   --separatorMargin: calc(var(--UIMargin) * 0.5);
-  --productMargin: calc(var(--UIMargin) * 0.4);
+  --productSpacing: calc(var(--UIMargin) * 0.8);
   /*-- padding --*/
-  --UIpadding: 1.5rem;
+  --UIpadding: 0.75rem;
   --buttonPadding: calc(var(--UIpadding) * 0.45);
   --descriptionPadding: calc(var(--UIpadding) * 0.4);
   /*-- button --*/
@@ -28,10 +29,11 @@
   --separatorHeight: 0.1rem;
   --UIProductSize: calc(var(--UISize) * 2.5);
   /*-- headers --*/
+  --headerSize: calc(var(--UISize) * 1.5);
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
-  --UIHeaderSize: calc(var(--h1Size) * 0.95);
-  --UISubHeaderSize: calc(var(--h1Size) * 0.45);
+  --UIHeaderSize: calc(var(--headerSize) * 0.95);
+  --UISubHeaderSize: calc(var(--headerSize) * 0.45);
   /*-- icons --*/
   --UIiconSize: calc(1.7 * var(--UISubHeaderSize));
   /*-- slide show --*/
@@ -42,11 +44,10 @@
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   /*-- description --*/
   --descriptionP: calc(1.2 * var(--pSize));
-  --quoteSize: calc(0.9 * var(--descriptionP));
+  --quoteSize: calc(0.8 * var(--descriptionP));
   --pfpSize: calc(var(--UIiconSize) * 1.2);
   /*-- recommended section --*/
   --recommendedBackground: #dcd6d4;
-  
 }
 
 /*-- top division *******************************************--*/
@@ -95,7 +96,7 @@
 }
 
 .index_header {
-  max-width: var(--headerWidth);
+  max-width: var(--headerWidth); 
 }
 
 .index_sub {
@@ -114,10 +115,9 @@
 
 /*-- description/text *******************************************--*/
 .index_description {
-  display: block;
   max-width: var(--offersContainer);
   grid-area: description;
-  margin-left: var(--UIMargin);
+  margin: var(--UIMargin) auto auto auto;
 }
 
 .index_separator {
@@ -131,6 +131,7 @@
 
 .index_aboutCoffee {
   color: var(--text);
+  padding-bottom: 0;
 }
 
 .index_aboutCoffee p {
@@ -154,7 +155,6 @@ index_separator {
 /*-- button *******************************************--*/
 .index_button {
   height: fit-content;
-  min-width: max-content;
   padding: calc(var(--buttonPadding) / 1.5) var(--buttonPadding);
   background: var(--backGroundLightDark);
   color: var(--text);
@@ -166,16 +166,25 @@ index_separator {
   font-size: var(--UIFontSize);
 }
 
-/*-- bottom division *******************************************--*/
-.index_review,
-.index_author,
-.index_offers,
-.index_slideHeader,
-.index_offersContainer,
-.index_recommended,
-.index_product,
-.index_recommendedContainer {
+/*-- basic container styling *******************************************--*/
+.index_description,
+.index_product, container-about {
+  background-color: var(--backGroundLightDark);
+  border-radius: var(--UIRadius);
+  padding: var(--descriptionPadding);
+}
+
+slide-filter {
+  display: block;
+}
+
+container-coffee {
   display: grid;
+}
+
+/*-- bottom division *******************************************--*/
+.index_aboutSection {
+  background-color: var(--recommendedBackground);
 }
 
 .index_bottomHalf {
@@ -194,75 +203,61 @@ index_separator {
 
 .index_offersContainer {
   margin: auto;
-  width:max-content;
   grid-area: container;
   /*-- Grid container --*/
-  grid-template-columns: auto 1fr 1fr auto;
-  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    'prev slide description next';
+    'prev slide next'
+    'prev description next';
   align-items: center;
 }
 
 /*-- recommended section *******************************************--*/
-.index_recommended {
-  padding: var(--UIpadding);
-  background-color: var(--recommendedBackground);
-  /*-- Grid container --*/
-  align-items: center;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    'aboutHeader recommendedHeader'
-    'about recommendedContainer';
-}
-
 .index_aboutHeader, .index_recommendedHeader {
   color: black;
 }
 
 /*-- About section *******************************************--*/
 .index_about {
-  grid-area: about;
-  height: max-content;
+  width: fit-content;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
 }
 
 .index_about p {
   font-size: var(--descriptionP);
   color: white;
+  margin-bottom: var(--UIMargin)
 }
 
-.index_aboutHeader {
-  grid-area: aboutHeader;
+.index_about #about1 {
+  grid-column: 1 / 3;
+}
+
+.index_about container-about {
+  max-width: var(--offersContainer);
+  height: 100%;
 }
 
 /*-- Reconmmended section *******************************************--*/
 .index_recommendedContainer {
-  grid-area: recommendedContainer;
   /*-- Grid container --*/
-  align-content: space-between;
-  justify-content: space-between;
+  grid-gap: var(--productSpacing);
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto;
 }
 
-.index_recommendedHeader {
-  width: max-content;
-  grid-area: recommendedHeader;
-}
-
 .index_product {
   padding: 0 !important;
-  width: var(--UIProductSize);
-  height: max-content;
   /*-- Grid container --*/
   grid-template-columns: auto;
   grid-template-rows: auto auto;
 }
 
 .index_product img {
-  object-fit: cover;
-  max-height: 100%;
   width: 100%;
   border-radius: var(--UIRadius) var(--UIRadius) 0 0;
 }
@@ -272,14 +267,6 @@ index_separator {
   margin: var(--QuoteMargin);
 }
 
-/*-- basic container styling *******************************************--*/
-.index_description,
-.index_product, .index_about {
-  background-color: var(--backGroundLightDark);
-  border-radius: var(--UIRadius);
-  padding: var(--descriptionPadding);
-}
-
 /*-- review *******************************************--*/
 .index_review * {
   color: var(--text);
@@ -287,9 +274,6 @@ index_separator {
 }
 
 .index_review {
-  height: max-content;
-  width: 80%;
-  margin: auto;
   /*-- Grid container --*/
   grid-template-rows: auto;
   grid-template-columns: auto auto;
@@ -343,8 +327,6 @@ index_separator {
 }
 
 .index_filter {
-  /*-- Setting brightness at max initially then lowering it later --*/
-  filter: brightness(100%);
   height: 100%;
 }
 
@@ -362,7 +344,6 @@ index_separator {
 
 .index_slideHeader {
   margin: auto;
-  width: max-content;
   grid-area: slideHeader;
   /*-- Grid container --*/
   grid-template-columns: auto auto;
@@ -431,15 +412,13 @@ index_separator {
 /*-- Position the "next button" to the right --*/
 .index_next {
   grid-area: next;
-  right: 0;
-  margin-left: var(--UIMargin);
+  margin-left: var(--arrowMargin);
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 
 .index_prev {
   grid-area: prev;
-  left: 0;
-  margin-right: var(--UIMargin);
+  margin-right: var(--arrowMargin);
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 

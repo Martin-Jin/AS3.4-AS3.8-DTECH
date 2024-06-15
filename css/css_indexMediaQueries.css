@@ -2,23 +2,31 @@
   index.html page styling
 /*------------------------------------------------------------*/
 
-/*-- Media queries *******************************************--*/
-@media screen and (max-width: 1350px) {
+/*-- Media queries (mobile first desgin, so these are triggered when user on desktop) *******************************************--*/
+@media screen and (min-width: 1350px) {
+  /*-- Make side by side instead of column --*/
   .index_offersContainer {
-    /*-- Make grid container stack in a column instead of side by side --*/
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto 1fr 1fr auto;
+    grid-template-rows: auto;
     grid-template-areas:
-      'prev slide next'
-      'prev description next';
+      'prev slide description next';
   }
+  
   .index_description {
-    margin: var(--UIMargin) auto auto auto;
+    margin: 0 0 0 var(--UIMargin);
   }
 }
 
 @media screen and (max-width: 780px) {
   .index_slideShow {
     height: auto;
+  } 
+}
+
+/*-- Scaling down font size or padding or margin as required for mobile --*/
+@media screen and (min-width: 420px) {
+  :root {
+    --headerSize: 3.5rem;
+    --UIpadding: 1.5rem;
   }
 }

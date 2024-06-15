@@ -16,10 +16,10 @@
   --navBarSize: 3.5rem;
   --footerSize: calc(0.9 * var(--navBarSize));
   /*-- font sizes --*/
-  --h1Size: 3.5rem;
-  --h2Size: calc(0.7 * var(--h1Size));
-  --h3Size: calc(0.5 * var(--h1Size));
-  --pSize: calc(0.3 * var(--h1Size));
+  --headerSize: 2.5rem;
+  --subheaderSize: calc(0.7 * var(--headerSize));
+  --h3Size: calc(0.5 * var(--headerSize));
+  --pSize: calc(0.3 * var(--headerSize));
   --UIFontSize: calc(var(--pSize) * 1.1);
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
@@ -38,7 +38,7 @@
 }
 
 /*-- font *******************************************--*/
-.aleo-general, body, html, p, h1, h2, h3 {
+.aleo-general, body, html, p, header, sub-header, h3 {
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;
@@ -138,6 +138,7 @@ body {
   width: var(--iconSize);
   margin-left: 5px;
   filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+  border-radius: 0;
 }
 
 /*-- Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) --*/
@@ -146,25 +147,26 @@ body {
 }
 
 /*-- headers *******************************************--*/
-h1,
-h2,
+header,
+sub-header,
 h3,
 p {
+  display: block;
   text-align: center;
   margin: 0;
 }
 
-h1,
+header,
 h3 {
   color: var(--header);
 }
 
-h1 {
-  font-size: var(--h1Size);
+header {
+  font-size: var(--headerSize);
 }
 
-h2 {
-  font-size: var(--h2Size);
+sub-header {
+  font-size: var(--subheaderSize);
   color: var(--subtitle);
   font-weight: 300;
 }
@@ -175,6 +177,16 @@ h3 {
 
 p {
   font-size: var(--pSize);
+}
+
+/*-- containers *******************************************--*/
+grid-container {
+  display: grid;
+}
+
+flex-container {
+  display: flex;
+  flex-direction: column;
 }
 
 /*-- footer *******************************************--*/

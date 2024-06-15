@@ -31,18 +31,18 @@
   <!--*****************************************
     TOP HALF DIVISION
   *****************************************-->
-  <div class="index_topHalf">
+  <section class="index_topHalf">
     <!-- navBar -->
     <nav class="general_navBar index_nav" id="navBar"></nav>
     <!-- container for the header and button to center them -->
-    <div class="index_ui">
+    <container-heading class="index_ui">
       <!-- header and subtitle -->
-      <h1 class="index_header">Welcome to HVHS coffee house</h1>
-      <h2 class="index_sub">Fresh coffee at your finger tips.</h2>
+      <header class="index_header">Welcome to HVHS coffee house</header>
+      <sub-header class="index_sub">Fresh coffee at your finger tips.</sub-header>
       <!-- browse button -->
       <button class='index_button aleo-general'>Browse our coffee</button>
-    </div>
-  </div>
+    </container-heading>
+  </section>
   <!--*****************************************
     TOP HALF DIVISION
   *****************************************-->
@@ -50,104 +50,145 @@
   <!--*****************************************
     BOTTOM HALF DIVISION
   *****************************************-->
-  <div class="index_bottomHalf">
-    <div class="index_offers">
+  <section class="index_bottomHalf">
+    <grid-container class="index_offers">
       <!-- header and subtitle -->
-      <div class="index_slideHeader">
+      <grid-container class="index_slideHeader">
         <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_UIIcon'>
-        <h1 class="index_UIHeader">
-          Special offers</h1>
-        <h2 class="index_UISubHeader">
-          Get them while they last</h2>
-      </div>
-      <div class="index_offersContainer">
+        <header class="index_UIHeader">
+          Special offers</header>
+        <sub-header class="index_UISubHeader">
+          Get them while they last</sub-header>
+      </grid-container>
+      <grid-container class="index_offersContainer">
         <!-- slide -->
-        <div class="index_slideShow">
-          <div class="index_filter">
-            <img id="index_slideImage" class="index_slideImage" src='/images/images_slide/slide_coffee.jpg'>
-            <div class="index_discount">
+        <slide-coffee class="index_slideShow">
+          <slide-filter class="index_filter">
+            <img id="index_slideImage" class="index_slideImage" src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <discount-container class="index_discount">
               <p class="aleo-bold index_center">99% off</p>
-            </div>
-          </div>
-          <div class="index_slideHover index_center">
+            </discount-container>
+          </slide-filter>
+          <hover-item class="index_slideHover index_center">
             <h3><span id="index_coffeePrice">Original price: $1</span>
               <span id="index_discountPrice">Now only: $0.1</span>
             </h3>
             <button class="index_button aleo-general">View now!</button>
-          </div>
-        </div>
+          </hover-item>
+        </slide-coffee>
         <!-- description of coffee -->
-        <div class="index_description">
-          <div class="index_aboutCoffee">
-            <h2 class="aleo-bold">Coffee name here</h2>
+        <grid-container class="index_description">
+          <container-about class="index_aboutCoffee">
+            <sub-header class="aleo-bold">Coffee name here</sub-header>
             <hr class="index_separator">
             <p class="aleo-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus ipsum, blandit non
               orci suscipit,
               malesuada vulputate sem. Donec eu purus scelerisque, dapibus nisl sed, consequat risus.</p>
-          </div>
+          </container-about>
           <!-- review -->
           <hr class="index_separator index_separator_short">
-          <div class="index_review">
+          <grid-container class="index_review">
             <!-- author of the review -->
-            <div class=" index_author">
+            <grid-container class="index_author">
               <img class="index_pfp" src="/images/images_slide/slide_coffee.jpg" alt="pfp">
               <p class="index_name">John Doe</p>
-            </div>
+            </grid-container>
             <!-- quote -->
             <p class="index_quote">"The coffee is great, because I liked it."</p>
-          </div>
-        </div>
+          </grid-container>
+        </grid-container>
         <!-- slide controls -->
         <a class="index_prev" onclick="index_displaySlide(-1)">❮</a>
         <a class="index_next" onclick="index_displaySlide(1)">❯</a>
-      </div>
-    </div>
-    <div class="index_recommended">
+      </grid-container>
+    </grid-container>
+    <flex-container class="index_recommended">
       <!-- About section -->
-      <h1 class="index_aboutHeader">
-        About us</h1>
-      <div class="index_about">
-        <h2></h2>
-        <p class="aleo-thin">Welcome to HVHS coffee house, where every cup tells a story. Founded by a team of
-          passionate coffee enthusiasts, our mission is to bring you the finest, ethically sourced beans from around the
-          world. At HVHS coffee house, we believe that coffee is more than just a drink; it's an experience. Our expert
-          roasters meticulously craft each batch to highlight the unique flavors and aromas of our premium beans,
-          ensuring a perfect brew every time. Whether you're a seasoned connoisseur or just beginning your coffee
-          journey, we are dedicated to providing you with exceptional quality and service. Join us in celebrating the
-          rich tradition of coffee, one cup at a time.</p>
-      </div>
+      <flex-container class="index_aboutSection">
+        <header class="index_aboutHeader">
+          About us</header>
+        <grid-container class="index_about">
+          <container-about id="about1">
+            <sub-header>Welcome to HVHS Coffee House</sub-header>
+            <p class="aleo-thin">At HVHS Coffee House, we are passionate about crafting the perfect cup of coffee for
+              every palate. From the
+              moment you step through our doors, you are greeted with the rich aroma of freshly roasted beans and the
+              inviting ambiance of a cozy coffeehouse. Our commitment to quality, community, and sustainability is
+              evident
+              in every aspect of our operation.</p>
+          </container-about>
+          <container-about>
+            <sub-header>Our Story</sub-header>
+            <p class="aleo-thin">HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who wanted
+              to create a space
+              where people could gather, connect, and savor exceptional coffee. With years of experience in the coffee
+              industry and a deep love for the craft, we set out to establish a place that would not only serve great
+              coffee but also foster a sense of belonging and camaraderie within our community.</p>
+          </container-about>
+          <container-about>
+            <sub-header>Craftsmanship and Quality</sub-header>
+            <p class="aleo-thin">At HVHS Coffee House, we believe that the key to a truly exceptional cup of coffee lies
+              in the details.
+              That's why we meticulously source the finest beans from sustainable farms around the world, ensuring that
+              each sip is a testament to the dedication and expertise of our roasters. From our carefully calibrated
+              espresso shots to our handcrafted pour-over brews, every drink is crafted with precision and passion.</p>
+          </container-about>
+          <container-about>
+            <sub-header>Community Engagement</sub-header>
+            <p class="aleo-thin">More than just a place to grab your morning caffeine fix, HVHS Coffee House is a hub
+              for community
+              engagement and connection. Whether you're catching up with friends over a latte, attending one of our
+              weekly
+              coffee tastings, or simply enjoying a moment of solitude with a good book, our space is yours to enjoy. We
+              are proud to support local artists, musicians, and organizations, hosting events and fundraisers that
+              enrich
+              the cultural fabric of our community.</p>
+          </container-about>
+          <container-about>
+            <sub-header>Sustainability</sub-header>
+            <p class="aleo-thin">As stewards of the environment, we are committed to minimizing our ecological footprint
+              and promoting
+              sustainability throughout our supply chain. From our eco-friendly packaging to our energy-efficient
+              equipment, we strive to operate in harmony with the planet, ensuring that future generations can continue
+              to
+              enjoy the pleasures of great coffee.</p>
+          </container-about>
+        </grid-container>
+      </flex-container>
       <!-- Recommended section -->
-      <h1 class="index_recommendedHeader">
-        Recommended
-      </h1>
-      <div class="index_recommendedContainer">
-        <div class="index_product" id="index_product1">
-          <img src='/images/images_slide/slide_coffee.jpg'>
-          <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
-        </div>
-        <div class="index_product" id="index_product2">
-          <img src='/images/images_slide/slide_coffee.jpg'>
-          <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
-        </div>
-        <div class="index_product" id="index_product3">
-          <img src='/images/images_slide/slide_coffee.jpg'>
-          <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
-        </div>
-        <div class="index_product" id="index_product4">
-          <img src='/images/images_slide/slide_coffee.jpg'>
-          <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
-        </div>
-        <div class="index_product" id="index_product5">
-          <img src='/images/images_slide/slide_coffee.jpg'>
-          <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
-        </div>
-        <div class="index_product" id="index_product6">
-          <img src='/images/images_slide/slide_coffee.jpg'>
-          <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+      <flex-container class="index_recommendedSection">
+        <header class="index_recommendedHeader">
+          Recommended
+        </header>
+        <grid-container class="index_recommendedContainer">
+          <container-coffee class="index_product" id="index_product1">
+            <img src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
+          </container-coffee>
+          <container-coffee class="index_product" id="index_product2">
+            <img src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
+          </container-coffee>
+          <container-coffee class="index_product" id="index_product3">
+            <img src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
+          </container-coffee>
+          <container-coffee class="index_product" id="index_product4">
+            <img src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
+          </container-coffee>
+          <container-coffee class="index_product" id="index_product5">
+            <img src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
+          </container-coffee>
+          <container-coffee class="index_product" id="index_product6">
+            <img src='/images/images_slide/slide_coffee.jpg' alt="coffee">
+            <p>A bold and rich shot of pure coffee, offering an intense flavor and a velvety crema on top.</p>
+          </container-coffee>
+        </grid-container>
+      </flex-container>
+    </flex-container>
+  </section>
   <!--*****************************************
     BOTTOM HALF DIVISION
   *****************************************-->
