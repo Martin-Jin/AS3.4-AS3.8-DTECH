@@ -2,16 +2,40 @@
   index.html page styling
 /*------------------------------------------------------------*/
 
-/*-- Media queries (mobile first desgin, so these are triggered when user on desktop) *******************************************--*/
+/*-- Media queries for desktop *******************************************--*/
 @media screen and (min-width: 1350px) {
-  /*-- Make side by side instead of column --*/
+  /*-- Make grid and flex box containers display side by side instead of column --*/
   .index_offersContainer {
     grid-template-columns: auto 1fr 1fr auto;
     grid-template-rows: auto;
     grid-template-areas:
       'prev slide description next';
   }
-  
+
+  container-about {
+    /*-- Grid container --*/
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto;
+    align-items: center;
+  }
+
+  container-about img {
+    width: 100%;
+    max-width: none;
+  }
+
+  .index_productContainer {
+    justify-content: center;
+    /*-- Grid container --*/
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+  }
+
+  /*-- Changing any margin and alignment as required --*/
+  .index_about, container-about {
+    grid-gap: var(--productSpacing);
+  }
+
   .index_description {
     margin: 0 0 0 var(--UIMargin);
   }
@@ -20,13 +44,26 @@
 @media screen and (max-width: 780px) {
   .index_slideShow {
     height: auto;
-  } 
+  }
 }
 
-/*-- Scaling down font size or padding or margin as required for mobile --*/
+/*-- Scaling up font size --*/
 @media screen and (min-width: 420px) {
   :root {
     --headerSize: 3.5rem;
     --UIpadding: 1.5rem;
+    --UISize: 5rem;
+    --UIMargin: 1.5rem;
+  }
+}
+
+/*-- Media queries for very large screens *******************************************--*/
+/*-- Scaling down font size or padding or margin as required for mobile --*/
+@media screen and (min-width: 1440px) {
+  :root {
+    --headerSize: 3.5vw;
+    --UIpadding: 0.75vw;
+    --UISize: 5vw;
+    --UIMargin: 1.5vw;
   }
 }

@@ -13,12 +13,17 @@
   --header: #DFC4B4;
   --textContrast: #FF5D55;
   /*-- container sizes --*/
-  --navBarSize: 3.5rem;
+  --UISize: 3rem;
+  --UIRadius: 15px;
+  --navBarSize: calc(0.7 * var(--UISize));
   --footerSize: calc(0.9 * var(--navBarSize));
+  /*-- margins --*/
+  --UIMargin: 1rem;
+  /*-- padding --*/
+  --UIpadding: 0.75rem;
   /*-- font sizes --*/
   --headerSize: 2.5rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
-  --h3Size: calc(0.5 * var(--headerSize));
   --pSize: calc(0.3 * var(--headerSize));
   --UIFontSize: calc(var(--pSize) * 1.1);
   /*-- border sizes --*/
@@ -38,17 +43,20 @@
 }
 
 /*-- font *******************************************--*/
-.aleo-general, body, html, p, header, sub-header, h3 {
+.aleo-general,
+p,
+header,
+sub-header {
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.aleo-bold {
+.aleo-bold, span-bold {
   font-weight: 500;
 }
 
-.aleo-thin {
+.aleo-thin, span-thin {
   font-weight: 300;
 }
 
@@ -59,6 +67,8 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
+  height: fit-content;
+  width: fit-content;
 }
 
 /*-- hide scrollbar --*/
@@ -149,15 +159,15 @@ body {
 /*-- headers *******************************************--*/
 header,
 sub-header,
-h3,
 p {
   display: block;
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
   text-align: center;
-  margin: 0;
 }
 
-header,
-h3 {
+header {
   color: var(--header);
 }
 
@@ -169,10 +179,6 @@ sub-header {
   font-size: var(--subheaderSize);
   color: var(--subtitle);
   font-weight: 300;
-}
-
-h3 {
-  font-size: var(--h3Size);
 }
 
 p {
