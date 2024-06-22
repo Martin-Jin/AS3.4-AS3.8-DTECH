@@ -5,7 +5,7 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- colours --*/
-  --backGroundLight: #EAE6E5;
+  --backGroundLight: #ecdbcb;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
   --text: #F4EAE4;
@@ -46,7 +46,7 @@
 .aleo-general,
 p,
 header,
-sub-header {
+sub-header, button {
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;

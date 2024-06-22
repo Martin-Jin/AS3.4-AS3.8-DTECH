@@ -45,8 +45,6 @@
   --quoteSize: calc(0.8 * var(--descriptionP));
   --pfpSize: calc(var(--UIiconSize) * 1.2);
   --offerP: calc(1.4 * var(--pSize));
-  /*-- recommended section --*/
-  --recommendedBackground: #dcd6d4;
 }
 
 /*-- top division *******************************************--*/
@@ -180,7 +178,7 @@ container-about {
 
 /*-- bottom division *******************************************--*/
 .index_aboutSection {
-  background-color: var(--recommendedBackground);
+  background-color: var(--backGroundLight);
   padding: var(--UIpadding);
 }
 
@@ -223,7 +221,7 @@ container-about {
 
 container-about img {
   margin: auto;
-  max-width: 80%;
+  width: 80%;
 }
 
 .index_about p {
@@ -239,10 +237,10 @@ container-aboutText {
 /*-- Reconmmended section *******************************************--*/
 .index_productContainer {
   /*-- flex container --*/
-  display: flex;
   grid-gap: var(--productSpacing);
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 container-product {
@@ -253,8 +251,9 @@ container-product {
 }
 
 container-product:hover {
-  transform: scale(1.2);
-  transition-duration: 250ms;
+  /*-- Annimation --*/
+  transform: scale(1.1);
+  transition-duration: 400ms;
 }
 
 container-product img {

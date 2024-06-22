@@ -7,12 +7,16 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
+//Set active page to index.html
+general_PAGES_HOME.styling = "active";
+
 const index_MEDIAQUERIES = [{
   mediaQuery: window.matchMedia("(min-width: " + general_MEDIA_QUERY_BREAK_POINT + "px)"), callBack: () => {
     //Clearing the navbar then generating the navbar and the sign in button
     general_clearNav(general_NAVBAR);
-    general_generateNav(general_PAGES, general_NAVBAR);
-    general_generateNav([{ url: '/html/html_signIn', name: 'Sign in' }], general_NAVBAR, 'general_signInBtn');
+    general_generateNav(general_PAGES, general_NAVBAR, '');
+    general_generateNav([{ url: '/html/html_signIn', name: 'Sign in', icon: '', 
+                          alt: '', id: 'signIn', styling: 'general_signInBtn' }], general_NAVBAR, '');
   }
 }];
 
@@ -26,7 +30,7 @@ const index_SLIDE_IMAGE_ID = 'index_slideImage';
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-htmlJs_setUpMediaQuery(index_MEDIAQUERIES);
+general_setUpMediaQuery(index_MEDIAQUERIES);
 
 /**************************************************************/
 // function index_displaySlide();

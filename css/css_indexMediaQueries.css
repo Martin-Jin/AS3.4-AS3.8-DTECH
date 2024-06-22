@@ -3,6 +3,13 @@
 /*------------------------------------------------------------*/
 
 /*-- Media queries for desktop *******************************************--*/
+@media screen and (min-width: 780px) {
+  /*-- Scales down image when stacked in column --*/
+  container-about img {
+    width: 60%;
+  }
+}
+
 @media screen and (min-width: 1350px) {
   /*-- Make grid and flex box containers display side by side instead of column --*/
   .index_offersContainer {
@@ -21,10 +28,10 @@
 
   container-about img {
     width: 100%;
-    max-width: none;
   }
 
   .index_productContainer {
+    display: grid;
     justify-content: center;
     /*-- Grid container --*/
     grid-template-columns: auto auto auto;
@@ -38,12 +45,6 @@
 
   .index_description {
     margin: 0 0 0 var(--UIMargin);
-  }
-}
-
-@media screen and (max-width: 780px) {
-  .index_slideShow {
-    height: auto;
   }
 }
 

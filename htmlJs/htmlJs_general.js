@@ -1,27 +1,32 @@
 /**************************************************************/
-// htmlJs_general.js
+// index_general.js
 // General HTML js used across all HTML pages
 /**************************************************************/
-MODULENAME = "htmlJs_general.js";
+MODULENAME = "index_general.js";
 console.log('%c' + MODULENAME + ': ', 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
 //Contains the pages to be generated on the navBar
-const general_PAGES = [
+const general_PAGES_HOME = 
 { url: '/../index.html', name: 'Home', icon: '/images/images_icons/icons_logo.png', 
- alt: 'coffee_icon'},
-{ url: '/html/html_about', name: 'About us', icon: '/images/images_icons/icons_about.png', 
- alt: 'info_icon' },
+ alt: 'coffee_icon', id: 'home', styling: '' };
+const general_PAGES_ABOUT_US =
+{ url: '/../index.html', name: 'About us', icon: '/images/images_icons/icons_about.png', 
+ alt: 'info_icon', id: 'aboutUs', styling: ''  };
+const general_PAGES_CONTACT_US =
 { url: '/html/html_contact', name: 'Contact us', icon: '/images/images_icons/icons_contact.png', 
- alt: 'phone_icon' },
+ alt: 'phone_icon', id: 'contactUs', styling: ''  };
+const general_PAGES_PRODUCTS =
 { url: '/html/html_products', name: 'Products', icon: '/images/images_icons/icons_products.png', 
- alt:'coffee_icon' },
+ alt:'coffee_icon', id: 'products', styling: ''  };
+const general_PAGES_ORDERS =
 { url: '/html/html_orders', name: 'Orders', icon: '/images/images_icons/icons_orders.png', 
- alt: 'basket_icon' },];
+ alt: 'basket_icon', id: 'orders', styling: ''  };
+const general_PAGES = [general_PAGES_HOME, general_PAGES_ABOUT_US, general_PAGES_CONTACT_US, general_PAGES_PRODUCTS, general_PAGES_ORDERS];
 
-//The media query break point where the device is considered no longer a computer
-const general_MEDIA_QUERY_BREAK_POINT = 1000;
+//The media query break point where the device is considered no longer a desktop
+const general_MEDIA_QUERY_BREAK_POINT = 1350;
 //Mobile by deafult, set to true when break point triggered
 let general_mobile = true;
 
@@ -32,10 +37,8 @@ const general_NAVBAR = document.getElementById("navBar");
 // START OF MODULE
 /**************************************************************/
 
-//Initialising firebase on load
-if (window.location.href === 'https://jvyoappjjl-2362147004-a.codehs.me/html/html_dataBase.html') { fbR_initialise(); }
 //Collapsing nav on load for mobile
-htmlJs_collapseNav();
+general_collapseNav();
 
 /**************************************************************/
 // function general_generateNav(navElements, navBar, styling);
@@ -50,20 +53,17 @@ function general_generateNav(navElements, navBar, styling) {
   //This is then displayed on the navBar
   for (i = 0; i < navElements.length; i++) {
     let page = navElements[i];
-    //Giving the button font styling, and any additional given stylings
-    let classes = ("aleo-general " + styling).trim();
-    //If the the href of the users page includes the pages url, that must be the page the users is on
-    //Also specifically check for index.html because url for home page is not exactly index.html
-    if (window.location.href.includes(page.url) || window.location.href.includes(page.url.replace('/../', '')))
-    //Put an under line of the page the user is on
-    { classes += " active"; };
+    //Giving the button any general classes given, as well as any classes just for the button
+    let classes = styling + page.styling;
+    
     //If given an icon then put it in the button
-    if (page.icon != undefined) {img = `<img src='${page.icon}' 
+    if (page.icon != '') {img = `<img src='${page.icon}' 
     alt='${page.alt}' class='general_icon'>`} else {img = ``;}
+    
     //Creating the button to go on the navbar
     let button =
       `<button onclick="(function() { window.location = '${page.url}' })()" 
-    class='${classes}'>
+    class='${classes}' id='${page.id}'>
     ${page.name} ${img}
     </button>`;
     navBar.innerHTML += button;
@@ -80,33 +80,33 @@ function general_clearNav(navBar) {
 }
 
 /**************************************************************/
-// function htmlJs_mediaQuery(mediaQueryListObject, callBack);
+// function general_mediaQuery(mediaQueryListObject, callBack);
 // Checks if user is on mobile or desktop when media query is triggered
 // Input: the media query to check, and the call back to call when it is
-// Called by htmlJs_setUpMediaQuery();
+// Called by general_setUpMediaQuery();
 /**************************************************************/
-function htmlJs_mediaQuery(mediaQueryListObject, callBack) {
-  //console.log("htmlJs_mediaQuery();");
+function general_mediaQuery(mediaQueryListObject, callBack) {
+  //console.log("general_mediaQuery();");
   //If mediaQuery matches then call the call back and set mobile to false as user on desktop
   if (mediaQueryListObject.matches) {
     callBack();
     general_mobile = false;
     //Other wise collapse navBar since user is on mobile
-  } else { general_mobile = true; htmlJs_collapseNav(); }
+  } else { general_mobile = true; general_collapseNav(); }
 }
 
 /**************************************************************/
-// function htmlJs_collapseNav();
+// function general_collapseNav();
 // Collapses navBar into a three bar menu and home page
-// Called as a callback by htmlJs_mediaQuery when the screen becomes small
+// Called as a callback by general_mediaQuery when the screen becomes small
 /**************************************************************/
-function htmlJs_collapseNav() {
+function general_collapseNav() {
   //If user on desktop don't collapse navBar
   if (general_mobile === false) { return; }
-  //console.log("htmlJs_collapseNav();");
+  //console.log("general_collapseNav();");
   //Regenerating the navbar so that there is only the home button
   general_clearNav(general_NAVBAR);
-  general_generateNav([general_PAGES[0]], general_NAVBAR);
+  general_generateNav([general_PAGES[0]], general_NAVBAR, '');
   //Adding drop down button to navBar
   general_NAVBAR.innerHTML +=
     `<div class="general_dropDown">
@@ -118,7 +118,7 @@ function htmlJs_collapseNav() {
       </div>
     </div>`
   //Generating all the buttons inside the drop down menu other than the home page
-  general_generateNav(general_PAGES.slice(1, general_PAGES.length + 1), document.getElementById("dropDown"));
+  general_generateNav(general_PAGES.slice(1, general_PAGES.length + 1), document.getElementById("dropDown"), '');
   //Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('#general_dropBtn')) {
@@ -134,23 +134,23 @@ function htmlJs_collapseNav() {
 }
 
 /**************************************************************/
-// function htmlJs_setUpMediaQuery();
+// function general_setUpMediaQuery();
 // Sets up all the necessary media queries necessary for a page
 // Called on load at each page
 /**************************************************************/
-function htmlJs_setUpMediaQuery(mediaQueries) {
-  //console.log("htmlJs_setUpMediaQuery();");
+function general_setUpMediaQuery(mediaQueries) {
+  //console.log("general_setUpMediaQuery();");
   for (i = 0; i < mediaQueries.length; i++) {
     let mediaQuery = mediaQueries[i].mediaQuery;
     let callBack = mediaQueries[i].callBack;
     mediaQuery.addEventListener("change", () => {
-      htmlJs_mediaQuery(mediaQuery, callBack);
+      general_mediaQuery(mediaQuery, callBack);
     });
     //Calling the function right away so if the user loads into the page on a desktop
     //it will trigger the media query
     //Other wise media query won't be triggered until the user changes tab size
     //Since the listener listens for the media query to be triggered
-    htmlJs_mediaQuery(mediaQuery, callBack);
+    general_mediaQuery(mediaQuery, callBack);
   }
 }
 /**************************************************************/
