@@ -11,6 +11,14 @@
 }
 
 @media screen and (min-width: 1350px) {
+  /*-- Changing the navbar used to the one for larger screens --*/
+  #nav_desktop {
+    display: flex;
+  }
+
+  #nav_dropdown {
+    display: none;
+  }
   /*-- Make grid and flex box containers display side by side instead of column --*/
   .index_offersContainer {
     grid-template-columns: auto 1fr 1fr auto;
@@ -62,8 +70,8 @@
 /*-- Scaling down font size or padding or margin as required for mobile --*/
 @media screen and (min-width: 1440px) {
   :root {
-    --headerSize: 3.5vw;
-    --UIpadding: 0.75vw;
+    --headerSize: 4vw;
+    --UIpadding: 1.5vw;
     --UISize: 5vw;
     --UIMargin: 1.5vw;
   }

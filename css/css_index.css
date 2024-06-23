@@ -9,6 +9,8 @@
   --offersContainer: calc(var(--UISize) * 8);
   --aboutContainer: calc(var(--UISize) * 14);
   --aboutImageSize: calc(var(--UISize) * 3.5);
+  /*-- container properties --*/
+  --containerBorder: calc(var(--UIborder) * 1.5);
   /*-- margin --*/
   --arrowMargin: calc(var(--UIMargin) * 0.6);
   --buttonMargin: calc(var(--UIMargin) * 0.9);
@@ -22,8 +24,7 @@
   --aboutPadding: calc(var(--UIpadding) * 3);
   /*-- button --*/
   --buttonHeight: calc(var(--navBarSize) * 0.85);
-  --buttonRaidus: 20px;
-  --buttonShadow: 0.1rem;
+  --buttonBorder: calc(var(--UIborder) / 5;);
   /*-- UI --*/
   --separatorHeight: 0.1rem;
   --productSize: calc(var(--UISize) * 5);
@@ -62,10 +63,6 @@
     'nav'
     'ui'
     'space';
-}
-
-.index_nav {
-  grid-area: nav;
 }
 
 .index_ui {
@@ -140,20 +137,20 @@ h3 {
 /*-- UI with curved borders *******************************************--*/
 .index_slideShow,
 img,
-index_separator {
+.index_separator, .index_button {
   border-radius: var(--UIRadius);
 }
 
 /*-- button *******************************************--*/
 .index_button {
-  height: fit-content;
   padding: calc(var(--buttonPadding) / 1.5) var(--buttonPadding);
   background: var(--backGroundLightDark);
   color: var(--text);
   cursor: pointer;
-  border-color: transparent;
-  border-radius: var(--buttonRaidus);
-  box-shadow: calc(-1 * var(--buttonShadow)) var(--buttonShadow) var(--subtitle);
+  border: none;
+  border-bottom-style: solid;
+  border-color: var(--subtitle);
+  border-width: var(--buttonBorder);
   margin-top: var(--buttonMargin);
   font-size: var(--descriptionP);
 }
@@ -232,6 +229,10 @@ container-about img {
 
 container-aboutText {
   padding: var(--aboutPadding);
+  box-sizing: border-box;
+  border-bottom-style: solid;
+  border-width: var(--containerBorder);
+  border-color: #1f1f1f;
 }
 
 /*-- Reconmmended section *******************************************--*/
@@ -420,13 +421,6 @@ container-product p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.index_center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /*-- On hover, add a black background color with a little bit see-through --*/

@@ -32,8 +32,54 @@
     TOP HALF DIVISION
   *****************************************-->
   <section class="index_topHalf">
-    <!-- navBar -->
-    <nav class="general_navBar index_nav" id="navBar"></nav>
+    <!-- navBar for larger screens -->
+    <nav id="nav_desktop">
+      <button onclick="window.location = '/../index.html'" class="active" id="home">
+        Home <img src="/images/images_icons/icons_coffee.png" alt="coffee_icon">
+      </button>
+      <!-- regular buttons thats displayed -->
+      <button onclick="window.location = '/../index.html'" id="aboutUs">
+        About us <img src="/images/images_icons/icons_about.png" alt="info_icon">
+      </button>
+      <button onclick="window.location = '/html/html_contact'" id="contactUs">
+        Contact us <img src="/images/images_icons/icons_contact.png" alt="phone_icon">
+      </button>
+      <button onclick="window.location = '/html/html_products'" id="products">
+        Products <img src="/images/images_icons/icons_products.png" alt="coffee_icon">
+      </button>
+      <button onclick="window.location = '/html/html_orders'" id="orders">
+        Orders <img src="/images/images_icons/icons_orders.png" alt="basket_icon">
+      </button>
+      <button onclick="window.location = '/html/html_signIn'" class="general_signInBtn" id="signIn">
+        Sign in
+      </button>
+    </nav>
+    <!-- navBar for larger screens -->
+    <nav id="nav_dropdown">
+      <button onclick="window.location = '/../index.html'" class="active" id="home">
+        Home <img src="/images/images_icons/icons_coffee.png" alt="coffee_icon">
+      </button>
+      <!-- drop down thats displayed on smaller screens -->
+      <container-dropdown class="general_dropDown">
+        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="general_dropBtn"
+          class="aleo-general">
+          Dropdown
+        </button>
+        <dropdown-content id="dropDown">
+          <button onclick="window.location = '/../index.html'" id="aboutUs">
+            About us <img src="/images/images_icons/icons_about.png" alt="info_icon">
+          </button><button onclick="window.location = '/html/html_contact'" id="contactUs">
+            Contact us <img src="/images/images_icons/icons_contact.png" alt="phone_icon">
+          </button><button onclick="window.location = '/html/html_products'" id="products">
+            Products <img src="/images/images_icons/icons_products.png" alt="coffee_icon">
+          </button><button onclick="window.location = '/html/html_orders'" id="orders">
+            Orders <img src="/images/images_icons/icons_orders.png" alt="basket_icon">
+          </button>
+        </dropdown-content>
+      </container-dropdown>
+    </nav>
+    <!-- logo for navbar -->
+    <img src="/images/images_icons/icons_logo.png" alt="logo" class="general_logo center">
     <!-- container for the header and button to center them -->
     <container-heading class="index_ui">
       <!-- header and subtitle -->
@@ -67,10 +113,10 @@
             <img id="index_slideImage" class="index_slideImage" src='/images/images_slide/slide_coffee.jpg'
               alt="coffee">
             <discount-container class="index_discount">
-              <p class="aleo-bold index_center">99% off</p>
+              <p class="aleo-bold center">99% off</p>
             </discount-container>
           </slide-filter>
-          <hover-item class="index_slideHover index_center">
+          <hover-item class="index_slideHover center">
             <p class="index_offerText"><span id="index_coffeePrice">Original price: $1</span>
               <span id="index_discountPrice">Now only: $0.1</span>
             </p>

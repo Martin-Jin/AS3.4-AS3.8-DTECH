@@ -5,7 +5,7 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- colours --*/
-  --backGroundLight: #ecdbcb;
+  --backGroundLight: #dddddd;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
   --text: #F4EAE4;
@@ -21,6 +21,8 @@
   --UIMargin: 1rem;
   /*-- padding --*/
   --UIpadding: 0.75rem;
+  /*-- borders --*/
+  --UIborder: 0.5rem;
   /*-- font sizes --*/
   --headerSize: 2.5rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
@@ -33,7 +35,7 @@
   /*-- container margin --*/
   --signInMargin: 5%;
   /*-- drop down buttons --*/
-  --dropDownHover: #efefef;
+  --dropdownHover: #efefef;
   /*-- button sizes --*/
   --signInBtnSize: calc(var(--pSize) * 6);
   --signInBtnHeight: calc(var(--signInBtnSize) * 0.35);
@@ -69,6 +71,7 @@ body {
   margin: 0;
   height: fit-content;
   width: fit-content;
+  scroll-behavior: smooth;
 }
 
 /*-- hide scrollbar --*/
@@ -77,14 +80,20 @@ body {
 }
 
 /*-- navBar *******************************************--*/
-.general_navBar {
+/*-- by deafult hide the desktop one and load mobile version first--*/
+#nav_desktop {
+  display: none;
+}
+
+nav {
+  grid-area: nav;
   height: var(--navBarSize);
   display: flex;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(2px);
 }
 
-.general_navBar button {
+nav button {
   height: 100%;
   padding: 0;
   border: none;
@@ -97,6 +106,15 @@ body {
   font-size: var(--UIFontSize);
 }
 
+/*-- Styling of the icon that goes on the navbar --*/
+nav img {
+  height: auto;
+  width: var(--iconSize);
+  margin-left: 5px;
+  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+  border-radius: 0;
+}
+
 .general_signInBtn {
   flex-grow: 0;
   flex-shrink: 0;
@@ -107,30 +125,39 @@ body {
   margin: auto var(--signInBtnMargin);
 }
 
-.general_navBar button.active {
-  border-bottom: var(--navBarBorder) solid var(--backGroundLight);
+nav button.active {
+  border-bottom: var(--navBarBorder) solid var(--subtitle);
 }
 
-.general_navBar button:hover {
+nav button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*-- navBar logo *******************************************--*/
+.general_logo {
+  width: 10vw;
 }
 
 /*-- collapsed navBar styling*******************************************--*/
 /*-- The container needed to position the dropdown content --*/
-.general_dropDown,
-.general_dropDown *,
-.general_navBar button {
+container-dropdown,
+nav button {
   width: 100%;
 }
 
 /*-- Dropdown content --*/
-.general_dropDown-content {
+dropdown-content {
   display: none;
   position: absolute;
+  width: 50%;
 }
 
-.general_dropDown-content button {
-  background-color: white;
+dropdown-content button img {
+  filter: invert(10%) sepia(6%) saturate(0%) hue-rotate(159deg) brightness(95%) contrast(91%);
+}
+
+dropdown-content button {
+  background-color: var(--backGroundLight);
   color: var(--backGroundDark);
   height: var(--navBarSize);
   /*-- Makes sure that the content inside the drop down menu isn't underlined --*/
@@ -138,17 +165,8 @@ body {
 }
 
 /*-- Change color of dropdown links on hover --*/
-.general_dropDown-content button:hover {
-  background-color: var(--dropDownHover);
-}
-
-/*-- Styling of the icon that goes on the navbar --*/
-.general_icon {
-  height: auto;
-  width: var(--iconSize);
-  margin-left: 5px;
-  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
-  border-radius: 0;
+dropdown-content button:hover {
+  background-color: var(--dropdownHover);
 }
 
 /*-- Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) --*/
@@ -185,7 +203,7 @@ p {
   font-size: var(--pSize);
 }
 
-/*-- containers *******************************************--*/
+/*-- custom tags and general styling *******************************************--*/
 grid-container {
   display: grid;
 }
@@ -195,9 +213,17 @@ flex-container {
   flex-direction: column;
 }
 
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 /*-- footer *******************************************--*/
 footer {
-  background-color: var(--backGroundLight);
+  background-color: var(--backGroundDarker);
   height: var(--footerSize);
   bottom: 0;
   display: flex;
@@ -206,5 +232,5 @@ footer {
 }
 
 footer p {
-  color: var(--backGroundDark);
+  color: var(--backGroundLightDark);
 }
