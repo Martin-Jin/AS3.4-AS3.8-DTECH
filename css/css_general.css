@@ -19,6 +19,7 @@
   --footerSize: calc(0.9 * var(--navBarSize));
   /*-- margins --*/
   --UIMargin: 1rem;
+  --iconMargin: calc(var(--UIMargin) * 0.5);
   /*-- padding --*/
   --UIpadding: 0.75rem;
   /*-- borders --*/
@@ -41,7 +42,7 @@
   --signInBtnHeight: calc(var(--signInBtnSize) * 0.35);
   --signInBtnMargin: 1%;
   /*-- icon size --*/
-  --iconSize: calc(0.8 * var(--pSize));
+  --iconSize: calc(0.9 * var(--pSize));
 }
 
 /*-- font *******************************************--*/
@@ -86,6 +87,7 @@ body {
 }
 
 nav {
+  overflow: visible;
   grid-area: nav;
   height: var(--navBarSize);
   display: flex;
@@ -108,18 +110,16 @@ nav button {
 
 /*-- Styling of the icon that goes on the navbar --*/
 nav img {
-  height: auto;
   width: var(--iconSize);
-  margin-left: 5px;
+  margin-left: var(--iconMargin);
   filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
   border-radius: 0;
 }
 
 .general_signInBtn {
-  flex-grow: 0;
   flex-shrink: 0;
   background: var(--backGroundDark) !important;
-  border-radius: 45px;
+  border-radius: var(--UIRadius);
   flex-basis: var(--signInBtnSize) !important;
   height: var(--signInBtnHeight) !important;
   margin: auto var(--signInBtnMargin);
@@ -135,7 +135,10 @@ nav button:hover {
 
 /*-- navBar logo *******************************************--*/
 .general_logo {
-  width: 10vw;
+  filter: none;
+  width: auto;
+  height: 10vw;
+  margin: 0;
 }
 
 /*-- collapsed navBar styling*******************************************--*/

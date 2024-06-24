@@ -24,10 +24,10 @@
   --aboutPadding: calc(var(--UIpadding) * 3);
   /*-- button --*/
   --buttonHeight: calc(var(--navBarSize) * 0.85);
-  --buttonBorder: calc(var(--UIborder) / 5;);
+  --buttonBorder: calc(var(--UIborder) / 5; );
   /*-- UI --*/
   --separatorHeight: 0.1rem;
-  --productSize: calc(var(--UISize) * 5);
+  --productSize: calc(var(--UISize) * 4.5);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
@@ -136,8 +136,8 @@ h3 {
 
 /*-- UI with curved borders *******************************************--*/
 .index_slideShow,
-img,
-.index_separator, .index_button {
+.index_separator,
+img, .index_button {
   border-radius: var(--UIRadius);
 }
 
@@ -360,6 +360,11 @@ container-product p {
   grid-template-areas:
     'icon UIHeader'
     'UISubHeader  UISubHeader'
+}
+
+.index_slideHeader img {
+  border-radius: 0;
+  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
 }
 
 /*-- Next & previous buttons --*/
