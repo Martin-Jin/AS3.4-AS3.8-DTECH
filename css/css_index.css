@@ -137,7 +137,8 @@ h3 {
 /*-- UI with curved borders *******************************************--*/
 .index_slideShow,
 .index_separator,
-img, .index_button {
+img,
+.index_button {
   border-radius: var(--UIRadius);
 }
 
@@ -230,6 +231,10 @@ container-about img {
 container-aboutText {
   padding: var(--aboutPadding);
   box-sizing: border-box;
+}
+
+container-aboutText,
+container-about img {
   border-bottom-style: solid;
   border-width: var(--containerBorder);
   border-color: #1f1f1f;
