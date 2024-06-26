@@ -228,7 +228,6 @@ flex-container {
 footer {
   background-color: var(--backGroundDarker);
   height: var(--footerSize);
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;

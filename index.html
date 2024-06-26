@@ -31,7 +31,7 @@
   <!--*****************************************
     TOP HALF DIVISION
   *****************************************-->
-  <section class="index_topHalf">
+  <section-top class="index_topHalf">
     <!-- navBar for larger screens -->
     <nav id="nav_desktop">
       <button onclick="window.location = '/../index.html'" class="active" id="home">
@@ -88,7 +88,7 @@
       <!-- browse button -->
       <button class='index_button aleo-general'>Browse our coffee</button>
     </container-heading>
-  </section>
+  </section-top>
   <!--*****************************************
     TOP HALF DIVISION
   *****************************************-->
@@ -96,19 +96,19 @@
   <!--*****************************************
     BOTTOM HALF DIVISION
   *****************************************-->
-  <section class="index_bottomHalf">
-    <grid-container class="index_offers">
+  <section-bottom>
+    <grid-offers>
       <!-- header and subtitle -->
-      <grid-container class="index_slideHeader">
+      <slide-header>
         <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_UIIcon'>
         <header class="index_UIHeader">
           Special offers</header>
         <sub-header class="index_UISubHeader">
           Get them while they last</sub-header>
-      </grid-container>
+      </slide-header>
       <grid-container class="index_offersContainer">
         <!-- slide -->
-        <slide-coffee class="index_slideShow">
+        <slide-coffee class="index_slideAnnimation">
           <slide-filter class="index_filter">
             <img id="index_slideImage" class="index_slideImage" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
             <discount-container class="index_discount">
@@ -147,7 +147,7 @@
         <a class="index_prev" onclick="index_displaySlide(-1)">❮</a>
         <a class="index_next" onclick="index_displaySlide(1)">❯</a>
       </grid-container>
-    </grid-container>
+    </grid-offers>
     <flex-container>
       <!-- About section -->
       <flex-container class="index_aboutSection">
@@ -293,7 +293,7 @@
         </flex-container>
       </flex-container>
     </flex-container>
-  </section>
+  </section-bottom>
   <!--*****************************************
     BOTTOM HALF DIVISION
   *****************************************-->

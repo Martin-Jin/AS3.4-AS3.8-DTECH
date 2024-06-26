@@ -49,14 +49,13 @@
 }
 
 /*-- top division *******************************************--*/
-.index_topHalf {
+section-top {
   height: var(--topHalf);
   background-image: url(/images/images_bg/bg_landing.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   /*-- Grid container --*/
-  display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas:
@@ -135,7 +134,7 @@ h3 {
 }
 
 /*-- UI with curved borders *******************************************--*/
-.index_slideShow,
+slide-coffee,
 .index_separator,
 img,
 .index_button {
@@ -170,7 +169,7 @@ slide-filter {
 }
 
 container-product,
-container-about {
+container-about, slide-header, section-top, grid-offers {
   display: grid;
 }
 
@@ -180,11 +179,12 @@ container-about {
   padding: var(--UIpadding);
 }
 
-.index_bottomHalf {
+section-bottom {
+  display: block;
   background-color: var(--backGroundDark);
 }
 
-.index_offers {
+grid-offers {
   padding: var(--UIpadding);
   /*-- Grid container --*/
   grid-template-columns: 1fr 1fr;
@@ -324,17 +324,17 @@ container-product p {
 }
 
 /*-- slide show *******************************************--*/
-.index_slideShow,
+slide-coffee,
 .index_slideImage {
   width: 100%;
 }
 
-.index_slideShow,
+slide-coffee,
 .index_filter {
   position: relative;
 }
 
-.index_slideShow {
+slide-coffee {
   grid-area: slide;
   height: var(--slideHeight);
 }
@@ -343,7 +343,7 @@ container-product p {
   height: 100%;
 }
 
-.index_slideShow:hover>.index_filter {
+slide-coffee:hover>.index_filter {
   /*-- Lowering the brightness on hover --*/
   filter: brightness(40%);
   transition: all 1s ease;
@@ -356,7 +356,7 @@ container-product p {
   font-size: var(--descriptionP);
 }
 
-.index_slideHeader {
+slide-header {
   margin: auto;
   grid-area: slideHeader;
   /*-- Grid container --*/
@@ -367,9 +367,23 @@ container-product p {
     'UISubHeader  UISubHeader'
 }
 
-.index_slideHeader img {
+slide-header img {
   border-radius: 0;
   filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+}
+
+/*-- annimation --*/
+.index_slideAnnimation {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
 
 /*-- Next & previous buttons --*/
