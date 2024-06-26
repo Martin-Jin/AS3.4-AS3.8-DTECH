@@ -5,20 +5,30 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- colours --*/
-  --backGroundLight: #EAE6E5;
+  --backGroundLight: #dddddd;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
   --text: #F4EAE4;
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
+  --textContrast: #FF5D55;
   /*-- container sizes --*/
-  --navBarSize: 7vh;
+  --UISize: 3rem;
+  --UIRadius: 15px;
+  --navBarSize: calc(0.7 * var(--UISize));
   --footerSize: calc(0.9 * var(--navBarSize));
+  /*-- margins --*/
+  --UIMargin: 1rem;
+  --iconMargin: calc(var(--UIMargin) * 0.5);
+  /*-- padding --*/
+  --UIpadding: 0.75rem;
+  /*-- borders --*/
+  --UIborder: 0.5rem;
   /*-- font sizes --*/
-  --h1Size: 4em;
-  --h2Size: calc(0.7 * var(--h1Size));
-  --h3Size: calc(0.5 * var(--h1Size));
-  --pSize: calc(0.3 * var(--h1Size));
+  --headerSize: 2.5rem;
+  --subheaderSize: calc(0.7 * var(--headerSize));
+  --pSize: calc(0.3 * var(--headerSize));
+  --UIFontSize: calc(var(--pSize) * 1.1);
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -26,20 +36,31 @@
   /*-- container margin --*/
   --signInMargin: 5%;
   /*-- drop down buttons --*/
-  --dropDownHover: #efefef;
+  --dropdownHover: #efefef;
   /*-- button sizes --*/
-  --signInBtnSize: 45%;
-  --signInBtnHeight: 80%;
+  --signInBtnSize: calc(var(--pSize) * 6);
+  --signInBtnHeight: calc(var(--signInBtnSize) * 0.35);
   --signInBtnMargin: 1%;
   /*-- icon size --*/
-  --iconSize: calc(0.8 * var(--pSize));
+  --iconSize: calc(0.9 * var(--pSize));
 }
 
 /*-- font *******************************************--*/
-.aleo-general {
+.aleo-general,
+p,
+header,
+sub-header, button {
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.aleo-bold, span-bold {
+  font-weight: 500;
+}
+
+.aleo-thin, span-thin {
+  font-weight: 300;
 }
 
 /*-- html *******************************************--*/
@@ -49,24 +70,32 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: "Aleo", serif;
-  font-weight: 400;
-  font-style: normal;
+  height: fit-content;
+  width: fit-content;
+  scroll-behavior: smooth;
 }
 
 /*-- hide scrollbar --*/
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /*-- navBar *******************************************--*/
-.general_navBar {
-  background-color: transparent;
-  height: var(--navBarSize);
-  display: flex;
+/*-- by deafult hide the desktop one and load mobile version first--*/
+#nav_desktop {
+  display: none;
 }
 
-.general_navBar button {
+nav {
+  overflow: visible;
+  grid-area: nav;
+  height: var(--navBarSize);
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+nav button {
   height: 100%;
   padding: 0;
   border: none;
@@ -76,40 +105,62 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: var(--UIFontSize);
+}
+
+/*-- Styling of the icon that goes on the navbar --*/
+nav img {
+  width: var(--iconSize);
+  margin-left: var(--iconMargin);
+  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+  border-radius: 0;
 }
 
 .general_signInBtn {
+  flex-shrink: 0;
   background: var(--backGroundDark) !important;
-  border-radius: 45px;
+  border-radius: var(--UIRadius);
   flex-basis: var(--signInBtnSize) !important;
   height: var(--signInBtnHeight) !important;
   margin: auto var(--signInBtnMargin);
 }
 
-.general_navBar button.active {
-  border-bottom: var(--navBarBorder) solid var(--backGroundLight);
+nav button.active {
+  border-bottom: var(--navBarBorder) solid var(--subtitle);
 }
 
-.general_navBar button:hover {
-  background-color: var(--backGroundHover);
+nav button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*-- navBar logo *******************************************--*/
+.general_logo {
+  filter: none;
+  width: auto;
+  height: 10vw;
+  margin: 0;
 }
 
 /*-- collapsed navBar styling*******************************************--*/
 /*-- The container needed to position the dropdown content --*/
-.general_dropDown,
-.general_dropDown *,
-.general_navBar button {
+container-dropdown,
+nav button {
   width: 100%;
 }
 
 /*-- Dropdown content --*/
-.general_dropDown-content {
+dropdown-content {
   display: none;
   position: absolute;
+  width: 50%;
 }
 
-.general_dropDown-content button {
-  background-color: white;
+dropdown-content button img {
+  filter: invert(10%) sepia(6%) saturate(0%) hue-rotate(159deg) brightness(95%) contrast(91%);
+}
+
+dropdown-content button {
+  background-color: var(--backGroundLight);
   color: var(--backGroundDark);
   height: var(--navBarSize);
   /*-- Makes sure that the content inside the drop down menu isn't underlined --*/
@@ -117,16 +168,8 @@ body {
 }
 
 /*-- Change color of dropdown links on hover --*/
-.general_dropDown-content button:hover {
-  background-color: var(--dropDownHover);
-}
-
-/*-- Styling of the icon that goes on the navbar --*/
-.general_icon {
-  height: auto;
-  width: var(--iconSize);
-  margin-left: 5px;
-  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+dropdown-content button:hover {
+  background-color: var(--dropdownHover);
 }
 
 /*-- Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) --*/
@@ -134,70 +177,56 @@ body {
   display: block;
 }
 
-/*-- media queries to rearrange container --*/
-@media screen and (min-width: 1000px) {
-  .general_bottomHalf {
-    display: flex;
-    align-content: space-around;
-    justify-content: space-around;
-  }
-}
-
 /*-- headers *******************************************--*/
-h1,
-h2,
-h3,
+header,
+sub-header,
 p {
+  display: block;
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
   text-align: center;
-  margin: 0;
 }
 
-h1,
-h3 {
+header {
   color: var(--header);
 }
 
-h1 {
-  font-size: var(--h1Size);
+header {
+  font-size: var(--headerSize);
 }
 
-h2 {
-  font-size: var(--h2Size);
+sub-header {
+  font-size: var(--subheaderSize);
   color: var(--subtitle);
   font-weight: 300;
 }
 
-h3 {
-  font-size: var(--h3Size);
-}
-
-p,
-button {
+p {
   font-size: var(--pSize);
 }
 
-/*-- containers *******************************************--*/
-.general_headerContainer,
-.general_container {
-  flex-direction: column;
-  justify-content: center;
+/*-- custom tags and general styling *******************************************--*/
+grid-container {
+  display: grid;
+}
+
+flex-container {
   display: flex;
+  flex-direction: column;
 }
 
-.general_headerContainer {
-  height: var(--headerContainer);
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/*-- containers *******************************************--*/
-.general_container {
-  background-color: var(--backGroundLightDark);
-  height: var(--demoContainerHeight);
-  width: var(--demoContainerWidth);
-}
 
 /*-- footer *******************************************--*/
 footer {
-  background-color: var(--backGroundLight);
+  background-color: var(--backGroundDarker);
   height: var(--footerSize);
   bottom: 0;
   display: flex;
@@ -206,5 +235,5 @@ footer {
 }
 
 footer p {
-  color: var(--backGroundDark);
+  color: var(--backGroundLightDark);
 }

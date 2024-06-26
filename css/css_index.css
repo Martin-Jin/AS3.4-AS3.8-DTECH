@@ -6,51 +6,75 @@
 :root {
   /*-- container sizes --*/
   --topHalf: 100vh;
-  --headerContainer: calc(var(--topHalf) - var(--navBarSize));
-  --bottomHalf: calc(200vh - var(--topHalf));
+  --offersContainer: calc(var(--UISize) * 8);
+  --aboutContainer: calc(var(--UISize) * 14);
+  --aboutImageSize: calc(var(--UISize) * 3.5);
+  /*-- container properties --*/
+  --containerBorder: calc(var(--UIborder) * 1.5);
   /*-- margin --*/
-  --UILeftMargin: 5vw;
-  --buttonMargin: 2.5vh;
+  --arrowMargin: calc(var(--UIMargin) * 0.6);
+  --buttonMargin: calc(var(--UIMargin) * 0.9);
+  --UIIconMargin: calc(var(--UIMargin) * 0.5);
+  --QuoteMargin: calc(var(--UIMargin) * 0.3);
+  --separatorMargin: calc(var(--UIMargin) * 0.5);
+  --productSpacing: calc(var(--UIMargin) * 0.8);
+  /*-- padding --*/
+  --buttonPadding: calc(var(--UIpadding) * 0.45);
+  --descriptionPadding: calc(var(--UIpadding) * 0.4);
+  --aboutPadding: calc(var(--UIpadding) * 3);
   /*-- button --*/
-  --buttonHeight: 40px;
-  --buttonRaidus: 20px;
-  --buttonPadding: 20px;
+  --buttonHeight: calc(var(--navBarSize) * 0.85);
+  --buttonBorder: calc(var(--UIborder) / 5; );
+  /*-- UI --*/
+  --separatorHeight: 0.1rem;
+  --productSize: calc(var(--UISize) * 4.5);
   /*-- headers --*/
-  --headerWidth: 65vw;
-  --subtitleWidth: 50vw;
+  --headerWidth: calc(var(--UISize) * 12);
+  --subtitleWidth: calc(var(--headerWidth) * 0.8);
+  --UIHeaderSize: calc(var(--UISize) * 0.7);
+  --UISubHeaderSize: calc(var(--UISize) * 0.3);
+  /*-- icons --*/
+  --UIiconSize: calc(1.7 * var(--UISubHeaderSize));
+  /*-- slide show --*/
+  --slideHeight: calc(var(--UISize) * 5.5);
+  --slideArrow: calc(var(--UIiconSize) * 0.7);
+  --slideDiscount: calc(var(--slideArrow) * 2.5);
+  --slideBorderRadius: calc(var(--slideArrow) / 10);
+  --slideArrowPadding: calc(var(--slideArrow) / 4);
+  /*-- description --*/
+  --descriptionP: calc(1.2 * var(--pSize));
+  --quoteSize: calc(0.8 * var(--descriptionP));
+  --pfpSize: calc(var(--UIiconSize) * 1.2);
+  --offerP: calc(1.4 * var(--pSize));
 }
 
 /*-- top division *******************************************--*/
 .index_topHalf {
   height: var(--topHalf);
-  background-image: url(/images/images_bg/bg_landing.webp);
+  background-image: url(/images/images_bg/bg_landing.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
-  /*-- Grid container ***--*/
+  /*-- Grid container --*/
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto;
   grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas:
-    'nav nav nav nav nav nav'
-    'ui ui ui ui ui ui'
-    'space space space space space space'
-}
-
-.index_nav {
-  grid-area: nav;
+    'nav'
+    'ui'
+    'space';
 }
 
 .index_ui {
   grid-area: ui;
-  margin-left: var(--UILeftMargin);
+  margin: auto auto auto var(--UIMargin);
+  height: max-content;
 }
+
 /*-- headers *******************************************--*/
 .index_header,
 .index_sub {
   text-align: left;
-  height: fit-content;
 }
 
 .index_header {
@@ -59,28 +83,363 @@
 
 .index_sub {
   max-width: var(--subtitleWidth);
+  margin: 0;
+}
+
+.index_UIHeader {
+  grid-area: UIHeader;
+}
+
+.index_UISubHeader {
+  font-size: var(--UISubHeaderSize);
+  grid-area: UISubHeader;
+  margin: 0 auto var(--UIMargin) auto;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+/*-- text related stlying *******************************************--*/
+.index_description {
+  max-width: var(--offersContainer);
+  grid-area: description;
+  margin: var(--UIMargin) auto auto auto;
+  padding: var(--descriptionPadding);
+}
+
+.index_separator {
+  border: var(--separatorHeight) solid var(--subtitle);
+  margin: var(--separatorMargin) auto;
+}
+
+.index_separator_short {
+  width: 80%;
+}
+
+.index_aboutCoffee {
+  color: var(--text);
+  font-size: var(--descriptionP);
+}
+
+.index_offerText {
+  margin: 0;
+  font-size: var(--offerP);
+}
+
+/*-- icons *******************************************--*/
+.index_UIIcon {
+  width: var(--UIiconSize);
+  grid-area: icon;
+  margin: auto var(--UIIconMargin) auto auto;
+}
+
+/*-- UI with curved borders *******************************************--*/
+.index_slideShow,
+.index_separator,
+img,
+.index_button {
+  border-radius: var(--UIRadius);
 }
 
 /*-- button *******************************************--*/
 .index_button {
-  grid-area: button;
-  min-height: var(--buttonHeight);
-  width: max-content;
-  padding: 0 var(--buttonPadding);
+  padding: calc(var(--buttonPadding) / 1.5) var(--buttonPadding);
   background: var(--backGroundLightDark);
   color: var(--text);
   cursor: pointer;
-  border-color: transparent;
-  border-radius: var(--buttonRaidus);
-  box-shadow: -2.5px 2.5px var(--subtitle);
+  border: none;
+  border-bottom-style: solid;
+  border-color: var(--subtitle);
+  border-width: var(--buttonBorder);
   margin-top: var(--buttonMargin);
+  font-size: var(--descriptionP);
+}
+
+/*-- basic container styling *******************************************--*/
+.index_description,
+container-product,
+container-aboutText,
+container-description {
+  background-color: var(--backGroundLightDark);
+  border-radius: var(--UIRadius);
+}
+
+slide-filter {
+  display: block;
+}
+
+container-product,
+container-about {
+  display: grid;
 }
 
 /*-- bottom division *******************************************--*/
-.index_bottomHalf {
-  overflow: auto;
+.index_aboutSection {
+  background-color: var(--backGroundLight);
+  padding: var(--UIpadding);
 }
 
-.index_bottomHalf div {
-  margin: var(--containerTopBottomMargin) auto;
+.index_bottomHalf {
+  background-color: var(--backGroundDark);
+}
+
+.index_offers {
+  padding: var(--UIpadding);
+  /*-- Grid container --*/
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'slideHeader slideHeader'
+    'container container';
+}
+
+.index_offersContainer {
+  margin: auto;
+  grid-area: container;
+  /*-- Grid container --*/
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'prev slide next'
+    'prev description next';
+  align-items: center;
+}
+
+/*-- About section *******************************************--*/
+.index_about,
+container-about {
+  grid-gap: var(--productSpacing);
+  align-items: center;
+}
+
+container-about {
+  max-width: var(--aboutContainer);
+}
+
+container-about img {
+  margin: auto;
+  width: 80%;
+}
+
+.index_about p {
+  font-size: var(--descriptionP);
+  color: white;
+  margin-bottom: var(--UIMargin)
+}
+
+container-aboutText {
+  padding: var(--aboutPadding);
+  box-sizing: border-box;
+}
+
+container-aboutText,
+container-about img {
+  border-bottom-style: solid;
+  border-width: var(--containerBorder);
+  border-color: #1f1f1f;
+}
+
+/*-- Reconmmended section *******************************************--*/
+.index_productContainer {
+  /*-- flex container --*/
+  grid-gap: var(--productSpacing);
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+container-product {
+  /*-- Grid container --*/
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  max-width: var(--productSize);
+}
+
+container-product:hover {
+  /*-- Annimation --*/
+  transform: scale(1.1);
+  transition-duration: 400ms;
+}
+
+container-product img {
+  width: 100%;
+  border-radius: var(--UIRadius) var(--UIRadius) 0 0;
+}
+
+container-product p {
+  color: white;
+  margin: var(--QuoteMargin);
+}
+
+.index_recommendedContainer {
+  padding: var(--UIpadding);
+}
+
+.index_recommendedContainer header {
+  margin-bottom: var(--UIpadding);
+}
+
+/*-- review *******************************************--*/
+.index_review * {
+  color: var(--text);
+  font-size: var(--quoteSize);
+}
+
+.index_review {
+  /*-- Grid container --*/
+  grid-template-rows: auto;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    'author quote';
+}
+
+.index_author {
+  margin: auto 0 auto auto;
+  grid-area: author;
+  /*-- Grid container --*/
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'picture'
+    'name';
+}
+
+.index_pfp {
+  grid-area: picture;
+  height: var(--pfpSize);
+  width: var(--pfpSize);
+  object-fit: cover;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.index_name {
+  grid-area: name;
+}
+
+.index_quote {
+  margin: auto auto auto var(--QuoteMargin);
+  grid-area: quote;
+}
+
+/*-- slide show *******************************************--*/
+.index_slideShow,
+.index_slideImage {
+  width: 100%;
+}
+
+.index_slideShow,
+.index_filter {
+  position: relative;
+}
+
+.index_slideShow {
+  grid-area: slide;
+  height: var(--slideHeight);
+}
+
+.index_filter {
+  height: 100%;
+}
+
+.index_slideShow:hover>.index_filter {
+  /*-- Lowering the brightness on hover --*/
+  filter: brightness(40%);
+  transition: all 1s ease;
+}
+
+/*-- displays button on hover --*/
+.index_filter:hover+.index_slideHover,
+.index_slideHover:hover {
+  display: flex;
+  font-size: var(--descriptionP);
+}
+
+.index_slideHeader {
+  margin: auto;
+  grid-area: slideHeader;
+  /*-- Grid container --*/
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'icon UIHeader'
+    'UISubHeader  UISubHeader'
+}
+
+.index_slideHeader img {
+  border-radius: 0;
+  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
+}
+
+/*-- Next & previous buttons --*/
+.index_prev,
+.index_next {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: var(--slideArrow);
+  padding: var(--slideArrowPadding);
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+.index_next {
+  grid-area: next;
+  margin-left: var(--arrowMargin);
+  border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
+}
+
+.index_prev {
+  grid-area: prev;
+  margin-right: var(--arrowMargin);
+  border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
+}
+
+/*-- Discount text --*/
+.index_discount {
+  height: var(--slideDiscount);
+  width: 15%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--text);
+  color: var(--textContrast);
+  border-radius: 0 var(--UIRadius) 0 0;
+}
+
+.index_discount * {
+  width: 100%;
+  margin: 0;
+  font-size: var(--descriptionP);
+}
+
+#index_coffeePrice {
+  text-decoration: line-through;
+  color: var(--text);
+}
+
+#index_discountPrice {
+  color: var(--textContrast);
+}
+
+/*-- Container for what to display when the slide show is hovered on --*/
+.index_slideHover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-- On hover, add a black background color with a little bit see-through --*/
+.index_prev:hover,
+.index_next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.index_slideImage {
+  object-fit: cover;
+  height: 100%;
 }
