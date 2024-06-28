@@ -34,14 +34,8 @@
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
   --backGroundHover: rgba(244, 234, 228, 0.1);
-  /*-- container margin --*/
-  --signInMargin: 5%;
   /*-- drop down buttons --*/
   --dropdownHover: #efefef;
-  /*-- button sizes --*/
-  --signInBtnSize: calc(var(--pSize) * 6);
-  --signInBtnHeight: calc(var(--signInBtnSize) * 0.35);
-  --signInBtnMargin: 1%;
   /*-- icon size --*/
   --iconSize: calc(0.9 * var(--pSize));
 }
@@ -89,6 +83,10 @@ body {
   display: none;
 }
 
+#nav_desktop > * {
+  flex: 1 1 0;
+}
+
 nav {
   overflow: visible;
   grid-area: nav;
@@ -117,12 +115,11 @@ nav img {
 }
 
 .general_signInBtn {
-  flex-shrink: 0;
   background: var(--backGroundDark) !important;
   border-radius: var(--UIRadius);
-  flex-basis: var(--signInBtnSize) !important;
-  height: var(--signInBtnHeight) !important;
-  margin: auto var(--signInBtnMargin);
+  height: 75%;
+  width: 60%;
+  margin: auto;
 }
 
 nav button.active {
@@ -139,6 +136,7 @@ nav button:hover {
   width: auto;
   height: 10vw;
   margin: 0;
+  object-fit: scale-down;
 }
 
 /*-- collapsed navBar styling*******************************************--*/

@@ -53,9 +53,12 @@
       <button onclick="window.location = '/html/html_orders'" id="orders">
         Orders <img src="/images/images_icons/icons_orders.png" alt="basket_icon">
       </button>
-      <button onclick="window.location = '/html/html_signIn'" class="general_signInBtn" id="signIn">
-        Sign in
-      </button>
+      <!-- sign in button needs to be in a container so its width can be customised -->
+      <flex-container>
+        <button onclick="window.location = '/html/html_signIn'" class="general_signInBtn" id="signIn">
+          Sign in
+        </button>
+      </flex-container>
     </nav>
     <!-- navBar for larger screens -->
     <nav id="nav_dropdown">
@@ -64,8 +67,7 @@
       </button>
       <!-- drop down thats displayed on smaller screens -->
       <container-dropdown class="general_dropDown">
-        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="general_dropBtn"
-          class="aleo-general">
+        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="general_dropBtn">
           Dropdown
         </button>
         <dropdown-content id="dropDown">
@@ -87,7 +89,7 @@
       <header class="index_header">Welcome to HVHS coffee house</header>
       <sub-header class="index_sub">Fresh coffee at your finger tips.</sub-header>
       <!-- browse button -->
-      <button class='index_button aleo-general' onclick="(function() {general_displayCard(coffee6)})">Browse our
+      <button class='index_button' onclick="(function() {general_displayCard(coffee6)})">Browse our
         coffee</button>
     </container-heading>
   </section-top>
@@ -117,6 +119,7 @@
               <p class="aleo-bold center">99% off</p>
             </discount-container>
           </slide-filter>
+          <!-- whats displayed when user hovers over slide -->
           <hover-item class="index_slideHover center">
             <p class="index_offerText"><span id="index_coffeePrice">Original price: $1</span>
               <span id="index_discountPrice">Now only: $0.1</span>
@@ -154,6 +157,7 @@
       <!-- About section -->
       <flex-container class="index_aboutSection">
         <flex-container class="index_about">
+          <!-- about 1 -->
           <container-about>
             <container-aboutText>
               <sub-header>Welcome to HVHS Coffee House</sub-header>
@@ -167,6 +171,7 @@
             </container-aboutText>
             <img src='/images/images_about/about_1.jpg' alt="about">
           </container-about>
+          <!-- about 2 -->
           <container-about>
             <container-aboutText>
               <sub-header>Our Story</sub-header>
@@ -182,6 +187,7 @@
             </container-aboutText>
             <img src='/images/images_about/about_2.jpg' alt="about">
           </container-about>
+          <!-- about 3 -->
           <container-about>
             <container-aboutText>
               <sub-header>Craftsmanship and Quality</sub-header>
@@ -198,6 +204,7 @@
             </container-aboutText>
             <img src='/images/images_about/about_3.jpg' alt="about">
           </container-about>
+          <!-- about 4 -->
           <container-about>
             <container-aboutText>
               <sub-header>Community Engagement</sub-header>
@@ -214,6 +221,7 @@
             </container-aboutText>
             <img src='/images/images_about/about_4.jpg' alt="coffee">
           </container-about>
+          <!-- about 5 -->
           <container-about>
             <container-aboutText>
               <sub-header>Sustainability</sub-header>
@@ -236,58 +244,89 @@
           Recommended
         </header>
         <flex-container class="index_productContainer">
-          <container-product id="index_product1">
-            <img src='/images/images_coffee/coffee_1.jpg' alt="coffee">
-            <flex-container>
-              <p><span-bold>- Coffee Name:</span-bold> <span-thin>Coffee Name</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint of
-                  chocolate and caramel notes.</span-thin></p>
-            </flex-container>
-          </container-product>
-          <container-product id="index_product2">
-            <img src='/images/images_coffee/coffee_2.jpg' alt="coffee">
-            <flex-container>
-              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$2.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
-                  of
-                  dark chocolate.</span-thin></p>
-            </flex-container>
-          </container-product>
-          <container-product id="index_product3">
-            <img src='/images/images_coffee/coffee_3.jpg' alt="coffee">
-            <flex-container>
-              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$3.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
-                  citrus
-                  and berries.</span-thin></p>
-            </flex-container>
-          </container-product>
-          <container-product id="index_product4">
-            <img src='/images/images_coffee/coffee_4.jpg' alt="coffee">
-            <flex-container>
-              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$4.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
-                  dark
-                  chocolate and nuts.</span-thin></p>
-            </flex-container>
-          </container-product>
-          <container-product id="index_product5">
-            <img src='/images/images_coffee/coffee_5.jpg' alt="coffee">
-            <flex-container>
-              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$5.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
-                  sweetness.</span-thin></p>
-            </flex-container>
-          </container-product>
-          <container-product id="index_product6">
-            <img src='/images/images_coffee/coffee_6.jpg' alt="coffee">
-            <flex-container>
-              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$6.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
-                  mellow
-                  flavor.</span-thin></p>
-            </flex-container>
-          </container-product>
+          <!-- product 1 -->
+          <flex-container>
+            <container-product id="index_product1">
+              <img src='/images/images_coffee/coffee_1.jpg' alt="coffee">
+              <flex-container>
+                <p><span-bold>- Coffee Name:</span-bold> <span-thin>Coffee Name</span-thin></p>
+                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint
+                    of
+                    chocolate and caramel notes.</span-thin></p>
+              </flex-container>
+            </container-product>
+            <button class='index_button' onclick="(function() {general_displayCard(coffee1)})">Learn
+              more</button>
+          </flex-container>
+          <!-- product 2 -->
+          <flex-container>
+            <container-product id="index_product2">
+              <img src='/images/images_coffee/coffee_2.jpg' alt="coffee">
+              <flex-container>
+                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$2.99</span-thin></p>
+                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
+                    of
+                    dark chocolate.</span-thin></p>
+              </flex-container>
+            </container-product>
+            <button class='index_button' onclick="(function() {general_displayCard(coffee2)})">Learn
+              more</button>
+          </flex-container>
+          <!-- product 3 -->
+          <flex-container>
+            <container-product id="index_product3">
+              <img src='/images/images_coffee/coffee_3.jpg' alt="coffee">
+              <flex-container>
+                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$3.99</span-thin></p>
+                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
+                    citrus
+                    and berries.</span-thin></p>
+              </flex-container>
+            </container-product>
+            <button class='index_button' onclick="(function() {general_displayCard(coffee3)})">Learn
+              more</button>
+          </flex-container>
+          <!-- product 4 -->
+          <flex-container>
+            <container-product id="index_product4">
+              <img src='/images/images_coffee/coffee_4.jpg' alt="coffee">
+              <flex-container>
+                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$4.99</span-thin></p>
+                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
+                    dark
+                    chocolate and nuts.</span-thin></p>
+              </flex-container>
+            </container-product>
+            <button class='index_button' onclick="(function() {general_displayCard(coffee4)})">Learn
+              more</button>
+          </flex-container>
+          <!-- product 5 -->
+          <flex-container>
+            <container-product id="index_product5">
+              <img src='/images/images_coffee/coffee_5.jpg' alt="coffee">
+              <flex-container>
+                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$5.99</span-thin></p>
+                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
+                    sweetness.</span-thin></p>
+              </flex-container>
+            </container-product>
+            <button class='index_button' onclick="(function() {general_displayCard(coffee5)})">Learn
+              more</button>
+          </flex-container>
+          <!-- product 6 -->
+          <flex-container>
+            <container-product id="index_product6">
+              <img src='/images/images_coffee/coffee_6.jpg' alt="coffee">
+              <flex-container>
+                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$6.99</span-thin></p>
+                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
+                    mellow
+                    flavor.</span-thin></p>
+              </flex-container>
+            </container-product>
+            <button class='index_button' onclick="(function() {general_displayCard(coffee6)})">Learn
+              more</button>
+          </flex-container>
         </flex-container>
       </flex-container>
     </flex-container>

@@ -13,11 +13,11 @@
   --containerBorder: calc(var(--UIborder) * 1.5);
   /*-- margin --*/
   --arrowMargin: calc(var(--UIMargin) * 0.6);
-  --buttonMargin: calc(var(--UIMargin) * 0.9);
+  --buttonMargin: calc(var(--UIMargin) * 0.65);
   --UIIconMargin: calc(var(--UIMargin) * 0.5);
   --QuoteMargin: calc(var(--UIMargin) * 0.3);
   --separatorMargin: calc(var(--UIMargin) * 0.5);
-  --productSpacing: calc(var(--UIMargin) * 0.8);
+  --productSpacing: calc(var(--UIMargin) * 0.9);
   /*-- padding --*/
   --buttonPadding: calc(var(--UIpadding) * 0.7);
   --descriptionPadding: calc(var(--UIpadding) * 0.7);
@@ -27,7 +27,7 @@
   --buttonBorder: calc(var(--UIborder) / 5; );
   /*-- UI --*/
   --separatorHeight: 0.1rem;
-  --productSize: calc(var(--UISize) * 5);
+  --productSize: calc(var(--UISize) * 4.6);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
@@ -182,7 +182,7 @@ section-bottom {
 grid-offers {
   padding: var(--UIpadding);
   /*-- Grid container --*/
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'slideHeader slideHeader'
@@ -247,10 +247,16 @@ container-about img {
 }
 
 container-product {
+  height: 100%;
   /*-- Grid container --*/
   grid-template-columns: auto;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   max-width: var(--productSize);
+}
+
+container-product + button {
+  width: 60%;
+  margin: auto;
 }
 
 container-product:hover {
