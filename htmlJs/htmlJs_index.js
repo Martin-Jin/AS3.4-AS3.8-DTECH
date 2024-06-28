@@ -19,6 +19,7 @@ const index_SLIDEIMAGES = [coffee1, coffee2, coffee3, coffee4, coffee5, coffee6]
 
 let index_slideIndex = -1;
 const index_SLIDE_IMAGE_ID = 'index_slideImage';
+const index_SLIDE_BUTTON_ID = 'index_slideButton';
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
@@ -41,10 +42,13 @@ function index_displaySlide(index) {
   console.log("SlideIndex: " + index_slideIndex);
   //Displaying the next slide
   let prev_img = document.getElementById(index_SLIDE_IMAGE_ID);
-  let img = index_SLIDEIMAGES[index_slideIndex].image;
-  let alt = index_SLIDEIMAGES[index_slideIndex].alt;
+  let new_img = index_SLIDEIMAGES[index_slideIndex];
+  let img = new_img.image;
+  let alt = new_img.alt;
   prev_img.src = img;
   prev_img.alt = alt;
+  //Getting the button
+  document.getElementById(index_SLIDE_BUTTON_ID).onclick = function () {general_displayCard(new_img)};
 }
 /**************************************************************/
 // END OF MODULE

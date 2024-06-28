@@ -7,7 +7,7 @@
   /*-- container sizes --*/
   --topHalf: 100vh;
   --offersContainer: calc(var(--UISize) * 8);
-  --aboutContainer: calc(var(--UISize) * 14);
+  --aboutContainer: calc(var(--UISize) * 15);
   --aboutImageSize: calc(var(--UISize) * 3.5);
   /*-- container properties --*/
   --containerBorder: calc(var(--UIborder) * 1.5);
@@ -19,15 +19,15 @@
   --separatorMargin: calc(var(--UIMargin) * 0.5);
   --productSpacing: calc(var(--UIMargin) * 0.8);
   /*-- padding --*/
-  --buttonPadding: calc(var(--UIpadding) * 0.45);
-  --descriptionPadding: calc(var(--UIpadding) * 0.4);
+  --buttonPadding: calc(var(--UIpadding) * 0.7);
+  --descriptionPadding: calc(var(--UIpadding) * 0.7);
   --aboutPadding: calc(var(--UIpadding) * 3);
   /*-- button --*/
   --buttonHeight: calc(var(--navBarSize) * 0.85);
   --buttonBorder: calc(var(--UIborder) / 5; );
   /*-- UI --*/
   --separatorHeight: 0.1rem;
-  --productSize: calc(var(--UISize) * 4.5);
+  --productSize: calc(var(--UISize) * 5);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
@@ -42,9 +42,8 @@
   --slideBorderRadius: calc(var(--slideArrow) / 10);
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   /*-- description --*/
-  --descriptionP: calc(1.2 * var(--pSize));
-  --quoteSize: calc(0.8 * var(--descriptionP));
-  --pfpSize: calc(var(--UIiconSize) * 1.2);
+  --quoteSize: calc(0.9 * var(--pSize));
+  --pfpSize: calc(var(--UIiconSize) * 1.4);
   --offerP: calc(1.4 * var(--pSize));
 }
 
@@ -81,7 +80,6 @@ section-top {
 }
 
 .index_sub {
-  max-width: var(--subtitleWidth);
   margin: 0;
 }
 
@@ -118,11 +116,9 @@ h3 {
 
 .index_aboutCoffee {
   color: var(--text);
-  font-size: var(--descriptionP);
 }
 
 .index_offerText {
-  margin: 0;
   font-size: var(--offerP);
 }
 
@@ -143,7 +139,7 @@ img,
 
 /*-- button *******************************************--*/
 .index_button {
-  padding: calc(var(--buttonPadding) / 1.5) var(--buttonPadding);
+  padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
   background: var(--backGroundLightDark);
   color: var(--text);
   cursor: pointer;
@@ -152,7 +148,6 @@ img,
   border-color: var(--subtitle);
   border-width: var(--buttonBorder);
   margin-top: var(--buttonMargin);
-  font-size: var(--descriptionP);
 }
 
 /*-- basic container styling *******************************************--*/
@@ -214,19 +209,22 @@ container-about {
 }
 
 container-about {
-  max-width: var(--aboutContainer);
+  max-width: calc(var(--aboutContainer) / 1.5);
 }
 
 container-about img {
   margin: auto;
-  width: 80%;
+  width: 90%;
 }
 
 .index_about p {
-  font-size: var(--descriptionP);
   color: white;
-  margin-bottom: var(--UIMargin)
+  
 }
+
+.index_about p {
+  line-height: var(--UILineHeight);
+} 
 
 container-aboutText {
   padding: var(--aboutPadding);
@@ -246,13 +244,12 @@ container-about img {
   grid-gap: var(--productSpacing);
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 container-product {
   /*-- Grid container --*/
   grid-template-columns: auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr;
   max-width: var(--productSize);
 }
 
@@ -263,7 +260,9 @@ container-product:hover {
 }
 
 container-product img {
+  height: 100%;
   width: 100%;
+  object-fit: cover;
   border-radius: var(--UIRadius) var(--UIRadius) 0 0;
 }
 
@@ -294,7 +293,7 @@ container-product p {
     'author quote';
 }
 
-.index_author {
+#slide_author {
   margin: auto 0 auto auto;
   grid-area: author;
   /*-- Grid container --*/
@@ -305,7 +304,7 @@ container-product p {
     'name';
 }
 
-.index_pfp {
+#slide_pfp {
   grid-area: picture;
   height: var(--pfpSize);
   width: var(--pfpSize);
@@ -314,7 +313,7 @@ container-product p {
   margin: auto;
 }
 
-.index_name {
+#slide_name {
   grid-area: name;
 }
 
@@ -353,7 +352,6 @@ slide-coffee:hover>.index_filter {
 .index_filter:hover+.index_slideHover,
 .index_slideHover:hover {
   display: flex;
-  font-size: var(--descriptionP);
 }
 
 slide-header {
@@ -425,7 +423,6 @@ slide-header img {
 .index_discount * {
   width: 100%;
   margin: 0;
-  font-size: var(--descriptionP);
 }
 
 #index_coffeePrice {

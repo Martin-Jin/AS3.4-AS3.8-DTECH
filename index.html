@@ -3,6 +3,7 @@
 
 <head>
   <title>HVHS coffee house</title>
+  <link rel="icon" type="image/x-icon" href="/images/images_icons/icons_logo.png">
   <meta charset="UTF-8">
   <meta name="description" content="13DTECH component trailing">
   <meta name="author" content="Martin Jin">
@@ -31,7 +32,7 @@
   <!--*****************************************
     TOP HALF DIVISION
   *****************************************-->
-  <section-top class="index_topHalf">
+  <section-top>
     <!-- navBar for larger screens -->
     <nav id="nav_desktop">
       <button onclick="window.location = '/../index.html'" class="active" id="home">
@@ -86,7 +87,8 @@
       <header class="index_header">Welcome to HVHS coffee house</header>
       <sub-header class="index_sub">Fresh coffee at your finger tips.</sub-header>
       <!-- browse button -->
-      <button class='index_button aleo-general'>Browse our coffee</button>
+      <button class='index_button aleo-general' onclick="(function() {general_displayCard(coffee6)})">Browse our
+        coffee</button>
     </container-heading>
   </section-top>
   <!--*****************************************
@@ -119,7 +121,7 @@
             <p class="index_offerText"><span id="index_coffeePrice">Original price: $1</span>
               <span id="index_discountPrice">Now only: $0.1</span>
             </p>
-            <button class="index_button aleo-general">View now!</button>
+            <button id="index_slideButton" class="index_button">View now!</button>
           </hover-item>
         </slide-coffee>
         <!-- description of coffee -->
@@ -135,9 +137,9 @@
           <hr class="index_separator index_separator_short">
           <grid-container class="index_review">
             <!-- author of the review -->
-            <grid-container class="index_author">
-              <img class="index_pfp" src="/images/images_coffee/coffee_6.jpg" alt="pfp">
-              <p class="index_name">John Doe</p>
+            <grid-container id="slide_author">
+              <img id="slide_pfp" src="/images/images_coffee/coffee_6.jpg" alt="pfp">
+              <p id="slide_name">John Doe</p>
             </grid-container>
             <!-- quote -->
             <p class="index_quote">"The coffee is great, because I liked it."</p>
@@ -155,66 +157,74 @@
           <container-about>
             <container-aboutText>
               <sub-header>Welcome to HVHS Coffee House</sub-header>
-              <p class="aleo-thin">At HVHS Coffee House, we are passionate about crafting the perfect cup of coffee for
-                every palate. From the
-                moment you step through our doors, you are greeted with the rich aroma of freshly roasted beans and the
-                inviting ambiance of a cozy coffeehouse. Our commitment to quality, community, and sustainability is
-                evident
-                in every aspect of our operation.</p>
+              <flex-container>
+                <p class="aleo-thin"><br>At HVHS Coffee House, we are passionate about crafting the perfect cup of
+                  coffee
+                  for every palate.</p>
+                <p class="aleo-thin">From the moment you step through our doors, you are greeted with the rich aroma of
+                  freshly roasted beans and the inviting ambiance of a cozy coffeehouse.</p>
+              </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_1.jpg' alt="about">
           </container-about>
           <container-about>
             <container-aboutText>
               <sub-header>Our Story</sub-header>
-              <p class="aleo-thin">HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who wanted
-                to create a space
-                where people could gather, connect, and savor exceptional coffee. With years of experience in the coffee
-                industry and a deep love for the craft, we set out to establish a place that would not only serve great
-                coffee but also foster a sense of belonging and camaraderie within our community.</p>
+              <flex-container>
+                <p class="aleo-thin"><br>HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who
+                  wanted to create a space where people could gather, connect, and savor exceptional coffee.</p>
+                <p class="aleo-thin">With years of experience in the coffee industry and a deep love for the craft, we
+                  set
+                  out to establish a place that would not only serve great coffee but also foster a sense of belonging
+                  and
+                  camaraderie within our community.</p>
+              </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_2.jpg' alt="about">
           </container-about>
           <container-about>
             <container-aboutText>
               <sub-header>Craftsmanship and Quality</sub-header>
-              <p class="aleo-thin">At HVHS Coffee House, we believe that the key to a truly exceptional cup of coffee
-                lies
-                in the details.
-                That's why we meticulously source the finest beans from sustainable farms around the world, ensuring
-                that
-                each sip is a testament to the dedication and expertise of our roasters. From our carefully calibrated
-                espresso shots to our handcrafted pour-over brews, every drink is crafted with precision and passion.
-              </p>
+              <flex-container>
+                <p class="aleo-thin"><br>At HVHS Coffee House, we believe that the key to a truly exceptional cup of
+                  coffee
+                  lies in the details.</p>
+                <p class="aleo-thin">That's why we meticulously source the finest beans from sustainable farms around
+                  the
+                  world, ensuring that each sip is a testament to the dedication and expertise of our roasters.</p>
+                <p class="aleo-thin">From our carefully calibrated espresso shots to our handcrafted pour-over brews,
+                  every drink is crafted with precision and passion.</p>
+              </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_3.jpg' alt="about">
           </container-about>
           <container-about>
             <container-aboutText>
               <sub-header>Community Engagement</sub-header>
-              <p class="aleo-thin">More than just a place to grab your morning caffeine fix, HVHS Coffee House is a hub
-                for community
-                engagement and connection. Whether you're catching up with friends over a latte, attending one of our
-                weekly
-                coffee tastings, or simply enjoying a moment of solitude with a good book, our space is yours to enjoy.
-                We
-                are proud to support local artists, musicians, and organizations, hosting events and fundraisers that
-                enrich
-                the cultural fabric of our community.</p>
+              <flex-container>
+                <p class="aleo-thin"><br>More than just a place to grab your morning caffeine fix, HVHS Coffee House is
+                  a
+                  hub for community engagement and connection.</p>
+                <p class="aleo-thin">Whether you're catching up with friends over a latte, attending one of our weekly
+                  coffee tastings, or simply enjoying a moment of solitude with a good book, our space is yours to
+                  enjoy.</p>
+                <p class="aleo-thin">We are proud to support local artists, musicians, and organizations, hosting events
+                  and fundraisers that enrich the cultural fabric of our community.</p>
+              </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_4.jpg' alt="coffee">
           </container-about>
           <container-about>
             <container-aboutText>
               <sub-header>Sustainability</sub-header>
-              <p class="aleo-thin">As stewards of the environment, we are committed to minimizing our ecological
-                footprint
-                and promoting
-                sustainability throughout our supply chain. From our eco-friendly packaging to our energy-efficient
-                equipment, we strive to operate in harmony with the planet, ensuring that future generations can
-                continue
-                to
-                enjoy the pleasures of great coffee.</p>
+              <flex-container>
+                <p class="aleo-thin"><br>As stewards of the environment, we are committed to minimizing our ecological
+                  footprint and promoting sustainability throughout our supply chain.</p>
+                <p class="aleo-thin">From our eco-friendly packaging to our energy-efficient equipment, we strive to
+                  operate in harmony with the planet, ensuring that future generations can continue to enjoy the
+                  pleasures
+                  of great coffee.</p>
+              </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_5.jpg' alt="coffee">
           </container-about>
@@ -228,67 +238,55 @@
         <flex-container class="index_productContainer">
           <container-product id="index_product1">
             <img src='/images/images_coffee/coffee_1.jpg' alt="coffee">
-            <p><span-bold>- Coffee Name:</span-bold> <span-thin>$1.99</span-thin><br>
-              <span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint
-                of chocolate and
-                caramel notes.</span-thin><br>
-              <span-bold>- Ingredients:</span-bold> <span-thin>This coffee is made with Arabica beans sourced
-                from Central
-                America.</span-thin>
-            </p>
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>Coffee Name</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint of
+                  chocolate and caramel notes.</span-thin></p>
+            </flex-container>
           </container-product>
           <container-product id="index_product2">
             <img src='/images/images_coffee/coffee_2.jpg' alt="coffee">
-            <p><span-bold>- Coffee Name:</span-bold> <span-thin>$2.99</span-thin><br>
-              <span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and
-                hints of dark
-                chocolate.</span-thin><br>
-              <span-bold>- Ingredients:</span-bold> <span-thin>This coffee is made with a blend of Arabica and
-                Robusta
-                beans.</span-thin>
-            </p>
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$2.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
+                  of
+                  dark chocolate.</span-thin></p>
+            </flex-container>
           </container-product>
           <container-product id="index_product3">
             <img src='/images/images_coffee/coffee_3.jpg' alt="coffee">
-            <p><span-bold>- Coffee Name:</span-bold> <span-thin>$3.99</span-thin><br>
-              <span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
-                citrus and
-                berries.</span-thin><br>
-              <span-bold>- Ingredients:</span-bold> <span-thin>This coffee is made with single-origin Arabica
-                beans from
-                Ethiopia.</span-thin>
-            </p>
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$3.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
+                  citrus
+                  and berries.</span-thin></p>
+            </flex-container>
           </container-product>
           <container-product id="index_product4">
             <img src='/images/images_coffee/coffee_4.jpg' alt="coffee">
-            <p><span-bold>- Coffee Name:</span-bold> <span-thin>$4.99</span-thin><br>
-              <span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes
-                of dark chocolate and
-                nuts.</span-thin><br>
-              <span-bold>- Ingredients:</span-bold> <span-thin>This coffee is made with a blend of Arabica beans
-                from South
-                America.</span-thin>
-            </p>
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$4.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
+                  dark
+                  chocolate and nuts.</span-thin></p>
+            </flex-container>
           </container-product>
           <container-product id="index_product5">
             <img src='/images/images_coffee/coffee_5.jpg' alt="coffee">
-            <p><span-bold>- Coffee Name:</span-bold> <span-thin>$5.99</span-thin><br>
-              <span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint
-                of
-                sweetness.</span-thin><br>
-              <span-bold>- Ingredients:</span-bold> <span-thin>This coffee is made with Arabica beans from
-                Indonesia.</span-thin>
-            </p>
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$5.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
+                  sweetness.</span-thin></p>
+            </flex-container>
           </container-product>
           <container-product id="index_product6">
             <img src='/images/images_coffee/coffee_6.jpg' alt="coffee">
-            <p><span-bold>- Coffee Name:</span-bold> <span-thin>$6.99</span-thin><br>
-              <span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
-                mellow
-                flavor.</span-thin><br>
-              <span-bold>- Ingredients:</span-bold> <span-thin>This coffee is made with decaffeinated Arabica
-                beans.</span-thin>
-            </p>
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$6.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
+                  mellow
+                  flavor.</span-thin></p>
+            </flex-container>
           </container-product>
         </flex-container>
       </flex-container>

@@ -1,8 +1,8 @@
 /**************************************************************/
-// index_general.js
+// general_general.js
 // General HTML js used across all HTML pages
 /**************************************************************/
-MODULENAME = "index_general.js";
+MODULENAME = "general_general.js";
 console.log('%c' + MODULENAME + ': ', 'color: red;');
 /**************************************************************/
 // Variables and constants
@@ -14,16 +14,29 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 /**************************************************************/
 
 /**************************************************************/
-// function index_displayCard();
-// sets the info
-// on the foward or back button
-// called when user clicks on foward or back arrow on the slide show
-// input: +1 or -1 to increase or decrease the slide show index
+// function general_displayCard();
+// sets the info for product page of coffee
+// input: coffee object
+// called: after user clicks on a coffee product and they are sent
+// to the product page
 /**************************************************************/
-function index_displaySlide(index) {
-  console.log("index_displaySlide(" + index + ");");
+function general_displayCard(coffee) {
+  console.log("general_displayCard();");
+  
 }
 
+/**************************************************************/
+// function general_showProduct();
+// takes user to the product page
+// called: after user clicks on a coffee product
+/**************************************************************/
+function general_showProduct(){ 
+  console.log("general_showProduct();");
+  //Saving the coffee object to session storage, then sending the user to
+  //the product page
+  sessionStorage.setItem("coffee", JSON.stringify(coffee));
+  window.location = "/html/html_product_coffee.html";
+}
 /**************************************************************/
 //    END OF MODULE
 /**************************************************************/

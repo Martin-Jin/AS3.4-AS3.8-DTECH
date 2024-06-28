@@ -25,10 +25,11 @@
   /*-- borders --*/
   --UIborder: 0.5rem;
   /*-- font sizes --*/
-  --headerSize: 2.5rem;
+  --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
-  --pSize: calc(0.3 * var(--headerSize));
+  --pSize: calc(0.4 * var(--headerSize));
   --UIFontSize: calc(var(--pSize) * 1.1);
+  --UILineHeight: 1.6rem;
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -50,6 +51,9 @@
 p,
 header,
 sub-header, button {
+  margin: 0;
+  text-align: center;
+  display: block;
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;
@@ -62,7 +66,6 @@ sub-header, button {
 .aleo-thin, span-thin {
   font-weight: 300;
 }
-
 /*-- html *******************************************--*/
 html,
 body {
@@ -102,9 +105,6 @@ nav button {
   background: transparent;
   color: var(--text);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: var(--UIFontSize);
 }
 
@@ -179,13 +179,10 @@ dropdown-content button:hover {
 
 /*-- headers *******************************************--*/
 header,
-sub-header,
-p {
-  display: block;
+sub-header {
   height: fit-content;
   width: fit-content;
   margin: auto;
-  text-align: center;
 }
 
 header {
@@ -202,7 +199,7 @@ sub-header {
   font-weight: 300;
 }
 
-p {
+p, button{
   font-size: var(--pSize);
 }
 
@@ -214,6 +211,7 @@ grid-container {
 flex-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .center {
@@ -226,7 +224,7 @@ flex-container {
 
 /*-- footer *******************************************--*/
 footer {
-  background-color: var(--backGroundDarker);
+  background-color: var(--backGroundLight);
   height: var(--footerSize);
   display: flex;
   justify-content: center;
@@ -234,5 +232,5 @@ footer {
 }
 
 footer p {
-  color: var(--backGroundLightDark);
+  color: var(--backGroundDark);
 }
