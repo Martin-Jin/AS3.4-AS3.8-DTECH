@@ -13,11 +13,8 @@
   --containerBorder: calc(var(--UIborder) * 1.5);
   /*-- margin --*/
   --arrowMargin: calc(var(--UIMargin) * 0.6);
-  --buttonMargin: calc(var(--UIMargin) * 0.65);
   --UIIconMargin: calc(var(--UIMargin) * 0.5);
   --QuoteMargin: calc(var(--UIMargin) * 0.3);
-  --separatorMargin: calc(var(--UIMargin) * 0.5);
-  --productSpacing: calc(var(--UIMargin) * 0.9);
   /*-- padding --*/
   --buttonPadding: calc(var(--UIpadding) * 0.7);
   --descriptionPadding: calc(var(--UIpadding) * 0.7);
@@ -26,24 +23,22 @@
   --buttonHeight: calc(var(--navBarSize) * 0.85);
   --buttonBorder: calc(var(--UIborder) / 5; );
   /*-- UI --*/
-  --separatorHeight: 0.1rem;
   --productSize: calc(var(--UISize) * 4.6);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
-  --UIHeaderSize: calc(var(--UISize) * 0.7);
-  --UISubHeaderSize: calc(var(--UISize) * 0.3);
+  --IndexSubSize: calc(var(--UISize) * 0.3);
   /*-- icons --*/
-  --UIiconSize: calc(1.7 * var(--UISubHeaderSize));
+  --indexIconSize: calc(1.7 * var(--IndexSubSize));
   /*-- slide show --*/
   --slideHeight: calc(var(--UISize) * 5.5);
-  --slideArrow: calc(var(--UIiconSize) * 0.7);
+  --slideArrow: calc(var(--indexIconSize) * 0.7);
   --slideDiscount: calc(var(--slideArrow) * 2.5);
   --slideBorderRadius: calc(var(--slideArrow) / 10);
   --slideArrowPadding: calc(var(--slideArrow) / 4);
   /*-- description --*/
   --quoteSize: calc(0.9 * var(--pSize));
-  --pfpSize: calc(var(--UIiconSize) * 1.4);
+  --pfpSize: calc(var(--indexIconSize) * 1.4);
   --offerP: calc(1.4 * var(--pSize));
 }
 
@@ -88,7 +83,7 @@ section-top {
 }
 
 .index_UISubHeader {
-  font-size: var(--UISubHeaderSize);
+  font-size: var(--IndexSubSize);
   grid-area: UISubHeader;
   margin: 0 auto var(--UIMargin) auto;
 }
@@ -105,15 +100,6 @@ h3 {
   padding: var(--descriptionPadding);
 }
 
-.index_separator {
-  border: var(--separatorHeight) solid var(--subtitle);
-  margin: var(--separatorMargin) auto;
-}
-
-.index_separator_short {
-  width: 80%;
-}
-
 .index_aboutCoffee {
   color: var(--text);
 }
@@ -123,31 +109,16 @@ h3 {
 }
 
 /*-- icons *******************************************--*/
-.index_UIIcon {
-  width: var(--UIiconSize);
+.index_icon {
+  width: var(--indexIconSize);
   grid-area: icon;
   margin: auto var(--UIIconMargin) auto auto;
 }
 
 /*-- UI with curved borders *******************************************--*/
 slide-coffee,
-.index_separator,
-img,
-.index_button {
+img {
   border-radius: var(--UIRadius);
-}
-
-/*-- button *******************************************--*/
-.index_button {
-  padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
-  background: var(--backGroundLightDark);
-  color: var(--text);
-  cursor: pointer;
-  border: none;
-  border-bottom-style: solid;
-  border-color: var(--subtitle);
-  border-width: var(--buttonBorder);
-  margin-top: var(--buttonMargin);
 }
 
 /*-- basic container styling *******************************************--*/
@@ -204,7 +175,7 @@ grid-offers {
 /*-- About section *******************************************--*/
 .index_about,
 container-about {
-  grid-gap: var(--productSpacing);
+  grid-gap: var(--UISpacing);
   align-items: center;
 }
 
@@ -241,7 +212,7 @@ container-about img {
 /*-- Reconmmended section *******************************************--*/
 .index_productContainer {
   /*-- flex container --*/
-  grid-gap: var(--productSpacing);
+  grid-gap: var(--UISpacing);
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -255,7 +226,7 @@ container-product {
 }
 
 container-product + button {
-  width: 60%;
+  width: fit-content;
   margin: auto;
 }
 
@@ -415,15 +386,15 @@ slide-header img {
 }
 
 /*-- Discount text --*/
-.index_discount {
+discount-container {
   height: var(--slideDiscount);
-  width: 15%;
+  width: 20%;
   position: absolute;
   top: 0;
   right: 0;
   background-color: var(--text);
   color: var(--textContrast);
-  border-radius: 0 var(--UIRadius) 0 0;
+  border-radius: 0 var(--UIRadius) 0 var(--UIRadius);
 }
 
 .index_discount * {

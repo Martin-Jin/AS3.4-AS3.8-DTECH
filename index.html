@@ -5,7 +5,7 @@
   <title>HVHS coffee house</title>
   <link rel="icon" type="image/x-icon" href="/images/images_icons/icons_logo.png">
   <meta charset="UTF-8">
-  <meta name="description" content="13DTECH component trailing">
+  <meta name="description" content="Online coffee shop for HVHS">
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -89,7 +89,7 @@
       <header class="index_header">Welcome to HVHS coffee house</header>
       <sub-header class="index_sub">Fresh coffee at your finger tips.</sub-header>
       <!-- browse button -->
-      <button class='index_button' onclick="(function() {general_displayCard(coffee6)})">Browse our
+      <button class='general_button' onclick="(function() {general_displayCard(coffee6)})">Browse our
         coffee</button>
     </container-heading>
   </section-top>
@@ -104,7 +104,7 @@
     <grid-offers>
       <!-- header and subtitle -->
       <slide-header>
-        <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_UIIcon'>
+        <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon index_icon'>
         <header class="index_UIHeader">
           Special offers</header>
         <sub-header class="index_UISubHeader">
@@ -115,7 +115,7 @@
         <slide-coffee class="index_slideAnnimation">
           <slide-filter class="index_filter">
             <img id="index_slideImage" class="index_slideImage" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
-            <discount-container class="index_discount">
+            <discount-container>
               <p class="aleo-bold center">99% off</p>
             </discount-container>
           </slide-filter>
@@ -124,20 +124,20 @@
             <p class="index_offerText"><span id="index_coffeePrice">Original price: $1</span>
               <span id="index_discountPrice">Now only: $0.1</span>
             </p>
-            <button id="index_slideButton" class="index_button">View now!</button>
+            <button id="index_slideButton" class="general_button">View now!</button>
           </hover-item>
         </slide-coffee>
         <!-- description of coffee -->
         <grid-container class="index_description">
           <container-description class="index_aboutCoffee">
             <sub-header class="aleo-bold">Coffee name here</sub-header>
-            <hr class="index_separator">
+            <hr class="general_separator">
             <p class="aleo-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus ipsum, blandit non
               orci suscipit,
               malesuada vulputate sem. Donec eu purus scelerisque, dapibus nisl sed, consequat risus.</p>
           </container-description>
           <!-- review -->
-          <hr class="index_separator index_separator_short">
+          <hr class="general_separator general_separator_short">
           <grid-container class="index_review">
             <!-- author of the review -->
             <grid-container id="slide_author">
@@ -166,7 +166,7 @@
                   coffee
                   for every palate.</p>
                 <p class="aleo-thin">From the moment you step through our doors, you are greeted with the rich aroma of
-                  freshly roasted beans and the inviting ambiance of a cozy coffeehouse.</p>
+                  freshly roasted beans.</p>
               </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_1.jpg' alt="about">
@@ -177,12 +177,9 @@
               <sub-header>Our Story</sub-header>
               <flex-container>
                 <p class="aleo-thin"><br>HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who
-                  wanted to create a space where people could gather, connect, and savor exceptional coffee.</p>
-                <p class="aleo-thin">With years of experience in the coffee industry and a deep love for the craft, we
-                  set
-                  out to establish a place that would not only serve great coffee but also foster a sense of belonging
-                  and
-                  camaraderie within our community.</p>
+                  wanted to create a space where people could gather and connect.</p>
+                <p class="aleo-thin">With years of experience in the coffee industry, we set out to establish a place
+                  that would not only serve great coffee but also foster a sense of belonging within our community.</p>
               </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_2.jpg' alt="about">
@@ -195,11 +192,8 @@
                 <p class="aleo-thin"><br>At HVHS Coffee House, we believe that the key to a truly exceptional cup of
                   coffee
                   lies in the details.</p>
-                <p class="aleo-thin">That's why we meticulously source the finest beans from sustainable farms around
-                  the
-                  world, ensuring that each sip is a testament to the dedication and expertise of our roasters.</p>
-                <p class="aleo-thin">From our carefully calibrated espresso shots to our handcrafted pour-over brews,
-                  every drink is crafted with precision and passion.</p>
+                <p class="aleo-thin">We meticulously source the finest beans from sustainable farms around the world,
+                  ensuring that each sip is a testament to the dedication and expertise of our roasters.</p>
               </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_3.jpg' alt="about">
@@ -209,14 +203,11 @@
             <container-aboutText>
               <sub-header>Community Engagement</sub-header>
               <flex-container>
-                <p class="aleo-thin"><br>More than just a place to grab your morning caffeine fix, HVHS Coffee House is
-                  a
-                  hub for community engagement and connection.</p>
-                <p class="aleo-thin">Whether you're catching up with friends over a latte, attending one of our weekly
-                  coffee tastings, or simply enjoying a moment of solitude with a good book, our space is yours to
-                  enjoy.</p>
-                <p class="aleo-thin">We are proud to support local artists, musicians, and organizations, hosting events
-                  and fundraisers that enrich the cultural fabric of our community.</p>
+                <p class="aleo-thin"><br>More than just a place to grab your morning caffeine fix, HVHS Coffee House
+                  is
+                  a hub for community engagement and connection.</p>
+                <p class="aleo-thin">Our space is yours to enjoy, whether you're catching up with friends over a latte or
+                  attending one of our weekly coffee tastings.</p>
               </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_4.jpg' alt="coffee">
@@ -229,9 +220,7 @@
                 <p class="aleo-thin"><br>As stewards of the environment, we are committed to minimizing our ecological
                   footprint and promoting sustainability throughout our supply chain.</p>
                 <p class="aleo-thin">From our eco-friendly packaging to our energy-efficient equipment, we strive to
-                  operate in harmony with the planet, ensuring that future generations can continue to enjoy the
-                  pleasures
-                  of great coffee.</p>
+                  operate in harmony with the planet.</p>
               </flex-container>
             </container-aboutText>
             <img src='/images/images_about/about_5.jpg' alt="coffee">
@@ -255,7 +244,7 @@
                     chocolate and caramel notes.</span-thin></p>
               </flex-container>
             </container-product>
-            <button class='index_button' onclick="(function() {general_displayCard(coffee1)})">Learn
+            <button class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
               more</button>
           </flex-container>
           <!-- product 2 -->
@@ -269,7 +258,7 @@
                     dark chocolate.</span-thin></p>
               </flex-container>
             </container-product>
-            <button class='index_button' onclick="(function() {general_displayCard(coffee2)})">Learn
+            <button class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
               more</button>
           </flex-container>
           <!-- product 3 -->
@@ -283,7 +272,7 @@
                     and berries.</span-thin></p>
               </flex-container>
             </container-product>
-            <button class='index_button' onclick="(function() {general_displayCard(coffee3)})">Learn
+            <button class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
               more</button>
           </flex-container>
           <!-- product 4 -->
@@ -297,7 +286,7 @@
                     chocolate and nuts.</span-thin></p>
               </flex-container>
             </container-product>
-            <button class='index_button' onclick="(function() {general_displayCard(coffee4)})">Learn
+            <button class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
               more</button>
           </flex-container>
           <!-- product 5 -->
@@ -310,7 +299,7 @@
                     sweetness.</span-thin></p>
               </flex-container>
             </container-product>
-            <button class='index_button' onclick="(function() {general_displayCard(coffee5)})">Learn
+            <button class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
               more</button>
           </flex-container>
           <!-- product 6 -->
@@ -324,7 +313,7 @@
                     flavor.</span-thin></p>
               </flex-container>
             </container-product>
-            <button class='index_button' onclick="(function() {general_displayCard(coffee6)})">Learn
+            <button class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
               more</button>
           </flex-container>
         </flex-container>
@@ -337,7 +326,27 @@
 
   <!-- footer -->
   <footer>
-    <p class="aleo-bold">copyright Martin</p>
+    <section-footer class="general_footerContainer">
+      <flex-container id="footer_about">
+        <p class="aleo-bold">Our purpose</p>
+        <p class="aleo-thin">HVHS Coffee House is a student-led initiative dedicated to serving high-quality coffee and fostering a welcoming community within our school.</p>
+      </flex-container>
+      <flex-container id="footer_links">
+        <p class="aleo-bold">Links</p>
+        <a>Shipping & delivery</a>
+        <a>Terms & service</a>
+        <a>Our loucation</a>
+        <a>Our school</a>
+        <a>Follow us</a>
+      </flex-container>
+      <flex-container id="footer_newsletter">
+        <p class="aleo-bold">Newsletter</p>
+        <p class="aleo-thin">Subscribe to our newsletter to be the first to know about new products, sales, and promotions.</p>
+        <input type="text" id="footer_email" placeholder="email@example.com" name="email">
+        <button class="general_button">Subscribe</button>
+      </flex-container>
+    </section-footer>
+    <p id="footer_credit" class="aleo-bold">© Copyright 2024, HVHS | Martin Jin</p>
   </footer>
 </body>
 

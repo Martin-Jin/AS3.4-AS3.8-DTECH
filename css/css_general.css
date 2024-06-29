@@ -14,22 +14,30 @@
   --textContrast: #FF5D55;
   /*-- container sizes --*/
   --UISize: 3rem;
-  --UIRadius: 15px;
+  --UIRadius: 0.6rem;
   --navBarSize: calc(0.7 * var(--UISize));
   --footerSize: calc(0.9 * var(--navBarSize));
+  --separatorHeight: 0.1rem;
   /*-- margins --*/
   --UIMargin: 1rem;
-  --iconMargin: calc(var(--UIMargin) * 0.5);
+  --footerMargin: calc(var(--UIMargin) * 5);
+  --iconMargin: calc(var(--UIMargin) * 0.3);
+  --UISpacing: calc(var(--UIMargin) * 0.9);
+  --footerSpacing: calc(var(--UISpacing) * 5);
+  --separatorMargin: calc(var(--UIMargin) * 0.5);
+  --buttonMargin: calc(var(--UIMargin) * 0.65);
   /*-- padding --*/
   --UIpadding: 0.75rem;
+  --footerPadding: calc(var(--UIpadding) * 2);
   /*-- borders --*/
   --UIborder: 0.5rem;
   /*-- font sizes --*/
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
   --pSize: calc(0.4 * var(--headerSize));
-  --UIFontSize: calc(var(--pSize) * 1.1);
+  --UIFontSize: calc(var(--pSize) * 0.9);
   --UILineHeight: 1.6rem;
+  --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
   --navBarBorder: 0.5vh;
   /*-- hover colours --*/
@@ -44,20 +52,21 @@
 .aleo-general,
 p,
 header,
-sub-header, button {
+sub-header, button, a, input {
   margin: 0;
   text-align: center;
   display: block;
   font-family: "Aleo", serif;
   font-weight: 400;
   font-style: normal;
+  text-decoration: none;
 }
 
 .aleo-bold, span-bold {
   font-weight: 500;
 }
 
-.aleo-thin, span-thin {
+.aleo-thin, span-thin, a, input {
   font-weight: 300;
 }
 /*-- html *******************************************--*/
@@ -103,7 +112,6 @@ nav button {
   background: transparent;
   color: var(--text);
   cursor: pointer;
-  font-size: var(--UIFontSize);
 }
 
 /*-- Styling of the icon that goes on the navbar --*/
@@ -116,7 +124,6 @@ nav img {
 
 .general_signInBtn {
   background: var(--backGroundDark) !important;
-  border-radius: var(--UIRadius);
   height: 75%;
   width: 60%;
   margin: auto;
@@ -197,16 +204,25 @@ sub-header {
   font-weight: 300;
 }
 
-p, button{
+p, a {
   font-size: var(--pSize);
 }
 
+a {
+  color: var(--backgroundDark);
+}
+
+
+button {
+  font-size: var(--UIFontSize);
+}
+
 /*-- custom tags and general styling *******************************************--*/
-grid-container {
+grid-container, section-footer {
   display: grid;
 }
 
-flex-container {
+flex-container, footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -219,16 +235,93 @@ flex-container {
   transform: translate(-50%, -50%);
 }
 
+.general_separator {
+  border: var(--separatorHeight) solid var(--subtitle);
+  margin: var(--separatorMargin) auto;
+}
+
+.general_separator_short {
+  width: 80%;
+}
+
+/*-- button *******************************************--*/
+.general_button {
+  font-size: var(--UIFontSize);
+  padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
+  background: var(--backGroundLightDark);
+  color: var(--text);
+  cursor: pointer;
+  border: none;
+  border-bottom-style: solid;
+  border-color: var(--subtitle);
+  border-width: var(--buttonBorder);
+  margin-top: var(--buttonMargin);
+}
+
+.general_separator, .general_separator_short, .general_button, .general_signInBtn {
+  border-radius: var(--UIRadius);
+}
 
 /*-- footer *******************************************--*/
 footer {
   background-color: var(--backGroundLight);
-  height: var(--footerSize);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  padding: var(--footerPadding) var(--footerPadding) calc(var(--footerPadding) / 2) var(--footerPadding);
 }
 
-footer p {
+footer * {
   color: var(--backGroundDark);
+  text-align: left;
+  font-size: var(--UIFontSize);
+  line-height: var(--UILineHeight);
+}
+
+footer flex-container > p:first-of-type {
+  margin-bottom: var(--buttonMargin);
+}
+
+section-footer {
+  /*-- Grid container --*/
+  grid-gap: var(--footerSpacing);
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'about links newsletter';
+  align-items: start;
+}
+
+#footer_email {
+  background-color: transparent;
+  width: 65%;
+  border: none;
+  border-color: var(--backGroundDark);
+  border-bottom-style: solid;
+  border-width: var(--separatorHeight);
+  margin-top: var(--buttonMargin);
+}
+
+::placeholder {
+  color: var(--backGroundDark);
+}
+
+#footer_credit {
+  margin-top: var(--footerMargin);
+  font-size: var(--creditSize);
+  color: var(--backGroundLightDark);
+}
+
+#footer_about {
+  grid-area: about;
+}
+
+#footer_links {
+  grid-area: links;
+}
+
+#footer_newsletter {
+  grid-area: newsletter;
+}
+
+#footer_newsletter button {
+  width: fit-content;
 }
