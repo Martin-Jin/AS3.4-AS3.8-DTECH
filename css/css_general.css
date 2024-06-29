@@ -36,10 +36,10 @@
   --subheaderSize: calc(0.7 * var(--headerSize));
   --pSize: calc(0.4 * var(--headerSize));
   --UIFontSize: calc(var(--pSize) * 0.9);
-  --UILineHeight: 1.6rem;
+  --UILineHeight: 1.8rem;
   --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
-  --navBarBorder: 0.5vh;
+  --navBarBorder: calc(var(--UIborder) * 0.7);
   /*-- hover colours --*/
   --backGroundHover: rgba(244, 234, 228, 0.1);
   /*-- drop down buttons --*/
@@ -69,6 +69,42 @@ sub-header, button, a, input {
 .aleo-thin, span-thin, a, input {
   font-weight: 300;
 }
+
+/*-- headers --*/
+header,
+sub-header {
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+header {
+  color: var(--header);
+}
+
+header {
+  font-size: var(--headerSize);
+}
+
+sub-header {
+  font-size: var(--subheaderSize);
+  color: var(--subtitle);
+  font-weight: 300;
+}
+
+p, a {
+  font-size: var(--pSize);
+}
+
+a {
+  color: var(--backgroundDark);
+}
+
+
+button {
+  font-size: var(--UIFontSize);
+}
+
 /*-- html *******************************************--*/
 html,
 body {
@@ -106,6 +142,7 @@ nav {
 }
 
 nav button {
+  position: relative;
   height: 100%;
   padding: 0;
   border: none;
@@ -122,11 +159,17 @@ nav img {
   border-radius: 0;
 }
 
+/*-- Styling of the sign in button --*/
 .general_signInBtn {
   background: var(--backGroundDark) !important;
   height: 75%;
   width: 60%;
   margin: auto;
+}
+
+/*-- turning off the hover annimation for sign in button --*/
+.general_signInBtn:after {
+  display: none;
 }
 
 nav button.active {
@@ -135,6 +178,7 @@ nav button.active {
 
 nav button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 }
 
 /*-- navBar logo *******************************************--*/
@@ -182,39 +226,62 @@ dropdown-content button:hover {
   display: block;
 }
 
-/*-- headers *******************************************--*/
-header,
-sub-header {
-  height: fit-content;
-  width: fit-content;
-  margin: auto;
-}
-
-header {
-  color: var(--header);
-}
-
-header {
-  font-size: var(--headerSize);
-}
-
-sub-header {
-  font-size: var(--subheaderSize);
-  color: var(--subtitle);
-  font-weight: 300;
-}
-
-p, a {
-  font-size: var(--pSize);
-}
-
-a {
-  color: var(--backgroundDark);
-}
-
-
-button {
+/*-- button *******************************************--*/
+.general_button {
   font-size: var(--UIFontSize);
+  padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
+  background: var(--backGroundLightDark);
+  color: var(--text);
+  cursor: pointer;
+  border: none;
+  border-bottom-style: solid;
+  border-color: var(--subtitle);
+  border-width: var(--buttonBorder);
+  margin-top: var(--buttonMargin);
+}
+
+.general_separator, .general_separator_short, .general_button, .general_signInBtn {
+  border-radius: var(--UIRadius);
+}
+
+/*-- links *******************************************--*/
+/*-- underline sliding annimation --*/
+a::after, nav button::after {
+  content: '';
+  position: absolute;
+  border: none;
+  border-bottom-style: solid;
+  border-width: var(--separatorHeight);
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-color: var(--subtitle);
+  transition: 0.2s;
+}
+
+/*-- adjust underline height for nav button --*/
+nav button::after {
+  border-width: var(--navBarBorder);
+}
+
+/*-- disabling transition for active element --*/
+nav button.active::after {
+  display: none;
+}
+
+a:hover:after, nav button:hover:after{
+  width: 100%;
+}
+
+/*-- making text bold annimation --*/
+a {
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+
+a:hover {
+  font-weight: 400;
 }
 
 /*-- custom tags and general styling *******************************************--*/
@@ -244,24 +311,6 @@ flex-container, footer {
   width: 80%;
 }
 
-/*-- button *******************************************--*/
-.general_button {
-  font-size: var(--UIFontSize);
-  padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
-  background: var(--backGroundLightDark);
-  color: var(--text);
-  cursor: pointer;
-  border: none;
-  border-bottom-style: solid;
-  border-color: var(--subtitle);
-  border-width: var(--buttonBorder);
-  margin-top: var(--buttonMargin);
-}
-
-.general_separator, .general_separator_short, .general_button, .general_signInBtn {
-  border-radius: var(--UIRadius);
-}
-
 /*-- footer *******************************************--*/
 footer {
   background-color: var(--backGroundLight);
@@ -280,6 +329,8 @@ footer flex-container > p:first-of-type {
   margin-bottom: var(--buttonMargin);
 }
 
+
+/*-- sections in the footer *******************************************--*/
 section-footer {
   /*-- Grid container --*/
   grid-gap: var(--footerSpacing);
@@ -290,6 +341,7 @@ section-footer {
   align-items: start;
 }
 
+/*-- input box --*/
 #footer_email {
   background-color: transparent;
   width: 65%;
@@ -304,20 +356,24 @@ section-footer {
   color: var(--backGroundDark);
 }
 
+/*-- website credits --*/
 #footer_credit {
   margin-top: var(--footerMargin);
   font-size: var(--creditSize);
   color: var(--backGroundLightDark);
 }
 
+/*-- about --*/
 #footer_about {
   grid-area: about;
 }
 
+/*-- website links --*/
 #footer_links {
   grid-area: links;
 }
 
+/*-- newsletter --*/
 #footer_newsletter {
   grid-area: newsletter;
 }

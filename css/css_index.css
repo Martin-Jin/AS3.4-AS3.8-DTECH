@@ -21,7 +21,6 @@
   --aboutPadding: calc(var(--UIpadding) * 3);
   /*-- button --*/
   --buttonHeight: calc(var(--navBarSize) * 0.85);
-  --buttonBorder: calc(var(--UIborder) / 5; );
   /*-- UI --*/
   --productSize: calc(var(--UISize) * 4.6);
   /*-- headers --*/
