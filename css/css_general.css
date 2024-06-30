@@ -5,7 +5,7 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- colours --*/
-  --backGroundLight: #e0e0e0;
+  --backGroundLight: #f1f1f1;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
   --text: #F4EAE4;
@@ -58,6 +58,7 @@ body {
   height: fit-content;
   width: fit-content;
   scroll-behavior: smooth;
+  animation: fadeIn 2s;
 }
 
 body * {
@@ -272,8 +273,22 @@ a:hover, button:hover {
   font-weight: 550;
 }
 
+/*-- fade in annimation --*/
+.fadeAnnimation {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
 /*-- custom tags and general styling *******************************************--*/
-grid-container, section-footer {
+grid-container, section {
   display: grid;
 }
 
@@ -327,7 +342,7 @@ footer flex-container > p:first-of-type {
 
 
 /*-- sections in the footer *******************************************--*/
-section-footer {
+#footerContainer {
   /*-- Grid container --*/
   grid-gap: var(--footerSpacing);
   grid-template-columns: auto auto auto;

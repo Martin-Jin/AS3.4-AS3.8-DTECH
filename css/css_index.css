@@ -43,7 +43,7 @@
 }
 
 /*-- top division *******************************************--*/
-section-top {
+#topSection {
   height: var(--topHalf);
   background-image: url(/images/images_bg/bg_landing.jpg);
   background-size: cover;
@@ -58,31 +58,31 @@ section-top {
     'space';
 }
 
-.index_ui {
+#landingText {
   grid-area: ui;
   margin: auto auto auto var(--UIMargin);
   height: max-content;
 }
 
 /*-- headers *******************************************--*/
-.index_header,
-.index_sub {
+#landingHeader,
+#landingSub {
   text-align: left;
 }
 
-.index_header {
+#landingHeader {
   max-width: var(--headerWidth);
 }
 
-.index_sub {
+#landingSub {
   margin: 0;
 }
 
-.index_UIHeader {
+#header {
   grid-area: UIHeader;
 }
 
-.index_UISubHeader {
+#subHeader {
   font-size: var(--IndexSubSize);
   grid-area: UISubHeader;
   margin: 0 auto var(--UIMargin) auto;
@@ -93,19 +93,19 @@ h3 {
 }
 
 /*-- text related stlying *******************************************--*/
-.index_description {
+#slideText {
   max-width: var(--offersContainer);
   grid-area: description;
   margin: var(--UIMargin) auto auto auto;
   padding: var(--descriptionPadding);
 }
 
-.index_offerText {
+#offerText {
   font-size: var(--offerP);
 }
 
 /*-- icons *******************************************--*/
-.index_icon {
+#slideIcon{
   width: var(--indexIconSize);
   grid-area: icon;
   margin: auto var(--UIIconMargin) auto auto;
@@ -118,7 +118,7 @@ img {
 }
 
 /*-- basic container styling *******************************************--*/
-.index_description,
+#slideText,
 container-product,
 container-aboutText,
 container-description {
@@ -126,27 +126,22 @@ container-description {
   border-radius: var(--UIRadius);
 }
 
-slide-filter {
+container-filter {
   display: block;
 }
 
 container-product,
-container-about, slide-header, section-top, grid-offers {
+container-about {
   display: grid;
 }
 
 /*-- bottom division *******************************************--*/
-.index_aboutSection {
-  background-color: var(--backGroundLight);
-  padding: var(--UIpadding);
-}
-
-section-bottom {
+#sectionBottom {
   display: block;
   background-color: var(--backGroundDark);
 }
 
-grid-offers {
+#offers {
   padding: var(--UIpadding);
   /*-- Grid container --*/
   grid-template-columns: 2fr 1fr;
@@ -156,7 +151,7 @@ grid-offers {
     'container container';
 }
 
-.index_offersContainer {
+#offersContainer {
   margin: auto;
   grid-area: container;
   /*-- Grid container --*/
@@ -169,7 +164,7 @@ grid-offers {
 }
 
 /*-- About section *******************************************--*/
-.index_about,
+#aboutSection,
 container-about {
   grid-gap: var(--UISpacing);
   align-items: center;
@@ -184,9 +179,15 @@ container-about img {
   width: 90%;
 }
 
-.index_about p {
+#aboutSection {
+  background-color: var(--backGroundLight);
+  padding: var(--UIpadding);
+}
+
+#aboutSection p {
   line-height: var(--UILineHeight);
 } 
+
 
 container-aboutText {
   padding: var(--aboutPadding);
@@ -205,7 +206,7 @@ container-about img {
 }
 
 /*-- Reconmmended section *******************************************--*/
-.index_productContainer {
+#productsContainer {
   /*-- flex container --*/
   grid-gap: var(--UISpacing);
   flex-direction: row;
@@ -253,20 +254,20 @@ container-product p {
   color: white;
 }
 
-.index_recommendedContainer {
+#recommendedSection {
   padding: var(--UIpadding);
 }
 
-.index_recommendedContainer header {
+#recommendedSection header {
   margin-bottom: var(--UIpadding);
 }
 
 /*-- review *******************************************--*/
-.index_review * {
+#slideReview * {
   font-size: var(--quoteSize);
 }
 
-.index_review {
+#slideReview {
   /*-- Grid container --*/
   grid-template-rows: auto;
   grid-template-columns: auto auto;
@@ -274,7 +275,7 @@ container-product p {
     'author quote';
 }
 
-#slide_author {
+#slideAuthor {
   margin: auto 0 auto auto;
   grid-area: author;
   /*-- Grid container --*/
@@ -285,7 +286,7 @@ container-product p {
     'name';
 }
 
-#slide_pfp {
+#slidePfp {
   grid-area: picture;
   height: var(--pfpSize);
   width: var(--pfpSize);
@@ -294,23 +295,23 @@ container-product p {
   margin: auto;
 }
 
-#slide_name {
+#slideName {
   grid-area: name;
 }
 
-.index_quote {
+#slideQuote {
   margin: auto auto auto var(--lineBreakHeight);
   grid-area: quote;
 }
 
 /*-- slide show *******************************************--*/
 slide-coffee,
-.index_slideImage {
+#slideImage {
   width: 100%;
 }
 
 slide-coffee,
-.index_filter {
+#darkFilter {
   position: relative;
 }
 
@@ -319,23 +320,23 @@ slide-coffee {
   height: var(--slideHeight);
 }
 
-.index_filter {
+#darkFilter {
   height: 100%;
 }
 
-slide-coffee:hover>.index_filter {
+slide-coffee:hover>#darkFilter {
   /*-- Lowering the brightness on hover --*/
   filter: brightness(40%);
   transition: all 1s ease;
 }
 
 /*-- displays button on hover --*/
-.index_filter:hover+.index_slideHover,
-.index_slideHover:hover {
+#darkFilter:hover+#slideHover,
+#slideHover:hover {
   display: flex;
 }
 
-slide-header {
+#slideHeader {
   margin: auto;
   grid-area: slideHeader;
   /*-- Grid container --*/
@@ -346,28 +347,14 @@ slide-header {
     'UISubHeader  UISubHeader'
 }
 
-slide-header img {
+#slideHeader img {
   border-radius: 0;
   filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
 }
 
-/*-- annimation --*/
-.index_slideAnnimation {
-  animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
-}
-
 /*-- Next & previous buttons --*/
-.index_prev,
-.index_next {
+#slidePrev,
+#slideNext {
   cursor: pointer;
   color: white;
   font-weight: bold;
@@ -377,13 +364,13 @@ slide-header img {
   user-select: none;
 }
 
-.index_next {
+#slideNext {
   grid-area: next;
   margin-left: var(--arrowMargin);
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
 }
 
-.index_prev {
+#slidePrev {
   grid-area: prev;
   margin-right: var(--arrowMargin);
   border-radius: var(--slideBorderRadius) 0 0 var(--slideBorderRadius);
@@ -404,21 +391,16 @@ discount-container p {
   color: var(--textContrast);
 }
 
-.index_discount * {
-  width: 100%;
-  margin: 0;
-}
-
-#index_coffeePrice {
+#slidePrice {
   text-decoration: line-through;
 }
 
-#index_discountPrice {
+#slideDiscount {
   color: var(--textContrast);
 }
 
 /*-- Container for what to display when the slide show is hovered on --*/
-.index_slideHover {
+#slideHover {
   display: none;
   width: 100%;
   height: 100%;
@@ -428,12 +410,12 @@ discount-container p {
 }
 
 /*-- On hover, add a black background color with a little bit see-through --*/
-.index_prev:hover,
-.index_next:hover {
+#slidePrev:hover,
+#slideNext:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.index_slideImage {
+#slideImage {
   object-fit: cover;
   height: 100%;
 }
