@@ -14,7 +14,8 @@
   /*-- margin --*/
   --arrowMargin: calc(var(--UIMargin) * 0.6);
   --UIIconMargin: calc(var(--UIMargin) * 0.5);
-  --QuoteMargin: calc(var(--UIMargin) * 0.3);
+  --lineBreakHeight: calc(var(--UIMargin) * 0.3);
+  --productPadding: calc(var(--UIMargin) * 0.6);
   /*-- padding --*/
   --buttonPadding: calc(var(--UIpadding) * 0.7);
   --descriptionPadding: calc(var(--UIpadding) * 0.7);
@@ -22,7 +23,7 @@
   /*-- button --*/
   --buttonHeight: calc(var(--navBarSize) * 0.85);
   /*-- UI --*/
-  --productSize: calc(var(--UISize) * 4.6);
+  --productSize: calc(var(--UISize) * 4);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
   --subtitleWidth: calc(var(--headerWidth) * 0.8);
@@ -97,10 +98,6 @@ h3 {
   grid-area: description;
   margin: var(--UIMargin) auto auto auto;
   padding: var(--descriptionPadding);
-}
-
-.index_aboutCoffee {
-  color: var(--text);
 }
 
 .index_offerText {
@@ -188,17 +185,16 @@ container-about img {
 }
 
 .index_about p {
-  color: white;
-  
-}
-
-.index_about p {
   line-height: var(--UILineHeight);
 } 
 
 container-aboutText {
   padding: var(--aboutPadding);
   box-sizing: border-box;
+}
+
+container-aboutText p {
+  color: white;
 }
 
 container-aboutText,
@@ -231,8 +227,8 @@ container-product + button {
 
 container-product:hover {
   /*-- Annimation --*/
-  transform: scale(1.1);
-  transition-duration: 400ms;
+  transform: scale(1.05);
+  transition: 0.2s ease;
 }
 
 container-product img {
@@ -242,9 +238,19 @@ container-product img {
   border-radius: var(--UIRadius) var(--UIRadius) 0 0;
 }
 
+/*-- Adding padding around the text container --*/
+container-product > flex-container {
+  padding: var(--productPadding);
+}
+
+/*-- Adding margin under each p tag  --*/
+container-product > flex-container > p:first-of-type {
+  margin-bottom: var(--lineBreakHeight);
+}
+
 container-product p {
+  font-size: var(--UIFontSize);
   color: white;
-  margin: var(--QuoteMargin);
 }
 
 .index_recommendedContainer {
@@ -257,7 +263,6 @@ container-product p {
 
 /*-- review *******************************************--*/
 .index_review * {
-  color: var(--text);
   font-size: var(--quoteSize);
 }
 
@@ -294,7 +299,7 @@ container-product p {
 }
 
 .index_quote {
-  margin: auto auto auto var(--QuoteMargin);
+  margin: auto auto auto var(--lineBreakHeight);
   grid-area: quote;
 }
 
@@ -392,8 +397,11 @@ discount-container {
   top: 0;
   right: 0;
   background-color: var(--text);
-  color: var(--textContrast);
   border-radius: 0 var(--UIRadius) 0 var(--UIRadius);
+}
+
+discount-container p {
+  color: var(--textContrast);
 }
 
 .index_discount * {
@@ -403,7 +411,6 @@ discount-container {
 
 #index_coffeePrice {
   text-decoration: line-through;
-  color: var(--text);
 }
 
 #index_discountPrice {

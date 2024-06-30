@@ -5,7 +5,7 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- colours --*/
-  --backGroundLight: #dddddd;
+  --backGroundLight: #e0e0e0;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
   --text: #F4EAE4;
@@ -13,9 +13,9 @@
   --header: #DFC4B4;
   --textContrast: #FF5D55;
   /*-- container sizes --*/
-  --UISize: 3rem;
+  --UISize: 3.5rem;
   --UIRadius: 0.6rem;
-  --navBarSize: calc(0.7 * var(--UISize));
+  --navBarSize: calc(0.9 * var(--UISize));
   --footerSize: calc(0.9 * var(--navBarSize));
   --separatorHeight: 0.1rem;
   /*-- margins --*/
@@ -34,18 +34,35 @@
   /*-- font sizes --*/
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
-  --pSize: calc(0.4 * var(--headerSize));
+  --pSize: calc(0.36 * var(--headerSize));
   --UIFontSize: calc(var(--pSize) * 0.9);
   --UILineHeight: 1.8rem;
   --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
-  --navBarBorder: calc(var(--UIborder) * 0.7);
+  --navBarBorder: calc(var(--UIborder) * 0.5);
   /*-- hover colours --*/
   --backGroundHover: rgba(244, 234, 228, 0.1);
   /*-- drop down buttons --*/
   --dropdownHover: #efefef;
   /*-- icon size --*/
   --iconSize: calc(0.9 * var(--pSize));
+}
+
+/*-- html *******************************************--*/
+html,
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+  scroll-behavior: smooth;
+}
+
+body * {
+  border: none;
+  background-color: transparent;
 }
 
 /*-- font *******************************************--*/
@@ -57,22 +74,22 @@ sub-header, button, a, input {
   text-align: center;
   display: block;
   font-family: "Aleo", serif;
-  font-weight: 400;
+  font-weight: 350;
   font-style: normal;
   text-decoration: none;
 }
 
 .aleo-bold, span-bold {
-  font-weight: 500;
+  font-weight: 550;
 }
 
-.aleo-thin, span-thin, a, input {
+.aleo-thin, span-thin {
   font-weight: 300;
 }
 
 /*-- headers --*/
 header,
-sub-header {
+sub-header, a {
   height: fit-content;
   width: fit-content;
   margin: auto;
@@ -92,29 +109,13 @@ sub-header {
   font-weight: 300;
 }
 
-p, a {
+p, a, button {
+  color: var(--text);
   font-size: var(--pSize);
 }
 
 a {
   color: var(--backgroundDark);
-}
-
-
-button {
-  font-size: var(--UIFontSize);
-}
-
-/*-- html *******************************************--*/
-html,
-body {
-  min-width: 100vw;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  height: fit-content;
-  width: fit-content;
-  scroll-behavior: smooth;
 }
 
 /*-- hide scrollbar --*/
@@ -147,7 +148,6 @@ nav button {
   padding: 0;
   border: none;
   background: transparent;
-  color: var(--text);
   cursor: pointer;
 }
 
@@ -160,16 +160,11 @@ nav img {
 }
 
 /*-- Styling of the sign in button --*/
-.general_signInBtn {
+#signInBtn {
   background: var(--backGroundDark) !important;
   height: 75%;
   width: 60%;
   margin: auto;
-}
-
-/*-- turning off the hover annimation for sign in button --*/
-.general_signInBtn:after {
-  display: none;
 }
 
 nav button.active {
@@ -178,7 +173,6 @@ nav button.active {
 
 nav button:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  font-weight: 500;
 }
 
 /*-- navBar logo *******************************************--*/
@@ -231,7 +225,6 @@ dropdown-content button:hover {
   font-size: var(--UIFontSize);
   padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
   background: var(--backGroundLightDark);
-  color: var(--text);
   cursor: pointer;
   border: none;
   border-bottom-style: solid;
@@ -240,7 +233,7 @@ dropdown-content button:hover {
   margin-top: var(--buttonMargin);
 }
 
-.general_separator, .general_separator_short, .general_button, .general_signInBtn {
+.general_separator, .general_separator_short, .general_button, #signInBtn {
   border-radius: var(--UIRadius);
 }
 
@@ -251,7 +244,7 @@ a::after, nav button::after {
   position: absolute;
   border: none;
   border-bottom-style: solid;
-  border-width: var(--separatorHeight);
+  border-width: var(--navBarBorder);
   left: 0;
   bottom: 0;
   width: 0;
@@ -259,29 +252,24 @@ a::after, nav button::after {
   transition: 0.2s;
 }
 
-/*-- adjust underline height for nav button --*/
-nav button::after {
-  border-width: var(--navBarBorder);
-}
-
-/*-- disabling transition for active element --*/
-nav button.active::after {
+/*-- disabling transition for active element and regular non navbar buttons--*/
+nav button.active::after, #signInBtn:after {
   display: none;
 }
 
-a:hover:after, nav button:hover:after{
+a:hover:after, nav button:hover:after {
   width: 100%;
 }
 
 /*-- making text bold annimation --*/
-a {
+a, button {
   cursor: pointer;
   position: relative;
   transition: 0.2s;
 }
 
-a:hover {
-  font-weight: 400;
+a:hover, button:hover {
+  font-weight: 550;
 }
 
 /*-- custom tags and general styling *******************************************--*/
@@ -325,8 +313,16 @@ footer * {
   line-height: var(--UILineHeight);
 }
 
+/*-- Change back the colour of the button --*/
+footer button {
+  color: var(--text);
+}
+
 footer flex-container > p:first-of-type {
-  margin-bottom: var(--buttonMargin);
+  margin-bottom: var(--lineBreakHeight);
+  border-bottom-style: solid;
+  border-width: var(--navBarBorder);
+  border-color: var(--backGroundLightDark);
 }
 
 
@@ -371,6 +367,10 @@ section-footer {
 /*-- website links --*/
 #footer_links {
   grid-area: links;
+}
+
+#footer_links a {
+  margin: 0;
 }
 
 /*-- newsletter --*/

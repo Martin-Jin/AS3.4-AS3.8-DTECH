@@ -55,7 +55,7 @@
       </button>
       <!-- sign in button needs to be in a container so its width can be customised -->
       <flex-container>
-        <button onclick="window.location = '/html/html_signIn'" class="general_signInBtn">
+        <button onclick="window.location = '/html/html_signIn'" id="signInBtn">
           Sign in
         </button>
       </flex-container>
@@ -67,7 +67,7 @@
       </button>
       <!-- drop down thats displayed on smaller screens -->
       <container-dropdown class="general_dropDown">
-        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="general_dropBtn">
+        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn">
           Dropdown
         </button>
         <dropdown-content id="dropDown">
@@ -149,8 +149,8 @@
           </grid-container>
         </grid-container>
         <!-- slide controls -->
-        <a class="index_prev" onclick="index_displaySlide(-1)">❮</a>
-        <a class="index_next" onclick="index_displaySlide(1)">❯</a>
+        <button class="index_prev" onclick="index_displaySlide(-1)">❮</button>
+        <button class="index_next" onclick="index_displaySlide(1)">❯</button>
       </grid-container>
     </grid-offers>
     <flex-container>
@@ -329,19 +329,19 @@
     <section-footer class="general_footerContainer">
       <flex-container id="footer_about">
         <p class="aleo-bold">Our purpose</p>
-        <p class="aleo-thin">HVHS Coffee House is a student-led initiative dedicated to serving high-quality coffee and fostering a welcoming community within our school.</p>
+        <p>HVHS Coffee House is a student-led initiative dedicated to serving high-quality coffee and fostering a welcoming community within our school.</p>
       </flex-container>
       <flex-container id="footer_links">
         <p class="aleo-bold">Links</p>
-        <a>Shipping & delivery</a>
         <a>Terms & service</a>
         <a>Our loucation</a>
         <a>Our school</a>
-        <a>Follow us</a>
+        <a>Our team</a>
+        <a>Follow us</a>   
       </flex-container>
       <flex-container id="footer_newsletter">
         <p class="aleo-bold">Newsletter</p>
-        <p class="aleo-thin">Subscribe to our newsletter to be the first to know about new products, sales, and promotions.</p>
+        <p>Subscribe to our newsletter to be the first to know about new products, sales, and promotions.</p>
         <input type="text" id="footer_email" placeholder="email@example.com" name="email">
         <button class="general_button">Subscribe</button>
       </flex-container>
