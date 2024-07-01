@@ -45,7 +45,7 @@ function index_displaySlide(index) {
   let alt = new_img.alt;
   prev_img.src = img;
   prev_img.alt = alt;
-  //Getting the button
+  //Getting the button and putting in the new coffee
   document.getElementById("slideButton").onclick = function () {general_displayCard(new_img)};
 }
 /**************************************************************/
