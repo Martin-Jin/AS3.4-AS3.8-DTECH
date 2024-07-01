@@ -35,7 +35,7 @@
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
   --pSize: calc(0.36 * var(--headerSize));
-  --UIFontSize: calc(var(--pSize) * 0.9);
+  --pSmall: calc(var(--pSize) * 0.9);
   --UILineHeight: 1.8rem;
   --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
@@ -58,7 +58,6 @@ body {
   height: fit-content;
   width: fit-content;
   scroll-behavior: smooth;
-  animation: fadeIn 2s;
 }
 
 body * {
@@ -223,7 +222,6 @@ dropdown-content button:hover {
 
 /*-- button *******************************************--*/
 .general_button {
-  font-size: var(--UIFontSize);
   padding: calc(var(--buttonPadding) / 1.8) var(--buttonPadding);
   background: var(--backGroundLightDark);
   cursor: pointer;
@@ -292,7 +290,7 @@ grid-container, section {
   display: grid;
 }
 
-flex-container, footer {
+flex-container, footer, #aboutSection, #recommendedSection{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -324,7 +322,7 @@ footer {
 footer * {
   color: var(--backGroundDark);
   text-align: left;
-  font-size: var(--UIFontSize);
+  font-size: var(--pSmall);
   line-height: var(--UILineHeight);
 }
 

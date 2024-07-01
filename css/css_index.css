@@ -100,6 +100,10 @@ h3 {
   padding: var(--descriptionPadding);
 }
 
+#slideText p {
+  font-size: var(--pSmall);
+}
+
 #offerText {
   font-size: var(--offerP);
 }
@@ -141,7 +145,7 @@ container-about {
   background-color: var(--backGroundDark);
 }
 
-#offers {
+#slideSection {
   padding: var(--UIpadding);
   /*-- Grid container --*/
   grid-template-columns: 2fr 1fr;
@@ -207,6 +211,8 @@ container-about img {
 
 /*-- Reconmmended section *******************************************--*/
 #productsContainer {
+  margin: auto;
+  max-width: calc(var(--productSize) * 3 + 2 * var(--UISpacing));
   /*-- flex container --*/
   grid-gap: var(--UISpacing);
   flex-direction: row;
@@ -250,7 +256,7 @@ container-product > flex-container > p:first-of-type {
 }
 
 container-product p {
-  font-size: var(--UIFontSize);
+  font-size: var(--pSmall);
   color: white;
 }
 

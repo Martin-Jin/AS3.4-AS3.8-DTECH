@@ -101,7 +101,7 @@
     BOTTOM HALF DIVISION
   *****************************************-->
   <section id="sectionBottom">
-    <grid-container id="offers">
+    <section id="slideSection">
       <!-- header and subtitle -->
       <grid-container id="slideHeader">
         <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon' id="slideIcon">
@@ -152,171 +152,169 @@
         <button id="slidePrev" onclick="index_displaySlide(-1)">❮</button>
         <button id="slideNext" onclick="index_displaySlide(1)">❯</button>
       </grid-container>
-    </grid-container>
-    <flex-container>
-      <!-- About section -->
-      <flex-container id="aboutSection">
-        <!-- about 1 -->
-        <container-about>
-          <container-aboutText>
-            <sub-header>Welcome to HVHS Coffee House</sub-header>
+    </section>
+    <!-- About section -->
+    <section id="aboutSection">
+      <!-- about 1 -->
+      <container-about>
+        <container-aboutText>
+          <sub-header>Welcome to HVHS Coffee House</sub-header>
+          <flex-container>
+            <p class="aleo-thin"><br>At HVHS Coffee House, we are passionate about crafting the perfect cup of
+              coffee
+              for every palate.</p>
+            <p class="aleo-thin">From the moment you step through our doors, you are greeted with the rich aroma of
+              freshly roasted beans.</p>
+          </flex-container>
+        </container-aboutText>
+        <img src='/images/images_about/about_1.jpg' alt="about">
+      </container-about>
+      <!-- about 2 -->
+      <container-about>
+        <container-aboutText>
+          <sub-header>Our Story</sub-header>
+          <flex-container>
+            <p class="aleo-thin"><br>HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who
+              wanted to create a space where people could gather and connect.</p>
+            <p class="aleo-thin">With years of experience in the coffee industry, we set out to establish a place
+              that would not only serve great coffee but also foster a sense of belonging within our community.</p>
+          </flex-container>
+        </container-aboutText>
+        <img src='/images/images_about/about_2.jpg' alt="about">
+      </container-about>
+      <!-- about 3 -->
+      <container-about>
+        <container-aboutText>
+          <sub-header>Craftsmanship and Quality</sub-header>
+          <flex-container>
+            <p class="aleo-thin"><br>At HVHS Coffee House, we believe that the key to a truly exceptional cup of
+              coffee
+              lies in the details.</p>
+            <p class="aleo-thin">We meticulously source the finest beans from sustainable farms around the world,
+              ensuring that each sip is a testament to the dedication and expertise of our roasters.</p>
+          </flex-container>
+        </container-aboutText>
+        <img src='/images/images_about/about_3.jpg' alt="about">
+      </container-about>
+      <!-- about 4 -->
+      <container-about>
+        <container-aboutText>
+          <sub-header>Community Engagement</sub-header>
+          <flex-container>
+            <p class="aleo-thin"><br>More than just a place to grab your morning caffeine fix, HVHS Coffee House
+              is
+              a hub for community engagement and connection.</p>
+            <p class="aleo-thin">Our space is yours to enjoy, whether you're catching up with friends over a latte or
+              attending one of our weekly coffee tastings.</p>
+          </flex-container>
+        </container-aboutText>
+        <img src='/images/images_about/about_4.jpg' alt="coffee">
+      </container-about>
+      <!-- about 5 -->
+      <container-about>
+        <container-aboutText>
+          <sub-header>Sustainability</sub-header>
+          <flex-container>
+            <p class="aleo-thin"><br>As stewards of the environment, we are committed to minimizing our ecological
+              footprint and promoting sustainability throughout our supply chain.</p>
+            <p class="aleo-thin">From our eco-friendly packaging to our energy-efficient equipment, we strive to
+              operate in harmony with the planet.</p>
+          </flex-container>
+        </container-aboutText>
+        <img src='/images/images_about/about_5.jpg' alt="coffee">
+      </container-about>
+    </section>
+    <!-- Recommended section -->
+    <section id="recommendedSection">
+      <header>
+        Recommended
+      </header>
+      <flex-container id="productsContainer">
+        <!-- product 1 -->
+        <flex-container>
+          <container-product id="index_product1">
+            <img src='/images/images_coffee/coffee_1.jpg' alt="coffee">
             <flex-container>
-              <p class="aleo-thin"><br>At HVHS Coffee House, we are passionate about crafting the perfect cup of
-                coffee
-                for every palate.</p>
-              <p class="aleo-thin">From the moment you step through our doors, you are greeted with the rich aroma of
-                freshly roasted beans.</p>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>Coffee Name</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint
+                  of
+                  chocolate and caramel notes.</span-thin></p>
             </flex-container>
-          </container-aboutText>
-          <img src='/images/images_about/about_1.jpg' alt="about">
-        </container-about>
-        <!-- about 2 -->
-        <container-about>
-          <container-aboutText>
-            <sub-header>Our Story</sub-header>
+          </container-product>
+          <button class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
+            more</button>
+        </flex-container>
+        <!-- product 2 -->
+        <flex-container>
+          <container-product id="index_product2">
+            <img src='/images/images_coffee/coffee_2.jpg' alt="coffee">
             <flex-container>
-              <p class="aleo-thin"><br>HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who
-                wanted to create a space where people could gather and connect.</p>
-              <p class="aleo-thin">With years of experience in the coffee industry, we set out to establish a place
-                that would not only serve great coffee but also foster a sense of belonging within our community.</p>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$2.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
+                  of
+                  dark chocolate.</span-thin></p>
             </flex-container>
-          </container-aboutText>
-          <img src='/images/images_about/about_2.jpg' alt="about">
-        </container-about>
-        <!-- about 3 -->
-        <container-about>
-          <container-aboutText>
-            <sub-header>Craftsmanship and Quality</sub-header>
+          </container-product>
+          <button class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
+            more</button>
+        </flex-container>
+        <!-- product 3 -->
+        <flex-container>
+          <container-product id="index_product3">
+            <img src='/images/images_coffee/coffee_3.jpg' alt="coffee">
             <flex-container>
-              <p class="aleo-thin"><br>At HVHS Coffee House, we believe that the key to a truly exceptional cup of
-                coffee
-                lies in the details.</p>
-              <p class="aleo-thin">We meticulously source the finest beans from sustainable farms around the world,
-                ensuring that each sip is a testament to the dedication and expertise of our roasters.</p>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$3.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
+                  citrus
+                  and berries.</span-thin></p>
             </flex-container>
-          </container-aboutText>
-          <img src='/images/images_about/about_3.jpg' alt="about">
-        </container-about>
-        <!-- about 4 -->
-        <container-about>
-          <container-aboutText>
-            <sub-header>Community Engagement</sub-header>
+          </container-product>
+          <button class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
+            more</button>
+        </flex-container>
+        <!-- product 4 -->
+        <flex-container>
+          <container-product id="index_product4">
+            <img src='/images/images_coffee/coffee_4.jpg' alt="coffee">
             <flex-container>
-              <p class="aleo-thin"><br>More than just a place to grab your morning caffeine fix, HVHS Coffee House
-                is
-                a hub for community engagement and connection.</p>
-              <p class="aleo-thin">Our space is yours to enjoy, whether you're catching up with friends over a latte or
-                attending one of our weekly coffee tastings.</p>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$4.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
+                  dark
+                  chocolate and nuts.</span-thin></p>
             </flex-container>
-          </container-aboutText>
-          <img src='/images/images_about/about_4.jpg' alt="coffee">
-        </container-about>
-        <!-- about 5 -->
-        <container-about>
-          <container-aboutText>
-            <sub-header>Sustainability</sub-header>
+          </container-product>
+          <button class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
+            more</button>
+        </flex-container>
+        <!-- product 5 -->
+        <flex-container>
+          <container-product id="index_product5">
+            <img src='/images/images_coffee/coffee_5.jpg' alt="coffee">
             <flex-container>
-              <p class="aleo-thin"><br>As stewards of the environment, we are committed to minimizing our ecological
-                footprint and promoting sustainability throughout our supply chain.</p>
-              <p class="aleo-thin">From our eco-friendly packaging to our energy-efficient equipment, we strive to
-                operate in harmony with the planet.</p>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$5.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
+                  sweetness.</span-thin></p>
             </flex-container>
-          </container-aboutText>
-          <img src='/images/images_about/about_5.jpg' alt="coffee">
-        </container-about>
-      </flex-container>
-      <!-- Recommended section -->
-      <flex-container id="recommendedSection">
-        <header>
-          Recommended
-        </header>
-        <flex-container id="productsContainer">
-          <!-- product 1 -->
-          <flex-container>
-            <container-product id="index_product1">
-              <img src='/images/images_coffee/coffee_1.jpg' alt="coffee">
-              <flex-container>
-                <p><span-bold>- Coffee Name:</span-bold> <span-thin>Coffee Name</span-thin></p>
-                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint
-                    of
-                    chocolate and caramel notes.</span-thin></p>
-              </flex-container>
-            </container-product>
-            <button class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
-              more</button>
-          </flex-container>
-          <!-- product 2 -->
-          <flex-container>
-            <container-product id="index_product2">
-              <img src='/images/images_coffee/coffee_2.jpg' alt="coffee">
-              <flex-container>
-                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$2.99</span-thin></p>
-                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
-                    of
-                    dark chocolate.</span-thin></p>
-              </flex-container>
-            </container-product>
-            <button class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
-              more</button>
-          </flex-container>
-          <!-- product 3 -->
-          <flex-container>
-            <container-product id="index_product3">
-              <img src='/images/images_coffee/coffee_3.jpg' alt="coffee">
-              <flex-container>
-                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$3.99</span-thin></p>
-                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
-                    citrus
-                    and berries.</span-thin></p>
-              </flex-container>
-            </container-product>
-            <button class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
-              more</button>
-          </flex-container>
-          <!-- product 4 -->
-          <flex-container>
-            <container-product id="index_product4">
-              <img src='/images/images_coffee/coffee_4.jpg' alt="coffee">
-              <flex-container>
-                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$4.99</span-thin></p>
-                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
-                    dark
-                    chocolate and nuts.</span-thin></p>
-              </flex-container>
-            </container-product>
-            <button class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
-              more</button>
-          </flex-container>
-          <!-- product 5 -->
-          <flex-container>
-            <container-product id="index_product5">
-              <img src='/images/images_coffee/coffee_5.jpg' alt="coffee">
-              <flex-container>
-                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$5.99</span-thin></p>
-                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
-                    sweetness.</span-thin></p>
-              </flex-container>
-            </container-product>
-            <button class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
-              more</button>
-          </flex-container>
-          <!-- product 6 -->
-          <flex-container>
-            <container-product id="index_product6">
-              <img src='/images/images_coffee/coffee_6.jpg' alt="coffee">
-              <flex-container>
-                <p><span-bold>- Coffee Name:</span-bold> <span-thin>$6.99</span-thin></p>
-                <p><span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
-                    mellow
-                    flavor.</span-thin></p>
-              </flex-container>
-            </container-product>
-            <button class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
-              more</button>
-          </flex-container>
+          </container-product>
+          <button class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
+            more</button>
+        </flex-container>
+        <!-- product 6 -->
+        <flex-container>
+          <container-product id="index_product6">
+            <img src='/images/images_coffee/coffee_6.jpg' alt="coffee">
+            <flex-container>
+              <p><span-bold>- Coffee Name:</span-bold> <span-thin>$6.99</span-thin></p>
+              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
+                  mellow
+                  flavor.</span-thin></p>
+            </flex-container>
+          </container-product>
+          <button class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
+            more</button>
         </flex-container>
       </flex-container>
-    </flex-container>
+    </section>
   </section>
   <!--*****************************************
     BOTTOM HALF DIVISION
