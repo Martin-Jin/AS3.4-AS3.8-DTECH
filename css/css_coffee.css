@@ -1,8 +1,79 @@
 /*------------------------------------------------------------*
   coffee.html page styling
 /*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+  --productPadding: calc(var(--UIpadding) * 4);
+}
 
-/*-- container *******************************************--*/
-container-form {
+/*-- product container *******************************************--*/
+#formContainer {
+  padding: var(--productPadding);
+  background-color: #333333;
+  width: 80vw;
+  height: fit-content;
+  /*-- Grid container --*/
+  grid-gap: var(--UISpacing);
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'img header'
+    'img description'
+    'img ingredients'
+    'img addOns'
+    'img button'
+}
+
+#formContainer, #formContainer * {
+  border-radius: var(--UIRadius);
+}
+
+#productImg {
+  grid-area: img;
+  height: 100%;
+  width: 100%;
+}
+
+#productHeader{
+  grid-area: header;
+}
+
+#productDescription {
+  grid-area: description;
+}
+
+#productIngredients {
+  grid-area: ingredients;
+}
+
+#productReview {
+  grid-area: review;
+}
+
+#productAddOns {
+  grid-area: addOns;
+}
+
+#productOrder {
+  grid-area: button;
+}
+
+/*-- text styling *******************************************--*/
+.coffee_text {
   
+}
+
+/*-- properties of the product *******************************************--*/
+#productSizes {
+  flex-direction: row;
+}
+
+#productSizes input {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+}
+
+#formContainer > flex-container > p {
+  color: var(--backGroundLight);
 }
