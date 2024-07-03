@@ -3,18 +3,24 @@
 /*------------------------------------------------------------*/
 /*-- variables *******************************************--*/
 :root {
+  /*-- padding --*/
   --productPadding: calc(var(--UIpadding) * 4);
+  --sizeBtnPadding: calc(var(--UIpadding) * 1.3);
+  /*-- margin --*/
+  --labelMargin: calc(var(--UIMargin) * 0.4);
+  /*-- button --*/
+  --sizeBtn: calc(var(--UISize) * 0.05);
 }
 
 /*-- product container *******************************************--*/
 #formContainer {
   padding: var(--productPadding);
-  background-color: #333333;
+  background-color: var(--backGroundLightDark);
   width: 80vw;
   height: fit-content;
   /*-- Grid container --*/
   grid-gap: var(--UISpacing);
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 4fr 5fr;
   grid-template-rows: auto;
   grid-template-areas:
     'img header'
@@ -30,12 +36,15 @@
 
 #productImg {
   grid-area: img;
+  object-fit: cover;
   height: 100%;
   width: 100%;
 }
 
 #productHeader{
+  width: 80%;
   grid-area: header;
+  border-color: var(--header);
 }
 
 #productDescription {
@@ -58,22 +67,34 @@
   grid-area: button;
 }
 
-/*-- text styling *******************************************--*/
-.coffee_text {
-  
-}
-
-/*-- properties of the product *******************************************--*/
-#productSizes {
-  flex-direction: row;
-}
-
-#productSizes input {
-  border: 1px solid black;
-  width: 50px;
-  height: 50px;
-}
-
+/*-- font styling *******************************************--*/
 #formContainer > flex-container > p {
   color: var(--backGroundLight);
+}
+
+/*-- Size options for coffee *******************************************--*/
+#productSizes {
+  flex-direction: row;
+  grid-gap: var(--UISpacing);
+}
+
+#productSizes label {
+  margin-right: var(--labelMargin);
+}
+
+#productSizes label:hover {
+  font-weight: 550;
+}
+
+#productSizes button {
+  cursor: auto;
+}
+
+.coffee_sizes {
+  padding: calc(var(--sizeBtnPadding) / 3) var(--sizeBtnPadding);
+  background-color: var(--backGroundDark);
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0;
+  font-size: var(--pSmall);
 }
