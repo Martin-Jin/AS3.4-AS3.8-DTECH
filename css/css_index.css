@@ -96,7 +96,6 @@ h3 {
 #slideText {
   max-width: var(--offersContainer);
   grid-area: description;
-  margin: var(--UIMargin) auto auto auto;
   padding: var(--descriptionPadding);
 }
 
@@ -110,9 +109,10 @@ h3 {
 
 /*-- icons *******************************************--*/
 #slideIcon{
-  width: var(--indexIconSize);
+  font-size: var(--indexIconSize);
+  color: var(--subtitle);
   grid-area: icon;
-  margin: auto var(--UIIconMargin) auto auto;
+  margin: auto auto auto var(--UIIconMargin);
 }
 
 /*-- UI with curved borders *******************************************--*/
@@ -165,6 +165,7 @@ container-about {
     'prev slide next'
     'prev description next';
   align-items: center;
+  grid-gap: var(--UIMargin);
 }
 
 /*-- About section *******************************************--*/
@@ -349,7 +350,7 @@ slide-coffee:hover>#darkFilter {
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   grid-template-areas:
-    'icon UIHeader'
+    'UIHeader icon'
     'UISubHeader  UISubHeader'
 }
 

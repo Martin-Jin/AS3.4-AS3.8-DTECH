@@ -68,6 +68,7 @@ body {
   border: none;
   background-color: transparent;
   transition: 0.2s;
+  box-sizing: border-box;
 }
 
 /*-- font *******************************************--*/
@@ -146,19 +147,23 @@ nav {
   backdrop-filter: blur(2px);
 }
 
-nav button {
+nav a, nav button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   position: relative;
   height: 100%;
   border: none;
   background: transparent;
   cursor: pointer;
+  color: var(--text);
 }
 
 /*-- Styling of the icon that goes on the navbar --*/
-nav img {
+nav i {
   width: var(--iconSize);
   margin-left: var(--iconMargin);
-  filter: invert(100%) sepia(98%) saturate(364%) hue-rotate(295deg) brightness(102%) contrast(92%);
   border-radius: 0;
 }
 
@@ -170,11 +175,11 @@ nav img {
   margin: auto;
 }
 
-nav button.active {
+nav a.active {
   border-bottom: var(--navBarBorder) solid var(--subtitle);
 }
 
-nav button:hover {
+nav a:hover, nav button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -182,15 +187,14 @@ nav button:hover {
 .general_logo {
   filter: none;
   width: auto;
-  height: 10vw;
+  height: 15vh;
   margin: 0;
   object-fit: scale-down;
 }
 
 /*-- collapsed navBar styling*******************************************--*/
 /*-- The container needed to position the dropdown content --*/
-container-dropdown,
-nav button {
+container-dropdown, nav a, nav button {
   width: 100%;
 }
 
@@ -201,11 +205,11 @@ dropdown-content {
   width: 50%;
 }
 
-dropdown-content button img {
+dropdown-content a img {
   filter: invert(10%) sepia(6%) saturate(0%) hue-rotate(159deg) brightness(95%) contrast(91%);
 }
 
-dropdown-content button {
+dropdown-content a {
   background-color: var(--backGroundLight);
   color: var(--backGroundDark);
   height: var(--navBarSize);
@@ -214,7 +218,7 @@ dropdown-content button {
 }
 
 /*-- Change color of dropdown links on hover --*/
-dropdown-content button:hover {
+dropdown-content a:hover {
   background-color: var(--dropdownHover);
 }
 
@@ -270,7 +274,7 @@ input[type='radio']:checked:after {
 
 /*-- links *******************************************--*/
 /*-- underline sliding annimation --*/
-a::after, nav button::after {
+a::after {
   content: '';
   position: absolute;
   border: none;
@@ -284,7 +288,7 @@ a::after, nav button::after {
 }
 
 /*-- disabling transition for active element and regular non navbar buttons--*/
-nav button.active::after, #signInBtn:after {
+nav a.active::after, #signInBtn:after {
   display: none;
 }
 
@@ -321,7 +325,7 @@ grid-container, section {
   display: grid;
 }
 
-flex-container, footer, #aboutSection, #recommendedSection{
+flex-container, footer, #aboutSection, #recommendedSection {
   display: flex;
   flex-direction: column;
   justify-content: center;

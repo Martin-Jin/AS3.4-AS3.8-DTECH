@@ -3,7 +3,7 @@
 
 <head>
   <title>HVHS coffee house</title>
-  <link rel="icon" type="image/x-icon" href="/images/images_icons/icons_logo.png">
+  <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
   <meta charset="UTF-8">
   <meta name="description" content="Online coffee shop for HVHS">
   <meta name="author" content="Martin Jin">
@@ -13,6 +13,8 @@
   <link defer rel="stylesheet" href="/css/css_general.css">
   <link defer rel="stylesheet" href="/css/css_index.css">
   <link defer rel="stylesheet" href="/css/css_indexMediaQueries.css">
+  <!-- icons -->
+  <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
   <!-- imported font(s) -->
   <link defer rel="preconnect" href="https://fonts.googleapis.com">
   <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,51 +37,53 @@
   <section id="topSection">
     <!-- navBar for larger screens -->
     <nav id="nav_desktop">
-      <button onclick="window.location = '/../index.html'" class="active">
-        Home <img src="/images/images_icons/icons_coffee.png" alt="coffee_icon">
-      </button>
+      <a href="/../index.html" class="active">
+        Home <i class="fa fa-coffee" aria-hidden="true"></i>
+      </a>
       <!-- regular buttons thats displayed -->
-      <button onclick="window.location = '/../index.html'">
-        About us <img src="/images/images_icons/icons_about.png" alt="info_icon">
-      </button>
-      <button onclick="window.location = '/html/html_contact'">
-        Contact us <img src="/images/images_icons/icons_contact.png" alt="phone_icon">
-      </button>
+      <a href="#aboutSection">
+        About us <i class="fa fa-info-circle" aria-hidden="true"></i>
+      </a>
+      <a href="/html/html_contact">
+        Contact us <i class="fa fa-phone" aria-hidden="true"></i>
+      </a>
       <!-- logo for navbar -->
-      <img src="/images/images_icons/icons_logo.png" alt="logo" class="general_logo">
-      <button onclick="window.location = '/html/html_products'">
-        Products <img src="/images/images_icons/icons_products.png" alt="coffee_icon">
-      </button>
-      <button onclick="window.location = '/html/html_orders'">
-        Orders <img src="/images/images_icons/icons_orders.png" alt="basket_icon">
-      </button>
+      <img src="/images/images_logo.png" alt="logo" class="general_logo">
+      <a href="/html/html_products">
+        Products <i class="fa fa-coffee" aria-hidden="true"></i>
+      </a>
+      <a href="/html/html_orders">
+        Orders <i class="fa fa-solid fa-basket-shopping" aria-hidden="true"></i>
+      </a>
       <!-- sign in button needs to be in a container so its width can be customised -->
       <flex-container>
-        <button onclick="window.location = '/html/html_signIn'" id="signInBtn">
+        <a href="/html/html_signIn" id="signInBtn">
           Sign in
-        </button>
+        </a>
       </flex-container>
     </nav>
     <!-- navBar for larger screens -->
     <nav id="nav_dropdown">
-      <button onclick="window.location = '/../index.html'" class="active">
-        Home <img src="/images/images_icons/icons_coffee.png" alt="coffee_icon">
-      </button>
+      <a href="/../index.html" class="active">
+        Home <i class="fa fa-coffee" aria-hidden="true"></i>
+      </a>
+      <!-- logo for navbar -->
+      <img src="/images/images_logo.png" alt="logo" class="general_logo">
       <!-- drop down thats displayed on smaller screens -->
       <container-dropdown>
         <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn">
-          Dropdown
+          <i class="fa fa-bars"></i>
         </button>
         <dropdown-content id="dropDown">
-          <button onclick="window.location = '/../index.html'">
-            About us <img src="/images/images_icons/icons_about.png" alt="info_icon">
-          </button><button onclick="window.location = '/html/html_contact'">
-            Contact us <img src="/images/images_icons/icons_contact.png" alt="phone_icon">
-          </button><button onclick="window.location = '/html/html_products'">
-            Products <img src="/images/images_icons/icons_products.png" alt="coffee_icon">
-          </button><button onclick="window.location = '/html/html_orders'">
-            Orders <img src="/images/images_icons/icons_orders.png" alt="basket_icon">
-          </button>
+          <a href="/../index.html">
+            About us <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </a><a href="/html/html_contact">
+            Contact us <i class="fa fa-phone" aria-hidden="true"></i>
+          </a><a href="/html/html_products">
+            Products <i class="fa fa-coffee" aria-hidden="true"></i>
+          </a><a href="/html/html_orders">
+            Orders <i class="fa fa-basket-shopping" aria-hidden="true"></i>
+          </a>
         </dropdown-content>
       </container-dropdown>
     </nav>
@@ -104,9 +108,9 @@
     <section id="slideSection">
       <!-- header and subtitle -->
       <grid-container id="slideHeader">
-        <img src='/images/images_icons/icons_discount.png' alt='discount_icon' class='general_icon' id="slideIcon">
         <header id="header">
           Special offers</header>
+        <i class="fa fa-tag" aria-hidden="true" id="slideIcon"></i>
         <sub-header id="subHeader">
           Get them while they last</sub-header>
       </grid-container>

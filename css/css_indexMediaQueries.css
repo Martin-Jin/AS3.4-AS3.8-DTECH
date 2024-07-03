@@ -3,7 +3,7 @@
 /*------------------------------------------------------------*/
 
 /*-- Media queries for desktop *******************************************--*/
-@media screen and (min-width: 1350px) {
+@media screen and (min-width: 1024px) {
 
   /*-- Changing the navbar used to the one for larger screens --*/
   #nav_desktop {
@@ -14,12 +14,16 @@
     display: none;
   }
 
-  .index_discount {
+  .general_logo {
+    height: 10vh;
+  }
+
+  discount-container {
     width: 15%;
   }
 
   /*-- Make grid and flex box containers display side by side instead of column --*/
-  .index_offersContainer {
+  #offersContainer {
     grid-template-columns: auto 1fr 1fr auto;
     grid-template-rows: auto;
     grid-template-areas:
@@ -40,7 +44,7 @@
     object-fit: cover;
   }
 
-  .index_productContainer {
+  #productsContainer {
     display: grid;
     justify-content: center;
     /*-- Grid container --*/
@@ -49,12 +53,12 @@
   }
 
   /*-- Changing any margin and alignment as required --*/
-  .index_about,
+  #aboutSection,
   container-about {
     grid-gap: var(--UISpacing);
   }
 
-  .index_description {
+  container-description {
     margin: 0 0 0 var(--UIMargin);
   }
 
@@ -64,7 +68,7 @@
 }
 
 /*-- Scaling up font size --*/
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 425px) {
   :root {
     --headerSize: 3.5rem;
     --UIpadding: 1.5rem;
