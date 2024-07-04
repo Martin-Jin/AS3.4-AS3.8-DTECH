@@ -139,6 +139,14 @@ a {
   display: flex;
 }
 
+
+/*-- Having the first button/home button take up space 
+so that the logo and the drop down container is aligned properly --*/
+#nav_desktop > :first-child {
+  display: flex;
+  padding: 0;
+}
+
 /*-- hide the text inside the buttons by deafult so that only the logo 
 is displayed for the next screen size up --*/
 #nav_desktop > a > span, #nav_desktop > flex-container > a > span {
@@ -208,25 +216,25 @@ nav a:hover, nav button:hover {
 
 /*-- collapsed navBar styling*******************************************--*/
 /*-- The container needed to position the dropdown content --*/
-container-dropdown, nav a, nav button {
+container-dropdown, nav a, nav button, dropdown-content {
   width: 100%;
 }
 
-container-dropdown i {
-  margin: 0;
+container-dropdown {
+  position: relative;
 }
 
 /*-- Dropdown content --*/
 dropdown-content {
   display: none;
   position: absolute;
-  width: 50%;
+  margin-top: var(--navBarSize);
 }
 
-dropdown-content a img {
-  filter: invert(10%) sepia(6%) saturate(0%) hue-rotate(159deg) brightness(95%) contrast(91%);
+dropdown-content i {
+  margin-left: var(--iconMargin);
 }
-
+  
 dropdown-content a {
   background-color: var(--backGroundLight);
   color: var(--backGroundDark);
@@ -292,7 +300,7 @@ input[type='radio']:checked:after {
 
 /*-- links *******************************************--*/
 /*-- underline sliding annimation --*/
-a::after {
+a::after, nav button::after {
   content: '';
   position: absolute;
   border: none;
