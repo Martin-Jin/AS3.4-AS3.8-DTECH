@@ -6,6 +6,7 @@
 :root {
   /*-- colours --*/
   --backGroundLight: #f1f1f1;
+  --backGroundBlack: #111111;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
   --text: #F4EAE4;
@@ -17,6 +18,7 @@
   --UISize: 3.5rem;
   --UIRadius: 0.6rem;
   --navBarSize: calc(0.9 * var(--UISize));
+  --logoSize: calc(1.5 * var(--navBarSize));
   --footerSize: calc(0.9 * var(--navBarSize));
   --separatorHeight: 0.1rem;
   --radioBtnSize: calc(0.1 * var(--UISize));
@@ -30,6 +32,7 @@
   --buttonMargin: calc(var(--UIMargin) * 0.65);
   /*-- padding --*/
   --UIpadding: 0.75rem;
+  --navBtnPadding: calc(var(--UIpadding) * 1.5);
   --footerPadding: calc(var(--UIpadding) * 2);
   /*-- borders --*/
   --UIborder: 0.5rem;
@@ -42,8 +45,6 @@
   --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
   --navBarBorder: calc(var(--UIborder) * 0.5);
-  /*-- hover colours --*/
-  --backGroundHover: rgba(244, 234, 228, 0.1);
   /*-- drop down buttons --*/
   --dropdownHover: #efefef;
   /*-- icon size --*/
@@ -129,8 +130,18 @@ a {
 }
 
 /*-- navBar *******************************************--*/
-/*-- by deafult hide the desktop one and load mobile version first--*/
-#nav_desktop {
+/*-- by deafult hide the desktop one and load mobile version first --*/
+#nav_desktop > a, #nav_desktop > flex-container {
+  display: none;
+}
+
+#nav_dropdown {
+  display: flex;
+}
+
+/*-- hide the text inside the buttons by deafult so that only the logo 
+is displayed for the next screen size up --*/
+#nav_desktop > a > span, #nav_desktop > flex-container > a > span {
   display: none;
 }
 
@@ -143,7 +154,7 @@ nav {
   grid-area: nav;
   height: var(--navBarSize);
   display: flex;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(17, 17, 17, 0.2);
   backdrop-filter: blur(2px);
 }
 
@@ -158,12 +169,13 @@ nav a, nav button {
   background: transparent;
   cursor: pointer;
   color: var(--text);
+  padding: 0 var(--navBtnPadding);
+  white-space: nowrap;
 }
 
 /*-- Styling of the icon that goes on the navbar --*/
 nav i {
-  width: var(--iconSize);
-  margin-left: var(--iconMargin);
+  font-size: var(--iconSize);
   border-radius: 0;
 }
 
@@ -172,7 +184,10 @@ nav i {
   background: var(--backGroundDark) !important;
   height: 75%;
   width: 60%;
-  margin: auto;
+}
+
+#signInBtn:hover {
+  background-color: var(--backGroundBlack) !important;
 }
 
 nav a.active {
@@ -180,14 +195,13 @@ nav a.active {
 }
 
 nav a:hover, nav button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /*-- navBar logo *******************************************--*/
-.general_logo {
-  filter: none;
+#logo {
   width: auto;
-  height: 15vh;
+  height: var(--logoSize);
   margin: 0;
   object-fit: scale-down;
 }
@@ -196,6 +210,10 @@ nav a:hover, nav button:hover {
 /*-- The container needed to position the dropdown content --*/
 container-dropdown, nav a, nav button {
   width: 100%;
+}
+
+container-dropdown i {
+  margin: 0;
 }
 
 /*-- Dropdown content --*/

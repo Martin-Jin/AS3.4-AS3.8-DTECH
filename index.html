@@ -38,55 +38,47 @@
     <!-- navBar for larger screens -->
     <nav id="nav_desktop">
       <a href="/../index.html" class="active">
-        Home <i class="fa fa-coffee" aria-hidden="true"></i>
+        <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
       </a>
       <!-- regular buttons thats displayed -->
       <a href="#aboutSection">
-        About us <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <span>About us</span> <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
       </a>
       <a href="/html/html_contact">
-        Contact us <i class="fa fa-phone" aria-hidden="true"></i>
+        <span>Contact us</span> <i class="fa-solid fa-phone" aria-hidden="true"></i>
       </a>
       <!-- logo for navbar -->
-      <img src="/images/images_logo.png" alt="logo" class="general_logo">
+      <img src="/images/images_logo.png" alt="logo" id="logo">
       <a href="/html/html_products">
-        Products <i class="fa fa-coffee" aria-hidden="true"></i>
+        <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
       </a>
       <a href="/html/html_orders">
-        Orders <i class="fa fa-solid fa-basket-shopping" aria-hidden="true"></i>
+        <span>Orders</span> <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
       </a>
       <!-- sign in button needs to be in a container so its width can be customised -->
       <flex-container>
         <a href="/html/html_signIn" id="signInBtn">
-          Sign in
+          <span>Sign in</span> <i class="fas fa-user" aria-hidden="true"></i>
         </a>
       </flex-container>
-    </nav>
-    <!-- navBar for larger screens -->
-    <nav id="nav_dropdown">
-      <a href="/../index.html" class="active">
-        Home <i class="fa fa-coffee" aria-hidden="true"></i>
-      </a>
-      <!-- logo for navbar -->
-      <img src="/images/images_logo.png" alt="logo" class="general_logo">
-      <!-- drop down thats displayed on smaller screens -->
-      <container-dropdown>
+      <container-dropdown id="nav_dropdown">
         <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn">
-          <i class="fa fa-bars"></i>
+          <i class="fa-solid fa-bars"></i>
         </button>
         <dropdown-content id="dropDown">
           <a href="/../index.html">
-            About us <i class="fa fa-info-circle" aria-hidden="true"></i>
+            About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
           </a><a href="/html/html_contact">
-            Contact us <i class="fa fa-phone" aria-hidden="true"></i>
+            Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
           </a><a href="/html/html_products">
-            Products <i class="fa fa-coffee" aria-hidden="true"></i>
+            Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
           </a><a href="/html/html_orders">
-            Orders <i class="fa fa-basket-shopping" aria-hidden="true"></i>
+            Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
           </a>
         </dropdown-content>
       </container-dropdown>
     </nav>
+    
     <!-- container for the header and button to center them -->
     <container-heading id="landingText">
       <!-- header and subtitle -->
@@ -110,7 +102,7 @@
       <grid-container id="slideHeader">
         <header id="header">
           Special offers</header>
-        <i class="fa fa-tag" aria-hidden="true" id="slideIcon"></i>
+        <i class="fa-solid fa-tag" aria-hidden="true" id="slideIcon"></i>
         <sub-header id="subHeader">
           Get them while they last</sub-header>
       </grid-container>

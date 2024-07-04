@@ -5,19 +5,6 @@
 /*-- Media queries for desktop *******************************************--*/
 @media screen and (min-width: 1024px) {
 
-  /*-- Changing the navbar used to the one for larger screens --*/
-  #nav_desktop {
-    display: flex;
-  }
-
-  #nav_dropdown {
-    display: none;
-  }
-
-  .general_logo {
-    height: 10vh;
-  }
-
   discount-container {
     width: 15%;
   }
@@ -76,6 +63,44 @@
     --UIMargin: 1.5rem;
     --UIborder: 0.5rem;
     --UIRadius: 0.9rem;
+  }
+}
+
+/*-- responsive nav bar --*/
+@media screen and (min-width: 750px) {
+
+  /*-- Hiding drop down menu and displaying icons --*/
+  #nav_dropdown {
+    display: none;
+  }
+
+  #nav_desktop>a,
+  #nav_desktop>flex-container {
+    display: flex;
+  }
+
+  /*-- Make text pop up on hover --*/
+  #nav_desktop>a:hover span,
+  #nav_desktop>flex-container:hover span {
+    display: block;
+  }
+
+  #nav_desktop>a:hover i,
+  #nav_desktop>flex-container:hover i {
+    margin-left: var(--iconMargin);
+  }
+}
+
+@media screen and (min-width: 1300px) {
+
+  /*-- Changing the navbar used to the one for larger screens --*/
+  #nav_desktop>a>span,
+  #nav_desktop flex-container>a>span {
+    display: block;
+  }
+
+  nav i {
+    margin-left: var(--iconMargin);
   }
 }
 
