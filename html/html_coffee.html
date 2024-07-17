@@ -11,6 +11,7 @@
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
   <link rel="stylesheet" href="/css/css_coffee.css">
+  <link defer rel="stylesheet" href="/css/css_generalMediaQueries.css">
   <!-- imported font(s) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,32 +33,38 @@
   <grid-container id="formContainer" class="center">
     <!-- image and header -->
     <img id="productImg" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
-    <sub-header id="productHeader" class="text_underline">Coffee name</sub-header>
-    <!-- description -->
-    <flex-container id="productDescription">
-      <p><span-bold>Description:</span-bold></p>
-      <p id="description" class="coffee_text">A classic Italian coffee drink. This drink is known for its smooth and velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.</p>
-    </flex-container>
-    <!-- ingredients -->
-    <flex-container id="productIngredients">
-      <p><span-bold>Contains:</span-bold></p>
-      <p id="ingredients" class="coffee_text">Coffee, sugar and milk.</p>
-    </flex-container>
-    <!-- add on buttons -->
-    <flex-container id="productAddOns">
-      <flex-container id="productSizes">
-        <button class="general_button coffee_sizes">
-          <input type="radio" id="large" name="size" value="Large">
-          <label for="large">Large</label>
-        </button>
-        <button class="general_button coffee_sizes">
-          <input type="radio" id="medium" name="size" value="Medium">
-          <label for="medium">Medium</label>
-        </button>
-        <button class="general_button coffee_sizes">
-          <input type="radio" id="small" name="size" value="Small">
-          <label for="small">Small</label>
-        </button>
+    <flex-container id="formMain">
+      <flex-container>
+        <sub-header id="productHeader" class="text_underline">Coffee name</sub-header>
+        <sub-header id="productPrice">$1.00</sub-header>
+      </flex-container>
+      <!-- description -->
+      <flex-container id="productDescription">
+        <p><span-bold>Description:</span-bold></p>
+        <p id="description" class="coffee_text">A classic Italian coffee drink. This drink is known for its smooth and
+          velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.</p>
+      </flex-container>
+      <!-- ingredients -->
+      <flex-container id="productIngredients">
+        <p><span-bold>Contains:</span-bold></p>
+        <p id="ingredients" class="coffee_text">Coffee, sugar and milk.</p>
+      </flex-container>
+      <!-- add on buttons -->
+      <flex-container id="productAddOns">
+        <flex-container id="productSizes">
+          <button class="general_button coffee_sizes">
+            <input type="radio" id="large" name="size" value="Large">
+            <label for="large">Large</label>
+          </button>
+          <button class="general_button coffee_sizes">
+            <input type="radio" id="medium" name="size" value="Medium">
+            <label for="medium">Medium</label>
+          </button>
+          <button class="general_button coffee_sizes">
+            <input type="radio" id="small" name="size" value="Small">
+            <label for="small">Small</label>
+          </button>
+        </flex-container>
       </flex-container>
     </flex-container>
   </grid-container>

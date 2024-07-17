@@ -287,7 +287,6 @@ input[type='radio']:after, input[type='radio']:checked:after {
   height: 100%;
   border-radius: 50%;
   content: '';
-  transform: translate(-50%, 0%);
 }
 
 input[type='radio']:after {
