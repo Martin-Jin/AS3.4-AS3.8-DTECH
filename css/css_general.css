@@ -32,6 +32,7 @@
   --buttonMargin: calc(var(--UIMargin) * 0.65);
   /*-- padding --*/
   --UIpadding: 0.75rem;
+  --buttonPadding: calc(var(--UIpadding) * 0.7);
   --navBtnPadding: calc(var(--UIpadding) * 1.5);
   --footerPadding: calc(var(--UIpadding) * 2);
   /*-- borders --*/
@@ -39,6 +40,7 @@
   /*-- font sizes --*/
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
+  --pLarge: calc(0.5 * var(--headerSize));
   --pSize: calc(0.36 * var(--headerSize));
   --pSmall: calc(var(--pSize) * 0.9);
   --UILineHeight: 1.8rem;
@@ -91,6 +93,10 @@ sub-header, button, a, input, label {
 
 .aleo-thin, span-thin {
   font-weight: 300;
+}
+
+span-large {
+  font-size: var(--pLarge);
 }
 
 /*-- headers --*/
@@ -182,7 +188,7 @@ nav a, nav button {
 }
 
 /*-- Styling of the icon that goes on the navbar --*/
-nav i {
+i {
   font-size: var(--iconSize);
   border-radius: 0;
 }

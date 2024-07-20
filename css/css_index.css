@@ -17,7 +17,6 @@
   --lineBreakHeight: calc(var(--UIMargin) * 0.3);
   --productPadding: calc(var(--UIMargin) * 0.6);
   /*-- padding --*/
-  --buttonPadding: calc(var(--UIpadding) * 0.7);
   --descriptionPadding: calc(var(--UIpadding) * 0.7);
   --aboutPadding: calc(var(--UIpadding) * 3);
   /*-- button --*/

@@ -11,6 +11,7 @@
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
   <link rel="stylesheet" href="/css/css_coffee.css">
+  <link rel="stylesheet" href="/css/css_coffeeMediaQueries.css">
   <link defer rel="stylesheet" href="/css/css_generalMediaQueries.css">
   <!-- imported font(s) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +21,7 @@
 
   <!-- javascript(s) *******************************************-->
   <script defer src="/htmlJs/htmlJs_general.js"></script>
+  <script defer src="/htmlJs/htmlJs_coffee.js"></script>
 </head>
 
 <!--*************************************************************
@@ -36,7 +38,7 @@
     <flex-container id="formMain">
       <flex-container>
         <sub-header id="productHeader" class="text_underline">Coffee name</sub-header>
-        <sub-header id="productPrice">$1.00</sub-header>
+        <sub-header id="productPrice">1.00</sub-header>
       </flex-container>
       <!-- description -->
       <flex-container id="productDescription">
@@ -44,13 +46,9 @@
         <p id="description" class="coffee_text">A classic Italian coffee drink. This drink is known for its smooth and
           velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.</p>
       </flex-container>
-      <!-- ingredients -->
-      <flex-container id="productIngredients">
-        <p><span-bold>Contains:</span-bold></p>
-        <p id="ingredients" class="coffee_text">Coffee, sugar and milk.</p>
-      </flex-container>
       <!-- add on buttons -->
       <flex-container id="productAddOns">
+        <p><span-bold>Sizes:</span-bold></p>
         <flex-container id="productSizes">
           <button class="general_button coffee_sizes">
             <input type="radio" id="large" name="size" value="Large">
@@ -66,6 +64,13 @@
           </button>
         </flex-container>
       </flex-container>
+      <!-- ingredients -->
+      <flex-container id="productIngredients">
+        <p><span-bold>Contains:</span-bold></p>
+        <p id="ingredients" class="coffee_text">Coffee, sugar and milk.</p>
+      </flex-container>
+      <!-- order button -->
+      <button id="order" class="general_button"><span-large>Add to cart</span-large><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i></button>
     </flex-container>
   </grid-container>
   <!--*****************************************

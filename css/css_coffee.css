@@ -4,14 +4,13 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- padding --*/
-  --productPadding: calc(var(--UIpadding) * 4);
+  --productPadding: calc(var(--UIpadding) * 1.5);
   --sizeBtnPadding: calc(var(--UIpadding) * 1.3);
   /*-- spacing --*/
-  --formGap: calc(var(--UISpacing) * 2);
+  --formGap: calc(var(--UISpacing) * 1.5);
   /*-- margin --*/
   --labelMargin: calc(var(--UIMargin) * 0.4);
   /*-- button --*/
-  --paddingBtn: calc(var(--UIpadding) * 0.5);
 }
 
 /*-- product container *******************************************--*/
@@ -22,14 +21,26 @@
   height: fit-content;
   /*-- Grid container --*/
   grid-gap: var(--formGap);
-  grid-template-columns: 4fr 5fr;
-  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    'img main'
+    'img'
+    'main'
+}
+
+/*-- font styling *******************************************--*/
+#productPrice {
+  color: var(--text);
+  font-size: calc(0.8 * var(--subheaderSize));
+}
+
+#productPrice::before {
+  content: '$';
 }
 
 /*-- text and radius styling --*/
-#formContainer, #formContainer * {
+#formContainer,
+#formContainer * {
   border-radius: var(--UIRadius);
   text-align: left;
 }
@@ -38,6 +49,12 @@
   margin: 0;
 }
 
+#productHeader {
+  width: 80%;
+  border-color: var(--header);
+}
+
+/*-- spacing --*/
 #formMain {
   grid-area: main;
   grid-gap: var(--formGap);
@@ -47,6 +64,7 @@
   grid-gap: var(--iconMargin);
 }
 
+/*-- img styling --*/
 #productImg {
   grid-area: img;
   object-fit: cover;
@@ -54,19 +72,11 @@
   width: 100%;
 }
 
-#productHeader{
-  width: 80%;
-  border-color: var(--header);
-}
-
-/*-- font styling *******************************************--*/
-#formContainer > flex-container > p {
-  color: var(--backGroundLight);
-}
-
-#productPrice {
-  color: var(--text);
-  font-size: calc(0.8 * var(--subheaderSize));
+/*-- button styling--*/
+#order {
+  margin-top: 0;
+  background-color: var(--backGroundDark);
+  text-align: center;
 }
 
 /*-- Size options for coffee *******************************************--*/
@@ -89,15 +99,15 @@
 }
 
 .coffee_sizes {
-  padding: calc(var(--paddingBtn) / 3) var(--paddingBtn);
   background-color: var(--backGroundDark);
   display: flex;
   flex-direction: row-reverse;
   margin-top: 0;
   font-size: var(--pSmall);
+  border: none;
 }
 
 /* Style the label when the radio button is checked */
-.coffee_sizes input[type='radio']:checked + label {
+.coffee_sizes input[type='radio']:checked+label {
   color: var(--subtitle) !important;
 }
