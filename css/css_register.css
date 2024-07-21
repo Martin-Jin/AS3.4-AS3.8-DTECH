@@ -3,4 +3,119 @@
 /*------------------------------------------------------------*/
 /*-- variables *******************************************--*/
 :root {
+  /*-- padding --*/
+  --productPadding: calc(var(--UIpadding) * 1.5);
+  --inputPadding: calc(var(--UIpadding) * 0.2);
+  /*-- radius --*/
+  --inputRadius: calc(var(--UIRadius) * 0.2);
+  /*-- spacing --*/
+  --formGap: calc(var(--UISpacing) * 1.5);
+  /*-- margin --*/
+  --labelMargin: calc(var(--UIMargin) * 0.4);
+  /*-- input --*/
+  --inputWidth: calc(var(--UISize) * 1.4);
+}
+
+/*-- product container *******************************************--*/
+#formContainer {
+  padding: var(--productPadding);
+  background-color: var(--backGroundLightDark);
+  width: fit-content;
+  height: fit-content;
+}
+
+/*-- font styling *******************************************--*/
+/*-- text and radius styling --*/
+#formContainer,
+#formContainer * {
+  border-radius: var(--UIRadius);
+  text-align: left;
+}
+
+#formContainer sub-header {
+  margin: 0;
+}
+
+#header {
+  width: 80%;
+  border-color: var(--header);
+}
+
+/*-- spacing --*/
+#formMain {
+  grid-area: main;
+  grid-gap: var(--formGap);
+}
+
+#formMain flex-container {
+  grid-gap: var(--iconMargin);
+}
+
+/*-- button styling--*/
+#submit {
+  margin-top: 0;
+  background-color: var(--backGroundDark);
+  text-align: center;
+}
+
+/*-- input styling--*/
+input[type='text'] {
+  border-style: solid;
+  border-color: var(--text) !important;
+  border-radius: var(--inputRadius) !important;
+  width: 100% !important;
+  min-width: var(--inputWidth);
+  color: white;
+  height: fit-content;
+  margin: auto;
+  padding: var(--inputPadding);
+  font-size: var(--pSmall);
+}
+
+::placeholder {
+  opacity: 70%;
+  color: white;
+}
+
+/*-- Size options for coffee *******************************************--*/
+#genders {
+  flex-direction: row;
+  justify-content: left;
+  grid-gap: var(--UISpacing);
+}
+
+#genders label {
+  margin-right: var(--labelMargin);
+}
+
+#genders label:hover {
+  font-weight: 550;
+}
+
+#genders button {
+  cursor: auto;
+}
+
+#address {
+  flex-direction: row;
+}
+
+#address p {
+  height: fit-content;
+  margin: auto;
+  white-space: nowrap;
+}
+
+.register_gender {
+  background-color: var(--backGroundDark);
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0;
+  font-size: var(--pSmall);
+  border: none;
+}
+
+/* Style the label when the radio button is checked */
+.register_gender input[type='radio']:checked+label {
+  color: var(--subtitle) !important;
 }

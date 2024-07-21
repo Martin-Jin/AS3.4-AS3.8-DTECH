@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-  <head>
-    <title>HVHS coffee house</title>
-    <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
-    <meta charset="UTF-8">
-    <meta name="description" content="13DTECH component trailing">
-    <meta name="author" content="Martin Jin">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>HVHS coffee house</title>
+  <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
+  <meta charset="UTF-8">
+  <meta name="description" content="13DTECH component trailing">
+  <meta name="author" content="Martin Jin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- stylesheet(s) *******************************************-->
-    <link defer rel="stylesheet" href="/css/css_general.css">
-    <link defer rel="stylesheet" href="/css/css_register.css">
-    <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
-    <!-- imported font(s) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
+  <!-- stylesheet(s) *******************************************-->
+  <link defer rel="stylesheet" href="/css/css_general.css">
+  <link defer rel="stylesheet" href="/css/css_register.css">
+  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
+  <!-- icons -->
+  <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
+  <!-- imported font(s) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
-    <!-- firebase start ****************************************-->
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-    <!-- firebase end ******************************************-->
+  <!-- firebase start ****************************************-->
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+  <!-- firebase end ******************************************-->
 
-    <!-- firebase modules *******************************************-->
-    <script defer src="/firebase/firebase_fb.js"></script>
-    <script defer src="/firebase/firebase_fbR.js"></script>
-    <script defer src="/firebase/firebase_fbV.js"></script>
+  <!-- firebase modules *******************************************-->
+  <script defer src="/firebase/firebase_fb.js"></script>
+  <script defer src="/firebase/firebase_fbR.js"></script>
+  <script defer src="/firebase/firebase_fbV.js"></script>
 
-    <!-- javascript(s) *******************************************-->
-    <script defer src="/htmlJs/htmlJs_manager.js"></script>
-    <script defer src="/htmlJs/htmlJs_general.js"></script>
-  </head>
+  <!-- javascript(s) *******************************************-->
+  <script defer src="/htmlJs/htmlJs_manager.js"></script>
+  <script defer src="/htmlJs/htmlJs_general.js"></script>
+</head>
 
 <!--*************************************************************
   BODY
@@ -50,7 +52,48 @@
   <!--*****************************************
     Register form
   *****************************************-->
-  <grid-container class="center">
+  <grid-container id="formContainer" class="center">
+    <flex-container id="formMain">
+      <!-- header -->
+      <sub-header id="header" class="text_underline">Registration form</sub-header>
+      <!-- registration fields -->
+      <flex-container>
+        <p><span-bold>Street address:</span-bold> <i class="fa-solid fa-road" aria-hidden="true"></i></p>
+        <input type="text" placeholder="123 ABC Street" name="street"></input>
+      </flex-container>
+      <flex-container id="address">
+        <p><span-bold>Suburb:</span-bold> <i class="fa-solid fa-building" aria-hidden="true"></i></p>
+        <input type="text" placeholder="suburb" name="suburb"></input>
+        <p><span-bold>City/town:</span-bold> <i class="fa-solid fa-city" aria-hidden="true"></i></p>
+        <input type="text" placeholder="city" name="city"></input>
+        <p><span-bold>Post code:</span-bold> <i class="fa-solid fa-envelope" aria-hidden="true"></i></p>
+        <input type="text" placeholder="1234" name="post code"></input>
+      </flex-container>
+      <flex-container id="pn">
+        <p><span-bold>Phone number:</span-bold> <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></p>
+        <input type="text" placeholder="0221234567" name="phone number"></input>
+      </flex-container>
+      <flex-container id="gender">
+        <p><span-bold>Gender:</span-bold> <i class="fa-solid fa-venus-mars" aria-hidden="true"></i></p>
+        <flex-container id="genders">
+          <button class="general_button register_gender">
+            <input type="radio" id="large" name="size" value="Large">
+            <label for="large"><i class="fa-solid fa-person" aria-hidden="true"></i></label>
+          </button>
+          <button class="general_button register_gender">
+            <input type="radio" id="medium" name="size" value="Medium">
+            <label for="medium"><i class="fa-solid fa-person-dress" aria-hidden="true"></i></label>
+          </button>
+          <button class="general_button register_gender">
+            <input type="radio" id="small" name="size" value="Small">
+            <label for="small">Others</label>
+          </button>
+        </flex-container>
+      </flex-container>
+
+      <!-- order button -->
+      <button id="submit" class="general_button"><span-large>Submit form</span-large></button>
+    </flex-container>
   </grid-container>
   <!--*****************************************
     Register form end

@@ -303,6 +303,21 @@ input[type='radio']:checked:after {
   background-color: var(--subtitle);
 }
 
+/*-- input box --*/
+input[type='text'] {
+  background-color: transparent;
+  width: 65%;
+  border: none;
+  border-color: var(--backGroundDark);
+  border-bottom-style: solid;
+  border-width: var(--separatorHeight);
+  margin-top: var(--buttonMargin);
+}
+
+input[type='text']:focus {
+  outline: none;
+}
+
 /*-- links *******************************************--*/
 /*-- underline sliding annimation --*/
 a::after, nav button::after {
@@ -418,21 +433,6 @@ footer flex-container > p:first-of-type {
   grid-template-areas:
     'about links newsletter';
   align-items: start;
-}
-
-/*-- input box --*/
-#footer_email {
-  background-color: transparent;
-  width: 65%;
-  border: none;
-  border-color: var(--backGroundDark);
-  border-bottom-style: solid;
-  border-width: var(--separatorHeight);
-  margin-top: var(--buttonMargin);
-}
-
-#footer_email:focus {
-  outline: none;
 }
 
 ::placeholder {
