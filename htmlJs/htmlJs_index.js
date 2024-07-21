@@ -13,7 +13,10 @@ let index_slideIndex = -1;
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-fbR_initialise(function() { document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) } });
+fbR_initialise(function() { 
+  document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
+  document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
+});
 
 /**************************************************************/
 // function index_displaySlide();
@@ -23,7 +26,7 @@ fbR_initialise(function() { document.getElementById("signInBtn").onclick = funct
 // input: +1 or -1 to increase or decrease the slide show index
 /**************************************************************/
 function index_displaySlide(index) {
-  console.log("index_displaySlide(" + index + ");");
+  console.log("index_displaySlide(" + index + ")");
   //Determining what slide to display next
   index_slideIndex += index;
   //When slide goes past 0 or the max length of the amount of images,

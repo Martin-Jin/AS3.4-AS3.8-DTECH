@@ -28,7 +28,7 @@ manager_getValues();
 // to the product page
 /**************************************************************/
 function general_displayCard() {
-  console.log("general_displayCard();");
+  console.log("general_displayCard()");
   const JSONSTRING = sessionStorage.getItem("coffee");
   let coffee = JSON.parse(JSONSTRING);
   console.log(coffee);
@@ -48,7 +48,7 @@ function general_displayCard() {
 // called: after user clicks on a coffee product
 /**************************************************************/
 function general_showProduct(coffee){ 
-  console.log("general_showProduct();");
+  console.log("general_showProduct()");
   //Saving the coffee object to session storage, then sending the user to
   //the product page
   sessionStorage.setItem("coffee", JSON.stringify(coffee));

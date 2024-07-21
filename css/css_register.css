@@ -22,6 +22,7 @@
   background-color: var(--backGroundLightDark);
   width: fit-content;
   height: fit-content;
+  grid-gap: var(--formGap);
 }
 
 /*-- font styling *******************************************--*/
@@ -30,6 +31,7 @@
 #formContainer * {
   border-radius: var(--UIRadius);
   text-align: left;
+  color: var(--textLight);
 }
 
 #formContainer sub-header {
@@ -37,17 +39,12 @@
 }
 
 #header {
-  width: 80%;
   border-color: var(--header);
+  color: var(--subtitle);
 }
 
 /*-- spacing --*/
-#formMain {
-  grid-area: main;
-  grid-gap: var(--formGap);
-}
-
-#formMain flex-container {
+#formContainer flex-container {
   grid-gap: var(--iconMargin);
 }
 
@@ -65,16 +62,16 @@ input[type='text'] {
   border-radius: var(--inputRadius) !important;
   width: 100% !important;
   min-width: var(--inputWidth);
-  color: white;
+  color: var(--text) !important;
   height: fit-content;
   margin: auto;
   padding: var(--inputPadding);
   font-size: var(--pSmall);
+  font-weight: 300;
 }
 
 ::placeholder {
-  opacity: 70%;
-  color: white;
+  color: var(--text) !important;
 }
 
 /*-- Size options for coffee *******************************************--*/
@@ -116,6 +113,6 @@ input[type='text'] {
 }
 
 /* Style the label when the radio button is checked */
-.register_gender input[type='radio']:checked+label {
+.register_gender input[type='radio']:checked+label, .register_gender input[type='radio']:checked+label * {
   color: var(--subtitle) !important;
 }

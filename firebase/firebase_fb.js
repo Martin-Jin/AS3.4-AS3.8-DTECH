@@ -24,18 +24,18 @@ function fb_login(_save, _procFunc) {
       return;
     }
       
-    else if (user) {
+    else if (user && fbV_loginStatus != 'logged in') {
       fbV_loginStatus = 'logged in';
-      console.log(fbV_loginStatus);
+      console.log("The user is logged in");
       _procFunc(user, _save, fbV_loginStatus);
     }
 
-    else if (fbV_loginStatus !== 'logged in via popup') {
+    else if (fbV_loginStatus != 'logged in') {
       //Uer NOT logged in, so redirect to Google login
       fbV_loginStatus = 'logged in via popup';
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).then(function(result) {
-        console.log(fbV_loginStatus);
+        console.log("The user logged in with a pop up");
         _procFunc(result.user, _save, fbV_loginStatus);
       })
       //Catch errors

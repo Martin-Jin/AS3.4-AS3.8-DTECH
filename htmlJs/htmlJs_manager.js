@@ -1,6 +1,6 @@
 /**************************************************************/
 // htmlJs_manager.js
-// Js code that modifies html pages
+// Js code that manages data across html pages
 /**************************************************************/
 MODULENAME = "htmlJs_manager.js";
 console.log('%c' + MODULENAME, 'color: red;');
@@ -19,7 +19,7 @@ const manager_SAVEOBJECTS = [fbV_userDetails, fbV_registerDetails];
 //Called by multiple functions
 /*************************************************************/
 function manager_saveValues() {
-  console.log("manager_saveValues();");
+  console.log("manager_saveValues()");
 
   //Saving the user statuses.
   sessionStorage.setItem("loginStatus", fbV_loginStatus);
@@ -53,7 +53,7 @@ function manager_saveValues() {
 //Called by multiple functions
 /*************************************************************/
 function manager_getValues() {
-  console.log("manager_getValues();");
+  console.log("manager_getValues()");
   
   //Getting the user statuses if is not null.
   if (sessionStorage.getItem("loginStatus") != null)
@@ -95,10 +95,22 @@ function manager_checkLogin() {
     //Changing the sign in button to log out button
     document.getElementById("signInBtn").onclick = function(){fb_logout()};
     document.getElementById("signInBtn").innerHTML = "Log out";
+    document.getElementById("dropDownSignIn").onclick = function(){fb_logout()};
+    document.getElementById("dropDownSignIn").innerHTML = "Log out";
     //Get user to finish registration if they created an account and haven't done it
     if (fbV_registerStatus == 'not registered') {
       alert("Please register to finish setting up your account. You will be redirected after this alert is closed.");
       window.location = '/html/html_register.html';
     }
   }
+}
+
+/*************************************************************/
+//manager_submit()
+//Submits the users data to firebase
+//Called by submit button
+/*************************************************************/
+function manager_submit() {
+  console.log("manager_submit()")
+  let inputs = document.getElementsByTagName("input").value;
 }
