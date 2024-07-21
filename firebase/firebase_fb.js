@@ -2,7 +2,7 @@
 // firebase_fb.js
 /**************************************************************/
 MODULENAME = "firebase_fb.js";
-console.log('%c' + MODULENAME + ': ', 'color: blue;');
+console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
@@ -11,21 +11,26 @@ console.log('%c' + MODULENAME + ': ', 'color: blue;');
 // fb_login(_save, _procFunc)
 // Called by general_login(); when user clicks on login button
 // Logs the user in
+// input: where to save login info and proc func to process it
 /**************************************************************/
 function fb_login(_save, _procFunc) {
   console.log('%cfb_login: ', 'color: brown;');
 
   //Disabling login button
-  document.getElementById("login_button").disabled = true;
+  document.getElementById("signInBtn").disabled = true;
 
   firebase.auth().onAuthStateChanged((user) => {
-    if (user && fbV_loginStatus !== 'logged in via popup') {
+    if (fbV_loginStatus === 'logged out'){
+      return;
+    }
+      
+    else if (user) {
       fbV_loginStatus = 'logged in';
       console.log(fbV_loginStatus);
       _procFunc(user, _save, fbV_loginStatus);
     }
 
-    else {
+    else if (fbV_loginStatus !== 'logged in via popup') {
       //Uer NOT logged in, so redirect to Google login
       fbV_loginStatus = 'logged in via popup';
       var provider = new firebase.auth.GoogleAuthProvider();
@@ -73,8 +78,7 @@ function fb_writeRec(_path, _key, _data, _procErr, _callBack) {
   console.log('%cfb_WriteRec: path= ' + _path + ' key= ' + _key, 'color: brown;');
 
   fbV_dataBase.ref(_path + '/' + _key).set(_data, gotError);
-
-  console.log(_callBack);
+  
   //Process any errors if there is one
   function gotError(error) {
     _procErr(error, _callBack);

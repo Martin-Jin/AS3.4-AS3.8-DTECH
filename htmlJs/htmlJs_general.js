@@ -3,7 +3,7 @@
 // General HTML js used across all HTML pages
 /**************************************************************/
 MODULENAME = "general_general.js";
-console.log('%c' + MODULENAME + ': ', 'color: red;');
+console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
@@ -18,6 +18,8 @@ const coffee6 = { image: '/images/images_coffee/coffee_6.jpg', alt: 'coffee6', p
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
+//Get saved values
+manager_getValues();
 
 /**************************************************************/
 // function general_displayCard();

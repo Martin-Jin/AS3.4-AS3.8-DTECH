@@ -3,23 +3,40 @@
 
 <head>
   <title>HVHS coffee house</title>
+  <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
   <meta charset="UTF-8">
   <meta name="description" content="13DTECH component trailing">
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- stylesheet(s) *******************************************-->
-  <link rel="stylesheet" href="/css/css_general.css">
-  <link rel="stylesheet" href="/css/css_coffee.css">
-  <link rel="stylesheet" href="/css/css_coffeeMediaQueries.css">
-  <link defer rel="stylesheet" href="/css/css_generalMediaQueries.css">
+  <link defer rel="stylesheet" href="/css/css_general.css">
+  <link defer rel="stylesheet" href="/css/css_coffee.css">
+  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_coffee.css">
+  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
   <!-- imported font(s) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 
+  <!-- firebase start ****************************************-->
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+  <!-- firebase end ******************************************-->
+
+  <!-- firebase modules *******************************************-->
+  <script defer src="/firebase/firebase_fb.js"></script>
+  <script defer src="/firebase/firebase_fbR.js"></script>
+  <script defer src="/firebase/firebase_fbV.js"></script>
+
   <!-- javascript(s) *******************************************-->
+  <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
   <script defer src="/htmlJs/htmlJs_coffee.js"></script>
 </head>

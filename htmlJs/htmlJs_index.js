@@ -3,7 +3,7 @@
 // Code that executes on load in index.html
 /**************************************************************/
 MODULENAME = "htmlJs_index.js";
-console.log('%c' + MODULENAME + ': ', 'color: red;');
+console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
@@ -13,6 +13,7 @@ let index_slideIndex = -1;
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
+fbR_initialise(function() { document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) } });
 
 /**************************************************************/
 // function index_displaySlide();
@@ -38,7 +39,7 @@ function index_displaySlide(index) {
   prev_img.src = img;
   prev_img.alt = alt;
   //Getting the button and putting in the new coffee
-  document.getElementById("slideButton").onclick = function() {general_showProduct(new_img)};
+  document.getElementById("slideButton").onclick = function() { general_showProduct(new_img) };
 }
 /**************************************************************/
 // END OF MODULE

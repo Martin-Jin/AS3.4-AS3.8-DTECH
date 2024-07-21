@@ -2,7 +2,7 @@
 // firebase_fbR
 /**************************************************************/
 MODULENAME = "firebase_fbR.js";
-console.log('%c' + MODULENAME + ': ', 'color: blue;');
+console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
@@ -10,31 +10,31 @@ console.log('%c' + MODULENAME + ': ', 'color: blue;');
 /**************************************************************/
 // fbR_procUserLogin(user, _save, loginStatus);
 // Process user login data
-// Input: the user's data and loucation to save data to
+// Input: the user's data and where to save it to
 /**************************************************************/
-function fbR_procUserLogin(user, _save, loginStatus) {
+function fbR_procUserLogin(user, _save) {
   console.log("fbR_procUserLogin();")
   //Saving the login data
-  loginStatus = 'logged in';
+  fbV_loginStatus = 'logged in';
   fbR_saveSnapshot(user, _save);
 
   //Writing login info to database
   fb_writeRec(fbV_LOGINDETAILSPATH, _save.uid, _save, fbR_procWriteError);
-  console.log('fbR_login: status = ' + loginStatus);
+  console.log('fbR_login: status = ' + fbV_loginStatus);
 
-  //Hiding login button and displaying log out button
-  document.getElementById("order_button").style.display = "block";
-  document.getElementById("logout_button").style.display = "block";
-  document.getElementById("order_table").style.display = "table";
-  document.getElementById("login_button").style.display = "none";
+  //Changing the html for when users are logged in
+  manager_checkLogin();
+  //Saving login status and details
+  manager_saveValues();
 }
 
 /**************************************************************/
 // fbR_initialise();
 // Called on load
 // Initialize firebase
+// input: optional callback function
 /**************************************************************/
-function fbR_initialise() {
+function fbR_initialise(callBack) {
   console.log('%cfb_initialise: ', 'color: brown;');
 
   var FIREBASECONFIG = {
@@ -53,14 +53,18 @@ function fbR_initialise() {
     firebase.initializeApp(FIREBASECONFIG);
     fbV_dataBase = firebase.database();
   }
+  //Call callback if given one
+  if (callBack != undefined) {
+    callBack();
+  }
 }
 
 /**************************************************************/
-// fbR_procGeneral(snapshot, _save, readStatus, _callBack);
+// fbR_procGeneral(snapshot, _save, readStatus, callBack);
 // Process the read data in general for reads
 // Input: the data and loucation to save to, optional callBack function
 /**************************************************************/
-function fbR_procGeneral(snapshot, _save, readStatus, _callBack) {
+function fbR_procGeneral(snapshot, _save, readStatus, callBack) {
   console.log("fbR_procGeneral();");
   if (snapshot.val() == null) {
     readStatus = "Not found";
@@ -70,18 +74,18 @@ function fbR_procGeneral(snapshot, _save, readStatus, _callBack) {
     console.log(snapshot.val());
     let dbData = snapshot.val();
     //Saving snapshot
-    fbR_saveSnapshot(dbData, _save, _callBack);
+    fbR_saveSnapshot(dbData, _save, callBack);
   }
   console.log('fbR_procGeneral: status = ' + readStatus);
 }
 
 /**************************************************************/
-// fbR_procWriteError(error, _callBack)
+// fbR_procWriteError(error, callBack)
 // Process errors for the write functions if there is one
 // Input: error, optional callBack function
 // Called after the write is done
 /**************************************************************/
-function fbR_procWriteError(error, _callBack) {
+function fbR_procWriteError(error, callBack) {
   console.log("fbR_procWriteError();");
   if (error) {
     console.log(error);
@@ -91,17 +95,17 @@ function fbR_procWriteError(error, _callBack) {
     fbV_writeStatus = "OK";
   }
   //calling call back if given one
-  if (_callBack != null) { _callBack(); }
+  if (callBack != null) { callBack(); }
 }
 
 /*************************************************************/
-// function fbR_saveSnapshot(snapshot, save, _callBack);
+// function fbR_saveSnapshot(snapshot, save, callBack);
 // Saves the key value pairs of one object snapshot to another save
 // if the key of snapshot is in save
 // Called by proc functions to save data
 // Input: the object with the data to be saved, where to save it and an optional callback
 /*************************************************************/
-function fbR_saveSnapshot(snapshot, save, _callBack) {
+function fbR_saveSnapshot(snapshot, save, callBack) {
   console.log("fbR_saveSnapshot();");
   //Getting the keys of the object that the snapshop values are saved to
   //Also getting the keys of the snapshot
@@ -123,7 +127,7 @@ function fbR_saveSnapshot(snapshot, save, _callBack) {
       };
     }
   }
-  if (_callBack != null) {_callBack();}
+  if (callBack != null) {callBack();}
 }
 /**************************************************************/
 // END OF MODULE

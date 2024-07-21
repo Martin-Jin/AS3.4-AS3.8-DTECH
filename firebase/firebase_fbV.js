@@ -2,7 +2,7 @@
 // firebase_fbV.js
 /**************************************************************/
 MODULENAME = "firebase_fbV.js";
-console.log('%c' + MODULENAME + ': ', 'color: blue;');
+console.log('%c' + MODULENAME, 'color: red;');
 
 /*dbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdb*/
 // database variables
@@ -39,8 +39,8 @@ let fbV_orderDetails = { //<=============== Object to store the details of the c
 }
 
 // login status of the user
-let fbV_loginStatus = 'logged out';
-let fbV_registrationStatus = 'not registered';
+let fbV_loginStatus = 'not logged in';
+let fbV_registerStatus = 'not registered';
 let fbV_adminStatus = 'false';
 
 const fbV_APIKEY = "AIzaSyASbBs9pp5P2RH-xZEWKASHC9-IwveMSVs";
