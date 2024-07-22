@@ -54,12 +54,13 @@ function manager_saveValues() {
 /*************************************************************/
 function manager_getValues() {
   console.log("manager_getValues()");
-  
+
   //Getting the user statuses if is not null.
-  if (sessionStorage.getItem("loginStatus") != null)
-  {fbV_loginStatus = sessionStorage.getItem("loginStatus");
-  fbV_adminStatus = sessionStorage.getItem("adminStatus");
-  fbV_registerStatus = sessionStorage.getItem("registerStatus");}
+  if (sessionStorage.getItem("loginStatus") != null) {
+    fbV_loginStatus = sessionStorage.getItem("loginStatus");
+    fbV_adminStatus = sessionStorage.getItem("adminStatus");
+    fbV_registerStatus = sessionStorage.getItem("registerStatus");
+  }
 
   //Getting the keys of the objects to iterate through and get the values from session storage
   for (i = 0; i < manager_SAVEOBJECTS.length; i++) {
@@ -71,7 +72,7 @@ function manager_getValues() {
     //Getting values from session storage
     for (x = 0; x < objecKeys.length; x++) {
       //Restarting for loop from next iteration if the value is null, and not saved to session storage.
-      if (sessionStorage.getItem(objecKeys[x]) == null || sessionStorage.getItem(objecKeys[x]) == undefined) {continue;}
+      if (sessionStorage.getItem(objecKeys[x]) == null || sessionStorage.getItem(objecKeys[x]) == undefined) { continue; }
       object[objecKeys[x]] = sessionStorage.getItem(objecKeys[x]);
       // console.log('%c'
       // + "key: "
@@ -93,9 +94,9 @@ function manager_checkLogin() {
   console.log("The user is: " + fbV_registerStatus);
   if (fbV_loginStatus == 'logged in') {
     //Changing the sign in button to log out button
-    document.getElementById("signInBtn").onclick = function(){fb_logout()};
+    document.getElementById("signInBtn").onclick = function() { fb_logout() };
     document.getElementById("signInBtn").innerHTML = "Log out";
-    document.getElementById("dropDownSignIn").onclick = function(){fb_logout()};
+    document.getElementById("dropDownSignIn").onclick = function() { fb_logout() };
     document.getElementById("dropDownSignIn").innerHTML = "Log out";
     //Get user to finish registration if they created an account and haven't done it
     if (fbV_registerStatus == 'not registered') {
@@ -103,14 +104,4 @@ function manager_checkLogin() {
       window.location = '/html/html_register.html';
     }
   }
-}
-
-/*************************************************************/
-//manager_submit()
-//Submits the users data to firebase
-//Called by submit button
-/*************************************************************/
-function manager_submit() {
-  console.log("manager_submit()")
-  let inputs = document.getElementsByTagName("input").value;
 }

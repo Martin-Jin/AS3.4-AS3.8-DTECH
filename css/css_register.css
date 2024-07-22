@@ -14,11 +14,14 @@
   --labelMargin: calc(var(--UIMargin) * 0.4);
   /*-- input --*/
   --inputWidth: calc(var(--UISize) * 1.4);
+  --inputWidthMobile: calc(var(--UISize) * 4);
+  /*-- padding --*/
+  --formPadding: calc(var(--UIpadding) * 3.5);
 }
 
 /*-- product container *******************************************--*/
 #formContainer {
-  padding: var(--productPadding);
+  padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
   width: fit-content;
   height: fit-content;
@@ -31,7 +34,6 @@
 #formContainer * {
   border-radius: var(--UIRadius);
   text-align: left;
-  color: var(--textLight);
 }
 
 #formContainer sub-header {
@@ -40,7 +42,6 @@
 
 #header {
   border-color: var(--header);
-  color: var(--subtitle);
 }
 
 /*-- spacing --*/
@@ -55,26 +56,26 @@
   text-align: center;
 }
 
-/*-- input styling--*/
+/*-- input styling --*/
 input[type='text'] {
   border-style: solid;
-  border-color: var(--text) !important;
+  border-color: var(--textLight) !important;
   border-radius: var(--inputRadius) !important;
   width: 100% !important;
-  min-width: var(--inputWidth);
-  color: var(--text) !important;
+  min-width: var(--inputWidthMobile);
+  color: var(--textLight) !important;
   height: fit-content;
   margin: auto;
   padding: var(--inputPadding);
   font-size: var(--pSmall);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 ::placeholder {
-  color: var(--text) !important;
+  color: var(--textLight) !important;
 }
 
-/*-- Size options for coffee *******************************************--*/
+/*-- genders *******************************************--*/
 #genders {
   flex-direction: row;
   justify-content: left;
@@ -86,7 +87,7 @@ input[type='text'] {
 }
 
 #genders label:hover {
-  font-weight: 550;
+  font-weight: 600;
 }
 
 #genders button {
@@ -94,13 +95,18 @@ input[type='text'] {
 }
 
 #address {
-  flex-direction: row;
+  grid-gap: var(--formGap) !important;
 }
 
 #address p {
   height: fit-content;
-  margin: auto;
   white-space: nowrap;
+}
+
+address-container {
+  display: flex;
+  flex-direction: column;
+  grid-gap: var(--iconMargin);
 }
 
 .register_gender {

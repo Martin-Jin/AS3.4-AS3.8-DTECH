@@ -16,6 +16,7 @@
   <link defer rel="stylesheet" href="/css/css_general.css">
   <link defer rel="stylesheet" href="/css/css_register.css">
   <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
+  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_register.css">
   <!-- icons -->
   <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
   <!-- imported font(s) -->
@@ -42,6 +43,7 @@
   <!-- javascript(s) *******************************************-->
   <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
+  <script defer src="/htmlJs/htmlJs_form.js"></script>
 </head>
 
 <!--*************************************************************
@@ -52,48 +54,75 @@
   <!--*****************************************
     Register form
   *****************************************-->
-  <flex-container id="formContainer" class="center">
+  <form id="formContainer" class="center">
     <!-- header -->
     <sub-header id="header" class="text_underline">Registration form</sub-header>
     <!-- registration fields -->
     <flex-container>
       <p><span-bold>Street address:</span-bold> <i class="fa-solid fa-road" aria-hidden="true"></i></p>
-      <input type="text" placeholder="123 ABC Street" name="street"></input>
+      <flex-container>
+        <input type="text" id="street" placeholder="123 ABC Street" name="street" minlength="1" maxlength="20"
+          pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
+          title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 20. You cannot end or start with a space."
+          required></input>
+      </flex-container>
     </flex-container>
     <flex-container id="address">
-      <p><span-bold>Suburb:</span-bold> <i class="fa-solid fa-building" aria-hidden="true"></i></p>
-      <input type="text" placeholder="suburb" name="suburb"></input>
-      <p><span-bold>City/town:</span-bold> <i class="fa-solid fa-city" aria-hidden="true"></i></p>
-      <input type="text" placeholder="city" name="city"></input>
-      <p><span-bold>Post code:</span-bold> <i class="fa-solid fa-envelope" aria-hidden="true"></i></p>
-      <input type="text" placeholder="1234" name="post code"></input>
+      <address-container>
+        <p><span-bold>Suburb:</span-bold> <i class="fa-solid fa-building" aria-hidden="true"></i></p>
+        <flex-container>
+          <input type="text" id="suburb" placeholder="suburb" name="suburb" minlength="1" maxlength="20"
+            pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
+            title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 20. You cannot end or start with a space."
+            required></input>
+        </flex-container>
+      </address-container>
+      <address-container>
+        <p><span-bold>City/town:</span-bold> <i class="fa-solid fa-city" aria-hidden="true"></i></p>
+        <flex-container>
+          <input type="text" id="city" placeholder="city" name="city" minlength="1" maxlength="20"
+            pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
+            title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 20. You cannot end or start with a space."
+            required></input>
+        </flex-container>
+      </address-container>
+      <address-container>
+        <p><span-bold>Post code:</span-bold> <i class="fa-solid fa-envelope" aria-hidden="true"></i></p>
+        <flex-container>
+          <input type="text" id="postCode" placeholder="1234" name="postCode" minlength="4" maxlength="4"
+            pattern="^[0-9]+$" title="You can only enter numbers." required></input>
+        </flex-container>
+      </address-container>
     </flex-container>
     <flex-container id="pn">
       <p><span-bold>Phone number:</span-bold> <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></p>
-      <input type="text" placeholder="0221234567" name="phone number"></input>
+      <flex-container>
+        <input type="text" id="phoneNumber" placeholder="02212345678" name="phoneNumber" minlength="9" maxlength="10"
+          pattern="^[0-9]+$" title="You must input 9 or 10 digits. You can only enter numbers." required></input>
+      </flex-container>
     </flex-container>
     <flex-container id="gender">
       <p><span-bold>Gender:</span-bold> <i class="fa-solid fa-venus-mars" aria-hidden="true"></i></p>
       <flex-container id="genders">
         <button class="general_button register_gender">
-          <input type="radio" id="large" name="size" value="Large">
-          <label for="large"><i class="fa-solid fa-person" aria-hidden="true"></i></label>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male"><i class="fa-solid fa-person" aria-hidden="true"></i></label>
         </button>
         <button class="general_button register_gender">
-          <input type="radio" id="medium" name="size" value="Medium">
-          <label for="medium"><i class="fa-solid fa-person-dress" aria-hidden="true"></i></label>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female"><i class="fa-solid fa-person-dress" aria-hidden="true"> </i></label>
         </button>
         <button class="general_button register_gender">
-          <input type="radio" id="small" name="size" value="Small">
-          <label for="small">Other</label>
+          <input type="radio" id="other" name="gender" value="other" checked>
+          <label for="other">Other</label>
         </button>
       </flex-container>
     </flex-container>
 
     <!-- order button -->
-    <button type="submit" id="submit" onclick="manager_submit()" class="general_button"><span-large>Submit form</span-large></button>
-
-  </flex-container>
+    <button type="submit" id="submit" onclick="form_submit()" class="general_button"><span-large>Submit
+        form</span-large></button>
+  </form>
   <!--*****************************************
     Register form end
   *****************************************-->

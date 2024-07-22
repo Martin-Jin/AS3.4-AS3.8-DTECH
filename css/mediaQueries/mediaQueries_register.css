@@ -1,0 +1,23 @@
+/*------------------------------------------------------------*
+  register.html media queries
+/*------------------------------------------------------------*/
+
+/*-- Media queries for desktop *******************************************--*/
+@media screen and (min-width: 950px) {
+  /*-- Make the address section display as a column instead --*/
+  #address {
+    flex-direction: row;
+  }
+  #address p {
+    margin: auto;
+  }
+
+  address-container {
+    flex-direction: row;
+  }
+
+  /*-- Make the min input box length shorter for desktop --*/
+  input[type='text'] {
+    min-width: var(--inputWidth);
+  }
+}

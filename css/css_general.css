@@ -9,7 +9,7 @@
   --backGroundBlack: #111111;
   --backGroundDark: #222222;
   --backGroundLightDark: #333333;
-  --text: #F4EAE4;
+  --text: #f1e4dd;
   --textLight: #fbf8f6;
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
@@ -82,13 +82,13 @@ sub-header, button, a, input, label {
   text-align: center;
   display: block;
   font-family: "Aleo", serif;
-  font-weight: 350;
+  font-weight: 400;
   font-style: normal;
   text-decoration: none;
 }
 
 .aleo-bold, span-bold {
-  font-weight: 550;
+  font-weight: 600;
 }
 
 .aleo-thin, span-thin {
@@ -349,7 +349,7 @@ a, button {
 }
 
 a:hover, button:hover {
-  font-weight: 550;
+  font-weight: 600;
 }
 
 /*-- fade in annimation --*/
@@ -371,7 +371,7 @@ grid-container, section {
   display: grid;
 }
 
-flex-container, footer, #aboutSection, #recommendedSection {
+flex-container, footer, #aboutSection, #recommendedSection, form{
   display: flex;
   flex-direction: column;
   justify-content: center;
