@@ -50,7 +50,7 @@
   BODY
 **************************************************************-->
 
-<body>
+<body onload="fbR_initialise()">
   <!--*****************************************
     Register form
   *****************************************-->
@@ -71,25 +71,25 @@
       <address-container>
         <p><span-bold>Suburb:</span-bold> <i class="fa-solid fa-building" aria-hidden="true"></i></p>
         <flex-container>
-          <input type="text" id="suburb" placeholder="suburb" name="suburb" minlength="1" maxlength="20"
+          <input type="text" placeholder="suburb" name="suburb" minlength="1" maxlength="10"
             pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
-            title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 20. You cannot end or start with a space."
+            title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 10. You cannot end or start with a space."
             required></input>
         </flex-container>
       </address-container>
       <address-container>
         <p><span-bold>City/town:</span-bold> <i class="fa-solid fa-city" aria-hidden="true"></i></p>
         <flex-container>
-          <input type="text" id="city" placeholder="city" name="city" minlength="1" maxlength="20"
+          <input type="text" placeholder="city" name="city" minlength="1" maxlength="10"
             pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
-            title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 20. You cannot end or start with a space."
+            title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 10. You cannot end or start with a space."
             required></input>
         </flex-container>
       </address-container>
       <address-container>
         <p><span-bold>Post code:</span-bold> <i class="fa-solid fa-envelope" aria-hidden="true"></i></p>
         <flex-container>
-          <input type="text" id="postCode" placeholder="1234" name="postCode" minlength="4" maxlength="4"
+          <input type="text" placeholder="1234" name="post" minlength="4" maxlength="4"
             pattern="^[0-9]+$" title="You can only enter numbers." required></input>
         </flex-container>
       </address-container>
@@ -97,7 +97,7 @@
     <flex-container id="pn">
       <p><span-bold>Phone number:</span-bold> <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></p>
       <flex-container>
-        <input type="text" id="phoneNumber" placeholder="02212345678" name="phoneNumber" minlength="9" maxlength="10"
+        <input type="text" placeholder="02212345678" name="phoneNumber" minlength="9" maxlength="10"
           pattern="^[0-9]+$" title="You must input 9 or 10 digits. You can only enter numbers." required></input>
       </flex-container>
     </flex-container>

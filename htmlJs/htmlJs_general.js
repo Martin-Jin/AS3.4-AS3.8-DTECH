@@ -18,7 +18,7 @@ const coffee6 = { image: '/images/images_coffee/coffee_6.jpg', alt: 'coffee6', p
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-//Get saved values
+//Get saved values then check if user is logged in or not
 manager_getValues();
 
 /**************************************************************/

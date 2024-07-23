@@ -19,7 +19,7 @@ function fbR_procUserLogin(user, _save) {
   fbR_saveSnapshot(user, _save);
 
   //Writing login info to database
-  fb_writeRec(fbV_LOGINDETAILSPATH, _save.uid, _save, fbR_procWriteError);
+  fb_writeRec(fbV_LOGINDETAILSPATH, _save.uid, _save);
   console.log('fbR_login: status = ' + fbV_loginStatus);
 
   //Changing the html for when users are logged in

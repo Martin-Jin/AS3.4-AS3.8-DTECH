@@ -18,12 +18,12 @@ let fbV_userDetails = { //<=============== Object to store the details of the cu
 };
 
 let fbV_registerDetails = { //<=============== Object to store the details of the current user
-  userName: '',
-  userAge: '',
-  userPN: '',
-  userAddress: '',
-  userCountry: '',
-  userGender: '',
+  street: '',
+  suburb: '',
+  city: '',
+  post: '',
+  phoneNumber: '',
+  gender: '',
 };
 
 let fbV_orderDetails = { //<=============== Object to store the details of the current user

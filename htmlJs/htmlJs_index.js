@@ -18,6 +18,7 @@ fbR_initialise(function() {
   document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
 });
 
+manager_checkLogin();
 /**************************************************************/
 // function index_displaySlide();
 // Determines what slide to display next when the user clicks
