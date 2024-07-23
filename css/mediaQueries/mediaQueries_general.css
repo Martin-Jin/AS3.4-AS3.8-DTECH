@@ -3,65 +3,99 @@
 /*------------------------------------------------------------*/
 
 /*-- Scaling up font size --*/
-  @media screen and (min-width: 425px) {
-    :root {
-      --headerSize: 3.5rem;
-      --UIpadding: 1.5rem;
-      --UISize: 5rem;
-      --UIMargin: 1.5rem;
-      --UIborder: 0.5rem;
-      --UIRadius: 0.9rem;
-    }
+@media screen and (min-width: 425px) {
+  :root {
+    --headerSize: 3.5rem;
+    --UIpadding: 1.5rem;
+    --UISize: 5rem;
+    --UIMargin: 1.5rem;
+    --UIborder: 0.5rem;
+    --UIRadius: 0.9rem;
+  }
+}
+
+/*-- responsive nav bar --*/
+@media screen and (min-width: 750px) {
+
+  /*-- Hiding drop down menu and displaying icons --*/
+  #nav_dropdown {
+    display: none;
   }
 
-  /*-- responsive nav bar --*/
-  @media screen and (min-width: 750px) {
-
-    /*-- Hiding drop down menu and displaying icons --*/
-    #nav_dropdown {
-      display: none;
-    }
-
-    #nav_desktop>a,
-    #nav_desktop>flex-container {
-      display: flex;
-    }
-
-    /*-- Make text pop up on hover --*/
-    #nav_desktop>a:hover span,
-    #nav_desktop>flex-container:hover span {
-      display: block;
-    }
-
-    #nav_desktop>a:hover i,
-    #nav_desktop>flex-container:hover i {
-      margin-left: var(--iconMargin);
-    }
+  #nav_desktop>a,
+  #nav_desktop>flex-container {
+    display: flex;
   }
 
-  @media screen and (min-width: 1300px) {
-
-    /*-- Changing the navbar used to the one for larger screens --*/
-    #nav_desktop>a>span,
-    #nav_desktop flex-container>a>span {
-      display: block;
-    }
-
-    nav i {
-      margin-left: var(--iconMargin);
-    }
+  /*-- Make text pop up on hover --*/
+  #nav_desktop>a:hover span,
+  #nav_desktop>flex-container:hover span {
+    display: block;
   }
 
-  /*-- Media queries for very large screens *******************************************--*/
-  /*-- Scaling down font size or padding or margin as required for mobile --*/
-  @media screen and (min-width: 1440px) {
-    :root {
-      --headerSize: 3.6vw;
-      --UIpadding: 1.5vw;
-      --UISize: 5vw;
-      --UIMargin: 1.5vw;
-      --UILineHeight: 1.8vw;
-      --UIborder: 0.6vw;
-      --UIRadius: 0.9vw;
-    }
+  #nav_desktop>a:hover i,
+  #nav_desktop>flex-container:hover i {
+    margin-left: var(--iconMargin);
   }
+}
+
+@media screen and (min-width: 1300px) {
+
+  /*-- Changing the navbar used to the one for larger screens --*/
+  #nav_desktop>a>span,
+  #nav_desktop flex-container>a>span {
+    display: block;
+  }
+
+  nav i {
+    margin-left: var(--iconMargin);
+  }
+
+  :root {
+    --footerSpacing: calc(var(--UISpacing) * 5);
+  }
+}
+
+@media screen and (min-width: 750px) {
+
+  /*-- Making footer align in a row rather than column on mobile --*/
+  #footerContainer {
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'about links newsletter';
+  }
+
+  /*-- changing alignment for footer for desktop --*/
+  footer * {
+    text-align: left;
+  }
+
+  #footer_links a,
+  #footer_email,
+  footer * {
+    margin: 0;
+  }
+
+  #footer_newsletter button {
+    margin: var(--buttonMargin) 0 0 0;
+  }
+
+  footer * {
+    width: 100%;
+  }
+}
+
+/*-- Media queries for very large screens *******************************************--*/
+/*-- Scaling down font size or padding or margin as required for mobile --*/
+@media screen and (min-width: 1440px) {
+  :root {
+    --headerSize: 3.6vw;
+    --UIpadding: 1.5vw;
+    --UISize: 5vw;
+    --UIMargin: 1.5vw;
+    --UILineHeight: 1.8vw;
+    --UIborder: 0.6vw;
+    --UIRadius: 0.9vw;
+  }
+}

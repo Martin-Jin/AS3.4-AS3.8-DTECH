@@ -70,5 +70,5 @@ function form_submit() {
   fbV_registerStatus = "registered";
   fb_writeRec(fbV_REGISTRATIONPATH, fbV_userDetails.uid, fbV_registerDetails, manager_saveValues);
   alert("Thank you for registering. You will be redirected back to the home page after you close this prompt.");
-  window.location = 'index.html';
+  window.location = '../index.html';
 }

@@ -27,7 +27,7 @@
   --footerMargin: calc(var(--UIMargin) * 5);
   --iconMargin: calc(var(--UIMargin) * 0.3);
   --UISpacing: calc(var(--UIMargin) * 0.9);
-  --footerSpacing: calc(var(--UISpacing) * 5);
+  --footerSpacing: calc(var(--UISpacing) * 2.5);
   --separatorMargin: calc(var(--UIMargin) * 0.5);
   --buttonMargin: calc(var(--UIMargin) * 0.65);
   /*-- padding --*/
@@ -78,7 +78,11 @@ body {
 .aleo-general,
 p,
 header,
-sub-header, button, a, input, label {
+sub-header,
+button,
+a,
+input,
+label {
   text-align: center;
   display: block;
   font-family: "Aleo", serif;
@@ -87,11 +91,13 @@ sub-header, button, a, input, label {
   text-decoration: none;
 }
 
-.aleo-bold, span-bold {
+.aleo-bold,
+span-bold {
   font-weight: 600;
 }
 
-.aleo-thin, span-thin {
+.aleo-thin,
+span-thin {
   font-weight: 300;
 }
 
@@ -101,7 +107,8 @@ span-large {
 
 /*-- headers --*/
 header,
-sub-header, a {
+sub-header,
+a {
   height: fit-content;
   width: fit-content;
   margin: auto;
@@ -121,7 +128,9 @@ sub-header {
   font-weight: 300;
 }
 
-p, a, button {
+p,
+a,
+button {
   color: var(--text);
   font-size: var(--pSize);
 }
@@ -137,7 +146,8 @@ a {
 
 /*-- navBar *******************************************--*/
 /*-- by deafult hide the desktop one and load mobile version first --*/
-#nav_desktop > a, #nav_desktop > flex-container {
+#nav_desktop>a,
+#nav_desktop>flex-container {
   display: none;
 }
 
@@ -148,18 +158,19 @@ a {
 
 /*-- Having the first button/home button take up space 
 so that the logo and the drop down container is aligned properly --*/
-#nav_desktop > :first-child {
+#nav_desktop> :first-child {
   display: flex;
   padding: 0;
 }
 
 /*-- hide the text inside the buttons by deafult so that only the logo 
 is displayed for the next screen size up --*/
-#nav_desktop > a > span, #nav_desktop > flex-container > a > span {
+#nav_desktop>a>span,
+#nav_desktop>flex-container>a>span {
   display: none;
 }
 
-#nav_desktop > * {
+#nav_desktop>* {
   flex: 1 1 0;
 }
 
@@ -172,7 +183,8 @@ nav {
   backdrop-filter: blur(2px);
 }
 
-nav a, nav button {
+nav a,
+nav button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -208,7 +220,8 @@ nav a.active {
   border-bottom: var(--navBarBorder) solid var(--subtitle);
 }
 
-nav a:hover, nav button:hover {
+nav a:hover,
+nav button:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -222,7 +235,10 @@ nav a:hover, nav button:hover {
 
 /*-- collapsed navBar styling*******************************************--*/
 /*-- The container needed to position the dropdown content --*/
-container-dropdown, nav a, nav button, dropdown-content {
+container-dropdown,
+nav a,
+nav button,
+dropdown-content {
   width: 100%;
 }
 
@@ -240,7 +256,7 @@ dropdown-content {
 dropdown-content i {
   margin-left: var(--iconMargin);
 }
-  
+
 dropdown-content a {
   background-color: var(--backGroundLight);
   color: var(--backGroundDark);
@@ -271,7 +287,10 @@ dropdown-content a:hover {
   margin-top: var(--buttonMargin);
 }
 
-.general_separator, .general_separator_short, .general_button, #signInBtn {
+.general_separator,
+.general_separator_short,
+.general_button,
+#signInBtn {
   border-radius: var(--UIRadius);
 }
 
@@ -283,11 +302,12 @@ input[type='radio'] {
   margin: auto;
 }
 
-input[type='radio'] + label {
+input[type='radio']+label {
   cursor: pointer;
 }
 
-input[type='radio']:after, input[type='radio']:checked:after {
+input[type='radio']:after,
+input[type='radio']:checked:after {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -312,6 +332,7 @@ input[type='text'] {
   border-bottom-style: solid;
   border-width: var(--separatorHeight);
   margin-top: var(--buttonMargin);
+  min-width: fit-content;
 }
 
 input[type='text']:focus {
@@ -320,7 +341,8 @@ input[type='text']:focus {
 
 /*-- links *******************************************--*/
 /*-- underline sliding annimation --*/
-a::after, nav button::after {
+a::after,
+nav button::after {
   content: '';
   position: absolute;
   border: none;
@@ -334,21 +356,25 @@ a::after, nav button::after {
 }
 
 /*-- disabling transition for active element and regular non navbar buttons--*/
-nav a.active::after, #signInBtn:after {
+nav a.active::after,
+#signInBtn:after {
   display: none;
 }
 
-a:hover:after, nav button:hover:after {
+a:hover:after,
+nav button:hover:after {
   width: 100%;
 }
 
 /*-- making text bold annimation --*/
-a, button {
+a,
+button {
   cursor: pointer;
   position: relative;
 }
 
-a:hover, button:hover {
+a:hover,
+button:hover {
   font-weight: 600;
 }
 
@@ -359,19 +385,25 @@ a:hover, button:hover {
 
 @keyframes fadeIn {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
+
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 /*-- custom tags and general styling *******************************************--*/
-grid-container, section {
+grid-container,
+section {
   display: grid;
 }
 
-flex-container, footer, #aboutSection, #recommendedSection, form{
+flex-container,
+footer,
+#aboutSection,
+#recommendedSection,
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -409,9 +441,11 @@ footer {
 
 footer * {
   color: var(--backGroundDark);
-  text-align: left;
+  text-align: center;
   font-size: var(--pSmall);
   line-height: var(--UILineHeight);
+  width: 90%;
+  margin: auto;
 }
 
 /*-- Change back the colour of the button --*/
@@ -419,7 +453,7 @@ footer button {
   color: var(--text);
 }
 
-footer flex-container > p:first-of-type {
+footer flex-container>p:first-of-type {
   margin-bottom: var(--lineBreakHeight);
 }
 
@@ -427,11 +461,13 @@ footer flex-container > p:first-of-type {
 /*-- sections in the footer *******************************************--*/
 #footerContainer {
   /*-- Grid container --*/
-  grid-gap: var(--footerSpacing);
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto;
+  gap: var(--footerSpacing);
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
-    'about links newsletter';
+    'about'
+    'links'
+    'newsletter';
   align-items: start;
 }
 
@@ -461,8 +497,9 @@ input:focus::placeholder {
   grid-area: links;
 }
 
-#footer_links a {
-  margin: 0;
+#footer_links a, #footer_email {
+  margin: auto;
+  width: fit-content;
 }
 
 /*-- newsletter --*/
@@ -472,4 +509,5 @@ input:focus::placeholder {
 
 #footer_newsletter button {
   width: fit-content;
+  margin: var(--buttonMargin) auto auto auto;;
 }
