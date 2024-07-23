@@ -5,7 +5,7 @@
 MODULENAME = "htmlJs_form.js";
 console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
-// Variables and constants
+// letiables and constants
 /**************************************************************/
 let form_valid = false;
 
@@ -26,18 +26,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Makes it so that clicking on the icon on my radio button also triggers it
   //as the form tag changes the behaviour of the button such that it dosent
-  var genderLabels = document.querySelectorAll(".register_gender label");
+  let genderLabels = document.querySelectorAll(".register_gender label");
   //Add an event listener for clicks on each label
   genderLabels.forEach((label) => {
-    label.addEventListener("click", function() {
+    label.addEventListener("click", () => {
       //Find the associated radio button
-      var radioBtn = label.previousElementSibling;
+      let radioBtn = label.previousElementSibling;
 
       //Simulate a click on the radio button
       radioBtn.click();
     });
   });
+
+  //giving user feedback if what they input is correct in real time
+  let inputs = document.querySelectorAll("input");
+  //Add an event listener for input
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (input.value != '') {
+        if (input.checkValidity()) {
+          //Change border to green if is right
+          input.style.setProperty("border-color", "#1ae57b", "important");
+        } else {
+          //Change border to red if is wrong
+          input.style.setProperty("border-color", "#ff4444", "important");
+        }
+      } else {
+        //If nothing inputed just leave as deafult
+        input.style.setProperty("border-color", "#fbf8f6", "important");
+      }
+    });
+  });
 });
+
+
 
 /*************************************************************/
 //form_submit()
