@@ -389,7 +389,7 @@ discount-container {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--text);
+  background-color: var(--backGroundLight);
   border-radius: 0 var(--UIRadius) 0 var(--UIRadius);
 }
 

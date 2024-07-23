@@ -23,13 +23,13 @@
     rel="stylesheet">
 
   <!-- firebase start ****************************************-->
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <link defer type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
   <!-- firebase end ******************************************-->
 
   <!-- firebase modules *******************************************-->
@@ -54,45 +54,45 @@
   <section id="topSection">
     <!-- navBar for larger screens -->
     <nav id="nav_desktop">
-      <a href="/../index.html" class="active">
+      <a href="/../index.html" class="active" aria-label="home button">
         <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
       </a>
       <!-- regular buttons thats displayed -->
-      <a href="#aboutSection">
+      <a href="#aboutSection" aria-label="about us button">
         <span>About us</span> <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
       </a>
-      <a href="/html/html_contact">
+      <a href="/html/html_contact" aria-label="contact us button">
         <span>Contact us</span> <i class="fa-solid fa-phone" aria-hidden="true"></i>
       </a>
       <!-- logo for navbar -->
       <img src="/images/images_logo.png" alt="logo" id="logo">
-      <a href="/html/html_products">
+      <a href="/html/html_products" aria-label="products button">
         <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
       </a>
-      <a href="/html/html_orders">
+      <a href="/html/html_orders" aria-label="orders button">
         <span>Orders</span> <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
       </a>
       <!-- sign in button needs to be in a container so its width can be customised -->
       <flex-container>
-        <a id="signInBtn" onclick="">
+        <a id="signInBtn" onclick="" aria-label="sign in button">
           <span>Sign in</span> <i class="fas fa-user" aria-hidden="true"></i>
         </a>
       </flex-container>
       <container-dropdown id="nav_dropdown">
-        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn">
+        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn" aria-label="dropdown button">
           <i class="fa-solid fa-bars"></i>
         </button>
         <dropdown-content id="dropDown">
-          <a href="/../index.html">
+          <a href="/../index.html" aria-label="about us button">
             About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
-          </a><a href="/html/html_contact">
+          </a><a href="/html/html_contact" aria-label="contact us button">
             Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          </a><a href="/html/html_products">
+          </a><a href="/html/html_products" aria-label="products button">
             Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
-          </a><a href="/html/html_orders">
+          </a><a href="/html/html_orders" aria-label="orders button">
             Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
           </a>
-          <a id="dropDownSignIn">
+          <a id="dropDownSignIn" aria-label="sign in button">
             Sign in <i class="fas fa-user" aria-hidden="true"></i>
           </a>
         </dropdown-content>
@@ -105,7 +105,7 @@
       <header id="landingHeader">Welcome to HVHS coffee house</header>
       <sub-header id="landingSub">Fresh coffee at your finger tips.</sub-header>
       <!-- browse button -->
-      <button class='general_button'>Browse our
+      <button class='general_button' aria-label="browse button">Browse our
         coffee</button>
     </container-heading>
   </section>
@@ -140,7 +140,7 @@
             <p id="offerText"><span id="slidePrice">Original price: $1</span>
               <span id="slideDiscount">Now only: $0.1</span>
             </p>
-            <button id="slideButton" class="general_button" onclick="general_showProduct(coffee6)">View now!</button>
+            <button id="slideButton" class="general_button" aria-label="view coffee button" onclick="general_showProduct(coffee6)">View now!</button>
           </hover-item>
         </slide-coffee>
         <!-- description of coffee -->
@@ -165,8 +165,8 @@
           </grid-container>
         </grid-container>
         <!-- slide controls -->
-        <button id="slidePrev" onclick="index_displaySlide(-1)">❮</button>
-        <button id="slideNext" onclick="index_displaySlide(1)">❯</button>
+        <button aria-label="previous slide button" id="slidePrev" onclick="index_displaySlide(-1)">❮</button>
+        <button aria-label="next slide button" id="slideNext" onclick="index_displaySlide(1)">❯</button>
       </grid-container>
     </section>
     <!-- About section -->
@@ -257,7 +257,7 @@
                   chocolate and caramel notes.</span-thin></p>
             </flex-container>
           </container-product>
-          <button class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
             more</button>
         </flex-container>
         <!-- product 2 -->
@@ -271,7 +271,7 @@
                   dark chocolate.</span-thin></p>
             </flex-container>
           </container-product>
-          <button class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
             more</button>
         </flex-container>
         <!-- product 3 -->
@@ -285,7 +285,7 @@
                   and berries.</span-thin></p>
             </flex-container>
           </container-product>
-          <button class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
             more</button>
         </flex-container>
         <!-- product 4 -->
@@ -299,7 +299,7 @@
                   chocolate and nuts.</span-thin></p>
             </flex-container>
           </container-product>
-          <button class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
             more</button>
         </flex-container>
         <!-- product 5 -->
@@ -312,7 +312,7 @@
                   sweetness.</span-thin></p>
             </flex-container>
           </container-product>
-          <button class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
             more</button>
         </flex-container>
         <!-- product 6 -->
@@ -326,7 +326,7 @@
                   flavor.</span-thin></p>
             </flex-container>
           </container-product>
-          <button class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
             more</button>
         </flex-container>
       </flex-container>
@@ -345,17 +345,17 @@
       </flex-container>
       <flex-container id="footer_links">
         <p class="aleo-bold text_underline">Links</p>
-        <a>Terms & service</a>
-        <a>Our loucation</a>
-        <a>Our school</a>
-        <a>Our team</a>
-        <a>Follow us</a>
+        <a href="#">Terms & service</a>
+        <a href="#">Our loucation</a>
+        <a href="#">Our school</a>
+        <a href="#">Our team</a>
+        <a href="#">Follow us</a>
       </flex-container>
       <flex-container id="footer_newsletter">
         <p class="aleo-bold text_underline">Newsletter</p>
         <p>Subscribe to our newsletter to be the first to know about new products, sales, and promotions.</p>
         <input type="text" id="footer_email" placeholder="email@example.com" name="email">
-        <button class="general_button">Subscribe</button>
+        <button aria-label="subscribe button" class="general_button">Subscribe</button>
       </flex-container>
     </grid-container>
     <p id="footer_credit" class="aleo-bold">© Copyright 2024, HVHS | Martin Jin</p>

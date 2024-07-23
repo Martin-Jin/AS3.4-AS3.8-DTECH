@@ -68,6 +68,8 @@ function fbR_procGeneral(snapshot, _save, readStatus, callBack) {
   console.log("fbR_procGeneral();");
   if (snapshot.val() == null) {
     readStatus = "Not found";
+    //Call callback even if theres an error
+    if (callBack != undefined) {callBack();}
   }
   else {
     readStatus = "OK";
