@@ -12,10 +12,9 @@
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
   <link rel="stylesheet" href="/css/css_register.css">
-  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
-  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_register.css">
+  
   <!-- icons -->
-  <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous" defer></script>
   <!-- imported font(s) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,11 +24,11 @@
   <!-- firebase start ****************************************-->
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
   <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
   <!-- firebase end ******************************************-->
 
   <!-- firebase modules *******************************************-->
@@ -103,11 +102,11 @@
       <flex-container id="genders">
         <radio-button class="general_button register_gender">
           <input type="radio" id="male" name="gender" value="male">
-          <label for="male"><i class="fa-solid fa-person" aria-hidden="true"></i></label>
+          <label for="male"><i class="fa-solid fa-person" aria-label="male"></i></label>
         </radio-button>
         <radio-button class="general_button register_gender">
           <input type="radio" id="female" name="gender" value="female" required>
-          <label for="female"><i class="fa-solid fa-person-dress" aria-hidden="true"> </i></label>
+          <label for="female"><i class="fa-solid fa-person-dress" aria-label="female"></i></label>
         </radio-button>
         <radio-button class="general_button register_gender">
           <input type="radio" id="other" name="gender" value="other">

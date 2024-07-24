@@ -15,14 +15,48 @@ const coffee4 = { image: '/images/images_coffee/coffee_4.jpg', alt: 'coffee4', p
 const coffee5 = { image: '/images/images_coffee/coffee_5.jpg', alt: 'coffee5', price: 4.50, name: 'Mocha', about: 'A coffee drink with a rich chocolate flavor.  The mocha is a decadent and indulgent treat that combines the richness of espresso with the sweetness of chocolate syrup and the creamy texture of steamed milk.  It is a perfect choice for those who crave a sweet and satisfying coffee experience.', ingredients: 'Espresso, chocolate syrup, steamed milk, and whipped cream.' };
 const coffee6 = { image: '/images/images_coffee/coffee_6.jpg', alt: 'coffee6', price: 5.25, name: 'Frappuccino', about: 'A refreshing blended iced coffee drink.  The Frappuccino is a perfect choice for those who enjoy a cool and refreshing treat.  It combines the bold flavor of espresso with the sweetness of milk, ice, and flavorings, creating a delightful and satisfying experience.', ingredients: 'Espresso, milk, ice, and flavorings.' };
 
+//Links to load after the page loads to improve FCP and LCP
+let general_deferLinks = [
+  { href: "/css/mediaQueries/mediaQueries_general.css", rel: "stylesheet" },
+  { href: "https://fonts.googleapis.com", rel: "preconnect" },
+  { href: "https://fonts.gstatic.com", rel: "preconnect", crossorigin: "anonymous" },
+  { href: "https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap", rel: "stylesheet" },
+  { href: "https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css", rel: "stylesheet", type: "text/css" }
+]
+
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
 //Get saved values then check if user is logged in or not
 manager_getValues();
 
+//Loads defered links
+general_loadDeferLinks();
+
 /**************************************************************/
-// function general_displayCard();
+// function general_loadDeferLinks()
+// loads all given defer links
+/**************************************************************/
+function general_loadDeferLinks() {
+  console.log("general_loadDeferLinks()")
+  document.addEventListener('DOMContentLoaded', () => {
+    //Adding defered links
+    general_deferLinks.forEach((link) => {
+      let deferLink = document.createElement("link");
+      let linkProperties = Object.keys(link);
+      linkProperties.forEach((property) => {
+        deferLink[property] = link[property];
+      })
+      document.head.appendChild(deferLink);
+      console.log("%cLink loaded: " + link.href, 'color: purple;')
+    });
+    //Clearing queue when done
+    general_deferLinks = [];
+  });
+}
+
+/**************************************************************/
+// function general_displayCard()
 // sets the info for product page of coffee
 // called: after user clicks on a coffee product and they are sent
 // to the product page
@@ -42,12 +76,12 @@ function general_displayCard() {
 }
 
 /**************************************************************/
-// function general_showProduct();
+// function general_showProduct()
 // takes user to the product page
 // input: coffee object to show
 // called: after user clicks on a coffee product
 /**************************************************************/
-function general_showProduct(coffee){ 
+function general_showProduct(coffee) {
   console.log("general_showProduct()");
   //Saving the coffee object to session storage, then sending the user to
   //the product page

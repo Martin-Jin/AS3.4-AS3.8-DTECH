@@ -31,6 +31,7 @@ body {
 
 /*-- form *******************************************--*/
 #formContainer {
+  margin: auto;
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
   width: fit-content;
