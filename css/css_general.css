@@ -81,6 +81,7 @@ h1,
 h2,
 h3,
 button,
+radio-button,
 a,
 input,
 label {
@@ -130,7 +131,8 @@ h2 {
 
 p,
 a,
-button {
+button,
+radio-button {
   color: var(--text);
   font-size: var(--pSize);
 }
@@ -368,13 +370,15 @@ nav button:hover:after {
 
 /*-- making text bold annimation --*/
 a,
-button {
+button,
+radio-button {
   cursor: pointer;
   position: relative;
 }
 
 a:hover,
-button:hover {
+button:hover,
+radio-button:hover {
   font-weight: 600;
 }
 
