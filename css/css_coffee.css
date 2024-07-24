@@ -4,17 +4,21 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- padding --*/
-  --productPadding: calc(var(--UIpadding) * 1.5);
+  --formPadding: calc(var(--UIpadding) * 2);
+  --pagePadding: calc(var(--UIpadding) * 4);
   /*-- spacing --*/
   --formGap: calc(var(--UISpacing) * 1.5);
   /*-- margin --*/
-  --labelMargin: calc(var(--UIMargin) * 0.4);
-  /*-- button --*/
+  --labelMargin: calc(var(--UIMargin) * 0.4); 
+}
+
+body {
+  padding: var(--pagePadding);
 }
 
 /*-- form *******************************************--*/
 #formContainer {
-  padding: var(--productPadding);
+  padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
   width: fit-content;
   height: fit-content;

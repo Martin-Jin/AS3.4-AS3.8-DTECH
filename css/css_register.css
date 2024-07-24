@@ -4,7 +4,6 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- padding --*/
-  --productPadding: calc(var(--UIpadding) * 1.5);
   --inputPadding: calc(var(--UIpadding) * 0.2);
   /*-- radius --*/
   --inputRadius: calc(var(--UIRadius) * 0.2);
@@ -17,10 +16,12 @@
   --inputWidthMobile: calc(var(--UISize) * 4);
   /*-- padding --*/
   --formPadding: calc(var(--UIpadding) * 3.5);
+  --pagePadding: calc(var(--UIpadding) * 5);
 }
 
 /*-- background *******************************************--*/
 body {
+  padding: var(--pagePadding);
   backdrop-filter: blur(7px);
   background-image: url(/images/images_bg/bg_register.jpg);
   background-size: cover;
