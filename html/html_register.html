@@ -101,24 +101,24 @@
     <flex-container id="gender">
       <p><span-bold>Gender:</span-bold> <i class="fa-solid fa-venus-mars" aria-hidden="true"></i></p>
       <flex-container id="genders">
-        <button class="general_button register_gender">
+        <radio-button class="general_button register_gender">
           <input type="radio" id="male" name="gender" value="male">
           <label for="male"><i class="fa-solid fa-person" aria-hidden="true"></i></label>
-        </button>
-        <button class="general_button register_gender">
+        </radio-button>
+        <radio-button class="general_button register_gender">
           <input type="radio" id="female" name="gender" value="female" required>
           <label for="female"><i class="fa-solid fa-person-dress" aria-hidden="true"> </i></label>
-        </button>
-        <button class="general_button register_gender">
+        </radio-button>
+        <radio-button class="general_button register_gender">
           <input type="radio" id="other" name="gender" value="other">
           <label for="other">Other</label>
-        </button>
+        </radio-button>
       </flex-container>
     </flex-container>
 
     <!-- order button -->
-    <button type="submit" id="submit" onclick="form_submit()" class="general_button"><h3>Submit
-        form</h3></button>
+    <button type="submit" id="submit" onclick="form_submit()" class="general_button">Submit
+        form</button>
   </form>
   <!--*****************************************
     Register form end

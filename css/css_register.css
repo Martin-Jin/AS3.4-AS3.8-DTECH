@@ -65,6 +65,7 @@ h2 {
   margin-top: 0;
   background-color: var(--backGroundDark);
   text-align: center;
+  font-size: var(--pLarge);
 }
 
 /*-- input styling --*/
