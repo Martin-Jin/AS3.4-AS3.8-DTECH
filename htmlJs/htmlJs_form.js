@@ -9,6 +9,10 @@ console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 let form_valid = false;
 
+//Loading defered links
+general_deferLinks.push({ href: "/css/mediaQueries/mediaQueries_register.css", rel: "stylesheet" });
+general_loadDeferLinks();
+
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
@@ -58,8 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
 
 /*************************************************************/
 //form_submit()
