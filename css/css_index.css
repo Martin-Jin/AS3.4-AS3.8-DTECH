@@ -264,7 +264,7 @@ container-product p {
   padding: var(--UIpadding);
 }
 
-#recommendedSection header {
+#recommendedSection h1 {
   margin-bottom: var(--UIpadding);
 }
 

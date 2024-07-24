@@ -5,31 +5,31 @@
   <title>HVHS coffee house</title>
   <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
   <meta charset="UTF-8">
-  <meta name="description" content="Online coffee shop for HVHS">
+  <meta name="description" content="Online Coffee Shop for HVHS">
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- stylesheet(s) *******************************************-->
-  <link defer rel="stylesheet" href="/css/css_general.css">
-  <link defer rel="stylesheet" href="/css/css_index.css">
-  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_index.css">
-  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
+  <link rel="stylesheet" href="/css/css_general.css">
+  <link rel="stylesheet" href="/css/css_index.css">
+  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_index.css">
+  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
   <!-- icons -->
   <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
   <!-- imported font(s) -->
-  <link defer rel="preconnect" href="https://fonts.googleapis.com">
-  <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link defer href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap"
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 
   <!-- firebase start ****************************************-->
-  <link defer type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
   <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
-  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
-  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
   <!-- firebase end ******************************************-->
 
   <!-- firebase modules *******************************************-->
@@ -102,8 +102,8 @@
     <!-- container for the header and button to center them -->
     <container-heading id="landingText">
       <!-- header and subtitle -->
-      <header id="landingHeader">Welcome to HVHS coffee house</header>
-      <sub-header id="landingSub">Fresh coffee at your finger tips.</sub-header>
+      <h1 id="landingHeader">Welcome to HVHS coffee house</h1>
+      <h2 id="landingSub">Fresh coffee at your finger tips.</h2>
       <!-- browse button -->
       <button class='general_button' aria-label="browse button">Browse our
         coffee</button>
@@ -120,11 +120,11 @@
     <section id="slideSection">
       <!-- header and subtitle -->
       <grid-container id="slideHeader">
-        <header id="header">
-          Special offers</header>
+        <h1 id="header">
+          Special offers</h1>
         <i class="fa-solid fa-tag" aria-hidden="true" id="slideIcon"></i>
-        <sub-header id="subHeader">
-          Get them while they last</sub-header>
+        <h2 id="subHeader">
+          Get them while they last</h2>
       </grid-container>
       <grid-container id="offersContainer">
         <!-- slide -->
@@ -146,7 +146,7 @@
         <!-- description of coffee -->
         <grid-container id="slideText">
           <container-description>
-            <sub-header class="aleo-bold">Coffee name here</sub-header>
+            <h2 class="aleo-bold">Coffee name here</h2>
             <hr>
             <p class="aleo-thin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus ipsum, blandit non
               orci suscipit,
@@ -174,7 +174,7 @@
       <!-- about 1 -->
       <container-about>
         <container-aboutText>
-          <sub-header>Welcome to HVHS Coffee House</sub-header>
+          <h2>Welcome to HVHS Coffee House</h2>
           <flex-container>
             <p class="aleo-thin"><br>At HVHS Coffee House, we are passionate about crafting the perfect cup of
               coffee
@@ -188,7 +188,7 @@
       <!-- about 2 -->
       <container-about>
         <container-aboutText>
-          <sub-header>Our Story</sub-header>
+          <h2>Our Story</h2>
           <flex-container>
             <p class="aleo-thin"><br>HVHS Coffee House began as a dream shared by a group of coffee enthusiasts who
               wanted to create a space where people could gather and connect.</p>
@@ -201,7 +201,7 @@
       <!-- about 3 -->
       <container-about>
         <container-aboutText>
-          <sub-header>Craftsmanship and Quality</sub-header>
+          <h2>Craftsmanship and Quality</h2>
           <flex-container>
             <p class="aleo-thin"><br>At HVHS Coffee House, we believe that the key to a truly exceptional cup of
               coffee
@@ -215,7 +215,7 @@
       <!-- about 4 -->
       <container-about>
         <container-aboutText>
-          <sub-header>Community Engagement</sub-header>
+          <h2>Community Engagement</h2>
           <flex-container>
             <p class="aleo-thin"><br>More than just a place to grab your morning caffeine fix, HVHS Coffee House
               is
@@ -229,7 +229,7 @@
       <!-- about 5 -->
       <container-about>
         <container-aboutText>
-          <sub-header>Sustainability</sub-header>
+          <h2>Sustainability</h2>
           <flex-container>
             <p class="aleo-thin"><br>As stewards of the environment, we are committed to minimizing our ecological
               footprint and promoting sustainability throughout our supply chain.</p>
@@ -242,9 +242,9 @@
     </section>
     <!-- Recommended section -->
     <section id="recommendedSection">
-      <header>
+      <h1>
         Recommended
-      </header>
+      </h1>
       <flex-container id="productsContainer">
         <!-- product 1 -->
         <flex-container>

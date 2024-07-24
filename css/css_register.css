@@ -19,7 +19,16 @@
   --formPadding: calc(var(--UIpadding) * 3.5);
 }
 
-/*-- product container *******************************************--*/
+/*-- background *******************************************--*/
+body {
+  backdrop-filter: blur(7px);
+  background-image: url(/images/images_bg/bg_register.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*-- form *******************************************--*/
 #formContainer {
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
@@ -30,14 +39,15 @@
 
 /*-- font styling *******************************************--*/
 /*-- text and radius styling --*/
+h2 {
+  margin: 0;
+  width: 100%;
+}
+
 #formContainer,
 #formContainer * {
   border-radius: var(--UIRadius);
   text-align: left;
-}
-
-#formContainer sub-header {
-  margin: 0;
 }
 
 #header {

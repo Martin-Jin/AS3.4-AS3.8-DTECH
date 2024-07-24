@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <title>HVHS coffee house</title>
   <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
   <meta charset="UTF-8">
-  <meta name="description" content="13DTECH component trailing">
+  <meta name="description" content="Registration for Coffee Shop">
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- stylesheet(s) *******************************************-->
-  <link defer rel="stylesheet" href="/css/css_general.css">
-  <link defer rel="stylesheet" href="/css/css_register.css">
-  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
-  <link defer rel="stylesheet" href="/css/mediaQueries/mediaQueries_register.css">
+  <link rel="stylesheet" href="/css/css_general.css">
+  <link rel="stylesheet" href="/css/css_register.css">
+  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
+  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_register.css">
   <!-- icons -->
   <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
   <!-- imported font(s) -->
@@ -26,7 +23,7 @@
     rel="stylesheet">
 
   <!-- firebase start ****************************************-->
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
   <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
@@ -56,7 +53,7 @@
   *****************************************-->
   <form id="formContainer" class="center">
     <!-- header -->
-    <sub-header id="header" class="text_underline">Registration form</sub-header>
+    <h2 id="header" class="text_underline">Registration form</h2>
     <!-- registration fields -->
     <flex-container>
       <p><span-bold>Street address:</span-bold> <i class="fa-solid fa-road" aria-hidden="true"></i></p>
@@ -64,7 +61,7 @@
         <input type="text" id="street" placeholder="123 ABC Street" name="street" minlength="1" maxlength="20"
           pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
           title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 20. You cannot end or start with a space."
-          required></input>
+          required>
       </flex-container>
     </flex-container>
     <flex-container id="address">
@@ -74,7 +71,7 @@
           <input type="text" placeholder="suburb" name="suburb" minlength="1" maxlength="10"
             pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
             title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 10. You cannot end or start with a space."
-            required></input>
+            required>
         </flex-container>
       </address-container>
       <address-container>
@@ -83,22 +80,22 @@
           <input type="text" placeholder="city" name="city" minlength="1" maxlength="10"
             pattern="^[A-Za-z0-9]+( [A-Za-z0-9]+)*$"
             title="Must only include letters, numbers and spaces. No consecutive spaces are allowed. You must input at least 1 character and a maximum of 10. You cannot end or start with a space."
-            required></input>
+            required>
         </flex-container>
       </address-container>
       <address-container>
         <p><span-bold>Post code:</span-bold> <i class="fa-solid fa-envelope" aria-hidden="true"></i></p>
         <flex-container>
           <input type="text" placeholder="1234" name="post" minlength="4" maxlength="4"
-            pattern="^[0-9]+$" title="You can only enter numbers." required></input>
+            pattern="^[0-9]+$" title="You can only enter numbers." required>
         </flex-container>
       </address-container>
     </flex-container>
-    <flex-container id="pn">
+    <flex-container>
       <p><span-bold>Phone number:</span-bold> <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></p>
       <flex-container>
         <input type="text" placeholder="02212345678" name="phoneNumber" minlength="9" maxlength="10"
-          pattern="^[0-9]+$" title="You must input 9 or 10 digits. You can only enter numbers." required></input>
+          pattern="^[0-9]+$" title="You must input 9 or 10 digits. You can only enter numbers." required>
       </flex-container>
     </flex-container>
     <flex-container id="gender">
@@ -120,8 +117,8 @@
     </flex-container>
 
     <!-- order button -->
-    <button type="submit" id="submit" onclick="form_submit()" class="general_button"><span-large>Submit
-        form</span-large></button>
+    <button type="submit" id="submit" onclick="form_submit()" class="general_button"><h3>Submit
+        form</h3></button>
   </form>
   <!--*****************************************
     Register form end

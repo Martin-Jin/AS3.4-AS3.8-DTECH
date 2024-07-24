@@ -12,7 +12,7 @@
   /*-- button --*/
 }
 
-/*-- product container *******************************************--*/
+/*-- form *******************************************--*/
 #formContainer {
   padding: var(--productPadding);
   background-color: var(--backGroundLightDark);
@@ -28,6 +28,15 @@
 }
 
 /*-- font styling *******************************************--*/
+h2 {
+  margin: 0;
+  width: 100%;
+}
+
+h3 {
+  display: inline-block;
+}
+
 #productPrice {
   color: var(--text);
   font-size: calc(0.8 * var(--subheaderSize));
@@ -42,10 +51,6 @@
 #formContainer * {
   border-radius: var(--UIRadius);
   text-align: left;
-}
-
-#formContainer sub-header {
-  margin: 0;
 }
 
 #productHeader {

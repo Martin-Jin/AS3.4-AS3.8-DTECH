@@ -77,8 +77,9 @@ body {
 /*-- font *******************************************--*/
 .aleo-general,
 p,
-header,
-sub-header,
+h1,
+h2,
+h3,
 button,
 a,
 input,
@@ -101,28 +102,27 @@ span-thin {
   font-weight: 300;
 }
 
-span-large {
+h3 {
   font-size: var(--pLarge);
+  color: var(--text);
 }
 
 /*-- headers --*/
-header,
-sub-header,
+h1,
+h2,
+h3,
 a {
   height: fit-content;
   width: fit-content;
   margin: auto;
 }
 
-header {
+h1 {
+  font-size: var(--headerSize);
   color: var(--header);
 }
 
-header {
-  font-size: var(--headerSize);
-}
-
-sub-header {
+h2 {
   font-size: var(--subheaderSize);
   color: var(--subtitle);
   font-weight: 300;
@@ -497,7 +497,8 @@ input:focus::placeholder {
   grid-area: links;
 }
 
-#footer_links a, #footer_email {
+#footer_links a,
+#footer_email {
   margin: auto;
   width: fit-content;
 }
@@ -509,5 +510,6 @@ input:focus::placeholder {
 
 #footer_newsletter button {
   width: fit-content;
-  margin: var(--buttonMargin) auto auto auto;;
+  margin: var(--buttonMargin) auto auto auto;
+  ;
 }
