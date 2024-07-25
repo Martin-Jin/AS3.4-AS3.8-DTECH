@@ -19,39 +19,13 @@
   --pagePadding: calc(var(--UIpadding) * 5);
 }
 
-/*-- background *******************************************--*/
-body {
-  padding: var(--pagePadding);
-  backdrop-filter: blur(7px);
-  background-image: url(/images/images_bg/bg_register.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 /*-- form *******************************************--*/
 #formContainer {
-  margin: auto;
-  padding: var(--formPadding);
-  background-color: var(--backGroundLightDark);
-  width: fit-content;
-  height: fit-content;
   grid-gap: var(--formGap);
 }
 
 /*-- font styling *******************************************--*/
 /*-- text and radius styling --*/
-h2 {
-  margin: 0;
-  width: 100%;
-}
-
-#formContainer,
-#formContainer * {
-  border-radius: var(--UIRadius);
-  text-align: left;
-}
-
 #header {
   border-color: var(--header);
 }
@@ -59,14 +33,6 @@ h2 {
 /*-- spacing --*/
 #formContainer flex-container {
   grid-gap: var(--iconMargin);
-}
-
-/*-- button styling--*/
-#submit {
-  margin-top: 0;
-  background-color: var(--backGroundDark);
-  text-align: center;
-  font-size: var(--pLarge);
 }
 
 /*-- input styling --*/

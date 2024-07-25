@@ -12,6 +12,9 @@
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
   <link rel="stylesheet" href="/css/css_coffee.css">
+  <link rel="stylesheet" href="/css/css_form.css">
+  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_coffee.css">
+  <link rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
 
   <!-- icons -->
   <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
@@ -22,7 +25,7 @@
     rel="stylesheet">
 
   <!-- firebase start ****************************************-->
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
   <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
@@ -68,18 +71,18 @@
       <flex-container id="productAddOns">
         <p><span-bold>Sizes:</span-bold></p>
         <flex-container id="productSizes">
-          <button class="general_button coffee_sizes">
+          <radio-button class="general_button coffee_sizes">
             <input type="radio" id="large" name="size" value="Large">
             <label for="large">Large</label>
-          </button>
-          <button class="general_button coffee_sizes">
+          </radio-button>
+          <radio-button class="general_button coffee_sizes">
             <input type="radio" id="medium" name="size" value="Medium">
             <label for="medium">Medium</label>
-          </button>
-          <button class="general_button coffee_sizes">
+          </radio-button>
+          <radio-button class="general_button coffee_sizes">
             <input type="radio" id="small" name="size" value="Small">
             <label for="small">Small</label>
-          </button>
+          </radio-button>
         </flex-container>
       </flex-container>
       <!-- ingredients -->
@@ -88,8 +91,7 @@
         <p id="ingredients" class="coffee_text">Coffee, sugar and milk.</p>
       </flex-container>
       <!-- order button -->
-      <button id="order" class="general_button">
-        <h3>Add to cart</h3>
+      <button id="submit" class="general_button">Add to cart
       </button>
     </flex-container>
   </grid-container>
@@ -97,9 +99,6 @@
     Order form end
   *****************************************-->
 </body>
-
-<link rel="stylesheet" href="/css/mediaQueries/mediaQueries_coffee.css">
-<link rel="stylesheet" href="/css/mediaQueries/mediaQueries_general.css">
 
 </html>
 <!--*************************************************************

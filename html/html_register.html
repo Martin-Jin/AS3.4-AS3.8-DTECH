@@ -9,20 +9,16 @@
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
   <link rel="stylesheet" href="/css/css_register.css">
+  <link rel="stylesheet" href="/css/css_form.css">
   
   <!-- icons -->
-  <script src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous" defer></script>
-  <!-- imported font(s) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <script defer src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
 
   <!-- firebase start ****************************************-->
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
   <!-- Firebase App (core Firebase SDK) always required & must be listed 1st -->
   <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
@@ -102,11 +98,11 @@
       <flex-container id="genders">
         <radio-button class="general_button register_gender">
           <input type="radio" id="male" name="gender" value="male">
-          <label for="male"><i class="fa-solid fa-person" aria-label="male"></i></label>
+          <label for="male">Male <i class="fa-solid fa-person" aria-hidden="true"></i></label>
         </radio-button>
         <radio-button class="general_button register_gender">
           <input type="radio" id="female" name="gender" value="female" required>
-          <label for="female"><i class="fa-solid fa-person-dress" aria-label="female"></i></label>
+          <label for="female">Female <i class="fa-solid fa-person-dress" aria-hidden="true"></i></label>
         </radio-button>
         <radio-button class="general_button register_gender">
           <input type="radio" id="other" name="gender" value="other">

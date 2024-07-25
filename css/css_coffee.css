@@ -12,17 +12,8 @@
   --labelMargin: calc(var(--UIMargin) * 0.4); 
 }
 
-body {
-  padding: var(--pagePadding);
-}
-
 /*-- form *******************************************--*/
 #formContainer {
-  margin: auto;
-  padding: var(--formPadding);
-  background-color: var(--backGroundLightDark);
-  width: fit-content;
-  height: fit-content;
   /*-- Grid container --*/
   grid-gap: var(--formGap);
   grid-template-columns: auto;
@@ -33,11 +24,6 @@ body {
 }
 
 /*-- font styling *******************************************--*/
-h2 {
-  margin: 0;
-  width: 100%;
-}
-
 h3 {
   display: inline-block;
 }
@@ -49,13 +35,6 @@ h3 {
 
 #productPrice::before {
   content: '$';
-}
-
-/*-- text and radius styling --*/
-#formContainer,
-#formContainer * {
-  border-radius: var(--UIRadius);
-  text-align: left;
 }
 
 #productHeader {
@@ -79,13 +58,6 @@ h3 {
   object-fit: cover;
   height: 100%;
   width: 100%;
-}
-
-/*-- button styling--*/
-#order {
-  margin-top: 0;
-  background-color: var(--backGroundDark);
-  text-align: center;
 }
 
 /*-- Size options for coffee *******************************************--*/

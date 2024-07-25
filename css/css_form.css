@@ -1,0 +1,52 @@
+/*------------------------------------------------------------*
+  styling for forms such as coffee page or register page
+/*------------------------------------------------------------*/
+
+/*-- form *******************************************--*/
+#formContainer {
+  margin: auto;
+  padding: var(--formPadding);
+  background-color: var(--backGroundLightDark);
+  width: fit-content;
+  height: fit-content;
+}
+
+/*-- background *******************************************--*/
+body {
+  padding: var(--pagePadding);
+  backdrop-filter: blur(7px);
+  background-image: url(/images/images_bg/bg_form.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*-- font styling *******************************************--*/
+h2 {
+  margin: 0;
+  width: 100%;
+}
+
+/*-- text and radius styling --*/
+#formContainer,
+#formContainer * {
+  border-radius: var(--UIRadius);
+  text-align: left;
+}
+
+
+/*-- img styling --*/
+#productImg {
+  grid-area: img;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/*-- button styling--*/
+#submit {
+  font-size: var(--pLarge);
+  margin-top: 0;
+  background-color: var(--backGroundDark);
+  text-align: center;
+}

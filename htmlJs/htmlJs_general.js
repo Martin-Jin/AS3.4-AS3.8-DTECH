@@ -21,7 +21,7 @@ let general_deferLinks = [
   { href: "https://fonts.googleapis.com", rel: "preconnect" },
   { href: "https://fonts.gstatic.com", rel: "preconnect", crossorigin: "anonymous" },
   { href: "https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap", rel: "stylesheet" },
-  { href: "https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css", rel: "stylesheet", type: "text/css" }
+  { href: "https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css", rel: "stylesheet", type: "text/css" },
 ]
 
 /**************************************************************/
@@ -29,7 +29,6 @@ let general_deferLinks = [
 /**************************************************************/
 //Get saved values then check if user is logged in or not
 manager_getValues();
-
 //Loads defered links
 general_loadDeferLinks();
 
