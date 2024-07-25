@@ -38,7 +38,7 @@ general_loadDeferLinks();
 /**************************************************************/
 function general_loadDeferLinks() {
   console.log("general_loadDeferLinks()")
-  document.addEventListener('DOMContentLoaded', () => {
+  let listener = document.addEventListener('DOMContentLoaded', () => {
     //Adding defered links
     general_deferLinks.forEach((link) => {
       let deferLink = document.createElement("link");
@@ -51,6 +51,8 @@ function general_loadDeferLinks() {
     });
     //Clearing queue when done
     general_deferLinks = [];
+    //Remove the event listener after it's done
+    document.removeEventListener('DOMContentLoaded', listener);
   });
 }
 
@@ -63,6 +65,7 @@ function general_loadDeferLinks() {
 function general_displayCard() {
   console.log("general_displayCard()");
   const JSONSTRING = sessionStorage.getItem("coffee");
+  if (JSONSTRING == null) {return}
   let coffee = JSON.parse(JSONSTRING);
   console.log(coffee);
   //Updating values on coffee page
