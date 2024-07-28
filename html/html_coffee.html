@@ -76,9 +76,31 @@
           </radio-button>
         </radio-container>
       </flex-container>
-      <flex-container>
+      <!-- amount selection -->
+      <!-- <flex-container>
         <p><span-bold>Amount</span-bold></p>
         <input type="number" placeholder="1" name="phoneNumber" min="1" max="99" title="You can only enter numbers." required>
+      </flex-container> -->
+      <flex-container>  
+        <p><span-bold>Amount (default 1):</span-bold></p>
+        <radio-container>
+          <radio-button class="general_button">
+            <input type="radio" id="large" name="size" value="Large">
+            <label for="large">2 cups</label>
+          </radio-button>
+          <radio-button class="general_button">
+            <input type="radio" id="medium" name="size" value="Medium">
+            <label for="medium">3 cups</label>
+          </radio-button>
+          <radio-button class="general_button">
+            <input type="radio" id="small" name="size" value="Small">
+            <label for="small">4 cups</label>
+          </radio-button>
+          <radio-button class="general_button">
+            <input type="radio" id="small" name="size" value="Small">
+            <label for="small">5 cups</label>
+          </radio-button>
+        </radio-container>
       </flex-container>
       <!-- ingredients -->
       <flex-container id="productIngredients">

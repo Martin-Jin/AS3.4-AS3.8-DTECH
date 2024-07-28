@@ -59,7 +59,7 @@ h2 {
   width: 100%;
 }
 
-.form_text {
+.form_text, radio-button{
   color: var(--backGroundLight);
 }
 
