@@ -6,14 +6,11 @@
   /*-- padding --*/
   --formPadding: calc(var(--UIpadding) * 2);
   --pagePadding: calc(var(--UIpadding) * 4);
-  /*-- spacing --*/
-  --formGap: calc(var(--UISpacing) * 1.5);
-  /*-- margin --*/
-  --labelMargin: calc(var(--UIMargin) * 0.4); 
 }
 
 /*-- form *******************************************--*/
 #formContainer {
+  display: grid;
   /*-- Grid container --*/
   grid-gap: var(--formGap);
   grid-template-columns: auto;
@@ -61,34 +58,25 @@ h3 {
 }
 
 /*-- Size options for coffee *******************************************--*/
-#productSizes {
+radio-container {
   flex-direction: row;
-  justify-content: left;
+  justify-content: normal;
   grid-gap: var(--UISpacing);
 }
 
-#productSizes label {
+radio-container p, radio-container radio-button {
+  height: fit-content;
+  margin: 0 !important;
+}
+
+radio-container label {
   margin-right: var(--labelMargin);
 }
 
-#productSizes label:hover {
+radio-container label:hover {
   font-weight: 550;
 }
 
-#productSizes button {
+radio-container radio-button {
   cursor: auto;
-}
-
-.coffee_sizes {
-  background-color: var(--backGroundDark);
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 0;
-  font-size: var(--pSmall);
-  border: none;
-}
-
-/* Style the label when the radio button is checked */
-.coffee_sizes input[type='radio']:checked+label {
-  color: var(--subtitle) !important;
 }

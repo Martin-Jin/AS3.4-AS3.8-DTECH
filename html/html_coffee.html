@@ -44,7 +44,7 @@
   <!--*****************************************
     Order form
   *****************************************-->
-  <grid-container id="formContainer">
+  <form id="formContainer">
     <!-- image and header -->
     <img id="productImg" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
     <flex-container id="formMain">
@@ -55,38 +55,41 @@
       <!-- description -->
       <flex-container id="productDescription">
         <p><span-bold>Description:</span-bold></p>
-        <p id="description" class="coffee_text">A classic Italian coffee drink. This drink is known for its smooth and
+        <p id="description" class="form_text">A classic Italian coffee drink. This drink is known for its smooth and
           velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.</p>
       </flex-container>
       <!-- add on buttons -->
-      <flex-container id="productAddOns">
+      <flex-container>  
         <p><span-bold>Sizes:</span-bold></p>
-        <flex-container id="productSizes">
-          <radio-button class="general_button coffee_sizes">
+        <radio-container>
+          <radio-button class="general_button">
             <input type="radio" id="large" name="size" value="Large">
             <label for="large">Large</label>
           </radio-button>
-          <radio-button class="general_button coffee_sizes">
+          <radio-button class="general_button">
             <input type="radio" id="medium" name="size" value="Medium">
             <label for="medium">Medium</label>
           </radio-button>
-          <radio-button class="general_button coffee_sizes">
+          <radio-button class="general_button">
             <input type="radio" id="small" name="size" value="Small">
             <label for="small">Small</label>
           </radio-button>
-        </flex-container>
-        
+        </radio-container>
+      </flex-container>
+      <flex-container>
+        <p><span-bold>Amount</span-bold></p>
+        <input type="number" placeholder="1" name="phoneNumber" min="1" max="99" title="You can only enter numbers." required>
       </flex-container>
       <!-- ingredients -->
       <flex-container id="productIngredients">
         <p><span-bold>Contains:</span-bold></p>
-        <p id="ingredients" class="coffee_text">Coffee, sugar and milk.</p>
+        <p id="ingredients" class="form_text">Coffee, sugar and milk.</p>
       </flex-container>
       <!-- order button -->
       <button id="submit" class="general_button">Add to cart
       </button>
     </flex-container>
-  </grid-container>
+  </form>
   <!--*****************************************
     Order form end
   *****************************************-->

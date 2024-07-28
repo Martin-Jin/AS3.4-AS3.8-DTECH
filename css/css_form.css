@@ -1,6 +1,19 @@
 /*------------------------------------------------------------*
   styling for forms such as coffee page or register page
 /*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+  /*-- margin --*/
+  --labelMargin: calc(var(--UIMargin) * 0.4);
+  /*-- spacing --*/
+  --formGap: calc(var(--UISpacing) * 1.5);
+  /*-- padding --*/
+  --inputPadding: calc(var(--UIpadding) * 0.2);
+  /*-- radius --*/
+  --inputRadius: calc(var(--UIRadius) * 0.2);
+  /*-- input --*/
+  --inputWidthMobile: calc(var(--UISize) * 4);
+}
 
 /*-- form *******************************************--*/
 #formContainer {
@@ -21,13 +34,36 @@ body {
   background-position: center;
 }
 
+/*-- input styling --*/
+input[type='text'], input[type='number']{
+  border-style: solid;
+  border-color: var(--textLight) !important;
+  border-radius: var(--inputRadius) !important;
+  width: 100% !important;
+  min-width: var(--inputWidthMobile);
+  color: var(--textLight) !important;
+  height: fit-content;
+  margin: auto;
+  padding: var(--inputPadding);
+  font-size: var(--pSmall);
+  font-weight: 400;
+}
+
+::placeholder {
+  color: var(--textLight) !important;
+}
+
 /*-- font styling *******************************************--*/
 h2 {
   margin: 0;
   width: 100%;
 }
 
-/*-- text and radius styling --*/
+.form_text {
+  color: var(--backGroundLight);
+}
+
+/*-- text align and radius styling --*/
 #formContainer,
 #formContainer * {
   border-radius: var(--UIRadius);
@@ -49,4 +85,20 @@ h2 {
   margin-top: 0;
   background-color: var(--backGroundDark);
   text-align: center;
+}
+
+radio-button {
+  background-color: var(--backGroundDark) !important;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0;
+  font-size: var(--pSmall);
+  /*-- Hiding the border by deafult, and show it when radio button is checked --*/
+  border: none !important;
+}
+
+/*-- Underlining the button when the radio button is checked, and higlighting text --*/
+radio-button:has(input[type='radio']:checked) {
+  border-bottom-style: solid !important;
+  color: var(--subtitle) !important;
 }
