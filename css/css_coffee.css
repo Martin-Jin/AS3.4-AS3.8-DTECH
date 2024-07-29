@@ -12,7 +12,7 @@
 #formContainer {
   display: grid;
   /*-- Grid container --*/
-  grid-gap: var(--formGap);
+  gap: var(--formGap);
   grid-template-columns: auto;
   grid-template-rows: auto auto;
   grid-template-areas:
@@ -35,21 +35,25 @@ h3 {
 }
 
 #productHeader {
-  width: 80%;
   border-color: var(--header);
 }
 
-/*-- spacing --*/
+/*-- flex container alignment *******************************************--*/
+#productAmount, radio-container {
+  flex-direction: row;
+}
+
+/*-- spacing *******************************************--*/
 #formMain {
   grid-area: main;
-  grid-gap: var(--formGap);
+  gap: var(--formGap);
 }
 
 #formMain flex-container {
-  grid-gap: var(--iconMargin);
+  gap: var(--iconMargin);
 }
 
-/*-- img styling --*/
+/*-- img styling *******************************************--*/
 #productImg {
   grid-area: img;
   object-fit: cover;
@@ -59,14 +63,8 @@ h3 {
 
 /*-- Size options for coffee *******************************************--*/
 radio-container {
-  flex-direction: row;
   justify-content: normal;
-  grid-gap: var(--UISpacing);
-}
-
-radio-container p, radio-container radio-button {
-  height: fit-content;
-  margin: 0 !important;
+  gap: var(--UISpacing);
 }
 
 radio-container label {

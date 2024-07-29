@@ -16,7 +16,6 @@ general_loadDeferLinks();
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-//disables the deafult radio button behaviour for users registration
 document.addEventListener('DOMContentLoaded', () => {
   //Get the form element
   const form = document.getElementById('formContainer');

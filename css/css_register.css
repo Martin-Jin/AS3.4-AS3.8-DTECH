@@ -54,6 +54,6 @@
 
 address-container {
   display: flex;
-  flex-direction: column;
-  grid-gap: var(--iconMargin);
+  flex-direction: column !important;
+  grid-gap: var(--UISpacing);
 }
