@@ -48,8 +48,8 @@
     <!-- image and header -->
     <img id="productImg" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
     <flex-container id="formMain">
-      <flex-container>
-        <h2 id="productHeader" class="text_underline">Coffee name</h2>
+      <flex-container id="headerContainer">
+        <h2 id="header" class="text_underline">Coffee name</h2>
         <h2 id="productPrice">1.00</h2>
       </flex-container>
       <!-- description -->
@@ -80,12 +80,12 @@
       <flex-container>
         <p><span-bold>Amount</span-bold></p>
         <flex-container id="productAmount">
-          <input id="amount" type="number" placeholder="1" name="phoneNumber" min="1" max="99"
+          <input id="amount" type="number" placeholder="1" name="phoneNumber" value="1" min="1" max="99"
             title="You can only enter numbers." required>
-          <button id="increment" class="general_button"><i class="fa-solid fa-minus" aria-hidden="true"></i>
-          </button>
-          <button id="decrement" class="general_button"><i class="fa-solid fa-plus" aria-hidden="true"></i>
-          </button>
+          <radio-button id="decrement" class="general_button"><i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </radio-button>
+          <radio-button id="increment" class="general_button"><i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </radio-button>
         </flex-container>
       </flex-container>
       <!-- ingredients -->

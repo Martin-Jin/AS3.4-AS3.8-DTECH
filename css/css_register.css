@@ -13,13 +13,6 @@
   grid-gap: var(--formGap);
 }
 
-/*-- font styling *******************************************--*/
-/*-- text and radius styling --*/
-#header {
-  border-color: var(--header);
-}
-
-/*-- spacing --*/
 #formContainer flex-container {
   grid-gap: var(--iconMargin);
 }

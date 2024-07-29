@@ -7,7 +7,7 @@ console.log('%c' + MODULENAME + ': ', 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
-const COFFEE = document.getElementById("productHeader");
+const COFFEE = document.getElementById("header");
 const PRICE = document.getElementById("productPrice");
 const IMAGE = document.getElementById("productImg");
 const DESCRIPTION = document.getElementById("description");
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   DECREMENT.addEventListener('click', () => {
     let currentQuantity = parseInt(QUANTITY.value);
     //You must order at least one coffee
-    if (currentQuantity > 2) {
+    if (currentQuantity > 1) {
       QUANTITY.value = currentQuantity - 1;
     }
   });
