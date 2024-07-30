@@ -98,7 +98,7 @@ span-bold {
   font-weight: 600;
 }
 
-.aleo-thin,
+.aleo-thin, .form_text,
 span-thin {
   font-weight: 300;
 }
@@ -157,7 +157,6 @@ a {
   display: flex;
 }
 
-
 /*-- Having the first button/home button take up space 
 so that the logo and the drop down container is aligned properly --*/
 #nav_desktop> :first-child {
@@ -181,7 +180,7 @@ nav {
   grid-area: nav;
   height: var(--navBarSize);
   display: flex;
-  background-color: rgba(17, 17, 17, 0.2);
+  background-color: rgba(17, 17, 17, 0.3);
   backdrop-filter: blur(2px);
 }
 
@@ -224,7 +223,7 @@ nav a.active {
 
 nav a:hover,
 nav button:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /*-- navBar logo *******************************************--*/
@@ -298,8 +297,8 @@ dropdown-content a:hover {
 
 /*-- radio button --*/
 input[type='radio'] {
-  height: var(--radioBtnSize);
-  width: var(--radioBtnSize);
+  height: var(--radioBtnSize) !important;
+  width: var(--radioBtnSize) !important;
   position: relative;
   margin: auto;
 }
@@ -326,7 +325,7 @@ input[type='radio']:checked:after {
 }
 
 /*-- input box --*/
-input[type='text'] {
+input[type='text'], input[type='number'] {
   background-color: transparent;
   width: 65%;
   border: none;
@@ -337,8 +336,13 @@ input[type='text'] {
   min-width: fit-content;
 }
 
-input[type='text']:focus {
+input[type='text']:focus, input[type='number']:focus {
   outline: none;
+}
+
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
 }
 
 /*-- links *******************************************--*/
@@ -403,7 +407,7 @@ section {
   display: grid;
 }
 
-flex-container,
+flex-container, radio-container,
 footer,
 #aboutSection,
 #recommendedSection,
@@ -411,6 +415,10 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .center {
@@ -515,5 +523,4 @@ input:focus::placeholder {
 #footer_newsletter button {
   width: fit-content;
   margin: var(--buttonMargin) auto auto auto;
-  ;
 }

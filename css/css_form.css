@@ -1,14 +1,30 @@
 /*------------------------------------------------------------*
   styling for forms such as coffee page or register page
 /*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+  /*-- margin --*/
+  --labelMargin: calc(var(--UIMargin) * 0.4);
+  /*-- spacing --*/
+  --formGap: calc(var(--UISpacing) * 1.5);
+  /*-- padding --*/
+  --inputPadding: calc(var(--UIpadding) * 0.2);
+  /*-- radius --*/
+  --inputRadius: calc(var(--UIRadius) * 0.2);
+  /*-- input --*/
+  --inputWidthMobile: calc(var(--UISize) * 4);
+}
 
 /*-- form *******************************************--*/
 #formContainer {
   margin: auto;
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
-  width: fit-content;
+}
+
+#formContainer *, #formContainer {
   height: fit-content;
+  width: fit-content;
 }
 
 /*-- background *******************************************--*/
@@ -21,13 +37,38 @@ body {
   background-position: center;
 }
 
-/*-- font styling *******************************************--*/
-h2 {
-  margin: 0;
-  width: 100%;
+/*-- input styling --*/
+input[type='text'], input[type='number']{
+  border-style: solid;
+  border-color: var(--textLight) !important;
+  border-radius: var(--inputRadius) !important;
+  min-width: var(--inputWidthMobile);
+  color: var(--textLight) !important;
+  margin: auto;
+  padding: var(--inputPadding);
+  font-size: var(--pSmall);
+  font-weight: 400;
 }
 
-/*-- text and radius styling --*/
+::placeholder {
+  color: var(--textLight) !important;
+}
+
+/*-- font styling *******************************************--*/
+h2, #headerContainer{
+  margin: 0;
+  width: 100% !important;
+}
+
+#header {
+  border-color: var(--header);
+}
+
+.form_text, radio-button {
+  color: var(--backGroundLight);
+}
+
+/*-- text align and radius styling --*/
 #formContainer,
 #formContainer * {
   border-radius: var(--UIRadius);
@@ -46,7 +87,23 @@ h2 {
 /*-- button styling--*/
 #submit {
   font-size: var(--pLarge);
-  margin-top: 0;
   background-color: var(--backGroundDark);
   text-align: center;
+  width: 100%;
+}
+
+radio-button {
+  background-color: var(--backGroundDark) !important;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0 !important;
+  font-size: var(--pSmall);
+  /*-- Hiding the border by deafult, and show it when radio button is checked --*/
+  border: none !important;
+}
+
+/*-- Underlining the button when the radio button is checked, and higlighting text --*/
+radio-button:has(input[type='radio']:checked) {
+  border-bottom-style: solid !important;
+  color: var(--subtitle) !important;
 }

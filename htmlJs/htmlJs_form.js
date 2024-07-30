@@ -1,22 +1,17 @@
 /**************************************************************/
 // htmlJs_form.js
-// Js code for registration page
+// Js code for forms
 /**************************************************************/
 MODULENAME = "htmlJs_form.js";
 console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
-// letiables and constants
+// variables and constants
 /**************************************************************/
-let form_valid = false;
-
-//Loading defered links
-general_deferLinks.push({ href: "/css/mediaQueries/mediaQueries_register.css", rel: "stylesheet" });
-general_loadDeferLinks();
+const form_INPUTEVENT = new Event('input');
 
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-//disables the deafult radio button behaviour for users registration
 document.addEventListener('DOMContentLoaded', () => {
   //Get the form element
   const form = document.getElementById('formContainer');
@@ -24,22 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //Prevent the default form submission behavior
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    //Passed validation so allow user to click submit button
-    form_valid = true;
-  });
-
-  //Makes it so that clicking on the icon on my radio button also triggers it
-  //as the form tag changes the behaviour of the button such that it dosent
-  let genderLabels = document.querySelectorAll(".register_gender label");
-  //Add an event listener for clicks on each label
-  genderLabels.forEach((label) => {
-    label.addEventListener("click", () => {
-      //Find the associated radio button
-      let radioBtn = label.previousElementSibling;
-
-      //Simulate a click on the radio button
-      radioBtn.click();
-    });
+    if (form.reportValidity()) {
+      //Passed validation so submit
+      form_submit();
+    }
   });
 
   //giving user feedback if what they input is correct in real time
@@ -60,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.style.setProperty("border-color", "#fbf8f6", "important");
       }
     });
+    input.dispatchEvent(form_INPUTEVENT);
   });
 });
 
@@ -70,29 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
 /*************************************************************/
 function form_submit() {
   console.log("form_submit()")
-  //Prevent submission if form is not valid
-  if (!form_valid) { return };
   const form = document.getElementById('formContainer');
   const inputs = form.querySelectorAll('input');
+  let data = {};
 
   inputs.forEach(input => {
     //Going through each input and saving the key value pair
     //to the registration details object
     if (input.type === 'radio' || input.type === 'checkbox') {
       if (input.checked) {
-        fbV_registerDetails[input.name] = input.value;
+        data[input.name] = input.value;
       }
     } else {
       if (input.name) {
-        fbV_registerDetails[input.name] = input.value;
+        data[input.name] = input.value;
       }
     }
     input.disabled = true;
   });
-  //Disabling the button then writing details to database
+  //Disabling the button then calling call back function
   document.getElementById("submit").disabled = true;
-  fbV_registerStatus = "registered";
-  fb_writeRec(fbV_REGISTRATIONPATH, fbV_userDetails.uid, fbV_registerDetails, manager_saveValues);
-  alert("Thank you for registering. You will be redirected back to the home page after you close this prompt.");
-  window.location = '../index.html';
+  form_callBack(data);
 }

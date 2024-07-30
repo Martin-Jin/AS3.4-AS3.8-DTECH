@@ -4,17 +4,6 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- padding --*/
-  --inputPadding: calc(var(--UIpadding) * 0.2);
-  /*-- radius --*/
-  --inputRadius: calc(var(--UIRadius) * 0.2);
-  /*-- spacing --*/
-  --formGap: calc(var(--UISpacing) * 1.5);
-  /*-- margin --*/
-  --labelMargin: calc(var(--UIMargin) * 0.4);
-  /*-- input --*/
-  --inputWidth: calc(var(--UISize) * 1.4);
-  --inputWidthMobile: calc(var(--UISize) * 4);
-  /*-- padding --*/
   --formPadding: calc(var(--UIpadding) * 3.5);
   --pagePadding: calc(var(--UIpadding) * 5);
 }
@@ -24,34 +13,8 @@
   grid-gap: var(--formGap);
 }
 
-/*-- font styling *******************************************--*/
-/*-- text and radius styling --*/
-#header {
-  border-color: var(--header);
-}
-
-/*-- spacing --*/
 #formContainer flex-container {
   grid-gap: var(--iconMargin);
-}
-
-/*-- input styling --*/
-input[type='text'] {
-  border-style: solid;
-  border-color: var(--textLight) !important;
-  border-radius: var(--inputRadius) !important;
-  width: 100% !important;
-  min-width: var(--inputWidthMobile);
-  color: var(--textLight) !important;
-  height: fit-content;
-  margin: auto;
-  padding: var(--inputPadding);
-  font-size: var(--pSmall);
-  font-weight: 400;
-}
-
-::placeholder {
-  color: var(--textLight) !important;
 }
 
 /*-- genders *******************************************--*/
@@ -84,20 +47,6 @@ input[type='text'] {
 
 address-container {
   display: flex;
-  flex-direction: column;
-  grid-gap: var(--iconMargin);
-}
-
-.register_gender {
-  background-color: var(--backGroundDark);
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 0;
-  font-size: var(--pSmall);
-  border: none;
-}
-
-/* Style the label when the radio button is checked */
-.register_gender input[type='radio']:checked+label, .register_gender input[type='radio']:checked+label * {
-  color: var(--subtitle) !important;
+  flex-direction: column !important;
+  grid-gap: var(--UISpacing);
 }

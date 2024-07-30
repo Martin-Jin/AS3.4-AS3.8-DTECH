@@ -36,6 +36,7 @@
   <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
   <script defer src="/htmlJs/htmlJs_form.js"></script>
+  <script defer src="/htmlJs/htmlJs_register.js"></script>
 </head>
 
 <!--*************************************************************
@@ -59,6 +60,7 @@
           required>
       </flex-container>
     </flex-container>
+    <!-- address fields -->
     <flex-container id="address">
       <address-container>
         <p><span-bold>Suburb:</span-bold> <i class="fa-solid fa-building" aria-hidden="true"></i></p>
@@ -86,6 +88,25 @@
         </flex-container>
       </address-container>
     </flex-container>
+    <!-- genders -->
+    <flex-container id="gender">
+      <p><span-bold>Gender:</span-bold> <i class="fa-solid fa-venus-mars" aria-hidden="true"></i></p>
+      <flex-container id="genders">
+        <radio-button class="general_button">
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male <i class="fa-solid fa-person" aria-hidden="true"></i></label>
+        </radio-button>
+        <radio-button class="general_button">
+          <input type="radio" id="female" name="gender" value="female" required>
+          <label for="female">Female <i class="fa-solid fa-person-dress" aria-hidden="true"></i></label>
+        </radio-button>
+        <radio-button class="general_button">
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">Other</label>
+        </radio-button>
+      </flex-container>
+    </flex-container>
+    <!-- phone number -->
     <flex-container>
       <p><span-bold>Phone number:</span-bold> <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></p>
       <flex-container>
@@ -93,26 +114,9 @@
           pattern="^[0-9]+$" title="You must input 9 or 10 digits. You can only enter numbers." required>
       </flex-container>
     </flex-container>
-    <flex-container id="gender">
-      <p><span-bold>Gender:</span-bold> <i class="fa-solid fa-venus-mars" aria-hidden="true"></i></p>
-      <flex-container id="genders">
-        <radio-button class="general_button register_gender">
-          <input type="radio" id="male" name="gender" value="male">
-          <label for="male">Male <i class="fa-solid fa-person" aria-hidden="true"></i></label>
-        </radio-button>
-        <radio-button class="general_button register_gender">
-          <input type="radio" id="female" name="gender" value="female" required>
-          <label for="female">Female <i class="fa-solid fa-person-dress" aria-hidden="true"></i></label>
-        </radio-button>
-        <radio-button class="general_button register_gender">
-          <input type="radio" id="other" name="gender" value="other">
-          <label for="other">Other</label>
-        </radio-button>
-      </flex-container>
-    </flex-container>
 
     <!-- order button -->
-    <button type="submit" id="submit" onclick="form_submit()" class="general_button">Submit
+    <button type="submit" id="submit" class="general_button">Submit
         form</button>
   </form>
   <!--*****************************************
