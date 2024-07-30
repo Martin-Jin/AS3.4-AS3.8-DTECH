@@ -157,7 +157,6 @@ a {
   display: flex;
 }
 
-
 /*-- Having the first button/home button take up space 
 so that the logo and the drop down container is aligned properly --*/
 #nav_desktop> :first-child {
@@ -418,6 +417,10 @@ form {
   justify-content: center;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .center {
   position: absolute;
   top: 50%;
@@ -520,5 +523,4 @@ input:focus::placeholder {
 #footer_newsletter button {
   width: fit-content;
   margin: var(--buttonMargin) auto auto auto;
-  ;
 }

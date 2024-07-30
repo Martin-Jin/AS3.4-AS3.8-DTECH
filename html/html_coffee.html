@@ -34,13 +34,14 @@
   <!-- javascript(s) *******************************************-->
   <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
+  <script defer src="/htmlJs/htmlJs_form.js"></script>
   <script defer src="/htmlJs/htmlJs_coffee.js"></script>
 </head>
 <!--*************************************************************
   BODY
 **************************************************************-->
 
-<body>
+<body onload="fbR_initialise()">
   <!--*****************************************
     Order form
   *****************************************-->
@@ -63,7 +64,7 @@
         <p><span-bold>Sizes:</span-bold></p>
         <radio-container>
           <radio-button class="general_button">
-            <input type="radio" id="large" name="size" value="Large">
+            <input type="radio" id="large" name="size" value="Large" required>
             <label for="large">Large</label>
           </radio-button>
           <radio-button class="general_button">
@@ -77,24 +78,22 @@
         </radio-container>
       </flex-container>
       <!-- amount selection -->
-      <flex-container>
-        <p><span-bold>Amount</span-bold></p>
-        <flex-container id="productAmount">
-          <input id="amount" type="number" placeholder="1" name="phoneNumber" value="1" min="1" max="99"
-            title="You can only enter numbers." required>
-          <radio-button id="decrement" class="general_button"><i class="fa-solid fa-minus" aria-hidden="true"></i>
-          </radio-button>
-          <radio-button id="increment" class="general_button"><i class="fa-solid fa-plus" aria-hidden="true"></i>
-          </radio-button>
-        </flex-container>
-      </flex-container>
+      <grid-container id="productAmount">
+        <p id="amountLabel"><span-bold>Amount:</span-bold></p>
+        <input id="amount" type="number" placeholder="1" name="amount" value="1" min="1" max="99"
+          title="You can only enter numbers." required>
+        <radio-button id="decrement" class="general_button"><i class="fa-solid fa-minus" aria-hidden="true"></i>
+        </radio-button>
+        <radio-button id="increment" class="general_button"><i class="fa-solid fa-plus" aria-hidden="true"></i>
+        </radio-button>
+      </grid-container>
       <!-- ingredients -->
       <flex-container id="productIngredients">
         <p><span-bold>Contains:</span-bold></p>
         <p id="ingredients" class="form_text">Coffee, sugar and milk.</p>
       </flex-container>
       <!-- order button -->
-      <button id="submit" class="general_button">Add to cart
+      <button type="submit" id="submit" class="general_button">Add to cart
       </button>
     </flex-container>
   </form>

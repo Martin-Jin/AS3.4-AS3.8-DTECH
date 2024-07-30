@@ -26,16 +26,6 @@ general_deferLinks.push({ href: "/css/mediaQueries/mediaQueries_coffee.css", rel
 general_loadDeferLinks();
 
 document.addEventListener('DOMContentLoaded', () => {
-  //Get the form element
-  const form = document.getElementById('formContainer');
-
-  //Prevent the default form submission behavior
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    //Passed validation so allow user to click submit button
-    form_valid = true;
-  });
-
   //Incrementing the amount of coffee bought
   INCREMENT.addEventListener('click', () => {
     let currentQuantity = parseInt(QUANTITY.value);
@@ -48,33 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
       QUANTITY.value = currentQuantity - 1;
     }
   });
-
-  //giving user feedback if what they input is correct in real time
-  let inputs = document.querySelectorAll("input");
-  //Add an event listener for input
-  inputs.forEach((input) => {
-    input.addEventListener("input", () => {
-      if (input.value != '') {
-        if (input.checkValidity()) {
-          //Change border to green if is right
-          input.style.setProperty("border-color", "#1ae57b", "important");
-        } else {
-          //Change border to red if is wrong
-          input.style.setProperty("border-color", "#ff4444", "important");
-        }
-      } else {
-        //If nothing inputed just leave as deafult
-        input.style.setProperty("border-color", "#fbf8f6", "important");
-      }
-    });
-  });
 });
-/**************************************************************/
-// function coffee_submit()
-// orders the users coffee
-// input: amount to order
-// called: after user clicks on the order button
-/**************************************************************/
-function coffee_submit(amount) {
-  console.log("coffee_submit()")
+
+/*************************************************************/
+//form_callBack()
+//what happens when the user orders coffee
+//writes users order details to firebase
+//input: data from the form
+//Called by form_submit
+/*************************************************************/
+function form_callBack(data) {
+  console.log("form_callBack()");
+  let currentOrder = {
+    product: COFFEE,
+  };
+  fbR_saveSnapshot(data, currentOrder, () => {
+    fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, currentOrder, alert("You have successfully placed an order. Go to the shopping cart if you want to view your order."));
+    location.reload();
+  });
 }

@@ -42,7 +42,6 @@ input[type='text'], input[type='number']{
   border-style: solid;
   border-color: var(--textLight) !important;
   border-radius: var(--inputRadius) !important;
-  width: 100% !important;
   min-width: var(--inputWidthMobile);
   color: var(--textLight) !important;
   margin: auto;

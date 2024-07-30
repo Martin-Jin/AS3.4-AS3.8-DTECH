@@ -39,8 +39,40 @@ h3 {
 }
 
 /*-- flex container alignment *******************************************--*/
-#productAmount, radio-container {
+radio-container,
+#amountModifier {
   flex-direction: row;
+}
+
+#productAmount {
+  /*-- Grid container --*/
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'title space space'
+    'amount increment decrement'
+}
+
+#amount {
+  grid-area: amount;
+}
+
+input[type='number'] {
+  min-width: 100% !important;
+}
+
+#amountLabel {
+  margin-bottom: var(--iconMargin);
+  grid-area: title;
+}
+
+#increment {
+  grid-area: increment;
+  margin: 0 var(--UISpacing) 0 var(--UISpacing);
+}
+
+#decrement {
+  grid-area: decrement;
 }
 
 /*-- spacing *******************************************--*/

@@ -10,6 +10,7 @@ const fbV_ORDERSPATH = "userOrders"; //<=============== Firebase paths
 const fbV_REGISTRATIONPATH = "userDetails/registrationDetails"; //<=============== Firebase paths
 const fbV_LOGINDETAILSPATH = "userDetails/loginDetails"; //<=============== Firebase paths
 const fbV_SHOPPINGCARTPATH = "userDetails/shoppingCart"; //<=============== Firebase paths
+const fbV_CARTPATH = "userDetails/cartDetails"; //<=============== Firebase paths
 
 let fbV_userDetails = { //<=============== Object to store the details of the current user
   uid: '',
@@ -28,15 +29,7 @@ let fbV_registerDetails = { //<=============== Object to store the details of th
 };
 
 let fbV_orderDetails = { //<=============== Object to store the details of the current user
-  uid: '1234567890',
-  displayName: 'Name',
-  email: 'email@email.com',
-  product: 'coffee 2',
-  size: 'large',
-  //For example pick up or delivery
-  collectionMethod: 'Delivery',
-  //Will be displayed if user wants their coffee delivered
-  userAddress: '123 street'
+
 }
 
 // login status of the user
