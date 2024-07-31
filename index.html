@@ -52,7 +52,7 @@
     TOP HALF DIVISION
   *****************************************-->
   <section id="topSection">
-    <!-- navBar for larger screens -->
+    <!-- navBar -->
     <nav id="nav_desktop">
       <a href="/../index.html" class="active" aria-label="home button">
         <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
@@ -78,6 +78,7 @@
           <span>Sign in</span> <i class="fas fa-user" aria-hidden="true"></i>
         </a>
       </flex-container>
+      <!-- navBar for mobile -->
       <container-dropdown id="nav_dropdown">
         <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn" aria-label="dropdown button">
           <i class="fa-solid fa-bars"></i>
@@ -257,7 +258,7 @@
                   chocolate and caramel notes.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee1)">Learn
             more</button>
         </flex-container>
         <!-- product 2 -->
@@ -271,7 +272,7 @@
                   dark chocolate.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee2)">Learn
             more</button>
         </flex-container>
         <!-- product 3 -->
@@ -285,7 +286,7 @@
                   and berries.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee3)">Learn
             more</button>
         </flex-container>
         <!-- product 4 -->
@@ -299,7 +300,7 @@
                   chocolate and nuts.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee4)">Learn
             more</button>
         </flex-container>
         <!-- product 5 -->
@@ -312,7 +313,7 @@
                   sweetness.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee5)">Learn
             more</button>
         </flex-container>
         <!-- product 6 -->
@@ -326,7 +327,7 @@
                   flavor.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee6)">Learn
             more</button>
         </flex-container>
       </flex-container>

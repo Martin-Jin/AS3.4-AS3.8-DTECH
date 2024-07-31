@@ -16,20 +16,30 @@
 }
 
 /*-- form *******************************************--*/
-#formContainer {
+#form {
+  scale: 0.75;
+  gap: var(--formGap);
   margin: auto;
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
 }
 
-#formContainer *, #formContainer {
+#form {
   height: fit-content;
   width: fit-content;
 }
 
+#formSection {
+  min-height: 100vh;
+  padding: var(--pagePadding);
+}
+
+#form flex-container {
+  gap: var(--iconMargin);
+}
+
 /*-- background *******************************************--*/
 body {
-  padding: var(--pagePadding);
   backdrop-filter: blur(7px);
   background-image: url(/images/images_bg/bg_form.jpg);
   background-size: cover;
@@ -38,7 +48,7 @@ body {
 }
 
 /*-- input styling --*/
-input[type='text'], input[type='number']{
+input[type='text']:not(#footer_email), input[type='number']{
   border-style: solid;
   border-color: var(--textLight) !important;
   border-radius: var(--inputRadius) !important;
@@ -50,7 +60,7 @@ input[type='text'], input[type='number']{
   font-weight: 400;
 }
 
-::placeholder {
+::placeholder:not(#footer_email::placeholder) {
   color: var(--textLight) !important;
 }
 
@@ -69,19 +79,10 @@ h2, #headerContainer{
 }
 
 /*-- text align and radius styling --*/
-#formContainer,
-#formContainer * {
+#form,
+#form * {
   border-radius: var(--UIRadius);
   text-align: left;
-}
-
-
-/*-- img styling --*/
-#productImg {
-  grid-area: img;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
 }
 
 /*-- button styling--*/

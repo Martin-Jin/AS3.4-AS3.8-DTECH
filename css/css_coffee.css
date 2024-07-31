@@ -9,7 +9,7 @@
 }
 
 /*-- form *******************************************--*/
-#formContainer {
+#form {
   display: grid;
   /*-- Grid container --*/
   gap: var(--formGap);
@@ -45,6 +45,7 @@ radio-container,
 }
 
 #productAmount {
+  width: fit-content;
   /*-- Grid container --*/
   grid-template-columns: 1fr auto auto;
   grid-template-rows: auto auto;
@@ -78,7 +79,7 @@ input[type='number'] {
 /*-- spacing *******************************************--*/
 #formMain {
   grid-area: main;
-  gap: var(--formGap);
+  gap: var(--formGap) !important;
 }
 
 #formMain flex-container {

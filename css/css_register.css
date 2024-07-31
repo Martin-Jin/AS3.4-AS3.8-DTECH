@@ -9,12 +9,9 @@
 }
 
 /*-- form *******************************************--*/
-#formContainer {
-  grid-gap: var(--formGap);
-}
-
-#formContainer flex-container {
-  grid-gap: var(--iconMargin);
+#form flex-container *, #form flex-container {
+  height:fit-content;
+  width: fit-content;
 }
 
 /*-- genders *******************************************--*/
@@ -48,5 +45,5 @@
 address-container {
   display: flex;
   flex-direction: column !important;
-  grid-gap: var(--UISpacing);
+  grid-gap: var(--iconMargin);
 }

@@ -45,61 +45,136 @@
   <!--*****************************************
     Order form
   *****************************************-->
-  <form id="formContainer">
-    <!-- image and header -->
-    <img id="productImg" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
-    <flex-container id="formMain">
-      <flex-container id="headerContainer">
-        <h2 id="header" class="text_underline">Coffee name</h2>
-        <h2 id="productPrice">1.00</h2>
-      </flex-container>
-      <!-- description -->
-      <flex-container id="productDescription">
-        <p><span-bold>Description:</span-bold></p>
-        <p id="description" class="form_text">A classic Italian coffee drink. This drink is known for its smooth and
-          velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.</p>
-      </flex-container>
-      <!-- add on buttons -->
-      <flex-container>
-        <p><span-bold>Sizes:</span-bold></p>
-        <radio-container>
-          <radio-button class="general_button">
-            <input type="radio" id="large" name="size" value="Large" required>
-            <label for="large">Large</label>
-          </radio-button>
-          <radio-button class="general_button">
-            <input type="radio" id="medium" name="size" value="Medium">
-            <label for="medium">Medium</label>
-          </radio-button>
-          <radio-button class="general_button">
-            <input type="radio" id="small" name="size" value="Small">
-            <label for="small">Small</label>
-          </radio-button>
-        </radio-container>
-      </flex-container>
-      <!-- amount selection -->
-      <grid-container id="productAmount">
-        <p id="amountLabel"><span-bold>Amount:</span-bold></p>
-        <input id="amount" type="number" placeholder="1" name="amount" value="1" min="1" max="99"
-          title="You can only enter numbers." required>
-        <radio-button id="decrement" class="general_button"><i class="fa-solid fa-minus" aria-hidden="true"></i>
-        </radio-button>
-        <radio-button id="increment" class="general_button"><i class="fa-solid fa-plus" aria-hidden="true"></i>
-        </radio-button>
-      </grid-container>
-      <!-- ingredients -->
-      <flex-container id="productIngredients">
-        <p><span-bold>Contains:</span-bold></p>
-        <p id="ingredients" class="form_text">Coffee, sugar and milk.</p>
-      </flex-container>
-      <!-- order button -->
-      <button type="submit" id="submit" class="general_button">Add to cart
-      </button>
+  <!-- navBar -->
+  <nav id="nav_desktop">
+    <a href="/../index.html" class="active" aria-label="home button">
+      <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
+    </a>
+    <!-- regular buttons thats displayed -->
+    <a href="#aboutSection" aria-label="about us button">
+      <span>About us</span> <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
+    </a>
+    <a href="" aria-label="contact us button">
+      <span>Contact us</span> <i class="fa-solid fa-phone" aria-hidden="true"></i>
+    </a>
+    <!-- logo for navbar -->
+    <img src="/images/images_logo.png" alt="logo" id="logo">
+    <a href="" aria-label="products button">
+      <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+    </a>
+    <a href="/html/html_orders" aria-label="orders button">
+      <span>Orders</span> <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+    </a>
+    <!-- sign in button needs to be in a container so its width can be customised -->
+    <flex-container>
+      <a id="signInBtn" onclick="" aria-label="sign in button">
+        <span>Sign in</span> <i class="fas fa-user" aria-hidden="true"></i>
+      </a>
     </flex-container>
-  </form>
+    <!-- navBar for mobile -->
+    <container-dropdown id="nav_dropdown">
+      <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn"
+        aria-label="dropdown button">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <dropdown-content id="dropDown">
+        <a href="/../index.html" aria-label="about us button">
+          About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
+        </a><a href="/html/html_contact" aria-label="contact us button">
+          Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        </a><a href="/html/html_products" aria-label="products button">
+          Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+        </a><a href="/html/html_orders" aria-label="orders button">
+          Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+        </a>
+        <a id="dropDownSignIn" aria-label="sign in button">
+          Sign in <i class="fas fa-user" aria-hidden="true"></i>
+        </a>
+      </dropdown-content>
+    </container-dropdown>
+  </nav>
+  <section id="formSection">
+    <form id="form">
+      <!-- image and header -->
+      <img id="productImg" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
+      <flex-container id="formMain">
+        <flex-container id="headerContainer">
+          <h2 id="header" class="text_underline">Coffee name</h2>
+          <h2 id="productPrice">1.00</h2>
+        </flex-container>
+        <!-- description -->
+        <flex-container id="productDescription">
+          <p><span-bold>Description:</span-bold></p>
+          <p id="description" class="form_text">A classic Italian coffee drink. This drink is known for its smooth and
+            velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.</p>
+        </flex-container>
+        <!-- add on buttons -->
+        <flex-container>
+          <p><span-bold>Sizes:</span-bold></p>
+          <radio-container>
+            <radio-button class="general_button">
+              <input type="radio" id="large" name="size" value="Large" required>
+              <label for="large">Large</label>
+            </radio-button>
+            <radio-button class="general_button">
+              <input type="radio" id="medium" name="size" value="Medium">
+              <label for="medium">Medium</label>
+            </radio-button>
+            <radio-button class="general_button">
+              <input type="radio" id="small" name="size" value="Small">
+              <label for="small">Small</label>
+            </radio-button>
+          </radio-container>
+        </flex-container>
+        <!-- amount selection -->
+        <grid-container id="productAmount">
+          <p id="amountLabel"><span-bold>Amount:</span-bold></p>
+          <input id="amount" type="number" placeholder="1" name="amount" value="1" min="1" max="99"
+            title="You can only enter numbers." required>
+          <radio-button id="decrement" class="general_button"><i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </radio-button>
+          <radio-button id="increment" class="general_button"><i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </radio-button>
+        </grid-container>
+        <!-- ingredients -->
+        <flex-container id="productIngredients">
+          <p><span-bold>Contains:</span-bold></p>
+          <p id="ingredients" class="form_text">Coffee, sugar and milk.</p>
+        </flex-container>
+        <!-- order button -->
+        <button type="submit" id="submit" class="general_button">Add to cart
+        </button>
+      </flex-container>
+    </form>
+  </section>
   <!--*****************************************
     Order form end
   *****************************************-->
+  <!-- footer -->
+  <footer>
+    <grid-container id="footerContainer">
+      <flex-container id="footer_about">
+        <p class="aleo-bold text_underline">Our purpose</p>
+        <p>HVHS Coffee House is a student-led initiative dedicated to serving high-quality coffee and fostering a
+          welcoming community within our school.</p>
+      </flex-container>
+      <flex-container id="footer_links">
+        <p class="aleo-bold text_underline">Links</p>
+        <a href="#">Terms & service</a>
+        <a href="#">Our loucation</a>
+        <a href="#">Our school</a>
+        <a href="#">Our team</a>
+        <a href="#">Follow us</a>
+      </flex-container>
+      <flex-container id="footer_newsletter">
+        <p class="aleo-bold text_underline">Newsletter</p>
+        <p>Subscribe to our newsletter to be the first to know about new products, sales, and promotions.</p>
+        <input type="text" id="footer_email" placeholder="email@example.com" name="email">
+        <button aria-label="subscribe button" class="general_button">Subscribe</button>
+      </flex-container>
+    </grid-container>
+    <p id="footer_credit" class="aleo-bold">© Copyright 2024, HVHS | Martin Jin</p>
+  </footer>
 </body>
 
 </html>
