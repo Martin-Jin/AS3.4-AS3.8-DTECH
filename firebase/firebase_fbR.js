@@ -23,9 +23,11 @@ function fbR_procUserLogin(user, _save) {
   console.log('fbR_login: status = ' + fbV_loginStatus);
 
   //Changing the html for when users are logged in
-  manager_checkLogin();
+  index_checkLogin();
   //Saving login status and details
   manager_saveValues();
+  //Reload the page after login
+  location.reload();
 }
 
 /**************************************************************/

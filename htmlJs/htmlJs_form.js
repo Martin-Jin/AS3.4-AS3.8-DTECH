@@ -66,8 +66,7 @@ function form_submit() {
       data[input.name] = input.value;
     }
     input.disabled = true;
-  }
-  );
+  });
   //Disabling the button then calling call back function
   document.getElementById("submit").disabled = true;
   form_callBack(data);

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //Incrementing the amount of coffee bought
   INCREMENT.addEventListener('click', () => {
     let currentQuantity = parseInt(QUANTITY.value);
-      QUANTITY.value = currentQuantity + 1;
+    QUANTITY.value = currentQuantity + 1;
   });
   DECREMENT.addEventListener('click', () => {
     let currentQuantity = parseInt(QUANTITY.value);
@@ -53,7 +53,15 @@ function form_callBack(data) {
     product: COFFEE,
   };
   fbR_saveSnapshot(data, currentOrder, () => {
-    fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, currentOrder, alert("You have successfully placed an order. Go to the shopping cart if you want to view your order."));
-    location.reload();
+    fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, currentOrder, () => {
+      //Alerting the user that their order has gone through
+      //alert("You have successfully placed an order. Go to the shopping cart if you want to view your order.");
+      //Renabling the order button if the user wants to order more
+      document.getElementById("submit").disabled = false;
+      inputs.forEach((input) => {
+        input.disabled = false;
+        if (input.type === 'radio' || input.type === 'checkbox') { input.checked = false; }
+      });
+    });
   });
 }

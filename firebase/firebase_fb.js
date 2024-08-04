@@ -17,7 +17,7 @@ function fb_login(_save, _procFunc) {
   console.log('%cfb_login: ', 'color: brown;');
 
   //Disabling login button
-  document.getElementById("signInBtn").disabled = true;
+  document.getElementById("signInBtn").onclick = () => { alert("Please press the login button only once. If you accdiently closed the login window, please reload the page and try again.") };
 
   firebase.auth().onAuthStateChanged((user) => {
     if (fbV_loginStatus == 'logged out') {
@@ -75,7 +75,7 @@ function fb_logout() {
 /**************************************************************/
 function fb_writeRec(_path, _key, _data, _callBack) {
   fbV_writeStatus = "waiting...";
-  console.log('%cfb_WriteRec: path= ' + _path + ' key= ' + _key, 'color: brown;');
+  console.log('%cfb_writeRec: path= ' + _path + ' key= ' + _key, 'color: brown;');
 
   fbV_dataBase.ref(_path + '/' + _key).set(_data, gotError);
 

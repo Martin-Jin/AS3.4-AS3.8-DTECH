@@ -17,7 +17,7 @@
 
 /*-- form *******************************************--*/
 #form {
-  scale: 0.75;
+  scale: 0.8;
   gap: var(--formGap);
   margin: auto;
   padding: var(--formPadding);
@@ -60,7 +60,7 @@ input[type='text']:not(#footer_email), input[type='number']{
   font-weight: 400;
 }
 
-::placeholder:not(#footer_email::placeholder) {
+#form ::placeholder {
   color: var(--textLight) !important;
 }
 

@@ -13,12 +13,29 @@ let index_slideIndex = -1;
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-fbR_initialise(function() { 
-  document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
-  document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
+fbR_initialise(function() {
+  document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
+  document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
 });
 
-manager_checkLogin();
+index_checkLogin();
+/*************************************************************/
+//index_checkLogin()
+//checks if user is logged in on home page
+//and change the buttons accordingly if the user is logged in
+/*************************************************************/
+function index_checkLogin() {
+  console.log("index_checkLogin()");
+  console.log("The user is: " + fbV_loginStatus);
+  if (fbV_loginStatus == 'logged in') {
+    //Changing the sign in button to log out button
+    document.getElementById("signInBtn").onclick = ()=> { fb_logout() };
+    document.getElementById("signInBtn").innerHTML = "Log out";
+    document.getElementById("dropDownSignIn").onclick = ()=> { fb_logout() };
+    document.getElementById("dropDownSignIn").innerHTML = "Log out";
+  }
+}
+
 /**************************************************************/
 // function index_displaySlide();
 // Determines what slide to display next when the user clicks

@@ -456,6 +456,7 @@ footer * {
   text-align: center;
   font-size: var(--pSmall);
   line-height: var(--UILineHeight);
+  font-weight: 350;
 }
 
 /*-- Change back the colour of the button --*/
