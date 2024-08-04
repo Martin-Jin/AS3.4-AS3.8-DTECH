@@ -177,7 +177,6 @@ is displayed for the next screen size up --*/
 
 nav {
   overflow: visible;
-  grid-area: nav;
   height: var(--navBarSize);
   display: flex;
   background-color: rgba(17, 17, 17, 0.3);

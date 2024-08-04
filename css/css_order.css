@@ -1,0 +1,18 @@
+/*------------------------------------------------------------*
+  order.html page styling
+/*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+  /*-- padding --*/
+  --formPadding: calc(var(--UIpadding) * 2);
+  --pagePadding: calc(var(--UIpadding) * 4);
+}
+
+/*-- background *******************************************--*/
+#main {
+  background-image: url(/images/images_bg/bg_order.jpg);
+}
+
+/*-- form *******************************************--*/
+#form {
+}

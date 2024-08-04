@@ -39,9 +39,10 @@
 }
 
 /*-- background *******************************************--*/
-body {
-  backdrop-filter: blur(7px);
-  background-image: url(/images/images_bg/bg_form.jpg);
+#main {
+  background-color: white;
+  min-height: 100vh;
+  background-image: url(/images/images_bg/bg_form.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

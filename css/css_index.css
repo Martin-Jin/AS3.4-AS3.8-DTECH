@@ -63,6 +63,10 @@
   height: max-content;
 }
 
+nav {
+  grid-area: nav;
+}
+
 /*-- headers *******************************************--*/
 #landingHeader,
 #landingSub {

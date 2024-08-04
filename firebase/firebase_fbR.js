@@ -28,6 +28,7 @@ function fbR_procUserLogin(user, _save) {
   manager_saveValues();
   //alert the user they have logged in
   alert("You have successfully logged in.");
+  location.reload();
 }
 
 /**************************************************************/

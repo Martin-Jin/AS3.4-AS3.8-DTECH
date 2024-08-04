@@ -50,16 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function form_callBack(data) {
   console.log("form_callBack()");
   let currentOrder = {
-    product: COFFEE.innerHTML,
     amount: '',
     size: '',
     price: Number(PRICE.innerHTML),
   };
   fbR_saveSnapshot(data, currentOrder, () => {
     console.log("The user ordered: " + currentOrder);
-    fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, currentOrder, () => {
+    fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid + "/" + COFFEE.innerHTML, currentOrder, () => {
       //Alerting the user that their order has gone through
-      //alert("You have successfully placed an order. Go to the shopping cart if you want to view your order.");
+      alert("You have successfully placed an order. Go to the shopping cart if you want to view your order.");
       //Renabling the order button if the user wants to order more
       document.getElementById("submit").disabled = false;
       inputs.forEach((input) => {
