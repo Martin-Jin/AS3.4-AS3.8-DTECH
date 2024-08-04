@@ -58,12 +58,17 @@ function form_submit() {
   inputs.forEach(input => {
     //Going through each input and saving the key value pair
     //to the registration details object
+    let value = input.value;
+    let name = input.name;
+    //Checking if value is suppose to be a number
+    !isNaN(value) ? value = parseInt(input.value) : value = input.value;
     if (input.type === 'radio' || input.type === 'checkbox') {
+      //Checking for radio buttons
       if (input.checked) {
-        data[input.name] = input.value;
+        data[name] = value
       }
     } else if (input.name) {
-      data[input.name] = input.value;
+      data[name] = value;
     }
     input.disabled = true;
   });

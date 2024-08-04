@@ -3,7 +3,7 @@
 // Code that executes on load in html_coffee.html
 /**************************************************************/
 MODULENAME = "htmlJs_coffee.js";
-console.log('%c' + MODULENAME + ': ', 'color: red;');
+console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
@@ -50,9 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function form_callBack(data) {
   console.log("form_callBack()");
   let currentOrder = {
-    product: COFFEE,
+    product: COFFEE.innerHTML,
+    amount: '',
+    size: '',
+    price: Number(PRICE.innerHTML),
   };
   fbR_saveSnapshot(data, currentOrder, () => {
+    console.log("The user ordered: " + currentOrder);
     fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, currentOrder, () => {
       //Alerting the user that their order has gone through
       //alert("You have successfully placed an order. Go to the shopping cart if you want to view your order.");
