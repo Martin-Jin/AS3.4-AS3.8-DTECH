@@ -53,6 +53,7 @@ function form_callBack(data) {
     amount: '',
     size: '',
     price: Number(PRICE.innerHTML),
+    photo: IMAGE.src,
   };
   fbR_saveSnapshot(data, currentOrder, () => {
     console.log("The user ordered: " + currentOrder);

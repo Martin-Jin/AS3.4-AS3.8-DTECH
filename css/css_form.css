@@ -22,9 +22,6 @@
   margin: auto;
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
-}
-
-#form {
   height: fit-content;
   width: fit-content;
 }
@@ -104,8 +101,7 @@ radio-button {
   border: none !important;
 }
 
-/*-- Underlining the button when the radio button is checked, and higlighting text --*/
+/*-- highlighting text on checking radio button --*/
 radio-button:has(input[type='radio']:checked) {
-  border-bottom-style: solid !important;
   color: var(--subtitle) !important;
 }

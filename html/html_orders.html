@@ -51,18 +51,18 @@
         <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
       </a>
       <!-- regular buttons thats displayed -->
-      <a href="#aboutSection" aria-label="about us button">
+      <a href="/../index.html#aboutSection" aria-label="about us button">
         <span>About us</span> <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
       </a>
-      <a href="#aboutSection" aria-label="contact us button">
+      <a href="" aria-label="contact us button">
         <span>Contact us</span> <i class="fa-solid fa-phone" aria-hidden="true"></i>
       </a>
       <!-- logo for navbar -->
       <img src="/images/images_logo.png" alt="logo" id="logo">
-      <a href="#aboutSection" aria-label="products button">
+      <a href="" aria-label="products button">
         <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
       </a>
-      <a href="/html/html_orders" aria-label="orders button">
+      <a href="/html/html_orders.html" class="active" aria-label="orders button">
         <span>Orders</span> <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
       </a>
       <!-- sign in button needs to be in a container so its width can be customised -->
@@ -78,13 +78,13 @@
           <i class="fa-solid fa-bars"></i>
         </button>
         <dropdown-content id="dropDown">
-          <a href="#aboutSection" aria-label="about us button">
+          <a href="/../index.html#aboutSection" aria-label="about us button">
             About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
-          </a><a href="/html/html_contact" aria-label="contact us button">
+          </a><a href="" aria-label="contact us button">
             Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
           </a><a aria-label="products button">
             Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
-          </a><a aria-label="orders button">
+          </a><a href="/html/html_orders.html" aria-label="orders button">
             Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
           </a>
           <a id="dropDownSignIn" aria-label="sign in button">
@@ -95,6 +95,18 @@
     </nav>
     <section id="formSection">
       <form id="form">
+        <flex-container id="cart">
+          <order-container>
+            <!-- img -->
+            <img src="/images/images_coffee/coffee_1.jpg" alt="coffee">
+            <h3 class=order_name>Coffee A</h3>
+            <p class=order_details>Size: Large | Qty: 3</p>
+            <h3 class=order_total>Total: $6.00</h3>
+            <p class=order_price>at $2.00 each</p>
+          </order-container>
+        </flex-container>
+        <grid-container id="summary"></grid-container>
+        <grid-container id="ordered"></grid-container>
       </form>
     </section>
 

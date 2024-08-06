@@ -107,6 +107,6 @@ radio-container label:hover {
   font-weight: 550;
 }
 
-radio-container radio-button {
+#sizes radio-button {
   cursor: auto;
 }

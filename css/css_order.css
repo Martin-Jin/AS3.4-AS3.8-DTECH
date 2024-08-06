@@ -6,6 +6,12 @@
   /*-- padding --*/
   --formPadding: calc(var(--UIpadding) * 2);
   --pagePadding: calc(var(--UIpadding) * 4);
+  --productImgSize: calc(var(--UISize) * 1.2);
+  --orderPadding: calc(var(--UIpadding) * 0.4);
+  /*-- margin --*/
+  --orderGap: calc(var(--UIMargin) * 0.5);
+  /*-- sizing --*/
+  
 }
 
 /*-- background *******************************************--*/
@@ -15,4 +21,69 @@
 
 /*-- form *******************************************--*/
 #form {
+  background-color: transparent;
+  padding: 0;
+}
+
+#form flex-container {
+  background-color: var(--backGroundLight);
+  padding: var(--formPadding);
+}
+
+/*-- conatiner for user orders *******************************************--*/
+order-container {
+  padding: var(--orderPadding);
+  display: grid;
+  /*-- Grid container --*/
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'img name total'
+    'img details price';
+  background-color: white;
+  column-gap: var(--orderGap);
+  align-items: center;
+}
+
+order-container * {
+  height: fit-content;
+  margin: 0;
+}
+
+order-container img {
+  grid-area: img;
+  object-fit: cover;
+  height: var(--productImgSize);
+  width: var(--productImgSize);
+}
+
+/*-- Styling large text to have a darker colour --*/
+.order_name, .order_total {
+  color: var(--backGroundDark);
+}
+
+.order_details, .order_price {
+  color: var(--backGroundLightDark);
+}
+
+/*-- text alignment --*/
+.order_total, .order_price {
+  text-align: right !important;
+}
+
+/*-- grid area --*/
+.order_name {
+  grid-area: name;
+}
+
+.order_details {
+  grid-area: details;
+}
+
+.order_total {
+  grid-area: total;
+}
+
+.order_price {
+  grid-area: price;
 }
