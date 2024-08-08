@@ -17,7 +17,6 @@
 
 /*-- form *******************************************--*/
 #form {
-  scale: 0.8;
   gap: var(--formGap);
   margin: auto;
   padding: var(--formPadding);
@@ -28,7 +27,7 @@
 
 #formSection {
   min-height: 100vh;
-  padding: var(--pagePadding);
+  padding: calc(var(--pagePadding) * 2) var(--pagePadding) calc(var(--pagePadding) * 2) var(--pagePadding);
 }
 
 #form flex-container {

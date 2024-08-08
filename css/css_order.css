@@ -9,9 +9,9 @@
   --productImgSize: calc(var(--UISize) * 1.2);
   --orderPadding: calc(var(--UIpadding) * 0.4);
   /*-- margin --*/
-  --orderGap: calc(var(--UIMargin) * 0.5);
+  --orderGap: calc(var(--UIMargin) * 0.6);
   /*-- sizing --*/
-  
+  --orderWidth: calc(var(--UISize) * 12);
 }
 
 /*-- background *******************************************--*/
@@ -30,12 +30,21 @@
   padding: var(--formPadding);
 }
 
+#cart {
+  gap: var(--orderGap) !important;
+  scale: 0.75;
+}
+
+#cart order-container {
+  min-width: var(--orderWidth);
+}
+
 /*-- conatiner for user orders *******************************************--*/
 order-container {
   padding: var(--orderPadding);
   display: grid;
   /*-- Grid container --*/
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'img name total'
@@ -74,6 +83,7 @@ order-container img {
 
 /*-- text alignment --*/
 .order_total, .order_price {
+  width: 100%;
   text-align: right !important;
 }
 
