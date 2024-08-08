@@ -50,6 +50,12 @@ order-container * {
   margin: 0;
 }
 
+order-container:hover {
+  /*-- Annimation --*/
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
 order-container img {
   grid-area: img;
   object-fit: cover;

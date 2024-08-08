@@ -14,7 +14,7 @@
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
   --textContrast: #FF5D55;
-  /*-- container sizes --*/
+  /*-- container siz es --*/
   --UISize: 3.5rem;
   --UIRadius: 0.6rem;
   --navBarSize: calc(0.9 * var(--UISize));

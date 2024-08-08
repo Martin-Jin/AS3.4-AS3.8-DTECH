@@ -27,15 +27,14 @@ let fbV_registerDetails = { //<=============== Object to store the details of th
   gender: '',
 };
 
-let fbV_orderDetails = { //<=============== Object to store the details of the current user
-
-}
+let fbV_cartDetails = [] // array of whats in the users cart
 
 // login status of the user
 let fbV_loginStatus = 'not logged in';
 let fbV_registerStatus = 'not registered';
 let fbV_adminStatus = 'false';
 
+let fbV_dataBase;
 const fbV_APIKEY = "AIzaSyASbBs9pp5P2RH-xZEWKASHC9-IwveMSVs";
 const fbV_AUTHDOMAIN = "dtech-2024-martin-jin.firebaseapp.com";
 const fbV_PROJECTID = "dtech-2024-martin-jin";

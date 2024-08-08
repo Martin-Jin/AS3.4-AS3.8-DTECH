@@ -48,19 +48,19 @@ general_checkLogin();
 function general_checkLogin() {
   console.log("general_checkLogin()");
   console.log("The user is: " + fbV_loginStatus);
-  
+
   //Don't execute anything if user is logged in, or on home page
   //Just change the navbar so that it shows a sign out button
   if (fbV_loginStatus == 'logged in') {
     general_checkReg();
-    document.getElementById("signInBtn").onclick = ()=> { fb_logout() };
+    document.getElementById("signInBtn").onclick = () => { fb_logout() };
     document.getElementById("signInBtn").innerHTML = "Log out";
-    document.getElementById("dropDownSignIn").onclick = ()=> { fb_logout() };
+    document.getElementById("dropDownSignIn").onclick = () => { fb_logout() };
     document.getElementById("dropDownSignIn").innerHTML = "Log out";
     return;
   };
   function loginAlert() {
-    alert("Please login in if you wish to access anymore features on this website.")
+    alert("Please login in if you wish to access anymore features on this website. This is on the navbar. If you cannot see it, is in the dropdown menu.")
   }
   if (fbV_loginStatus != 'logged in') {
     if (window.location.href == HOME || window.location.href == REPL) {
@@ -68,11 +68,16 @@ function general_checkLogin() {
       const buttons = document.querySelectorAll('button');
       const links = document.querySelectorAll('a');
       links.forEach((link) => {
-        link.removeAttribute("href");
-        link.onclick = () => { loginAlert() };
+        if (link.getAttribute('id') != "dropDownSignIn" && link.getAttribute('id') != "signInBtn") {
+          link.removeAttribute("href");
+          link.onclick = () => { loginAlert() };
+        }
       });
       buttons.forEach((button) => {
-        button.onclick = () => { loginAlert() };
+        //Don't disable dropdown menu as users need to open it to sign in
+        if (link.getAttribute('id') != "dropDownBtn") {
+          button.onclick = () => { loginAlert() };
+        }
       });
     }
     else {
@@ -109,64 +114,64 @@ function general_checkReg() {
   }
 }
 
-  /**************************************************************/
-  // function general_loadDeferLinks()
-  // loads all given defer links
-  /**************************************************************/
-  function general_loadDeferLinks() {
-    console.log("general_loadDeferLinks()")
-    let listener = document.addEventListener('DOMContentLoaded', () => {
-      //Adding defered links
-      general_deferLinks.forEach((link) => {
-        let deferLink = document.createElement("link");
-        let linkProperties = Object.keys(link);
-        linkProperties.forEach((property) => {
-          deferLink[property] = link[property];
-        })
-        document.head.appendChild(deferLink);
-        console.log("%cLink loaded: " + link.href, 'color: purple;')
-      });
-      //Clearing queue when done
-      general_deferLinks = [];
-      //Remove the event listener after it's done
-      document.removeEventListener('DOMContentLoaded', listener);
+/**************************************************************/
+// function general_loadDeferLinks()
+// loads all given defer links
+/**************************************************************/
+function general_loadDeferLinks() {
+  console.log("general_loadDeferLinks()")
+  let listener = document.addEventListener('DOMContentLoaded', () => {
+    //Adding defered links
+    general_deferLinks.forEach((link) => {
+      let deferLink = document.createElement("link");
+      let linkProperties = Object.keys(link);
+      linkProperties.forEach((property) => {
+        deferLink[property] = link[property];
+      })
+      document.head.appendChild(deferLink);
+      console.log("%cLink loaded: " + link.href, 'color: purple;')
     });
-  }
+    //Clearing queue when done
+    general_deferLinks = [];
+    //Remove the event listener after it's done
+    document.removeEventListener('DOMContentLoaded', listener);
+  });
+}
 
-  /**************************************************************/
-  // function general_displayCard()
-  // sets the info for product page of coffee
-  // called: after user clicks on a coffee product and they are sent
-  // to the product page
-  /**************************************************************/
-  function general_displayCard() {
-    console.log("general_displayCard()");
-    const JSONSTRING = sessionStorage.getItem("coffee");
-    if (JSONSTRING == null) { return }
-    let coffee = JSON.parse(JSONSTRING);
-    console.log(coffee);
-    //Updating values on coffee page
-    COFFEE.innerHTML = coffee.name;
-    PRICE.innerHTML = coffee.price;
-    IMAGE.src = coffee.image;
-    DESCRIPTION.innerHTML = coffee.about;
-    INGREDIENTS.innerHTML = coffee.ingredients;
-    IMAGE.alt = coffee.alt;
-  }
+/**************************************************************/
+// function general_displayCard()
+// sets the info for product page of coffee
+// called: after user clicks on a coffee product and they are sent
+// to the product page
+/**************************************************************/
+function general_displayCard() {
+  console.log("general_displayCard()");
+  const JSONSTRING = sessionStorage.getItem("coffee");
+  if (JSONSTRING == null) { return }
+  let coffee = JSON.parse(JSONSTRING);
+  console.log(coffee);
+  //Updating values on coffee page
+  COFFEE.innerHTML = coffee.name;
+  PRICE.innerHTML = coffee.price;
+  IMAGE.src = coffee.image;
+  DESCRIPTION.innerHTML = coffee.about;
+  INGREDIENTS.innerHTML = coffee.ingredients;
+  IMAGE.alt = coffee.alt;
+}
 
-  /**************************************************************/
-  // function general_showProduct()
-  // takes user to the product page
-  // input: coffee object to show
-  // called: after user clicks on a coffee product
-  /**************************************************************/
-  function general_showProduct(coffee) {
-    console.log("general_showProduct()");
-    //Saving the coffee object to session storage, then sending the user to
-    //the product page
-    sessionStorage.setItem("coffee", JSON.stringify(coffee));
-    window.location = "/html/html_coffee.html";
-  }
+/**************************************************************/
+// function general_showProduct()
+// takes user to the product page
+// input: coffee object to show
+// called: after user clicks on a coffee product
+/**************************************************************/
+function general_showProduct(coffee) {
+  console.log("general_showProduct()");
+  //Saving the coffee object to session storage, then sending the user to
+  //the product page
+  sessionStorage.setItem("coffee", JSON.stringify(coffee));
+  window.location = "/html/html_coffee.html";
+}
 /**************************************************************/
 //    END OF MODULE
 /**************************************************************/

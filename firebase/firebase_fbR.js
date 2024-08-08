@@ -8,18 +8,18 @@ console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 
 /**************************************************************/
-// fbR_procUserLogin(user, _save, loginStatus);
+// fbR_procUserLogin(user, save, loginStatus);
 // Process user login data
 // Input: the user's data and where to save it to
 /**************************************************************/
-function fbR_procUserLogin(user, _save) {
+function fbR_procUserLogin(user, save) {
   console.log("fbR_procUserLogin();")
   //Saving the login data
   fbV_loginStatus = 'logged in';
-  fbR_saveSnapshot(user, _save);
+  fbR_saveSnapshot(user, save);
 
   //Writing login info to database
-  fb_writeRec(fbV_LOGINDETAILSPATH, _save.uid, _save);
+  fb_writeRec(fbV_LOGINDETAILSPATH, save.uid, save);
   console.log('fbR_login: status = ' + fbV_loginStatus);
 
   //Changing the html for when users are logged in
@@ -63,25 +63,49 @@ function fbR_initialise(callBack) {
 }
 
 /**************************************************************/
-// fbR_procGeneral(snapshot, _save, readStatus, callBack);
+// fbR_procGeneral(snapshot, save, callBack);
 // Process the read data in general for reads
 // Input: the data and loucation to save to, optional callBack function
 /**************************************************************/
-function fbR_procGeneral(snapshot, _save, readStatus, callBack) {
+function fbR_procGeneral(snapshot, save, callBack) {
   console.log("fbR_procGeneral();");
   if (snapshot.val() == null) {
     readStatus = "Not found";
-    //Call callback even if theres an error
-    if (callBack != undefined) {callBack();}
+    //Call callback even if theres is nothing to read
+    if (callBack != undefined) { callBack(); }
   }
   else {
     readStatus = "OK";
     console.log(snapshot.val());
     let dbData = snapshot.val();
     //Saving snapshot
-    fbR_saveSnapshot(dbData, _save, callBack);
+    fbR_saveSnapshot(dbData, save, callBack);
   }
   console.log('fbR_procGeneral: status = ' + readStatus);
+}
+
+/**************************************************************/
+// fbR_procOrdersAll(snapshot, save);
+// Process the read data of the users orders and then display it
+// Input: the data and where to save to
+/**************************************************************/
+function fbR_procOrdersAll(snapshot, save) {
+  console.log("fbR_procOrdersAll();");
+  readStatus = "OK";
+  save = snapshot.val();
+  //Keys of the snapshot will return the coffee name as the key
+  let coffees = Object.keys(save);
+  //First clearing the cart thats displayed
+  while (cart.hasChildNodes()) {
+    cart.removeChild(cart.firstChild)
+  }
+  //Displaying coffee deatils per each coffee
+  coffees.forEach((coffee) => {
+    let details = save[coffee];
+    order_displayCart(coffee, details);
+  })
+  console.log(save);
+  console.log('fbR_procOrdersAll: status = ' + readStatus);
 }
 
 /**************************************************************/
@@ -94,11 +118,12 @@ function fbR_procWriteError(error, callBack) {
   console.log("fbR_procWriteError();");
   if (error) {
     console.log(error);
-    fbV_writeStatus = "Failed";
+    writeStatus = "Failed";
   }
   else {
-    fbV_writeStatus = "OK";
+    writeStatus = "OK";
   }
+  console.log('fbR_procWriteError: status = ' + writeStatus);
   //calling call back if given one
   if (callBack != null) { callBack(); }
 }
@@ -121,9 +146,9 @@ function fbR_saveSnapshot(snapshot, save, callBack) {
 
   //Iterating through all of the save keys
   //For each save key check if is in any of the snapshot keys
-  for (x=0; x < saveKeys.length; x++) {
+  for (x = 0; x < saveKeys.length; x++) {
     let saveKey = saveKeys[x];
-    for (i=0; i < snapshotKeys.length; i++) {
+    for (i = 0; i < snapshotKeys.length; i++) {
       let snapshotKey = snapshotKeys[i];
       //When they match, save the value
       if (saveKey == snapshotKey) {
@@ -132,7 +157,7 @@ function fbR_saveSnapshot(snapshot, save, callBack) {
       };
     }
   }
-  if (callBack != null) {callBack();}
+  if (callBack != null) { callBack(); }
 }
 /**************************************************************/
 // END OF MODULE
