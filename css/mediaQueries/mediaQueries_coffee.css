@@ -1,6 +1,8 @@
 /*------------------------------------------------------------*
   html_coffee.html media queries
 /*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+
 
 /*-- Media queries for desktop *******************************************--*/
 @media screen and (min-width: 1100px) {
@@ -9,6 +11,8 @@
     grid-template-columns: 4fr 5fr;
     grid-template-rows: auto;
     grid-template-areas:
-      'img main'
+      'img main';
+    max-width: max-content;
+    width: fit-content;
   }
 }

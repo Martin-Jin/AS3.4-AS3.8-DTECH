@@ -95,15 +95,14 @@ h3 {
   margin-bottom: 0;
 }
 
+#browseButton {
+  font-size: var(--pMedium);
+}
 /*-- text related stlying *******************************************--*/
 #slideText {
   max-width: var(--offersContainer);
   grid-area: description;
   padding: var(--descriptionPadding);
-}
-
-#slideText p {
-  font-size: var(--pSmall);
 }
 
 #offerText {
@@ -263,7 +262,6 @@ container-product > flex-container > p:first-of-type {
 }
 
 container-product p {
-  font-size: var(--pSmall);
   color: white;
 }
 

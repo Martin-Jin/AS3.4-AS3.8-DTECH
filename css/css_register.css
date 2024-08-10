@@ -11,7 +11,6 @@
 /*-- form *******************************************--*/
 #form flex-container *, #form flex-container {
   height:fit-content;
-  width: fit-content;
 }
 
 /*-- genders *******************************************--*/
@@ -23,6 +22,12 @@
 
 #genders label {
   margin-right: var(--labelMargin);
+  display: flex;
+  align-items: center;
+}
+
+#genders label i {
+  margin-left: calc(var(--labelMargin) / 2);
 }
 
 #genders label:hover {

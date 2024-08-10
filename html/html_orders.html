@@ -95,15 +95,24 @@
     </nav>
     <section id="formSection">
       <form id="form">
-        <flex-container id="cart">
-          <order-container>
-            <!-- img -->
-            <img src="/images/images_coffee/coffee_1.jpg" alt="coffee">
-            <h3 class=order_name>Coffee A</h3>
-            <p class=order_details>Size: Large | Qty: 3</p>
-            <h3 class=order_total>Total: $6.00</h3>
-            <p class=order_price>at $2.00 each</p>
-          </order-container>
+        <flex-container id="cartSection">
+          <flex-container id="cart">
+            <order-container>
+              <!-- img -->
+              <img src="/images/images_coffee/coffee_1.jpg" alt="coffee">
+              <h3 class=order_name>Coffee A</h3>
+              <p class=order_details>Size: Large | Qty: 3</p>
+              <h3 class=order_total>Total: $6.00</h3>
+              <p class=order_price>at $2.00 each</p>
+            </order-container>
+          </flex-container>
+          <flex-container id="summary">
+            <h2>Summary</h2>
+            <span>
+              <h3>Total:</h3>
+              <p>$12.34</p>
+            </span>
+          </flex-container>
         </flex-container>
       </form>
     </section>

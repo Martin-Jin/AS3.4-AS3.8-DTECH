@@ -14,6 +14,8 @@
   --orderWidth: calc(var(--UISize) * 12);
 }
 
+h3, p {width: 100%;}
+
 /*-- background *******************************************--*/
 #main {
   background-image: url(/images/images_bg/bg_order.jpg);
@@ -23,20 +25,32 @@
 #form {
   background-color: transparent;
   padding: 0;
+  max-width: max-content;
 }
 
 #form flex-container {
   background-color: var(--backGroundLight);
   padding: var(--formPadding);
+  color: var(--backGroundDark) !important;
 }
 
+/*-- shopping cart *******************************************--*/
 #cart {
   gap: var(--orderGap) !important;
-  scale: 0.75;
 }
 
 #cart order-container {
   min-width: var(--orderWidth);
+}
+
+/*-- summary *******************************************--*/
+#summary {
+  margin: auto;
+  background-color: white !important;
+}
+
+#summary *, #summary {
+  width: fit-content !important;
 }
 
 /*-- conatiner for user orders *******************************************--*/
@@ -49,8 +63,8 @@ order-container {
   grid-template-areas:
     'img name total'
     'img details price';
-  background-color: white;
   column-gap: var(--orderGap);
+  background-color: white;
   align-items: center;
 }
 
@@ -83,7 +97,6 @@ order-container img {
 
 /*-- text alignment --*/
 .order_total, .order_price {
-  width: 100%;
   text-align: right !important;
 }
 

@@ -41,16 +41,15 @@
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
   --pLarge: calc(0.5 * var(--headerSize));
-  --pSize: calc(0.36 * var(--headerSize));
-  --pSmall: calc(var(--pSize) * 0.9);
+  --pSmall: calc(0.8 * var(--pSize));
+  --pSize: calc(0.32 * var(--headerSize));
+  --pMedium: calc(var(--pSize) * 1.2);
   --UILineHeight: 1.8rem;
   --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
   --navBarBorder: calc(var(--UIborder) * 0.5);
   /*-- drop down buttons --*/
   --dropdownHover: #efefef;
-  /*-- icon size --*/
-  --iconSize: calc(0.9 * var(--pSize));
 }
 
 /*-- html *******************************************--*/
@@ -201,7 +200,7 @@ nav button {
 
 /*-- Styling of the icon that goes on the navbar --*/
 i {
-  font-size: var(--iconSize);
+  font-size: var(--pSize);
   border-radius: 0;
 }
 
@@ -331,6 +330,7 @@ input[type='text'], input[type='number'] {
   border-color: var(--backGroundDark);
   border-bottom-style: solid;
   border-width: var(--separatorHeight);
+  font-size: var(--pSize);
   margin-top: var(--buttonMargin);
   min-width: fit-content;
 }
@@ -453,9 +453,8 @@ footer {
 footer * {
   color: var(--backGroundDark);
   text-align: center;
-  font-size: var(--pSmall);
   line-height: var(--UILineHeight);
-  font-weight: 350;
+  font-weight: 300;
 }
 
 /*-- Change back the colour of the button --*/
@@ -464,7 +463,7 @@ footer button {
 }
 
 footer flex-container>p:first-of-type {
-  margin-bottom: var(--lineBreakHeight);
+  margin-bottom: var(--separatorMargin);
 }
 
 

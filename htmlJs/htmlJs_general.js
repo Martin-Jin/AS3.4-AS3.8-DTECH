@@ -51,7 +51,7 @@ function general_checkLogin() {
 
   //Don't execute anything if user is logged in, or on home page
   //Just change the navbar so that it shows a sign out button
-  if (fbV_loginStatus == 'logged in') {
+  if (fbV_loginStatus == 'logged in' && fbV_registerStatus == 'registered') {
     general_checkReg();
     document.getElementById("signInBtn").onclick = () => { fb_logout() };
     document.getElementById("signInBtn").innerHTML = "Log out";
@@ -75,7 +75,7 @@ function general_checkLogin() {
       });
       buttons.forEach((button) => {
         //Don't disable dropdown menu as users need to open it to sign in
-        if (link.getAttribute('id') != "dropDownBtn") {
+        if (button.getAttribute('id') != "dropDownBtn") {
           button.onclick = () => { loginAlert() };
         }
       });

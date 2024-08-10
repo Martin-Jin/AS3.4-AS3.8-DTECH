@@ -11,8 +11,8 @@
   --inputPadding: calc(var(--UIpadding) * 0.2);
   /*-- radius --*/
   --inputRadius: calc(var(--UIRadius) * 0.2);
-  /*-- input --*/
-  --inputWidthMobile: calc(var(--UISize) * 4);
+  /*-- width --*/
+  --formWidthMobile: calc(var(--UISize) * 8);
 }
 
 /*-- form *******************************************--*/
@@ -22,7 +22,7 @@
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
   height: fit-content;
-  width: fit-content;
+  max-width: var(--formWidthMobile);
 }
 
 #formSection {
@@ -49,12 +49,12 @@ input[type='text']:not(#footer_email), input[type='number']{
   border-style: solid;
   border-color: var(--textLight) !important;
   border-radius: var(--inputRadius) !important;
-  min-width: var(--inputWidthMobile);
-  color: var(--textLight) !important;
-  margin: auto;
+  color: var(--backGroundLight);
   padding: var(--inputPadding);
-  font-size: var(--pSmall);
-  font-weight: 400;
+  font-weight: 300;
+  min-width: 0;
+  margin-top: 0;
+  width: 100%;
 }
 
 #form ::placeholder {
@@ -88,6 +88,7 @@ h2, #headerContainer{
   background-color: var(--backGroundDark);
   text-align: center;
   width: 100%;
+  margin-top: 0;
 }
 
 radio-button {
@@ -95,7 +96,7 @@ radio-button {
   display: flex;
   flex-direction: row-reverse;
   margin-top: 0 !important;
-  font-size: var(--pSmall);
+  font-size: var(--pSize);
   /*-- Hiding the border by deafult, and show it when radio button is checked --*/
   border: none !important;
 }
