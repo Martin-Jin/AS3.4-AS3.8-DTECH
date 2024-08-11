@@ -40,7 +40,7 @@
   /*-- font sizes --*/
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
-  --pLarge: calc(0.5 * var(--headerSize));
+  --pLarge: calc(0.42 * var(--headerSize));
   --pSmall: calc(0.8 * var(--pSize));
   --pSize: calc(0.32 * var(--headerSize));
   --pMedium: calc(var(--pSize) * 1.2);
@@ -97,7 +97,8 @@ span-bold {
   font-weight: 600;
 }
 
-.aleo-thin, .form_text,
+.aleo-thin,
+.form_text,
 span-thin {
   font-weight: 300;
 }
@@ -286,8 +287,6 @@ dropdown-content a:hover {
   margin-top: var(--buttonMargin);
 }
 
-.general_separator,
-.general_separator_short,
 .general_button,
 #signInBtn {
   border-radius: var(--UIRadius);
@@ -323,7 +322,8 @@ input[type='radio']:checked:after {
 }
 
 /*-- input box --*/
-input[type='text'], input[type='number'] {
+input[type='text'],
+input[type='number'] {
   background-color: transparent;
   width: 65%;
   border: none;
@@ -335,13 +335,14 @@ input[type='text'], input[type='number'] {
   min-width: fit-content;
 }
 
-input[type='text']:focus, input[type='number']:focus {
+input[type='text']:focus,
+input[type='number']:focus {
   outline: none;
 }
 
-input[type='number']::-webkit-inner-spin-button, 
-input[type='number']::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 /*-- links *******************************************--*/
@@ -406,7 +407,8 @@ section {
   display: grid;
 }
 
-flex-container, radio-container, 
+flex-container,
+radio-container,
 footer,
 #aboutSection,
 #recommendedSection,
@@ -428,6 +430,7 @@ form {
 }
 
 hr {
+  width: 100%;
   border: var(--separatorHeight) solid var(--subtitle);
   margin: var(--separatorMargin) auto;
 }

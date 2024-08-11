@@ -97,22 +97,37 @@
       <form id="form">
         <flex-container id="cartSection">
           <flex-container id="cart">
+            <!-- users orders -->
             <order-container>
-              <!-- img -->
-              <img src="/images/images_coffee/coffee_1.jpg" alt="coffee">
-              <h3 class=order_name>Coffee A</h3>
-              <p class=order_details>Size: Large | Qty: 3</p>
-              <h3 class=order_total>Total: $6.00</h3>
-              <p class=order_price>at $2.00 each</p>
+              <img src="https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/images/images_coffee/coffee_4.jpg" alt="coffee">
+              <h3 class="order_name">Americano</h3>
+              <p class="order_details">Size: Medium | Qty: 4</p>
+              <h3 class="order_total">Total: $15</h3>
+              <p class="order_price">at $3.75 each</p>
             </order-container>
           </flex-container>
+          <!-- summary of the order -->
           <flex-container id="summary">
-            <h2>Summary</h2>
-            <span>
-              <h3>Total:</h3>
-              <p>$12.34</p>
-            </span>
+            <h2 class="text_underline">Summary</h2>
+              <flex-container>
+                <p>Subtotal:</p>
+                <p id="subtotal">$12.34</p>
+              </flex-container>
+            <flex-container>
+              <p>Tax:</p>
+              <p id="tax">$12.34</p>
+            </flex-container>
+            <flex-container>
+              <p>Delivery:</p>
+              <p id="delivery">$12.34</p>
+            </flex-container>
+            <hr>
+            <flex-container>
+              <p>Order total:</p>
+              <p id="total">$12.34</p>
+            </flex-container>
           </flex-container>
+
         </flex-container>
       </form>
     </section>

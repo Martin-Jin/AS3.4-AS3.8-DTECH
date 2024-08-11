@@ -11,10 +11,23 @@
   /*-- margin --*/
   --orderGap: calc(var(--UIMargin) * 0.6);
   /*-- sizing --*/
-  --orderWidth: calc(var(--UISize) * 12);
+  --orderWidth: calc(var(--UISize) * 10);
+  --orderImg: calc(var(--UISize) * 0.8);
 }
 
-h3, p {width: 100%;}
+/*-- text styling *******************************************--*/
+* {
+  text-align: left;
+}
+
+h3,
+p {
+  width: 100%;
+}
+
+h2 {
+  font-weight: 400;
+}
 
 /*-- background *******************************************--*/
 #main {
@@ -28,14 +41,19 @@ h3, p {width: 100%;}
   max-width: max-content;
 }
 
-#form flex-container {
+#form flex-container:first-child {
   background-color: var(--backGroundLight);
-  padding: var(--formPadding);
   color: var(--backGroundDark) !important;
+  padding: var(--formPadding);
 }
 
 /*-- shopping cart *******************************************--*/
+#cartSection {
+  gap: var(--formPadding) !important;
+}
+
 #cart {
+  padding: 0 !important;
   gap: var(--orderGap) !important;
 }
 
@@ -45,12 +63,30 @@ h3, p {width: 100%;}
 
 /*-- summary *******************************************--*/
 #summary {
+  width: 100%;
   margin: auto;
   background-color: white !important;
+  padding: calc(var(--orderPadding) * 4) var(--orderPadding) calc(var(--orderPadding) * 4) var(--orderPadding);
+  gap: var(--orderGap) !important;
+  min-width: calc(var(--orderWidth)/3)
 }
 
-#summary *, #summary {
-  width: fit-content !important;
+#summary flex-container {
+  flex-direction: row;
+  align-items: center;
+}
+
+#summary flex-container p:last-child {
+  text-align: right;
+}
+
+#summary h2 {
+  text-align: center;
+}
+
+hr {
+  border-color: var(--backGroundDark);
+  margin: 0;
 }
 
 /*-- conatiner for user orders *******************************************--*/
@@ -82,21 +118,27 @@ order-container:hover {
 order-container img {
   grid-area: img;
   object-fit: cover;
-  height: var(--productImgSize);
-  width: var(--productImgSize);
+  height: var(--orderImg);
+  width: var(--orderImg);
 }
 
 /*-- Styling large text to have a darker colour --*/
-.order_name, .order_total {
+.order_name,
+.order_total,
+#summary h2 {
   color: var(--backGroundDark);
 }
 
-.order_details, .order_price {
+.order_details,
+.order_price,
+#summary h3,
+#summary p {
   color: var(--backGroundLightDark);
 }
 
 /*-- text alignment --*/
-.order_total, .order_price {
+.order_total,
+.order_price {
   text-align: right !important;
 }
 

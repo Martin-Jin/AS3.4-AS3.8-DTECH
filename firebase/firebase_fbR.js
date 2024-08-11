@@ -95,7 +95,8 @@ function fbR_procOrdersAll(snapshot, save) {
   save = snapshot.val();
   //Keys of the snapshot will return the coffee name as the key
   let coffees = Object.keys(save);
-  //First clearing the cart thats displayed
+  //First clearing the cart thats displayed and also variables
+  subtotal = 0;
   while (cart.hasChildNodes()) {
     cart.removeChild(cart.firstChild)
   }
@@ -104,6 +105,7 @@ function fbR_procOrdersAll(snapshot, save) {
     let details = save[coffee];
     order_displayCart(coffee, details);
   })
+  order_summary();
   console.log(save);
   console.log('fbR_procOrdersAll: status = ' + readStatus);
 }
