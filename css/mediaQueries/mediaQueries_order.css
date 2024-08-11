@@ -4,9 +4,6 @@
 
 /*-- Media queries for desktop *******************************************--*/
 @media screen and (min-width: 1100px) {
-  #cartSection {
-    flex-direction: row;
-  }
   #summary {
     width: fit-content;
   }

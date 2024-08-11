@@ -358,7 +358,6 @@ nav button::after {
   bottom: 0;
   width: 0;
   border-color: var(--subtitle);
-  transition: 0.2s;
 }
 
 /*-- disabling transition for active element and regular non navbar buttons--*/
@@ -446,6 +445,29 @@ hr {
   border-color: var(--backGroundLightDark);
 }
 
+radio-container {
+  flex-direction: row;
+  justify-content: normal;
+  gap: var(--UISpacing);
+}
+
+radio-container label {
+  margin-right: var(--labelMargin);
+  display: flex;
+  align-items: center;
+}
+
+radio-container label:hover {
+  font-weight: 600;
+}
+
+radio-container label i {
+  margin-left: calc(var(--labelMargin) / 2);
+}
+
+radio-button {
+  cursor: auto !important;
+}
 /*-- footer *******************************************--*/
 footer {
   background-color: var(--backGroundLight);

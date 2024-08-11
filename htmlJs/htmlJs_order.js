@@ -26,6 +26,19 @@ fb_readOn(order_cartListener, fbV_cartDetails, fbR_procOrdersAll);
 general_deferLinks.push({ href: "/css/mediaQueries/mediaQueries_order.css", rel: "stylesheet" });
 general_loadDeferLinks();
 
+//Adding event listener for each radio button
+document.querySelectorAll("input[type='radio']").forEach((radio) => {
+  radio.addEventListener("change", () => {
+    if (radio.checked) {
+      if (radio.value == "delivery") {
+        delivery = 5;
+      }
+      else { delivery = 0; }
+      order_summary();
+    }
+  });
+});
+
 /*************************************************************/
 //order_displayCart()
 //displays users order
@@ -53,7 +66,7 @@ function order_displayCart(coffee, details) {
 //generates the summary and sums up prices for the user
 /*************************************************************/
 function order_summary() {
-  console.log("order_summary()");
+  // console.log("order_summary()");
   SUBTOTAL.innerHTML = "$" + subtotal;
   DELIVERY.innerHTML = "$" + delivery;
   TAX.innerHTML = "$" + ((subtotal + delivery) * 0.15).toFixed(2);

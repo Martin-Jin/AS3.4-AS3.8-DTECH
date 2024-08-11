@@ -25,6 +25,10 @@ p {
   width: 100%;
 }
 
+h3, h2, h1 {
+  color: var(--backGroundDark);
+}
+
 h2 {
   font-weight: 400;
 }
@@ -41,18 +45,32 @@ h2 {
   max-width: max-content;
 }
 
-#form flex-container:first-child {
+#form flex-container:first-child,
+#form grid-container:first-child {
   background-color: var(--backGroundLight);
-  color: var(--backGroundDark) !important;
   padding: var(--formPadding);
 }
 
 /*-- shopping cart *******************************************--*/
 #cartSection {
   gap: var(--formPadding) !important;
+  /*-- Grid container --*/
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header'
+    'cart summary'
+    'delivery submit';
+  align-items: center;
+}
+
+#cartSection h1 {
+  grid-area: header;
+  border-color: var(--subtitle);
 }
 
 #cart {
+  grid-area: cart;
   padding: 0 !important;
   gap: var(--orderGap) !important;
 }
@@ -63,6 +81,7 @@ h2 {
 
 /*-- summary *******************************************--*/
 #summary {
+  grid-area: summary;
   width: 100%;
   margin: auto;
   background-color: white !important;
@@ -87,6 +106,22 @@ h2 {
 hr {
   border-color: var(--backGroundDark);
   margin: 0;
+}
+
+/*-- delivery form *******************************************--*/
+#delivery {
+  grid-area: delivery;
+  gap: var(--orderGap) !important;
+}
+
+#delivery radio-button {
+  color: white;
+}
+
+#submit {
+  grid-area: submit;
+  height: fit-content;
+  width: fit-content'
 }
 
 /*-- conatiner for user orders *******************************************--*/
@@ -123,12 +158,6 @@ order-container img {
 }
 
 /*-- Styling large text to have a darker colour --*/
-.order_name,
-.order_total,
-#summary h2 {
-  color: var(--backGroundDark);
-}
-
 .order_details,
 .order_price,
 #summary h3,

@@ -15,27 +15,7 @@
 
 /*-- genders *******************************************--*/
 #genders {
-  flex-direction: row;
   justify-content: left;
-  grid-gap: var(--UISpacing);
-}
-
-#genders label {
-  margin-right: var(--labelMargin);
-  display: flex;
-  align-items: center;
-}
-
-#genders label i {
-  margin-left: calc(var(--labelMargin) / 2);
-}
-
-#genders label:hover {
-  font-weight: 600;
-}
-
-#genders radio-button {
-  cursor: auto;
 }
 
 #address {

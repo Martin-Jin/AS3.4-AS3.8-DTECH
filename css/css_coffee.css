@@ -92,21 +92,3 @@ input[type='number'] {
   height: 100%;
   width: 100%;
 }
-
-/*-- Size options for coffee *******************************************--*/
-radio-container {
-  justify-content: normal;
-  gap: var(--UISpacing);
-}
-
-radio-container label {
-  margin-right: var(--labelMargin);
-}
-
-radio-container label:hover {
-  font-weight: 550;
-}
-
-#sizes radio-button {
-  cursor: auto;
-}
