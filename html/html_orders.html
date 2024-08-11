@@ -96,41 +96,45 @@
     <section id="formSection">
       <form id="form">
         <grid-container id="cartSection">
-          <h1 class="text_underline">Orders in cart</h1>
+          <h1 id="cartHeader" class="text_underline">Your cart is being read, please wait.</h1>
           <flex-container id="cart">
             <!-- users orders -->
             <order-container>
               <img
-                src="https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/images/images_coffee/coffee_4.jpg"
+                src="https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/images/images_coffee/coffee_6.jpg"
                 alt="coffee">
-              <h3 class="order_name">Americano</h3>
-              <p class="order_details">Size: Medium | Qty: 4</p>
-              <h3 class="order_total">Total: $15</h3>
-              <p class="order_price">at $3.75 each</p>
+              <h3 class="order_name">Placeholder</h3>
+              <p class="order_details">Size: N/A | Qty: N/A</p>
+              <h3 class="order_total">Total: N/A</h3>
+              <p class="order_price">at N/A each</p>
             </order-container>
           </flex-container>
           <!-- summary of the order -->
           <flex-container id="summary">
-            <h2 class="text_underline">Summary</h2>
-            <flex-container>
-              <p>Subtotal:</p>
-              <p id="subtotal">$12.34</p>
+            <flex-container id=summaryContainer>
+              <h2 class="text_underline">Summary</h2>
+              <flex-container>
+                <p>Subtotal:</p>
+                <p id="subtotal">N/A</p>
+              </flex-container>
+              <flex-container>
+                <p>Delivery:</p>
+                <p id="delivery">N/A</p>
+              </flex-container>
+              <flex-container>
+                <p>Tax:</p>
+                <p id="tax">N/A</p>
             </flex-container>
-            <flex-container>
-              <p>Delivery:</p>
-              <p id="delivery">$12.34</p>
+              <hr>
+              <flex-container>
+                <p>Order total:</p>
+                <p id="total">N/A</p>
             </flex-container>
-            <flex-container>
-              <p>Tax:</p>
-              <p id="tax">$12.34</p>
             </flex-container>
-            <hr>
-            <flex-container>
-              <p>Order total:</p>
-              <p id="total">$12.34</p>
-            </flex-container>
+            <button type="submit" id="submit" class="general_button">Checkout
+            </button>
           </flex-container>
-          <flex-container id="delivery">
+          <flex-container id="deliveryOptions">
             <h3>Would you like these to be picked up or delivered?</h3>
             <radio-container id="deliveries">
               <radio-button class="general_button">
@@ -143,8 +147,6 @@
               </radio-button>
             </radio-container>
           </flex-container>
-          <button type="submit" id="submit" class="general_button">Checkout
-          </button>
         </grid-container>
       </form>
     </section>

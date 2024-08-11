@@ -91,6 +91,9 @@ function fbR_procGeneral(snapshot, save, callBack) {
 /**************************************************************/
 function fbR_procOrdersAll(snapshot, save) {
   console.log("fbR_procOrdersAll();");
+  //If nothing read then say cart is empty and do nothing else
+  if (snapshot.val() == null) {document.getElementById("cartHeader").innerHTML = `Your cart is empty.`; order_show(false); return;}
+  else {document.getElementById("cartHeader").innerHTML = `Shopping cart`; order_show(true)}
   readStatus = "OK";
   save = snapshot.val();
   //Keys of the snapshot will return the coffee name as the key

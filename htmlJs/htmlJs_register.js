@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 /*************************************************************/
 function form_callBack(data) {
   console.log("form_callBack()");
+  console.log(data);
   fbR_saveSnapshot(data, fbV_registerDetails, () => {
-    fb_writeRec(fbV_REGISTRATIONPATH, fbV_userDetails.uid, fbV_registerDetails, manager_saveValues);
     alert("Thank you for registering. You will be redirected back to the home page after you close this prompt.");
-    window.location = '../index.html';
+    fb_writeRec(fbV_REGISTRATIONPATH, fbV_userDetails.uid, fbV_registerDetails, ()=>{manager_saveValues(); window.location = '../index.html';});
   });
 }

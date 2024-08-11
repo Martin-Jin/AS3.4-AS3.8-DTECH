@@ -43,19 +43,18 @@ general_checkLogin();
 // function general_checkLogin()
 // checks if user is logged in, only allow user to look at home
 // page if they are not logged in.
-// after checking login checks registration
+// after checking login checks registration, gets user to register
+// if they are not.
 /**************************************************************/
 function general_checkLogin() {
   console.log("general_checkLogin()");
   console.log("The user is: " + fbV_loginStatus);
-
-  //Don't execute anything if user is logged in, or on home page
-  //Just change the navbar so that it shows a sign out button
-  if (fbV_loginStatus == 'logged in' && fbV_registerStatus == 'registered') {
+  if(location.href.includes("register.html")) {return};
+  if (fbV_loginStatus == 'logged in') {
     general_checkReg();
-    document.getElementById("signInBtn").onclick = () => { fb_logout() };
+    document.getElementById("signInBtn").onclick = (() => { fb_logout(); });
     document.getElementById("signInBtn").innerHTML = "Log out";
-    document.getElementById("dropDownSignIn").onclick = () => { fb_logout() };
+    document.getElementById("dropDownSignIn").onclick = (() => { fb_logout() });
     document.getElementById("dropDownSignIn").innerHTML = "Log out";
     return;
   };

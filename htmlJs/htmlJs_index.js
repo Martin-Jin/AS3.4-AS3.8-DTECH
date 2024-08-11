@@ -13,7 +13,10 @@ let index_slideIndex = -1;
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
+//Only add the onclick to login when user loads in and firebase is initialised
+//unless user is already is signed in
 fbR_initialise(function() {
+  if (fbV_loginStatus == "logged in") {return;}
   document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
   document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
 });

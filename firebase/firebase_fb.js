@@ -20,7 +20,7 @@ function fb_login(_save, _procFunc) {
   console.log('%cfb_login: ', 'color: brown;');
 
   //Disabling login button
-  document.getElementById("signInBtn").onclick = () => { alert("Please press the login button only once. If you accdiently closed the login window, please reload the page and try again.") };
+  document.getElementById("signInBtn").onclick = () => { alert("Please press the login button only once. If you accidently closed the login window, please reload the page and try again.") };
 
   firebase.auth().onAuthStateChanged((user) => {
     if (fbV_loginStatus == 'logged out') {

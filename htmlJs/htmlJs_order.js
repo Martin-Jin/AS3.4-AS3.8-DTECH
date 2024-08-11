@@ -72,3 +72,18 @@ function order_summary() {
   TAX.innerHTML = "$" + ((subtotal + delivery) * 0.15).toFixed(2);
   TOTAL.innerHTML = "$" + ((subtotal + delivery) * 1.15).toFixed(2);
 }
+
+/*************************************************************/
+//order_show()
+//displays or hides user orders depending on if users have orders in their cart
+//input: true or false
+/*************************************************************/
+function order_show(show) {
+  console.log("order_show(" + show + ")");
+  let display = "none"
+  if (show) (display = '');
+  let elements = ["cart", "summary", "deliveryOptions", "submit"];
+  elements.forEach((element) => {
+    document.getElementById(element).style.display = display;
+  })
+}

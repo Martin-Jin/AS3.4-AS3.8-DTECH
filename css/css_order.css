@@ -33,6 +33,11 @@ h2 {
   font-weight: 400;
 }
 
+/*-- gaps for flex containers *******************************************--*/
+#cart, #summaryContainer, #deliveryOptions, #summary {
+  gap: var(--orderGap) !important;
+}
+
 /*-- background *******************************************--*/
 #main {
   background-image: url(/images/images_bg/bg_order.jpg);
@@ -60,7 +65,7 @@ h2 {
   grid-template-areas:
     'header header'
     'cart summary'
-    'delivery submit';
+    'delivery delivery';
   align-items: center;
 }
 
@@ -72,34 +77,35 @@ h2 {
 #cart {
   grid-area: cart;
   padding: 0 !important;
-  gap: var(--orderGap) !important;
 }
 
 #cart order-container {
   min-width: var(--orderWidth);
 }
 
-/*-- summary *******************************************--*/
+/*-- summaryContainer *******************************************--*/
 #summary {
   grid-area: summary;
+}
+
+#summaryContainer {
   width: 100%;
   margin: auto;
   background-color: white !important;
   padding: calc(var(--orderPadding) * 4) var(--orderPadding) calc(var(--orderPadding) * 4) var(--orderPadding);
-  gap: var(--orderGap) !important;
   min-width: calc(var(--orderWidth)/3)
 }
 
-#summary flex-container {
+#summaryContainer flex-container {
   flex-direction: row;
   align-items: center;
 }
 
-#summary flex-container p:last-child {
+#summaryContainer flex-container p:last-child {
   text-align: right;
 }
 
-#summary h2 {
+#summaryContainer h2 {
   text-align: center;
 }
 
@@ -109,12 +115,11 @@ hr {
 }
 
 /*-- delivery form *******************************************--*/
-#delivery {
+#deliveryOptions {
   grid-area: delivery;
-  gap: var(--orderGap) !important;
 }
 
-#delivery radio-button {
+#deliveryOptions radio-button {
   color: white;
 }
 
@@ -160,8 +165,8 @@ order-container img {
 /*-- Styling large text to have a darker colour --*/
 .order_details,
 .order_price,
-#summary h3,
-#summary p {
+#summaryContainer h3,
+#summaryContainer p {
   color: var(--backGroundLightDark);
 }
 
