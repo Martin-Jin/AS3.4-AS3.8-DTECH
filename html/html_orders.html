@@ -34,6 +34,7 @@
   <!-- javascript(s) *******************************************-->
   <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
+  <script defer src="/htmlJs/htmlJs_form.js"></script>
   <script defer src="/htmlJs/htmlJs_order.js"></script>
 </head>
 <!--*************************************************************
@@ -59,7 +60,7 @@
       </a>
       <!-- logo for navbar -->
       <img src="/images/images_logo.png" alt="logo" id="logo">
-      <a href="" aria-label="products button">
+      <a href="/../index.html#recommendedSection" aria-label="products button">
         <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
       </a>
       <a href="/html/html_orders.html" class="active" aria-label="orders button">
@@ -82,7 +83,7 @@
             About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
           </a><a href="" aria-label="contact us button">
             Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          </a><a aria-label="products button">
+          </a><a href="/../index.html#recommendedSection"aria-label="products button">
             Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
           </a><a href="/html/html_orders.html" aria-label="orders button">
             Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
@@ -131,14 +132,14 @@
                 <p id="total">N/A</p>
             </flex-container>
             </flex-container>
-            <button type="submit" id="submit" class="general_button">Checkout
+            <button type="submit" id="submit" class="general_button" aria-hidden="true">Checkout<i class="fa-solid fa-credit-card"></i>
             </button>
           </flex-container>
           <flex-container id="deliveryOptions">
             <h3>Would you like these to be picked up or delivered?</h3>
             <radio-container id="deliveries">
               <radio-button class="general_button">
-                <input type="radio" id="pickUp" name="collectionMethod" value="pickUp">
+                <input type="radio" id="pickUp" name="collectionMethod" value="pickUp" required>
                 <label for="pickUp">Pick up<i class="fa-solid fa-truck" aria-hidden="true"></i></label>
               </radio-button>
               <radio-button class="general_button">

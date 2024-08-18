@@ -78,7 +78,7 @@ input[type='number'] {
 /*-- spacing *******************************************--*/
 #formMain {
   grid-area: main;
-  gap: var(--formGap) !important;
+  gap: var(--formGap);
 }
 
 #formMain flex-container {

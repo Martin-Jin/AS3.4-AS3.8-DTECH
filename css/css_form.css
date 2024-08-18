@@ -30,10 +30,6 @@
   padding: calc(var(--pagePadding) * 2) var(--pagePadding) calc(var(--pagePadding) * 2) var(--pagePadding);
 }
 
-#form flex-container {
-  gap: var(--iconMargin);
-}
-
 /*-- background *******************************************--*/
 #main {
   background-color: white;
@@ -71,7 +67,7 @@ h2, #headerContainer{
   border-color: var(--header);
 }
 
-.form_text, radio-button {
+.form_text {
   color: var(--backGroundLight);
 }
 
@@ -89,16 +85,6 @@ h2, #headerContainer{
   text-align: center;
   width: 100%;
   margin-top: 0;
-}
-
-radio-button {
-  background-color: var(--backGroundDark) !important;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 0 !important;
-  font-size: var(--pSize);
-  /*-- Hiding the border by deafult, and show it when radio button is checked --*/
-  border: none !important;
 }
 
 /*-- highlighting text on checking radio button --*/

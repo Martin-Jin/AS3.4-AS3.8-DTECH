@@ -465,6 +465,16 @@ radio-container label i {
   margin-left: calc(var(--labelMargin) / 2);
 }
 
+radio-button, increment-button{
+  color: var(--backGroundLight) !important;
+  background-color: var(--backGroundDark) !important;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0 !important;
+  /*-- Hiding the border by deafult, and show it when radio button is checked --*/
+  border: none !important;
+}
+
 radio-button {
   cursor: auto !important;
 }

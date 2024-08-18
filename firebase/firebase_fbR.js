@@ -92,12 +92,94 @@ function fbR_procGeneral(snapshot, save, callBack) {
 function fbR_procOrdersAll(snapshot, save) {
   console.log("fbR_procOrdersAll();");
   //If nothing read then say cart is empty and do nothing else
-  if (snapshot.val() == null) {document.getElementById("cartHeader").innerHTML = `Your cart is empty.`; order_show(false); return;}
-  else {document.getElementById("cartHeader").innerHTML = `Shopping cart`; order_show(true)}
+  if (snapshot.val() == null) { document.getElementById("cartHeader").innerHTML = `Your cart is empty.`; order_show(false); return; }
+  else { document.getElementById("cartHeader").innerHTML = `Shopping cart`; order_show(true) }
   readStatus = "OK";
   save = snapshot.val();
+  /**************************************************************/
+  // Merging duplicates
+  /**************************************************************/
   //Keys of the snapshot will return the coffee name as the key
-  let coffees = Object.keys(save);
+  let coffeeIds = Object.entries(save).map(([key, value]) => ({ key, value }));
+  //Array that will stored coffees with no ids
+  let coffees = [];
+  //Function which removes the ids of the coffee
+  function removeID(str) {
+    const HYPHENINDEX = str.indexOf('-');
+    return str.substring(0, HYPHENINDEX);
+  }
+  //Going through array with ids to remove the ids and put it in
+  //array with no ids
+  coffeeIds.forEach((coffee) => {
+    coffee.key = removeID(coffee.key);
+    coffees.push(coffee);
+  });
+  let skip = false;
+  //Duplicates with merged amounts
+  let mergedDups = [];
+  //Stores all of the duplicates found
+  let potentialDups = [];
+  //Check for duplicates
+  coffees.forEach((coffeeToCheck) => {
+    skip = false;
+    //Checking if this duplicate has already been checked
+      potentialDups.forEach((dup) => {
+      if (dup.key == coffeeToCheck.key) { skip = true; }
+    });
+    if (skip) { return };
+    coffees.forEach((coffee) => {
+      if (coffee.key == coffeeToCheck.key) {
+        //orders of the same coffee
+        //but may not be duplicates if users selected a different size
+        potentialDups.push(coffee);
+      }
+    });
+  });
+  //Indexes to skip as they've been checked
+  let skipIndex = [];
+  potentialDups.filter((potential1, index1) => {
+    console.log(skipIndex);
+    if (!skipIndex.includes(index1)) {
+      let duplicatesTemp = [];
+      let hadDuplicates = false;
+      //Create a clone potential as reference type so will just copy
+      //address and not value
+      //then check if object is equivalent without amount
+      //if it is then is a true duplicate
+      let clonePotential1 = JSON.parse(JSON.stringify(potential1));
+      delete clonePotential1.value.amount;
+      potentialDups.forEach((potential2) => {
+        let clonePotential2 = JSON.parse(JSON.stringify(potential2));
+        delete clonePotential2.value.amount;
+        if (JSON.stringify(clonePotential1) == JSON.stringify(clonePotential2)) {
+          hadDuplicates = true;
+          //Add to duplicates array
+          duplicatesTemp.push(potential2);
+        }
+      });
+      //Merge duplicates when there are duplicates
+      if (hadDuplicates) {
+        let amount = 0;
+        duplicatesTemp.forEach((dup) => {
+          amount += dup.value.amount;
+        });
+        //Pushing the merged
+        let dupToPush = JSON.parse(JSON.stringify(duplicatesTemp[0]));
+        dupToPush.value.amount = amount;
+        mergedDups.push(dupToPush);
+        //Removing these from potential array to be checked
+        duplicatesTemp.forEach((dup) => {
+          potentialDups.filter((potential, index2) => {
+            if (JSON.stringify(dup) == JSON.stringify(potential)) { skipIndex.push(index2); }
+          })
+        })
+      }
+    }
+  });
+  //Overwritting old data on firebase so next time
+  console.log("Array is " + JSON.stringify(mergedDups));
+
+  return;
   //First clearing the cart thats displayed and also variables
   subtotal = 0;
   while (cart.hasChildNodes()) {
@@ -107,7 +189,7 @@ function fbR_procOrdersAll(snapshot, save) {
   coffees.forEach((coffee) => {
     let details = save[coffee];
     order_displayCart(coffee, details);
-  })
+  });
   order_summary();
   console.log(save);
   console.log('fbR_procOrdersAll: status = ' + readStatus);

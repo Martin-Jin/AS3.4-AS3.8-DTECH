@@ -13,6 +13,10 @@
   height:fit-content;
 }
 
+#form flex-container {
+  gap: var(--iconMargin);
+}
+
 /*-- genders *******************************************--*/
 #genders {
   justify-content: left;

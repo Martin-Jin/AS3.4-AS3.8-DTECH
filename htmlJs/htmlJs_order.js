@@ -16,6 +16,12 @@ const TOTAL = document.getElementById("total");
 let total = 0;
 const DELIVERY = document.getElementById("delivery");
 let delivery = 0;
+
+//Currency format
+let currency = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
@@ -30,6 +36,7 @@ general_loadDeferLinks();
 document.querySelectorAll("input[type='radio']").forEach((radio) => {
   radio.addEventListener("change", () => {
     if (radio.checked) {
+      document.getElementById("submit").style.display = "block";
       if (radio.value == "delivery") {
         delivery = 5;
       }
@@ -54,8 +61,8 @@ function order_displayCart(coffee, details) {
       <img src="${details.photo}" alt="coffee">
       <h3 class="order_name">${coffee}</h3>
       <p class="order_details">Size: ${details.size} | Qty: ${details.amount}</p>
-      <h3 class="order_total">Total: $${coffeeTotal}</h3>
-      <p class=order_price>at $${details.price} each</p>
+      <h3 class="order_total">Total: ${currency.format(coffeeTotal)}</h3>
+      <p class=order_price>at ${currency.format(details.price)} each</p>
     </order-container>`
   //Calculating users total fees
   subtotal += coffeeTotal;
@@ -67,10 +74,10 @@ function order_displayCart(coffee, details) {
 /*************************************************************/
 function order_summary() {
   // console.log("order_summary()");
-  SUBTOTAL.innerHTML = "$" + subtotal;
-  DELIVERY.innerHTML = "$" + delivery;
-  TAX.innerHTML = "$" + ((subtotal + delivery) * 0.15).toFixed(2);
-  TOTAL.innerHTML = "$" + ((subtotal + delivery) * 1.15).toFixed(2);
+  SUBTOTAL.innerHTML = currency.format(subtotal);
+  DELIVERY.innerHTML = currency.format(delivery);
+  TAX.innerHTML = currency.format((subtotal + delivery) * 0.15);
+  TOTAL.innerHTML = currency.format((subtotal + delivery) * 1.15);
 }
 
 /*************************************************************/
@@ -81,9 +88,18 @@ function order_summary() {
 function order_show(show) {
   console.log("order_show(" + show + ")");
   let display = "none"
-  if (show) (display = '');
+  document.getElementById("cartSection").style.gap = '0';
+  if (show) {
+    display = '';
+    document.getElementById("cartSection").style.gap = 'var(--formPadding)';
+  };
   let elements = ["cart", "summary", "deliveryOptions", "submit"];
   elements.forEach((element) => {
     document.getElementById(element).style.display = display;
   })
 }
+
+function form_callBack() {
+  console.log("form_callBack()");
+}
+
