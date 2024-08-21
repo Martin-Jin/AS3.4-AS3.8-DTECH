@@ -116,15 +116,17 @@ function fbR_procOrdersAll(snapshot, save) {
   });
   let skip = false;
   //Duplicates with merged amounts
-  let mergedDups = [];
+  let mergedCoffees = [];
   //Stores all of the duplicates found
   let potentialDups = [];
+  let hadDuplicates = false;
   //Check for duplicates
   coffees.forEach((coffeeToCheck) => {
     skip = false;
     //Checking if this duplicate has already been checked
-      potentialDups.forEach((dup) => {
+    potentialDups.forEach((dup) => {
       if (dup.key == coffeeToCheck.key) { skip = true; }
+      console.log(skip);
     });
     if (skip) { return };
     coffees.forEach((coffee) => {
@@ -137,11 +139,9 @@ function fbR_procOrdersAll(snapshot, save) {
   });
   //Indexes to skip as they've been checked
   let skipIndex = [];
-  potentialDups.filter((potential1, index1) => {
-    console.log(skipIndex);
+  potentialDups.forEach((potential1, index1) => {
     if (!skipIndex.includes(index1)) {
       let duplicatesTemp = [];
-      let hadDuplicates = false;
       //Create a clone potential as reference type so will just copy
       //address and not value
       //then check if object is equivalent without amount
@@ -152,47 +152,62 @@ function fbR_procOrdersAll(snapshot, save) {
         let clonePotential2 = JSON.parse(JSON.stringify(potential2));
         delete clonePotential2.value.amount;
         if (JSON.stringify(clonePotential1) == JSON.stringify(clonePotential2)) {
-          hadDuplicates = true;
           //Add to duplicates array
           duplicatesTemp.push(potential2);
         }
       });
-      //Merge duplicates when there are duplicates
-      if (hadDuplicates) {
-        let amount = 0;
-        duplicatesTemp.forEach((dup) => {
-          amount += dup.value.amount;
-        });
-        //Pushing the merged
-        let dupToPush = JSON.parse(JSON.stringify(duplicatesTemp[0]));
-        dupToPush.value.amount = amount;
-        mergedDups.push(dupToPush);
-        //Removing these from potential array to be checked
-        duplicatesTemp.forEach((dup) => {
-          potentialDups.filter((potential, index2) => {
-            if (JSON.stringify(dup) == JSON.stringify(potential)) { skipIndex.push(index2); }
-          })
-        })
+      //Merge duplicates
+      let amount = 0;
+      let combineCount = 0;
+      duplicatesTemp.forEach((dup) => {
+        amount += dup.value.amount;
+        combineCount++;
+      });
+      if (combineCount>1) {
+        hadDuplicates = true;
       }
+      //Pushing the merged
+      let dupToPush = JSON.parse(JSON.stringify(duplicatesTemp[0]));
+      dupToPush.value.amount = amount;
+      mergedCoffees.push(dupToPush);
+      //Removing these from potential array to be checked
+      duplicatesTemp.forEach((dup) => {
+        potentialDups.filter((potential, index2) => {
+          if (JSON.stringify(dup) == JSON.stringify(potential)) { skipIndex.push(index2); }
+        })
+      })
     }
   });
-  //Overwritting old data on firebase so next time
-  console.log("Array is " + JSON.stringify(mergedDups));
-
-  return;
+  console.log("Array is " + JSON.stringify(mergedCoffees));
+  /**************************************************************/
+  // displaying coffee
+  /**************************************************************/
   //First clearing the cart thats displayed and also variables
   subtotal = 0;
   while (cart.hasChildNodes()) {
     cart.removeChild(cart.firstChild)
   }
-  //Displaying coffee deatils per each coffee
-  coffees.forEach((coffee) => {
-    let details = save[coffee];
-    order_displayCart(coffee, details);
+  //Displaying coffee details per each coffee
+  mergedCoffees.forEach((coffee) => {
+    let details = coffee.value;
+    order_displayCart(coffee.key, details);
   });
   order_summary();
   console.log(save);
   console.log('fbR_procOrdersAll: status = ' + readStatus);
+
+  //Updating firebase so duplicate checking won't need to be done again
+  //temporarily disabling read on so updating dosen't trigger a cycle of
+  //read and write. But only if there were duplicates.
+  if (hadDuplicates) {
+    order_cartListener.off();
+    fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, '');
+    for (i = 0; i < mergedCoffees.length; i++) {
+      let coffee = mergedCoffees[i];
+      fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid + "/" + coffee.key + "-" + i, coffee.value);
+      fb_readOn(order_cartListener, fbV_cartDetails, fbR_procOrdersAll);
+    }
+  }
 }
 
 /**************************************************************/
