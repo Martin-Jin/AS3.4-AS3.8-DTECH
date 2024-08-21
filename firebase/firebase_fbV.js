@@ -10,6 +10,7 @@ const fbV_ORDERSPATH = "userOrders"; //<=============== Firebase paths
 const fbV_REGISTRATIONPATH = "userDetails/registrationDetails"; //<=============== Firebase paths
 const fbV_LOGINDETAILSPATH = "userDetails/loginDetails"; //<=============== Firebase paths
 const fbV_CARTPATH = "userDetails/cartDetails"; //<=============== Firebase paths
+const fbV_CHECKOUTPATH = "userDetails/checkOut"; //<=============== Firebase paths
 
 let fbV_userDetails = { //<=============== Object to store the details of the current user
   uid: '',

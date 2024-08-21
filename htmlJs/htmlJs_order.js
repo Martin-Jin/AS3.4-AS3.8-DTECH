@@ -69,6 +69,22 @@ function order_displayCart(coffee, details) {
 }
 
 /*************************************************************/
+//order_checkOut()
+//checks out the users order
+//called by: check out button
+/*************************************************************/
+function order_checkOut() {
+  console.log("order_checkOut()")
+  let allOrders;
+  fb_readRec(fbV_CARTPATH, fbV_userDetails.uid, allOrders, (snapshot) => {
+    allOrders = snapshot.val();
+    //writing this to check out
+    //then Wiping orders
+    fb_writeRec(fbV_CHECKOUTPATH, fbV_userDetails.uid, allOrders, () => { fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, null); });
+  })
+}
+
+/*************************************************************/
 //order_summary()
 //generates the summary and sums up prices for the user
 /*************************************************************/
@@ -101,5 +117,6 @@ function order_show(show) {
 
 function form_callBack() {
   console.log("form_callBack()");
+  order_checkOut();
 }
 
