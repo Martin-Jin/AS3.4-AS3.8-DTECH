@@ -26,8 +26,7 @@
 }
 
 #formSection {
-  min-height: 100vh;
-  padding: calc(var(--pagePadding) * 2) var(--pagePadding) calc(var(--pagePadding) * 2) var(--pagePadding);
+  padding: var(--pagePadding) var(--formPadding) var(--pagePadding) var(--formPadding);
 }
 
 /*-- background *******************************************--*/
@@ -60,7 +59,7 @@ input[type='text']:not(#footer_email), input[type='number']{
 /*-- font styling *******************************************--*/
 h2, #headerContainer{
   margin: 0;
-  width: 100% !important;
+  width: 100%;
 }
 
 #header {
