@@ -8,9 +8,8 @@
   #address {
     flex-direction: row;
   }
-
-  /*-- Make the min input box length shorter for desktop --*/
-  input[type='text'] {
-    min-width: var(--inputWidth);
+  #form {
+    max-width: max-content;
+    width: fit-content;
   }
 }

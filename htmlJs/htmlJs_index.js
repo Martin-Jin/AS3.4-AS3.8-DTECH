@@ -13,12 +13,14 @@ let index_slideIndex = -1;
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
-fbR_initialise(function() { 
-  document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
-  document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin)}
+//Only add the onclick to login when user loads in and firebase is initialised
+//unless user is already is signed in
+fbR_initialise(function() {
+  if (fbV_loginStatus == "logged in") {return;}
+  document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
+  document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
 });
 
-manager_checkLogin();
 /**************************************************************/
 // function index_displaySlide();
 // Determines what slide to display next when the user clicks

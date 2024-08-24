@@ -8,14 +8,14 @@ console.log('%c' + MODULENAME, 'color: red;');
 // variables and constants
 /**************************************************************/
 const form_INPUTEVENT = new Event('input');
-
+let form;
+let inputs
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
 document.addEventListener('DOMContentLoaded', () => {
-  //Get the form element
-  const form = document.getElementById('formContainer');
-
+  form = document.getElementById('form');
+  inputs = form.querySelectorAll('input');
   //Prevent the default form submission behavior
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   //giving user feedback if what they input is correct in real time
-  let inputs = document.querySelectorAll("input");
   //Add an event listener for input
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
           //Change border to red if is wrong
           input.style.setProperty("border-color", "#ff4444", "important");
         }
-      } else {
+      } else if (input.style != "footer_email") {
         //If nothing inputed just leave as deafult
         input.style.setProperty("border-color", "#fbf8f6", "important");
       }
@@ -54,21 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
 /*************************************************************/
 function form_submit() {
   console.log("form_submit()")
-  const form = document.getElementById('formContainer');
-  const inputs = form.querySelectorAll('input');
   let data = {};
 
   inputs.forEach(input => {
     //Going through each input and saving the key value pair
     //to the registration details object
+    let value = input.value;
+    let name = input.name;
+    //Checking if value is suppose to be a number
+    !isNaN(value) ? value = parseInt(input.value) : value = input.value;
     if (input.type === 'radio' || input.type === 'checkbox') {
+      //Checking for radio buttons
       if (input.checked) {
-        data[input.name] = input.value;
+        data[name] = value
       }
-    } else {
-      if (input.name) {
-        data[input.name] = input.value;
-      }
+    } else if (input.name) {
+      data[name] = value;
     }
     input.disabled = true;
   });

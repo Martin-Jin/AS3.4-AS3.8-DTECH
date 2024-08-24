@@ -9,31 +9,17 @@
 }
 
 /*-- form *******************************************--*/
-#formContainer {
-  grid-gap: var(--formGap);
+#form flex-container *, #form flex-container {
+  height:fit-content;
 }
 
-#formContainer flex-container {
-  grid-gap: var(--iconMargin);
+#form flex-container {
+  gap: var(--iconMargin);
 }
 
 /*-- genders *******************************************--*/
 #genders {
-  flex-direction: row;
   justify-content: left;
-  grid-gap: var(--UISpacing);
-}
-
-#genders label {
-  margin-right: var(--labelMargin);
-}
-
-#genders label:hover {
-  font-weight: 600;
-}
-
-#genders button {
-  cursor: auto;
 }
 
 #address {
@@ -48,5 +34,5 @@
 address-container {
   display: flex;
   flex-direction: column !important;
-  grid-gap: var(--UISpacing);
+  grid-gap: var(--iconMargin);
 }

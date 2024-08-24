@@ -5,7 +5,7 @@
 /*-- Scaling up font size --*/
 @media screen and (min-width: 425px) {
   :root {
-    --headerSize: 3.5rem;
+    --headerSize: 3.7rem;
     --UIpadding: 1.5rem;
     --UISize: 5rem;
     --UIMargin: 1.5rem;
@@ -71,12 +71,15 @@
     text-align: left;
   }
 
-  #footer_links a,
-  #footer_email,
+  #footer_links a, #footer_email,
   footer * {
     margin: 0;
   }
 
+  #footer_email {
+    margin-top: var(--separatorMargin);
+  }
+  
   #footer_newsletter button {
     margin: var(--buttonMargin) 0 0 0;
   }
@@ -90,7 +93,7 @@
 /*-- Scaling down font size or padding or margin as required for mobile --*/
 @media screen and (min-width: 1440px) {
   :root {
-    --headerSize: 3.6vw;
+    --headerSize: 3.7vw;
     --UIpadding: 1.5vw;
     --UISize: 5vw;
     --UIMargin: 1.5vw;

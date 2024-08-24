@@ -1,0 +1,206 @@
+/*------------------------------------------------------------*
+  order.html page styling
+/*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+  /*-- padding --*/
+  --formPadding: calc(var(--UIpadding) * 2);
+  --pagePadding: calc(var(--UIpadding) * 4);
+  --productImgSize: calc(var(--UISize) * 1.2);
+  --orderPadding: calc(var(--UIpadding) * 0.4);
+  /*-- margin --*/
+  --orderGap: calc(var(--UIMargin) * 0.6);
+  /*-- sizing --*/
+  --orderWidth: calc(var(--UISize) * 10);
+  --orderImg: calc(var(--UISize) * 0.8);
+}
+
+/*-- text styling *******************************************--*/
+* {
+  text-align: left;
+}
+
+h3,
+p {
+  width: 100%;
+}
+
+h3, h2, h1 {
+  color: var(--backGroundDark);
+}
+
+h2 {
+  font-weight: 400;
+}
+
+/*-- gaps for flex containers *******************************************--*/
+form grid-container, form flex-container {
+  gap: var(--orderGap);
+}
+
+/*-- background *******************************************--*/
+#main {
+  background-image: url(/images/images_bg/bg_order.jpg);
+}
+
+/*-- form *******************************************--*/
+#form {
+  background-color: transparent;
+  padding: 0;
+  max-width: max-content;
+}
+
+#checkOutSection,
+#cartSection {
+  background-color: var(--backGroundLight);
+  padding: var(--formPadding);
+}
+
+/*-- checkout section *******************************************--*/
+#checkOutSection {
+  gap: var(--formPadding);
+}
+
+#checkOut {
+  padding: 0 !important;
+}
+
+/*-- shopping cart *******************************************--*/
+#cartSection {
+  gap: var(--formPadding);
+  /*-- Grid container --*/
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+    'header header header'
+    'cart cart summary'
+    'cart cart summary'
+    'delivery delivery summary';
+  align-items: center;
+}
+
+#cartSection h1, #checkOutSection h1 {
+  grid-area: header;
+  border-color: var(--subtitle);
+}
+
+#cart {
+  grid-area: cart;
+  padding: 0 !important;
+}
+
+order-container {
+  min-width: var(--orderWidth);
+}
+
+/*-- summaryContainer *******************************************--*/
+#summary {
+  grid-area: summary;
+}
+
+#summaryContainer {
+  width: 100%;
+  margin: auto;
+  background-color: white !important;
+  padding: calc(var(--orderPadding) * 4) var(--orderPadding) calc(var(--orderPadding) * 4) var(--orderPadding);
+  min-width: calc(var(--orderWidth)/3)
+}
+
+#summaryContainer flex-container {
+  flex-direction: row;
+  align-items: center;
+}
+
+#summaryContainer flex-container p:last-child {
+  text-align: right;
+}
+
+#summaryContainer h2 {
+  text-align: center;
+}
+
+hr {
+  border-color: var(--backGroundDark);
+  margin: 0;
+}
+
+/*-- delivery form *******************************************--*/
+#deliveryOptions {
+  grid-area: delivery;
+}
+
+#deliveryOptions radio-button {
+  color: white;
+}
+
+#submit {
+  display: none;
+}
+
+#submit i {
+  margin-left: var(--iconMargin);
+}
+
+/*-- conatiner for user orders *******************************************--*/
+order-container {
+  padding: var(--orderPadding);
+  display: grid;
+  /*-- Grid container --*/
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'img name total'
+    'img details price';
+  column-gap: var(--orderGap);
+  background-color: white;
+  align-items: center;
+}
+
+order-container * {
+  height: fit-content;
+  margin: 0;
+}
+
+order-container:hover {
+  /*-- Annimation --*/
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+order-container img {
+  grid-area: img;
+  object-fit: cover;
+  height: var(--orderImg);
+  width: var(--orderImg);
+}
+
+/*-- Styling large text to have a darker colour --*/
+.order_details,
+.order_price,
+#summaryContainer h3,
+#summaryContainer p {
+  color: var(--backGroundLightDark);
+}
+
+/*-- text alignment --*/
+.order_total,
+.order_price {
+  text-align: right !important;
+}
+
+/*-- grid area --*/
+.order_name {
+  grid-area: name;
+}
+
+.order_details {
+  grid-area: details;
+}
+
+.order_total {
+  grid-area: total;
+}
+
+.order_price {
+  grid-area: price;
+}

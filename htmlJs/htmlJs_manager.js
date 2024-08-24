@@ -82,37 +82,3 @@ function manager_getValues() {
     }
   }
 }
-
-/*************************************************************/
-//manager_checkLogin()
-//Changes the html page for when user is logged in
-//and checks if the user is registered if they are logged in
-//Called by proc login function
-/*************************************************************/
-function manager_checkLogin() {
-  console.log("manager_checkLogin()");
-  console.log("The user is: " + fbV_loginStatus);
-  if (fbV_loginStatus == 'logged in') {
-    //Changing the sign in button to log out button
-    document.getElementById("signInBtn").onclick = function() { fb_logout() };
-    document.getElementById("signInBtn").innerHTML = "Log out";
-    document.getElementById("dropDownSignIn").onclick = function() { fb_logout() };
-    document.getElementById("dropDownSignIn").innerHTML = "Log out";
-    //Get user to finish registration if they created an account and haven't done it
-    if (fbV_registerStatus == 'not registered') {
-      //read the database to make sure that the user hasen't registered, as register status will be false 
-      //if is not their first time logging in where they had to go register and the status was set to registered
-      fb_readRec(fbV_REGISTRATIONPATH, fbV_userDetails.uid, fbV_registerDetails, fbR_procGeneral, ()=> {
-        if (fbV_registerDetails.street == '') {
-          console.log("The user is: " + fbV_registerStatus);
-          alert("Please register to finish setting up your account. You will be redirected after this alert is closed.");
-          window.location = '/html/html_register.html';
-          return;
-        }
-        else {fbV_registerStatus = 'registered';
-             manager_saveValues();
-             console.log("The user is: " + fbV_registerStatus);}
-      })
-    }
-  }
-}

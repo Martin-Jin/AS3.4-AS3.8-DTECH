@@ -52,7 +52,7 @@
     TOP HALF DIVISION
   *****************************************-->
   <section id="topSection">
-    <!-- navBar for larger screens -->
+    <!-- navBar -->
     <nav id="nav_desktop">
       <a href="/../index.html" class="active" aria-label="home button">
         <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
@@ -66,10 +66,10 @@
       </a>
       <!-- logo for navbar -->
       <img src="/images/images_logo.png" alt="logo" id="logo">
-      <a href="" aria-label="products button">
+      <a href="#recommendedSection" aria-label="products button">
         <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
       </a>
-      <a href="/html/html_orders" aria-label="orders button">
+      <a href="/html/html_orders.html" aria-label="orders button">
         <span>Orders</span> <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
       </a>
       <!-- sign in button needs to be in a container so its width can be customised -->
@@ -78,18 +78,20 @@
           <span>Sign in</span> <i class="fas fa-user" aria-hidden="true"></i>
         </a>
       </flex-container>
+      <!-- navBar for mobile -->
       <container-dropdown id="nav_dropdown">
-        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn" aria-label="dropdown button">
+        <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn"
+          aria-label="dropdown button">
           <i class="fa-solid fa-bars"></i>
         </button>
         <dropdown-content id="dropDown">
-          <a href="/../index.html" aria-label="about us button">
+          <a href="/../index.html#aboutSection" aria-label="about us button">
             About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
-          </a><a href="/html/html_contact" aria-label="contact us button">
+          </a><a href="" aria-label="contact us button">
             Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          </a><a href="/html/html_products" aria-label="products button">
+          </a><a href="#recommendedSection" aria-label="products button">
             Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
-          </a><a href="/html/html_orders" aria-label="orders button">
+          </a><a href="/html/html_orders.html" aria-label="orders button">
             Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
           </a>
           <a id="dropDownSignIn" aria-label="sign in button">
@@ -105,7 +107,7 @@
       <h1 id="landingHeader">Welcome to HVHS coffee house</h1>
       <h2 id="landingSub">Fresh coffee at your finger tips.</h2>
       <!-- browse button -->
-      <button class='general_button' aria-label="browse button">Browse our
+      <button class='general_button' id="browseButton" aria-label="browse button">Browse our
         coffee</button>
     </container-heading>
   </section>
@@ -140,7 +142,8 @@
             <p id="offerText"><span id="slidePrice">Original price: $1</span>
               <span id="slideDiscount">Now only: $0.1</span>
             </p>
-            <button id="slideButton" class="general_button" aria-label="view coffee button" onclick="general_showProduct(coffee6)">View now!</button>
+            <button id="slideButton" class="general_button" aria-label="view coffee button"
+              onclick="general_showProduct(coffee6)">View now!</button>
           </hover-item>
         </slide-coffee>
         <!-- description of coffee -->
@@ -257,7 +260,7 @@
                   chocolate and caramel notes.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee1)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee1)">Learn
             more</button>
         </flex-container>
         <!-- product 2 -->
@@ -271,7 +274,7 @@
                   dark chocolate.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee2)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee2)">Learn
             more</button>
         </flex-container>
         <!-- product 3 -->
@@ -285,7 +288,7 @@
                   and berries.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee3)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee3)">Learn
             more</button>
         </flex-container>
         <!-- product 4 -->
@@ -299,7 +302,7 @@
                   chocolate and nuts.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee4)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee4)">Learn
             more</button>
         </flex-container>
         <!-- product 5 -->
@@ -312,7 +315,7 @@
                   sweetness.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee5)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee5)">Learn
             more</button>
         </flex-container>
         <!-- product 6 -->
@@ -326,7 +329,7 @@
                   flavor.</span-thin></p>
             </flex-container>
           </container-product>
-          <button aria-label="learn more button" class='general_button' onclick="(function() {general_displayCard(coffee6)})">Learn
+          <button aria-label="learn more button" class='general_button' onclick="general_showProduct(coffee6)">Learn
             more</button>
         </flex-container>
       </flex-container>

@@ -7,6 +7,10 @@ console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 // Variables and constants
 /**************************************************************/
+//hrefs
+const REPL = "https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/";
+const HOME = "https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/index.html"
+
 //Array of coffee
 const coffee1 = { image: '/images/images_coffee/coffee_1.jpg', alt: 'coffee1', price: 3.50, name: 'Latte', about: 'A classic Italian coffee drink. This drink is known for its smooth and velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.', ingredients: 'Espresso and steamed milk.' };
 const coffee2 = { image: '/images/images_coffee/coffee_2.jpg', alt: 'coffee2', price: 4.25, name: 'Cappuccino', about: 'A popular coffee drink with a rich, creamy texture.  The cappuccino features a distinct layer of foamed milk, giving it a beautiful presentation and a light, airy texture.  It is a delightful choice for those who prefer a slightly milder coffee experience with a touch of sweetness.', ingredients: 'Espresso, steamed milk, and foamed milk.' };
@@ -27,10 +31,87 @@ let general_deferLinks = [
 /**************************************************************/
 // START OF MODULE
 /**************************************************************/
+fbR_initialise();
 //Get saved values then check if user is logged in or not
 manager_getValues();
 //Loads defered links
 general_loadDeferLinks();
+//Checking registration and login
+general_checkLogin();
+
+/**************************************************************/
+// function general_checkLogin()
+// checks if user is logged in, only allow user to look at home
+// page if they are not logged in.
+// after checking login checks registration, gets user to register
+// if they are not.
+/**************************************************************/
+function general_checkLogin() {
+  console.log("general_checkLogin()");
+  console.log("The user is: " + fbV_loginStatus);
+  if(location.href.includes("register.html")) {return};
+  if (fbV_loginStatus == 'logged in') {
+    general_checkReg();
+    document.getElementById("signInBtn").onclick = (() => { fb_logout(); });
+    document.getElementById("signInBtn").innerHTML = "Log out";
+    document.getElementById("dropDownSignIn").onclick = (() => { fb_logout() });
+    document.getElementById("dropDownSignIn").innerHTML = "Log out";
+    return;
+  };
+  function loginAlert() {
+    alert("Please login in if you wish to access anymore features on this website. This is on the navbar. If you cannot see it, is in the dropdown menu.")
+  }
+  if (fbV_loginStatus != 'logged in') {
+    if (window.location.href == HOME || window.location.href == REPL) {
+      //Select all buttons and links then disable them.
+      const buttons = document.querySelectorAll('button');
+      const links = document.querySelectorAll('a');
+      links.forEach((link) => {
+        if (link.getAttribute('id') != "dropDownSignIn" && link.getAttribute('id') != "signInBtn") {
+          link.removeAttribute("href");
+          link.onclick = () => { loginAlert() };
+        }
+      });
+      buttons.forEach((button) => {
+        //Don't disable dropdown menu as users need to open it to sign in
+        if (button.getAttribute('id') != "dropDownBtn") {
+          button.onclick = () => { loginAlert() };
+        }
+      });
+    }
+    else {
+      loginAlert();
+      window.location.href = HOME;
+    }
+  }
+}
+
+/*************************************************************/
+//general_checkReg()
+//checks if user has registered
+//makes user go register if they haven't
+/*************************************************************/
+function general_checkReg() {
+  console.log("general_checkReg()")
+  //Get user to finish registration if they created an account and haven't done it
+  if (fbV_registerStatus == 'not registered') {
+    //read the database to make sure that the user hasen't registered, as register status will be false 
+    //if is not their first time logging in where they had to go register and the status was set to registered
+    fb_readRec(fbV_REGISTRATIONPATH, fbV_userDetails.uid, fbV_registerDetails, fbR_procGeneral, () => {
+      if (fbV_registerDetails.street == '') {
+        console.log("The user is: " + fbV_registerStatus);
+        alert("Please register to finish setting up your account. You will be redirected after this alert is closed.");
+        window.location = '/html/html_register.html';
+        return;
+      }
+      else {
+        fbV_registerStatus = 'registered';
+        manager_saveValues();
+        console.log("The user is: " + fbV_registerStatus);
+      }
+    })
+  }
+}
 
 /**************************************************************/
 // function general_loadDeferLinks()
@@ -65,7 +146,7 @@ function general_loadDeferLinks() {
 function general_displayCard() {
   console.log("general_displayCard()");
   const JSONSTRING = sessionStorage.getItem("coffee");
-  if (JSONSTRING == null) {return}
+  if (JSONSTRING == null) { return }
   let coffee = JSON.parse(JSONSTRING);
   console.log(coffee);
   //Updating values on coffee page

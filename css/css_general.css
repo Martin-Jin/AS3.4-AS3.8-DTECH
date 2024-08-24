@@ -14,7 +14,7 @@
   --subtitle: #F5CDAF;
   --header: #DFC4B4;
   --textContrast: #FF5D55;
-  /*-- container sizes --*/
+  /*-- container siz es --*/
   --UISize: 3.5rem;
   --UIRadius: 0.6rem;
   --navBarSize: calc(0.9 * var(--UISize));
@@ -40,17 +40,16 @@
   /*-- font sizes --*/
   --headerSize: 3rem;
   --subheaderSize: calc(0.7 * var(--headerSize));
-  --pLarge: calc(0.5 * var(--headerSize));
-  --pSize: calc(0.36 * var(--headerSize));
-  --pSmall: calc(var(--pSize) * 0.9);
+  --pLarge: calc(0.42 * var(--headerSize));
+  --pSmall: calc(0.8 * var(--pSize));
+  --pSize: calc(0.32 * var(--headerSize));
+  --pMedium: calc(var(--pSize) * 1.2);
   --UILineHeight: 1.8rem;
   --creditSize: calc(0.65 * var(--pSize));
   /*-- border sizes --*/
   --navBarBorder: calc(var(--UIborder) * 0.5);
   /*-- drop down buttons --*/
   --dropdownHover: #efefef;
-  /*-- icon size --*/
-  --iconSize: calc(0.9 * var(--pSize));
 }
 
 /*-- html *******************************************--*/
@@ -98,7 +97,8 @@ span-bold {
   font-weight: 600;
 }
 
-.aleo-thin, .form_text,
+.aleo-thin,
+.form_text,
 span-thin {
   font-weight: 300;
 }
@@ -177,7 +177,6 @@ is displayed for the next screen size up --*/
 
 nav {
   overflow: visible;
-  grid-area: nav;
   height: var(--navBarSize);
   display: flex;
   background-color: rgba(17, 17, 17, 0.3);
@@ -202,7 +201,7 @@ nav button {
 
 /*-- Styling of the icon that goes on the navbar --*/
 i {
-  font-size: var(--iconSize);
+  font-size: var(--pSize);
   border-radius: 0;
 }
 
@@ -288,8 +287,6 @@ dropdown-content a:hover {
   margin-top: var(--buttonMargin);
 }
 
-.general_separator,
-.general_separator_short,
 .general_button,
 #signInBtn {
   border-radius: var(--UIRadius);
@@ -325,24 +322,27 @@ input[type='radio']:checked:after {
 }
 
 /*-- input box --*/
-input[type='text'], input[type='number'] {
+input[type='text'],
+input[type='number'] {
   background-color: transparent;
   width: 65%;
   border: none;
   border-color: var(--backGroundDark);
   border-bottom-style: solid;
   border-width: var(--separatorHeight);
+  font-size: var(--pSize);
   margin-top: var(--buttonMargin);
   min-width: fit-content;
 }
 
-input[type='text']:focus, input[type='number']:focus {
+input[type='text']:focus,
+input[type='number']:focus {
   outline: none;
 }
 
-input[type='number']::-webkit-inner-spin-button, 
-input[type='number']::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 /*-- links *******************************************--*/
@@ -358,7 +358,6 @@ nav button::after {
   bottom: 0;
   width: 0;
   border-color: var(--subtitle);
-  transition: 0.2s;
 }
 
 /*-- disabling transition for active element and regular non navbar buttons--*/
@@ -407,7 +406,8 @@ section {
   display: grid;
 }
 
-flex-container, radio-container,
+flex-container,
+radio-container,
 footer,
 #aboutSection,
 #recommendedSection,
@@ -429,6 +429,7 @@ form {
 }
 
 hr {
+  width: 100%;
   border: var(--separatorHeight) solid var(--subtitle);
   margin: var(--separatorMargin) auto;
 }
@@ -444,6 +445,39 @@ hr {
   border-color: var(--backGroundLightDark);
 }
 
+radio-container {
+  flex-direction: row;
+  justify-content: normal;
+  gap: var(--UISpacing);
+}
+
+radio-container label {
+  margin-right: var(--labelMargin);
+  display: flex;
+  align-items: center;
+}
+
+radio-container label:hover {
+  font-weight: 600;
+}
+
+radio-container label i {
+  margin-left: calc(var(--labelMargin) / 2);
+}
+
+radio-button, increment-button{
+  color: var(--backGroundLight) !important;
+  background-color: var(--backGroundDark) !important;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0 !important;
+  /*-- Hiding the border by deafult, and show it when radio button is checked --*/
+  border: none !important;
+}
+
+radio-button {
+  cursor: auto !important;
+}
 /*-- footer *******************************************--*/
 footer {
   background-color: var(--backGroundLight);
@@ -454,10 +488,8 @@ footer {
 footer * {
   color: var(--backGroundDark);
   text-align: center;
-  font-size: var(--pSmall);
   line-height: var(--UILineHeight);
-  width: 90%;
-  margin: auto;
+  font-weight: 300;
 }
 
 /*-- Change back the colour of the button --*/
@@ -466,7 +498,7 @@ footer button {
 }
 
 footer flex-container>p:first-of-type {
-  margin-bottom: var(--lineBreakHeight);
+  margin-bottom: var(--separatorMargin);
 }
 
 

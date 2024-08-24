@@ -11,46 +11,49 @@
   --inputPadding: calc(var(--UIpadding) * 0.2);
   /*-- radius --*/
   --inputRadius: calc(var(--UIRadius) * 0.2);
-  /*-- input --*/
-  --inputWidthMobile: calc(var(--UISize) * 4);
+  /*-- width --*/
+  --formWidthMobile: calc(var(--UISize) * 8);
 }
 
 /*-- form *******************************************--*/
-#formContainer {
+#form {
+  gap: var(--formGap);
   margin: auto;
   padding: var(--formPadding);
   background-color: var(--backGroundLightDark);
+  height: fit-content;
+  max-width: var(--formWidthMobile);
 }
 
-#formContainer *, #formContainer {
-  height: fit-content;
-  width: fit-content;
+#formSection {
+  min-height: 100vh;
+  padding: calc(var(--pagePadding) * 2) var(--pagePadding) calc(var(--pagePadding) * 2) var(--pagePadding);
 }
 
 /*-- background *******************************************--*/
-body {
-  padding: var(--pagePadding);
-  backdrop-filter: blur(7px);
-  background-image: url(/images/images_bg/bg_form.jpg);
+#main {
+  background-color: white;
+  min-height: 100vh;
+  background-image: url(/images/images_bg/bg_form.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 /*-- input styling --*/
-input[type='text'], input[type='number']{
+input[type='text']:not(#footer_email), input[type='number']{
   border-style: solid;
   border-color: var(--textLight) !important;
   border-radius: var(--inputRadius) !important;
-  min-width: var(--inputWidthMobile);
-  color: var(--textLight) !important;
-  margin: auto;
+  color: var(--backGroundLight);
   padding: var(--inputPadding);
-  font-size: var(--pSmall);
-  font-weight: 400;
+  font-weight: 300;
+  min-width: 0;
+  margin-top: 0;
+  width: 100%;
 }
 
-::placeholder {
+#form ::placeholder {
   color: var(--textLight) !important;
 }
 
@@ -64,24 +67,15 @@ h2, #headerContainer{
   border-color: var(--header);
 }
 
-.form_text, radio-button {
+.form_text {
   color: var(--backGroundLight);
 }
 
 /*-- text align and radius styling --*/
-#formContainer,
-#formContainer * {
+#form,
+#form * {
   border-radius: var(--UIRadius);
   text-align: left;
-}
-
-
-/*-- img styling --*/
-#productImg {
-  grid-area: img;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
 }
 
 /*-- button styling--*/
@@ -90,20 +84,10 @@ h2, #headerContainer{
   background-color: var(--backGroundDark);
   text-align: center;
   width: 100%;
+  margin-top: 0;
 }
 
-radio-button {
-  background-color: var(--backGroundDark) !important;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 0 !important;
-  font-size: var(--pSmall);
-  /*-- Hiding the border by deafult, and show it when radio button is checked --*/
-  border: none !important;
-}
-
-/*-- Underlining the button when the radio button is checked, and higlighting text --*/
+/*-- highlighting text on checking radio button --*/
 radio-button:has(input[type='radio']:checked) {
-  border-bottom-style: solid !important;
   color: var(--subtitle) !important;
 }

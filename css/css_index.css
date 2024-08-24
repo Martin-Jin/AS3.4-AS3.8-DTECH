@@ -63,6 +63,10 @@
   height: max-content;
 }
 
+nav {
+  grid-area: nav;
+}
+
 /*-- headers *******************************************--*/
 #landingHeader,
 #landingSub {
@@ -91,15 +95,14 @@ h3 {
   margin-bottom: 0;
 }
 
+#browseButton {
+  font-size: var(--pMedium);
+}
 /*-- text related stlying *******************************************--*/
 #slideText {
   max-width: var(--offersContainer);
   grid-area: description;
   padding: var(--descriptionPadding);
-}
-
-#slideText p {
-  font-size: var(--pSmall);
 }
 
 #offerText {
@@ -144,8 +147,12 @@ container-about {
   background-color: var(--backGroundDark);
 }
 
+#recommendedSection, #aboutSection, #slideSection{
+  padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
+}
+
+/*-- slide section *******************************************--*/
 #slideSection {
-  padding: var(--UIpadding);
   /*-- Grid container --*/
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto 1fr;
@@ -185,7 +192,6 @@ container-about img {
 
 #aboutSection {
   background-color: var(--backGroundLight);
-  padding: var(--UIpadding);
 }
 
 #aboutSection p {
@@ -256,12 +262,7 @@ container-product > flex-container > p:first-of-type {
 }
 
 container-product p {
-  font-size: var(--pSmall);
   color: white;
-}
-
-#recommendedSection {
-  padding: var(--UIpadding);
 }
 
 #recommendedSection h1 {

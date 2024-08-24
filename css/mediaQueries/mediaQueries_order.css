@@ -1,18 +1,10 @@
 /*------------------------------------------------------------*
-  html_coffee.html media queries
+  html_order.html media queries
 /*------------------------------------------------------------*/
-/*-- variables *******************************************--*/
-
 
 /*-- Media queries for desktop *******************************************--*/
 @media screen and (min-width: 1100px) {
-  #form {
-    /*-- Grid container --*/
-    grid-template-columns: 4fr 5fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      'img main';
-    max-width: max-content;
+  #summary {
     width: fit-content;
   }
 }

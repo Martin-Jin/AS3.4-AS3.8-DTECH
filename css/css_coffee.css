@@ -9,10 +9,9 @@
 }
 
 /*-- form *******************************************--*/
-#formContainer {
+#form {
   display: grid;
   /*-- Grid container --*/
-  gap: var(--formGap);
   grid-template-columns: auto;
   grid-template-rows: auto auto;
   grid-template-areas:
@@ -45,6 +44,7 @@ radio-container,
 }
 
 #productAmount {
+  width: fit-content;
   /*-- Grid container --*/
   grid-template-columns: 1fr auto auto;
   grid-template-rows: auto auto;
@@ -91,22 +91,4 @@ input[type='number'] {
   object-fit: cover;
   height: 100%;
   width: 100%;
-}
-
-/*-- Size options for coffee *******************************************--*/
-radio-container {
-  justify-content: normal;
-  gap: var(--UISpacing);
-}
-
-radio-container label {
-  margin-right: var(--labelMargin);
-}
-
-radio-container label:hover {
-  font-weight: 550;
-}
-
-radio-container radio-button {
-  cursor: auto;
 }
