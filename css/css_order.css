@@ -50,10 +50,19 @@ form grid-container, form flex-container {
   max-width: max-content;
 }
 
-#form flex-container:first-child,
-#form grid-container:first-child {
+#checkOutSection,
+#cartSection {
   background-color: var(--backGroundLight);
   padding: var(--formPadding);
+}
+
+/*-- checkout section *******************************************--*/
+#checkOutSection {
+  gap: var(--formPadding);
+}
+
+#checkOut {
+  padding: 0 !important;
 }
 
 /*-- shopping cart *******************************************--*/
@@ -70,7 +79,7 @@ form grid-container, form flex-container {
   align-items: center;
 }
 
-#cartSection h1 {
+#cartSection h1, #checkOutSection h1 {
   grid-area: header;
   border-color: var(--subtitle);
 }
@@ -80,7 +89,7 @@ form grid-container, form flex-container {
   padding: 0 !important;
 }
 
-#cart order-container {
+order-container {
   min-width: var(--orderWidth);
 }
 
