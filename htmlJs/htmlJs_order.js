@@ -28,7 +28,11 @@ let currency = new Intl.NumberFormat('en-US', {
 //Reading on users orders, and displaying user order when is triggered
 fb_readOn(order_cartListener, fbV_cartDetails, fbR_procOrdersAll);
 fb_readOn(order_checkOutListener, '', (snapshot)=>{
-  order_setCoffees("checkOut", snapshot, fbV_CHECKOUTPATH);
+  if (snapshot.val() == null) {
+    document.getElementById("checkOutSection").style.display = "none";
+  } else {
+    document.getElementById("checkOutSection").style.display = "";
+    order_setCoffees("checkOut", snapshot, fbV_CHECKOUTPATH);}
 });
 
 //Loading defered styles
@@ -64,7 +68,7 @@ function order_displayCart(coffee, details, id) {
       <h3 class="order_name">${coffee}</h3>
       <p class="order_details">Size: ${details.size} | Qty: ${details.amount}</p>
       <h3 class="order_total">Total: ${currency.format(coffeeTotal)}</h3>
-      <p class=order_price>at ${currency.format(details.price)} each</p>
+      <p class=order_price>${currency.format(details.price)} each</p>
     </order-container>`
   //Calculating users total fees
   subtotal += coffeeTotal;

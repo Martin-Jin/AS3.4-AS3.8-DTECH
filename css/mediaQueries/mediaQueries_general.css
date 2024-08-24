@@ -3,7 +3,7 @@
 /*------------------------------------------------------------*/
 
 /*-- Scaling up font size --*/
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 600px) {
   :root {
     --headerSize: 3.7rem;
     --UIpadding: 1.5rem;
