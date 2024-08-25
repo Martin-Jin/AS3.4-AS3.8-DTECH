@@ -27,12 +27,13 @@ let currency = new Intl.NumberFormat('en-US', {
 /**************************************************************/
 //Reading on users orders, and displaying user order when is triggered
 fb_readOn(order_cartListener, fbV_cartDetails, fbR_procOrdersAll);
-fb_readOn(order_checkOutListener, '', (snapshot)=>{
+fb_readOn(order_checkOutListener, '', (snapshot) => {
   if (snapshot.val() == null) {
     document.getElementById("checkOutSection").style.display = "none";
   } else {
     document.getElementById("checkOutSection").style.display = "";
-    order_setCoffees("checkOut", snapshot, fbV_CHECKOUTPATH);}
+    order_setCoffees("checkOut", snapshot, fbV_CHECKOUTPATH);
+  }
 });
 
 //Loading defered styles
@@ -80,7 +81,9 @@ function order_displayCart(coffee, details, id) {
 //input: the .coffee data and the path is read from
 //called by: call back after reading order path or checkout path
 /*************************************************************/
+let hadDuplicates;
 function order_mergeCoffees(coffeeData, path) {
+  hadDuplicates = false;
   console.log("order_mergeCoffees()");
   let coffeeIds = Object.entries(coffeeData).map(([key, value]) => ({ key, value }));
   //Array that will stored coffees with no ids
@@ -90,6 +93,7 @@ function order_mergeCoffees(coffeeData, path) {
     const HYPHENINDEX = str.indexOf('-');
     return str.substring(0, HYPHENINDEX);
   }
+
   //Going through array with ids to remove the ids and put it in
   //array with no ids
   coffeeIds.forEach((coffee) => {
@@ -101,7 +105,6 @@ function order_mergeCoffees(coffeeData, path) {
   let mergedCoffees = [];
   //Stores all of the duplicates found
   let potentialDups = [];
-  let hadDuplicates = false;
   //Check for duplicates
   coffees.forEach((coffeeToCheck) => {
     skip = false;
@@ -168,9 +171,11 @@ function order_mergeCoffees(coffeeData, path) {
     for (i = 0; i < mergedCoffees.length; i++) {
       let coffee = mergedCoffees[i];
       fb_writeRec(path, fbV_userDetails.uid + "/" + coffee.key + "-" + i, coffee.value);
-      fb_readOn(order_cartListener, fbV_cartDetails, fbR_procOrdersAll);
     }
+
+    fb_readOn(order_cartListener, fbV_cartDetails, fbR_procOrdersAll);
   }
+  console.log(mergedCoffees);
   return mergedCoffees;
 }
 
@@ -182,19 +187,37 @@ function order_mergeCoffees(coffeeData, path) {
 function order_checkOut() {
   console.log("order_checkOut()")
   let allOrders;
-  fb_readRec(fbV_CARTPATH, fbV_userDetails.uid, allOrders, (snapshot) => {
-    allOrders = snapshot.val();
-    //writing this to check out
-    //then Wiping orders
-    fb_writeRec(fbV_CHECKOUTPATH, fbV_userDetails.uid, allOrders, () => { fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, null, ()=>{
-      //Renabling the order button if the user wants to checkout more
-      document.getElementById("submit").disabled = false;
-      inputs.forEach((input) => {
-        input.disabled = false;
-        if (input.type === 'radio' || input.type === 'checkbox') { input.checked = false; }
-      });
-    }); });
-  })
+  let allCheckOut;
+  fb_readRec(fbV_CHECKOUTPATH, fbV_userDetails.uid, allCheckOut, (snapshot) => {
+    //converts object to an array of objects
+    allCheckOut = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
+    fb_readRec(fbV_CARTPATH, fbV_userDetails.uid, allOrders, (snapshot) => {
+      //converts object to an array of objects
+      allOrders = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
+      //Add the two arrays together then merging any potential dups then writing this to the checkout
+      let updatedCheckOuts = {};
+      allOrders.forEach((order) => { updatedCheckOuts[order.key + Math.random()] = order.value });
+      allCheckOut.forEach((checkout) => { updatedCheckOuts[checkout.key + Math.random()] = checkout.value });
+      updatedCheckOuts = order_mergeCoffees(updatedCheckOuts, fbV_CHECKOUTPATH)
+      console.log(hadDuplicates);
+      if (!hadDuplicates) {
+        for (i = 0; i < updatedCheckOuts.length; i++) {
+          let coffee = updatedCheckOuts[i];
+          fb_writeRec(fbV_CHECKOUTPATH, fbV_userDetails.uid + "/" + coffee.key + "-" + i, coffee.value);
+        }
+      }
+      fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, null, () => {
+        //Renabling the order button if the user wants to checkout more
+        document.getElementById("submit").disabled = false;
+        inputs.forEach((input) => {
+          input.disabled = false;
+          if (input.type === 'radio' || input.type === 'checkbox') { input.checked = false; }
+        });
+      })
+
+    })
+  });
+
 }
 
 /*************************************************************/
