@@ -62,8 +62,20 @@ document.querySelectorAll("input[type='radio']").forEach((radio) => {
 function order_displayCart(coffee, details, id) {
   console.log("order_displayCart()");
   let coffeeTotal = details.price * details.amount;
-  //Adding in data
-  document.getElementById(id).innerHTML += `         
+  //Display different details if is in checkout section
+  if (details.collectionMethod != null) {
+    //Adding in data
+    document.getElementById(id).innerHTML += `         
+      <order-container>
+        <img src="${details.photo}" alt="coffee">
+        <h3 class="order_name">${coffee}</h3>
+        <p class="order_details">Size: ${details.size} | Qty: ${details.amount}</p>
+        <h3 class="order_total">Status: ${details.status}</h3>
+        <p class=order_price>Collection method: ${details.collectionMethod}</p>
+      </order-container>`
+  } else {
+    //Adding in data
+    document.getElementById(id).innerHTML += `         
     <order-container>
       <img src="${details.photo}" alt="coffee">
       <h3 class="order_name">${coffee}</h3>
@@ -71,6 +83,8 @@ function order_displayCart(coffee, details, id) {
       <h3 class="order_total">Total: ${currency.format(coffeeTotal)}</h3>
       <p class=order_price>${currency.format(details.price)} each</p>
     </order-container>`
+
+  }
   //Calculating users total fees
   subtotal += coffeeTotal;
 }
@@ -100,30 +114,12 @@ function order_mergeCoffees(coffeeData, path) {
     coffee.key = removeID(coffee.key);
     coffees.push(coffee);
   });
-  let skip = false;
   //Duplicates with merged amounts
   let mergedCoffees = [];
-  //Stores all of the duplicates found
-  let potentialDups = [];
-  //Check for duplicates
-  coffees.forEach((coffeeToCheck) => {
-    skip = false;
-    //Checking if this duplicate has already been checked
-    potentialDups.forEach((dup) => {
-      if (dup.key == coffeeToCheck.key) { skip = true; }
-    });
-    if (skip) { return };
-    coffees.forEach((coffee) => {
-      if (coffee.key == coffeeToCheck.key) {
-        //orders of the same coffee
-        //but may not be duplicates if users selected a different size
-        potentialDups.push(coffee);
-      }
-    });
-  });
   //Indexes to skip as they've been checked
   let skipIndex = [];
-  potentialDups.forEach((potential1, index1) => {
+  //check for dupliactes between coffees
+  coffees.forEach((potential1, index1) => {
     if (!skipIndex.includes(index1)) {
       let duplicatesTemp = [];
       //Create a clone potential as reference type so will just copy
@@ -132,7 +128,7 @@ function order_mergeCoffees(coffeeData, path) {
       //if it is then is a true duplicate
       let clonePotential1 = JSON.parse(JSON.stringify(potential1));
       delete clonePotential1.value.amount;
-      potentialDups.forEach((potential2) => {
+      coffees.forEach((potential2) => {
         let clonePotential2 = JSON.parse(JSON.stringify(potential2));
         delete clonePotential2.value.amount;
         if (JSON.stringify(clonePotential1) == JSON.stringify(clonePotential2)) {
@@ -150,13 +146,13 @@ function order_mergeCoffees(coffeeData, path) {
       if (combineCount > 1) {
         hadDuplicates = true;
       }
-      //Pushing the merged
+      //Pushing to the merged array
       let dupToPush = JSON.parse(JSON.stringify(duplicatesTemp[0]));
       dupToPush.value.amount = amount;
       mergedCoffees.push(dupToPush);
       //Removing these from potential array to be checked
       duplicatesTemp.forEach((dup) => {
-        potentialDups.filter((potential, index2) => {
+        coffees.forEach((potential, index2) => {
           if (JSON.stringify(dup) == JSON.stringify(potential)) { skipIndex.push(index2); }
         })
       })
@@ -183,23 +179,42 @@ function order_mergeCoffees(coffeeData, path) {
 //order_checkOut()
 //checks out the users order
 //called by: check out button
+//input: value of collection method by user
 /*************************************************************/
-function order_checkOut() {
+function order_checkOut(data) {
+  //Turning off read on for checkout temporarily to not mess with updating the checkout
+  order_checkOutListener.off();
   console.log("order_checkOut()")
   let allOrders;
   let allCheckOut;
+  //Get all the already checked out items
   fb_readRec(fbV_CHECKOUTPATH, fbV_userDetails.uid, allCheckOut, (snapshot) => {
-    //converts object to an array of objects
-    allCheckOut = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
+    //converts object to an array of objects if there are checked out items
+    allCheckOut = snapshot.val();
+    if (allCheckOut != null) {
+      allCheckOut = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
+      console.log(JSON.stringify(allCheckOut));
+    }
+    //Get all the items in the cart
     fb_readRec(fbV_CARTPATH, fbV_userDetails.uid, allOrders, (snapshot) => {
       //converts object to an array of objects
       allOrders = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
-      //Add the two arrays together then merging any potential dups then writing this to the checkout
+      console.log(JSON.stringify(allOrders));
+      //Add the two arrays together then merging duplicates
       let updatedCheckOuts = {};
-      allOrders.forEach((order) => { updatedCheckOuts[order.key + Math.random()] = order.value });
-      allCheckOut.forEach((checkout) => { updatedCheckOuts[checkout.key + Math.random()] = checkout.value });
+      allOrders.forEach((order) => {
+        //Adding in the delivery options that the user chose
+        order.value.collectionMethod = data.collectionMethod;
+        order.value.status = "Not ready";
+        updatedCheckOuts[order.key + Math.random()] = order.value
+      });
+      if (allCheckOut != null) {
+        allCheckOut.forEach((checkout) => { updatedCheckOuts[checkout.key + Math.random()] = checkout.value });
+      }
+      console.log("The added together array is: " + JSON.stringify(updatedCheckOuts));
       updatedCheckOuts = order_mergeCoffees(updatedCheckOuts, fbV_CHECKOUTPATH)
-      console.log(hadDuplicates);
+      //If there are no duplicates need to manually update firebase
+      //only when there are duplicates does the merge function automatically do this 
       if (!hadDuplicates) {
         for (i = 0; i < updatedCheckOuts.length; i++) {
           let coffee = updatedCheckOuts[i];
@@ -212,6 +227,15 @@ function order_checkOut() {
         inputs.forEach((input) => {
           input.disabled = false;
           if (input.type === 'radio' || input.type === 'checkbox') { input.checked = false; }
+        });
+        //Turning on read on again
+        fb_readOn(order_checkOutListener, '', (snapshot) => {
+          if (snapshot.val() == null) {
+            document.getElementById("checkOutSection").style.display = "none";
+          } else {
+            document.getElementById("checkOutSection").style.display = "";
+            order_setCoffees("checkOut", snapshot, fbV_CHECKOUTPATH);
+          }
         });
       })
 
@@ -274,8 +298,8 @@ function order_show(show) {
   })
 }
 
-function form_callBack() {
+function form_callBack(data) {
   console.log("form_callBack()");
-  order_checkOut();
+  order_checkOut(data);
 }
 
