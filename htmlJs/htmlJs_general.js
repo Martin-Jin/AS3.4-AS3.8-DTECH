@@ -9,7 +9,7 @@ console.log('%c' + MODULENAME, 'color: red;');
 /**************************************************************/
 //hrefs
 const REPL = "https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/";
-const HOME = "https://965664d1-26da-4790-a3f6-439acbe51fc1-00-xx2eye1rpjbg.riker.replit.dev/index.html"
+const HOME = "http://127.0.0.1:5500/index.html";
 
 //Array of coffee
 const coffee1 = { image: '/images/images_coffee/coffee_1.jpg', alt: 'coffee1', price: 3.50, name: 'Latte', about: 'A classic Italian coffee drink. This drink is known for its smooth and velvety texture and its balance of espresso and steamed milk, creating a perfect harmony of flavors.', ingredients: 'Espresso and steamed milk.' };
@@ -62,7 +62,7 @@ function general_checkLogin() {
     alert("Please login in if you wish to access anymore features on this website. This is on the navbar. If you cannot see it, is in the dropdown menu.")
   }
   if (fbV_loginStatus != 'logged in') {
-    if (window.location.href == HOME || window.location.href == REPL) {
+    if (window.location.href == HOME) {
       //Select all buttons and links then disable them.
       const buttons = document.querySelectorAll('button');
       const links = document.querySelectorAll('a');
