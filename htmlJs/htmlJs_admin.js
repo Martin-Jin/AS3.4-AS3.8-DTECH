@@ -31,9 +31,12 @@ function admin_displayAll(snapshot) {
     let name;
     let address;
     //Find the users name with UID
-    loginDetails.forEach((loginDetail) => {
+    loginDetails.forEach((loginDetail, index) => {
       if (loginDetail.key == uid) {
+        // Removing the login detail thats already been checked inorder
         name = loginDetail.value.displayName;
+        // to save time
+        loginDetails.splice(index, 1);
       }
     })
     //Find the users address with UID
@@ -42,6 +45,7 @@ function admin_displayAll(snapshot) {
         address = registrationDetail.value.street + ", " + registrationDetail.value.suburb + ", " + registrationDetail.value.post + ", " + registrationDetail.value.city;
       }
     })
-    NAME_COL.innerHTML += ``
+    NAME_COL.innerHTML += name;
+    ADDRESS_COL.innerHTML += address;
   })
 }
