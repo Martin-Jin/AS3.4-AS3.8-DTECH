@@ -1,0 +1,41 @@
+/*------------------------------------------------------------*
+  styling for admin page
+/*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+    /* Padding */
+    --tablePadding: calc(var(--UIpadding) * 0.5);
+}
+
+/*-- table *******************************************--*/
+table {
+    background-color: var(--backGroundLightDark);
+}
+
+th,
+td,
+table {
+    border: 2px solid var(--backGroundDark);
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: var(--tablePadding);
+}
+
+th {
+    color: var(--text);
+}
+
+td {
+    color: var(--textLight);
+}
+
+body {
+    background-image: url(/images/images_bg/bg_order.jpg);
+    background-color: white;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

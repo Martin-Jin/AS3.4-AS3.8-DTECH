@@ -49,7 +49,9 @@ general_checkLogin();
 function general_checkLogin() {
   console.log("general_checkLogin()");
   console.log("The user is: " + fbV_loginStatus);
-  if(location.href.includes("register.html")) {return};
+  // Ignore login status if is registration page or admin page because there are no navbars there
+  // so no need to change the buttons
+  if(location.href.includes("register.html") || location.href.includes("admin.html")) {return};
   if (fbV_loginStatus == 'logged in') {
     general_checkReg();
     document.getElementById("signInBtn").onclick = (() => { fb_logout(); });

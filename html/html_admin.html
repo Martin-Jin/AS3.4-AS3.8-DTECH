@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-  <title>HVHS coffee house</title>
+  <title>HVHS coffee house admin page</title>
   <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
   <meta charset="UTF-8">
-  <meta name="description" content="Coffee product">
+  <meta name="description" content="Admin page">
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
-  <link rel="stylesheet" href="/css/css_form.css">
-  <link rel="stylesheet" href="/css/css_order.css">
+  <link rel="stylesheet" href="/css/css_admin.css">
 
   <!-- icons -->
   <script defer src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
@@ -34,31 +33,34 @@
   <!-- javascript(s) *******************************************-->
   <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
-  <script defer src="/htmlJs/htmlJs_form.js"></script>
-  <script defer src="/htmlJs/htmlJs_order.js"></script>
+  <script defer src="/htmlJs/htmlJs_admin.js"></script>
 </head>
 <!--*************************************************************
    BODY
  **************************************************************-->
 
 <body>
-   <!-- Contains all of the orders  -->
-   <table>
-     <tr id="categories">
-       <th>Coffee details</th>
-       <th>UID</th>
-       <th>Name</th>
-       <th>Address</th>
-     </tr>
-     <tr id="coffee">
-     </tr>
-     <tr id="uid">
-     </tr>
-     <tr id="name">
-     </tr>
-     <tr id="address">
-     </tr>
-   </table>
+  <!-- Contains all of the orders  -->
+  <table class="center" id="table">
+    <tr id="categories">
+      <th>Coffee image</th>
+      <th>Coffee name</th>
+      <th>User</th>
+      <th>Size</th>
+      <th>Amount</th>
+      <th>Address</th>
+      <th>collectionMethod</th>
+    </tr>
+    <tr id="row1">
+      <td id="img">img</td>
+      <td id="name">name</td>
+      <td id="user">user</td>
+      <td id="size">size</td>
+      <td id="amount">amount</td>
+      <td id="address">address</td>
+      <td id="collectionMethod">collectionMethod</td>
+    </tr>
+  </table>
 </body>
 
 </html>
