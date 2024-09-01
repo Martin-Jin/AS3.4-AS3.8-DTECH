@@ -127,7 +127,7 @@ function general_checkAdmin() {
       fbV_adminStatus = true;
       document.getElementById("logo").onclick = () => { window.location = '/html/html_admin.html' };
     }
-    else{
+    else {
       fbV_adminStatus = false;
     }
     console.log("Admin status: " + fbV_adminStatus);
