@@ -96,8 +96,12 @@ function fbR_procOrdersAll(snapshot, save) {
   else { document.getElementById("cartHeader").innerHTML = `Shopping cart`; order_show(true) }
   readStatus = "OK";
   save = snapshot.val();
+  //Resetting the users summary if reading orders and not checkout
+  let allOrders = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
+  if (allOrders[0].value.collectionMethod == null) {
+    subtotal = 0;
+  }
   order_setCoffees("cart", snapshot, fbV_CARTPATH);
-
   order_summary();
   console.log(save);
   console.log('fbR_procOrdersAll: status = ' + readStatus);
