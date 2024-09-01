@@ -24,7 +24,6 @@ function fbR_procUserLogin(user, save) {
 
   //Changing the html for when users are logged in
   general_checkLogin();
-  //Saving login status and details
   manager_saveValues();
   //alert the user they have logged in
   alert("You have successfully logged in.");

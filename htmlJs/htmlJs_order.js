@@ -44,7 +44,7 @@ document.querySelectorAll("input[type='radio']").forEach((radio) => {
   radio.addEventListener("change", () => {
     if (radio.checked) {
       document.getElementById("submit").style.display = "block";
-      if (radio.value == "delivery") {
+      if (radio.value == "Delivery") {
         delivery = 5;
       }
       else { delivery = 0; }

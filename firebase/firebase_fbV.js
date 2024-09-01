@@ -11,6 +11,7 @@ const fbV_REGISTRATIONPATH = "userDetails/registrationDetails"; //<=============
 const fbV_LOGINDETAILSPATH = "userDetails/loginDetails"; //<=============== Firebase paths
 const fbV_CARTPATH = "userDetails/cartDetails"; //<=============== Firebase paths
 const fbV_CHECKOUTPATH = "userDetails/checkOut"; //<=============== Firebase paths
+const fbV_ROLESPATH = "userRoles"
 
 let fbV_userDetails = { //<=============== Object to store the details of the current user
   uid: '',
@@ -33,7 +34,7 @@ let fbV_cartDetails = [] // array of whats in the users cart
 // login status of the user
 let fbV_loginStatus = 'not logged in';
 let fbV_registerStatus = 'not registered';
-let fbV_adminStatus = 'false';
+let fbV_adminStatus = false;
 
 let fbV_dataBase;
 const fbV_APIKEY = "AIzaSyASbBs9pp5P2RH-xZEWKASHC9-IwveMSVs";

@@ -7,8 +7,9 @@
     --tablePadding: calc(var(--UIpadding) * 0.5);
     --img: calc(var(--UISize) * 0.9);
     --formPadding: calc(var(--UIpadding) * 2);
-    --pagePadding: calc(var(--UIpadding) * 4);  
+    --pagePadding: calc(var(--UIpadding) * 4);
 }
+
 /* Body styling */
 
 body {
@@ -27,6 +28,7 @@ body {
 /*-- table *******************************************--*/
 table * {
     border-radius: var(--UIRadius);
+    color:white !important;
 }
 
 table {
@@ -66,4 +68,11 @@ td {
     align-items: center;
     height: 100%;
     gap: var(--UIMargin);
+}
+
+.table_header {
+    border: 2px solid var(--backGroundDark);    
+    border-radius: var(--UIRadius);
+    background-color: var(--backGroundLightDark);
+    padding: var(--UIpadding);
 }

@@ -36,7 +36,8 @@ fbR_initialise();
 manager_getValues();
 //Loads defered links
 general_loadDeferLinks();
-//Checking registration and login
+//Checking registration and login as well as admin
+general_checkAdmin();
 general_checkLogin();
 
 /**************************************************************/
@@ -49,9 +50,9 @@ general_checkLogin();
 function general_checkLogin() {
   console.log("general_checkLogin()");
   console.log("The user is: " + fbV_loginStatus);
-  // Ignore login status if is registration page or admin page because there are no navbars there
+  // Ignore login status if is registration page because there are no navbars there
   // so no need to change the buttons
-  if(location.href.includes("register.html") || location.href.includes("admin.html")) {return};
+  if (location.href.includes("register.html")) { return };
   if (fbV_loginStatus == 'logged in') {
     general_checkReg();
     document.getElementById("signInBtn").onclick = (() => { fb_logout(); });
@@ -113,6 +114,24 @@ function general_checkReg() {
       }
     })
   }
+}
+
+/*************************************************************/
+//general_checkAdmin()
+//checks if user it's an admin
+/*************************************************************/
+function general_checkAdmin() {
+  console.log("general_checkAdmin();");
+  fb_readRec(fbV_ROLESPATH, fbV_userDetails.uid, '', (snapshot) => {
+    if (snapshot.val() != null) {
+      fbV_adminStatus = true;
+      document.getElementById("logo").onclick = () => { window.location = '/html/html_admin.html' };
+    }
+    el
+      fbV_adminStatus = false;
+    }
+    console.log("Admin status: " + fbV_adminStatus);
+  });
 }
 
 /**************************************************************/

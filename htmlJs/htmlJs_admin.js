@@ -56,7 +56,6 @@ function admin_displayAll(snapshot) {
     registrationDetails = Object.entries(snapshot.val().registrationDetails).map(([key, value]) => ({ key, value }));
     // After getting login details and registration details display the users order
     allOrders.forEach((userOrder, index) => {
-      console.log(userOrder);
       let uid = userOrder.key;
       let name;
       let address;
