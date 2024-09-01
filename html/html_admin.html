@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-  <title>HVHS coffee house</title>
+  <title>HVHS coffee house admin page</title>
   <link rel="icon" type="image/x-icon" href="/images/images_logo.png">
   <meta charset="UTF-8">
-  <meta name="description" content="Coffee product">
+  <meta name="description" content="Admin page">
   <meta name="author" content="Martin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- stylesheet(s) *******************************************-->
   <link rel="stylesheet" href="/css/css_general.css">
-  <link rel="stylesheet" href="/css/css_form.css">
-  <link rel="stylesheet" href="/css/css_order.css">
+  <link rel="stylesheet" href="/css/css_admin.css">
 
   <!-- icons -->
   <script defer src="https://kit.fontawesome.com/114242e79f.js" crossorigin="anonymous"></script>
@@ -34,31 +33,80 @@
   <!-- javascript(s) *******************************************-->
   <script defer src="/htmlJs/htmlJs_manager.js"></script>
   <script defer src="/htmlJs/htmlJs_general.js"></script>
-  <script defer src="/htmlJs/htmlJs_form.js"></script>
-  <script defer src="/htmlJs/htmlJs_order.js"></script>
+  <script defer src="/htmlJs/htmlJs_admin.js"></script>
 </head>
 <!--*************************************************************
    BODY
  **************************************************************-->
 
 <body>
-   <!-- Contains all of the orders  -->
-   <table>
-     <tr id="categories">
-       <th>Coffee details</th>
-       <th>UID</th>
-       <th>Name</th>
-       <th>Address</th>
-     </tr>
-     <tr id="coffee">
-     </tr>
-     <tr id="uid">
-     </tr>
-     <tr id="name">
-     </tr>
-     <tr id="address">
-     </tr>
-   </table>
+  <!-- navBar -->
+  <nav id="nav_desktop">
+    <a href="/../index.html" class="active" aria-label="home button">
+      <span>Home</span> <i class="fa-solid fa-house-user" aria-hidden="true"></i>
+    </a>
+    <!-- regular buttons thats displayed -->
+    <a href="/../index.html#aboutSection" aria-label="about us button">
+      <span>About us</span> <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
+    </a>
+    <a href="" aria-label="contact us button">
+      <span>Contact us</span> <i class="fa-solid fa-phone" aria-hidden="true"></i>
+    </a>
+    <!-- logo for navbar -->
+    <img src="/images/images_logo.png" alt="logo" id="logo">
+    <a href="/../index.html#recommendedSection" aria-label="products button">
+      <span>Products</span> <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+    </a>
+    <a href="/html/html_orders.html" aria-label="orders button">
+      <span>Orders</span> <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+    </a>
+    <!-- sign in button needs to be in a container so its width can be customised -->
+    <flex-container>
+      <a id="signInBtn" onclick="" aria-label="sign in button">
+        <span>Sign in</span> <i class="fas fa-user" aria-hidden="true"></i>
+      </a>
+    </flex-container>
+    <!-- navBar for mobile -->
+    <container-dropdown id="nav_dropdown">
+      <button onclick="document.getElementById('dropDown').classList.toggle('show');" id="dropDownBtn"
+        aria-label="dropdown button">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <dropdown-content id="dropDown">
+        <a href="/../index.html#aboutSection" aria-label="about us button">
+          About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
+        </a><a href="" aria-label="contact us button">
+          Contact us <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        </a><a href="/../index.html#recommendedSection" aria-label="products button">
+          Products <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+        </a><a href="/html/html_orders.html" aria-label="orders button">
+          Orders <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+        </a>
+        <a id="dropDownSignIn" aria-label="sign in button">
+          Sign in <i class="fas fa-user" aria-hidden="true"></i>
+        </a>
+      </dropdown-content>
+    </container-dropdown>
+  </nav>
+  <!-- Contains all of the orders  -->
+  <section id="main">
+    <flex-container id="tableContatiner">
+      <flex-container class="table_header">
+        <h1>Uncompleted orders</h1>
+      </flex-container>
+      <table>
+        <tbody id="orders">
+        </tbody>
+      </table>
+      <flex-container class="table_header">
+        <h1>Completed orders</h1>
+      </flex-container>
+      <table>
+        <tbody id="readyOrders">
+        </tbody>
+      </table>
+    </flex-container>
+  </section>
 </body>
 
 </html>

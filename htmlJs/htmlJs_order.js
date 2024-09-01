@@ -44,7 +44,7 @@ document.querySelectorAll("input[type='radio']").forEach((radio) => {
   radio.addEventListener("change", () => {
     if (radio.checked) {
       document.getElementById("submit").style.display = "block";
-      if (radio.value == "delivery") {
+      if (radio.value == "Delivery") {
         delivery = 5;
       }
       else { delivery = 0; }
@@ -83,10 +83,10 @@ function order_displayCart(coffee, details, id) {
       <h3 class="order_total">Total: ${currency.format(coffeeTotal)}</h3>
       <p class=order_price>${currency.format(details.price)} each</p>
     </order-container>`
-
+    // Only calculate subtotal if the order hasen't been checked out
+    // other wise displaying checkout orders mess with the summary
+    subtotal += coffeeTotal;
   }
-  //Calculating users total fees
-  subtotal += coffeeTotal;
 }
 
 /*************************************************************/
@@ -216,10 +216,13 @@ function order_checkOut(data) {
       //If there are no duplicates need to manually update firebase
       //only when there are duplicates does the merge function automatically do this 
       if (!hadDuplicates) {
+        let allCoffee = {};
         for (i = 0; i < updatedCheckOuts.length; i++) {
+          console.log(updatedCheckOuts);
           let coffee = updatedCheckOuts[i];
-          fb_writeRec(fbV_CHECKOUTPATH, fbV_userDetails.uid + "/" + coffee.key + "-" + i, coffee.value);
+          allCoffee[coffee.key + "-" + i] = coffee.value;
         }
+        fb_writeRec(fbV_CHECKOUTPATH, fbV_userDetails.uid + "/", allCoffee);
       }
       fb_writeRec(fbV_CARTPATH, fbV_userDetails.uid, null, () => {
         //Renabling the order button if the user wants to checkout more
@@ -254,8 +257,6 @@ function order_checkOut(data) {
 function order_setCoffees(id, snapshot, path) {
   console.log("order_setCoffees()");
   let mergedCoffees = order_mergeCoffees(snapshot.val(), path);
-  //First clearing the cart thats displayed and also variables
-  subtotal = 0;
   let cart = document.getElementById(id);
   while (cart.hasChildNodes()) {
     cart.removeChild(cart.firstChild)

@@ -83,7 +83,7 @@ button,
 radio-button,
 a,
 input,
-label {
+label, table {
   text-align: center;
   display: block;
   font-family: "Aleo", serif;
@@ -411,7 +411,8 @@ radio-container,
 footer,
 #aboutSection,
 #recommendedSection,
-form {
+form,
+table {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -465,7 +466,8 @@ radio-container label i {
   margin-left: calc(var(--labelMargin) / 2);
 }
 
-radio-button, increment-button{
+radio-button,
+increment-button {
   color: var(--backGroundLight) !important;
   background-color: var(--backGroundDark) !important;
   display: flex;
@@ -478,6 +480,7 @@ radio-button, increment-button{
 radio-button {
   cursor: auto !important;
 }
+
 /*-- footer *******************************************--*/
 footer {
   background-color: var(--backGroundLight);

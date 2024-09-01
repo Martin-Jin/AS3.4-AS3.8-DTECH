@@ -1,0 +1,78 @@
+/*------------------------------------------------------------*
+  styling for admin page
+/*------------------------------------------------------------*/
+/*-- variables *******************************************--*/
+:root {
+    /* Padding */
+    --tablePadding: calc(var(--UIpadding) * 0.5);
+    --img: calc(var(--UISize) * 0.9);
+    --formPadding: calc(var(--UIpadding) * 2);
+    --pagePadding: calc(var(--UIpadding) * 4);
+}
+
+/* Body styling */
+
+body {
+    background-image: url(/images/images_bg/bg_order.jpg);
+    background-color: white;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#main {
+    padding: var(--pagePadding) var(--formPadding) var(--pagePadding) var(--formPadding);
+}
+
+/*-- table *******************************************--*/
+table * {
+    border-radius: var(--UIRadius);
+    color:white !important;
+}
+
+table {
+    table-layout: auto;
+    background-color: var(--backGroundLightDark);
+    border-collapse: collapse;
+    max-width: 90%;
+}
+
+table img {
+    width: 100%;
+    object-fit: cover;
+    height: var(--img);
+    width: var(--img);
+
+}
+
+th,
+td {
+    border: 2px solid var(--backGroundDark);
+    padding: var(--tablePadding);
+}
+
+th {
+    color: var(--text);
+}
+
+td {
+    color: var(--textLight);
+}
+
+.admin_button {
+    margin: auto;
+}
+
+#tableContatiner {
+    align-items: center;
+    height: 100%;
+    gap: var(--UIMargin);
+}
+
+.table_header {
+    border: 2px solid var(--backGroundDark);    
+    border-radius: var(--UIRadius);
+    background-color: var(--backGroundLightDark);
+    padding: var(--UIpadding);
+}

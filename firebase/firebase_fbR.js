@@ -24,7 +24,6 @@ function fbR_procUserLogin(user, save) {
 
   //Changing the html for when users are logged in
   general_checkLogin();
-  //Saving login status and details
   manager_saveValues();
   //alert the user they have logged in
   alert("You have successfully logged in.");
@@ -96,8 +95,12 @@ function fbR_procOrdersAll(snapshot, save) {
   else { document.getElementById("cartHeader").innerHTML = `Shopping cart`; order_show(true) }
   readStatus = "OK";
   save = snapshot.val();
+  //Resetting the users summary if reading orders and not checkout
+  let allOrders = Object.entries(snapshot.val()).map(([key, value]) => ({ key, value }));
+  if (allOrders[0].value.collectionMethod == null) {
+    subtotal = 0;
+  }
   order_setCoffees("cart", snapshot, fbV_CARTPATH);
-
   order_summary();
   console.log(save);
   console.log('fbR_procOrdersAll: status = ' + readStatus);
