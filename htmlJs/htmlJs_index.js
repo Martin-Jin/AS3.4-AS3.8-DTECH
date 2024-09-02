@@ -15,10 +15,10 @@ let index_slideIndex = -1;
 /**************************************************************/
 //Only add the onclick to login when user loads in and firebase is initialised
 //unless user is already is signed in
-fbR_initialise(function() {
-  if (fbV_loginStatus == "logged in") {return;}
-  document.getElementById("signInBtn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
-  document.getElementById("dropDownSignIn").onclick = function() { fb_login(fbV_userDetails, fbR_procUserLogin) }
+fbR_initialise(function () {
+  if (fbV_loginStatus == "logged in") { return; }
+  document.getElementById("signInBtn").onclick = function () { fb_login(fbV_userDetails, fbR_procUserLogin) }
+  document.getElementById("dropDownSignIn").onclick = function () { fb_login(fbV_userDetails, fbR_procUserLogin) }
 });
 
 /**************************************************************/
@@ -45,8 +45,28 @@ function index_displaySlide(index) {
   prev_img.src = img;
   prev_img.alt = alt;
   //Getting the button and putting in the new coffee
-  document.getElementById("slideButton").onclick = function() { general_showProduct(new_img) };
+  document.getElementById("slideButton").onclick = function () { general_showProduct(new_img) };
 }
+
+// Slide show dragging code
+const SLIDE = document.getElementById("slide");
+
+let dragStart = false;
+const isDragStart = () => {
+  dragStart = true;
+}
+const dragging = (e) => {
+  console.log(e.pageX);
+  if (!isDragStart) return;
+  e.preventDeafult();
+  SLIDE.scrollLeft = e.pageX;
+}
+const dragStop = () => { dragStart = false };
+
+// Even listeners for dargging behaviour
+SLIDE.addEventListener("mousedown", isDragStart);
+SLIDE.addEventListener("mousemove", dragging);
+SLIDE.addEventListener("mouseup", dragStop);
 /**************************************************************/
 // END OF MODULE
 /**************************************************************/

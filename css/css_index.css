@@ -98,6 +98,7 @@ h3 {
 #browseButton {
   font-size: var(--pMedium);
 }
+
 /*-- text related stlying *******************************************--*/
 #slideText {
   max-width: var(--offersContainer);
@@ -110,7 +111,7 @@ h3 {
 }
 
 /*-- icons *******************************************--*/
-#slideIcon{
+#slideIcon {
   font-size: var(--indexIconSize);
   color: var(--subtitle);
   grid-area: icon;
@@ -147,7 +148,9 @@ container-about {
   background-color: var(--backGroundDark);
 }
 
-#recommendedSection, #aboutSection, #slideSection{
+#recommendedSection,
+#aboutSection,
+#slideSection {
   padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
 }
 
@@ -196,7 +199,7 @@ container-about img {
 
 #aboutSection p {
   line-height: var(--UILineHeight);
-} 
+}
 
 
 container-aboutText {
@@ -233,7 +236,7 @@ container-product {
   max-width: var(--productSize);
 }
 
-container-product + button {
+container-product+button {
   width: fit-content;
   margin: auto;
 }
@@ -252,12 +255,12 @@ container-product img {
 }
 
 /*-- Adding padding around the text container --*/
-container-product > flex-container {
+container-product>flex-container {
   padding: var(--productPadding);
 }
 
 /*-- Adding margin under each p tag  --*/
-container-product > flex-container > p:first-of-type {
+container-product>flex-container>p:first-of-type {
   margin-bottom: var(--lineBreakHeight);
 }
 
@@ -425,4 +428,18 @@ discount-container p {
 #slideImage {
   object-fit: cover;
   height: 100%;
+}
+
+/* Draggable slide show */
+#slide {
+  /* Grid container */
+  justify-content: center;
+}
+
+#slide img {
+  max-width: 200px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--UIRadius) var(--UIRadius) 0 0;   
 }
