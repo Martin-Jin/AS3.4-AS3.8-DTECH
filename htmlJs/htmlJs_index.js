@@ -52,21 +52,32 @@ function index_displaySlide(index) {
 const SLIDE = document.getElementById("slide");
 
 let dragStart = false;
-const isDragStart = () => {
-  dragStart = true;
-}
-const dragging = (e) => {
-  console.log(e.pageX);
-  if (!isDragStart) return;
-  e.preventDeafult();
-  SLIDE.scrollLeft = e.pageX;
-}
-const dragStop = () => { dragStart = false };
+let prevPageX, prevScrollLeft, positionDiff;
 
+const isDragStart = (e) => {
+  console.log("Initial position is: " + e.pageX);
+  dragStart = true;
+  prevPageX = e.pageX || e.touches[0].pageX;
+  prevScrollLeft = SLIDE.scrollLeft;
+}
+
+const dragging = (e) => {
+  // Only start dargging once user has clicked
+  if (!dragStart) { return };
+  // How much the slide scrolls depends on
+  // the difference between the initial mouse position
+  // and when the user is dragging it, as well as the original slide position
+  positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+  SLIDE.scrollLeft = prevScrollLeft - positionDiff;
+
+}
 // Even listeners for dargging behaviour
 SLIDE.addEventListener("mousedown", isDragStart);
+SLIDE.addEventListener("touchstart", isDragStart);
 SLIDE.addEventListener("mousemove", dragging);
-SLIDE.addEventListener("mouseup", dragStop);
+SLIDE.addEventListener("touchmove", dragging);
+SLIDE.addEventListener("mouseup", () => { dragStart = false });
+SLIDE.addEventListener("touchup", () => { dragStart = false });
 /**************************************************************/
 // END OF MODULE
 /**************************************************************/

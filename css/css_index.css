@@ -431,15 +431,32 @@ discount-container p {
 }
 
 /* Draggable slide show */
-#slide {
-  /* Grid container */
-  justify-content: center;
+#allProducts {
+  max-width: fit-content;
+  margin: auto;
 }
 
-#slide img {
+#allProducts,
+slide-container {
+  overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+slide-container {
+  gap: var(--UISpacing);
+  padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
+}
+
+slide-container img {
+  margin-left: var(--UISpacing);
   max-width: 200px;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: var(--UIRadius) var(--UIRadius) 0 0;   
+  border-radius: var(--UIRadius);
+}
+
+slide-container:first-child {
+  margin-left: 0;
 }
