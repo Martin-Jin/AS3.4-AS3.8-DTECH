@@ -148,7 +148,7 @@ container-about {
   background-color: var(--backGroundDark);
 }
 
-#recommendedSection,
+#allProducts,
 #aboutSection,
 #slideSection {
   padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
@@ -226,6 +226,7 @@ container-about img {
   grid-gap: var(--UISpacing);
   flex-direction: row;
   flex-wrap: wrap;
+  padding: calc(var(--UIpadding) * 2) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
 }
 
 container-product {
@@ -268,7 +269,7 @@ container-product p {
   color: white;
 }
 
-#recommendedSection h1 {
+#allProducts h1 {
   margin-bottom: var(--UIpadding);
 }
 
@@ -432,27 +433,34 @@ discount-container p {
 
 /* Draggable slide show */
 #allProducts {
-  max-width: fit-content;
+  max-width: 100vw;
   margin: auto;
+  padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 2) var(--UIpadding);
 }
 
 #allProducts,
-slide-container {
+#allProducts * {
   overflow: hidden;
   cursor: pointer;
   white-space: nowrap;
 }
 
+#allProducts h1 {
+  margin-bottom: var(--UIpadding);
+}
+
 slide-container {
-  gap: var(--UISpacing);
-  padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
+  padding: var(--UISpacing);
+}
+
+slide-container img:hover {
+  transform: scale(1.05);
 }
 
 slide-container img {
   margin-left: var(--UISpacing);
-  max-width: 200px;
-  height: 100%;
-  width: 100%;
+  max-width: var(--productSize);
+  height: 50vh;
   object-fit: cover;
   border-radius: var(--UIRadius);
 }
