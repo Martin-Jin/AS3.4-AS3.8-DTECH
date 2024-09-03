@@ -71,6 +71,10 @@ body {
   background-color: transparent;
   transition: 0.2s;
   box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 /*-- font *******************************************--*/

@@ -322,7 +322,7 @@ slide-coffee,
 }
 
 slide-coffee,
-#darkFilter {
+.darkFilter {
   position: relative;
 }
 
@@ -331,18 +331,18 @@ slide-coffee {
   height: var(--slideHeight);
 }
 
-#darkFilter {
+.darkFilter {
   height: 100%;
 }
 
-slide-coffee:hover>#darkFilter {
+slide-coffee:hover>.darkFilter {
   /*-- Lowering the brightness on hover --*/
   filter: brightness(40%);
   transition: all 1s ease;
 }
 
 /*-- displays button on hover --*/
-#darkFilter:hover+#slideHover,
+.darkFilter:hover+#slideHover,
 #slideHover:hover {
   display: flex;
 }
@@ -438,18 +438,21 @@ discount-container p {
   padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 2) var(--UIpadding);
 }
 
-#allProducts,
-#allProducts * {
-  overflow: hidden;
+#allProducts {
   cursor: pointer;
-  white-space: nowrap;
 }
 
 #allProducts h1 {
   margin-bottom: var(--UIpadding);
 }
 
+#allProducts,
 slide-container {
+  overflow: hidden;
+}
+
+slide-container {
+  white-space: nowrap;
   padding: var(--UISpacing);
 }
 
@@ -458,11 +461,24 @@ slide-container img:hover {
 }
 
 slide-container img {
-  margin-left: var(--UISpacing);
   max-width: var(--productSize);
   height: 50vh;
   object-fit: cover;
   border-radius: var(--UIRadius);
+}
+
+slide-container slide-coffee {
+  margin-left: var(--UISpacing);
+  display: inline-block;
+  max-width: var(--productSize);
+}
+
+slide-container slide-coffee * {
+  white-space: wrap;
+}
+
+slide-container slide-coffee p {
+  font-size: var(--offerP);
 }
 
 slide-container:first-child {
