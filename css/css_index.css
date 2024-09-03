@@ -98,6 +98,7 @@ h3 {
 #browseButton {
   font-size: var(--pMedium);
 }
+
 /*-- text related stlying *******************************************--*/
 #slideText {
   max-width: var(--offersContainer);
@@ -110,7 +111,7 @@ h3 {
 }
 
 /*-- icons *******************************************--*/
-#slideIcon{
+#slideIcon {
   font-size: var(--indexIconSize);
   color: var(--subtitle);
   grid-area: icon;
@@ -147,7 +148,9 @@ container-about {
   background-color: var(--backGroundDark);
 }
 
-#recommendedSection, #aboutSection, #slideSection{
+#allProducts,
+#aboutSection,
+#slideSection {
   padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
 }
 
@@ -196,7 +199,7 @@ container-about img {
 
 #aboutSection p {
   line-height: var(--UILineHeight);
-} 
+}
 
 
 container-aboutText {
@@ -223,6 +226,7 @@ container-about img {
   grid-gap: var(--UISpacing);
   flex-direction: row;
   flex-wrap: wrap;
+  padding: calc(var(--UIpadding) * 2) var(--UIpadding) calc(var(--UIpadding) * 4) var(--UIpadding);
 }
 
 container-product {
@@ -233,7 +237,7 @@ container-product {
   max-width: var(--productSize);
 }
 
-container-product + button {
+container-product+button {
   width: fit-content;
   margin: auto;
 }
@@ -252,12 +256,12 @@ container-product img {
 }
 
 /*-- Adding padding around the text container --*/
-container-product > flex-container {
+container-product>flex-container {
   padding: var(--productPadding);
 }
 
 /*-- Adding margin under each p tag  --*/
-container-product > flex-container > p:first-of-type {
+container-product>flex-container>p:first-of-type {
   margin-bottom: var(--lineBreakHeight);
 }
 
@@ -265,7 +269,7 @@ container-product p {
   color: white;
 }
 
-#recommendedSection h1 {
+#allProducts h1 {
   margin-bottom: var(--UIpadding);
 }
 
@@ -318,7 +322,7 @@ slide-coffee,
 }
 
 slide-coffee,
-#darkFilter {
+.darkFilter {
   position: relative;
 }
 
@@ -327,18 +331,18 @@ slide-coffee {
   height: var(--slideHeight);
 }
 
-#darkFilter {
+.darkFilter {
   height: 100%;
 }
 
-slide-coffee:hover>#darkFilter {
+slide-coffee:hover>.darkFilter {
   /*-- Lowering the brightness on hover --*/
   filter: brightness(40%);
   transition: all 1s ease;
 }
 
 /*-- displays button on hover --*/
-#darkFilter:hover+#slideHover,
+.darkFilter:hover+#slideHover,
 #slideHover:hover {
   display: flex;
 }
@@ -425,4 +429,58 @@ discount-container p {
 #slideImage {
   object-fit: cover;
   height: 100%;
+}
+
+/* Draggable slide show */
+#allProducts {
+  max-width: 100vw;
+  margin: auto;
+  padding: calc(var(--UIpadding) * 4) var(--UIpadding) calc(var(--UIpadding) * 2) var(--UIpadding);
+}
+
+#allProducts {
+  cursor: pointer;
+}
+
+#allProducts h1 {
+  margin-bottom: var(--UIpadding);
+}
+
+#allProducts,
+slide-container {
+  overflow: hidden;
+}
+
+slide-container {
+  white-space: nowrap;
+  padding: var(--UISpacing);
+}
+
+slide-container img:hover {
+  transform: scale(1.05);
+}
+
+slide-container img {
+  max-width: var(--productSize);
+  height: 50vh;
+  object-fit: cover;
+  border-radius: var(--UIRadius);
+}
+
+slide-container slide-coffee {
+  margin-left: var(--UISpacing);
+  display: inline-block;
+  max-width: var(--productSize);
+}
+
+slide-container slide-coffee * {
+  white-space: wrap;
+}
+
+slide-container slide-coffee p {
+  font-size: var(--offerP);
+}
+
+slide-container:first-child {
+  margin-left: 0;
 }
