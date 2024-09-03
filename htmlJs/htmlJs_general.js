@@ -125,7 +125,7 @@ function general_checkAdmin() {
   fb_readRec(fbV_ROLESPATH, fbV_userDetails.uid, '', (snapshot) => {
     if (snapshot.val() != null) {
       fbV_adminStatus = true;
-      document.getElementById("logo").onclick = () => { window.location = '/html/html_admin.html' };
+      if (!window.location.href.includes("register")){ document.getElementById("logo").onclick = () => { window.location = '/html/html_admin.html' }};
     }
     else {
       fbV_adminStatus = false;

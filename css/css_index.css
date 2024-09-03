@@ -81,8 +81,10 @@ nav {
   margin: 0;
 }
 
-#header {
-  grid-area: UIHeader;
+.index_sectionHeaders {
+  font-size: var(--headerSize);
+  color: var(--header);
+  font-weight: 400;
 }
 
 #subHeader {
@@ -269,7 +271,7 @@ container-product p {
   color: white;
 }
 
-#allProducts h1 {
+#allProducts h2 {
   margin-bottom: var(--UIpadding);
 }
 
@@ -317,7 +319,7 @@ container-product p {
 
 /*-- slide show *******************************************--*/
 slide-coffee,
-#slideImage {
+.slideImage {
   width: 100%;
 }
 
@@ -342,8 +344,8 @@ slide-coffee:hover>.darkFilter {
 }
 
 /*-- displays button on hover --*/
-.darkFilter:hover+#slideHover,
-#slideHover:hover {
+.darkFilter:hover+.slideHover,
+.slideHover:hover {
   display: flex;
 }
 
@@ -356,6 +358,10 @@ slide-coffee:hover>.darkFilter {
   grid-template-areas:
     'UIHeader icon'
     'UISubHeader  UISubHeader'
+}
+
+#slideHeader + h2{ 
+  grid-area: UIHeader;
 }
 
 #slideHeader img {
@@ -411,7 +417,7 @@ discount-container p {
 }
 
 /*-- Container for what to display when the slide show is hovered on --*/
-#slideHover {
+.slideHover {
   display: none;
   width: 100%;
   height: 100%;
@@ -426,7 +432,7 @@ discount-container p {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-#slideImage {
+.slideImage {
   object-fit: cover;
   height: 100%;
 }
@@ -442,7 +448,7 @@ discount-container p {
   cursor: pointer;
 }
 
-#allProducts h1 {
+#allProducts h2 {
   margin-bottom: var(--UIpadding);
 }
 

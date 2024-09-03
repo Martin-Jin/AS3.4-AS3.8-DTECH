@@ -61,8 +61,8 @@
       <a href="#aboutSection" aria-label="about us button">
         <span>About us</span> <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
       </a>
-      <a href="https://www.google.co.nz/maps/place/Hutt+Valley+High+School/@-41.2160906,174.8993626,16z/data=!3m1!4b1!4m6!3m5!1s0x6d38aa57e5ac1415:0xc606c1b8f3785888!8m2!3d-41.2160947!4d174.9019429!16zL20vMGN0c2Iy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank"
-        aria-label="Find us button">
+      <a href="https://www.google.co.nz/maps/place/Hutt+Valley+High+School/@-41.2160906,174.8993626,16z/data=!3m1!4b1!4m6!3m5!1s0x6d38aa57e5ac1415:0xc606c1b8f3785888!8m2!3d-41.2160947!4d174.9019429!16zL20vMGN0c2Iy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D"
+        target="_blank" aria-label="Find us button">
 
         <span>Find us</span> <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
       </a>
@@ -90,8 +90,8 @@
           <a href="/../index.html#aboutSection" aria-label="about us button">
             About us <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
           </a><a
-            href="https://www.google.co.nz/maps/place/Hutt+Valley+High+School/@-41.2160906,174.8993626,16z/data=!3m1!4b1!4m6!3m5!1s0x6d38aa57e5ac1415:0xc606c1b8f3785888!8m2!3d-41.2160947!4d174.9019429!16zL20vMGN0c2Iy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank"
-            aria-label="Find us button">
+            href="https://www.google.co.nz/maps/place/Hutt+Valley+High+School/@-41.2160906,174.8993626,16z/data=!3m1!4b1!4m6!3m5!1s0x6d38aa57e5ac1415:0xc606c1b8f3785888!8m2!3d-41.2160947!4d174.9019429!16zL20vMGN0c2Iy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank" aria-label="Find us button">
 
             Find us <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
           </a><a href="#allProducts" aria-label="products button">
@@ -109,10 +109,11 @@
     <!-- container for the header and button to center them -->
     <container-heading id="landingText">
       <!-- header and subtitle -->
-      <h1 id="landingHeader">Welcome to HVHS coffee house</h1>
+      <h1 class="index_sectionHeaders" id="landingHeader">Welcome to HVHS coffee house</h1>
       <h2 id="landingSub">Fresh coffee at your finger tips.</h2>
       <!-- browse button -->
-      <button onclick="window.location.href='#allProducts'" class='general_button' id="browseButton" aria-label="browse button">Browse our
+      <button onclick="window.location.href='#allProducts'" class='general_button' id="browseButton"
+        aria-label="browse button">Browse our
         coffee</button>
     </container-heading>
   </section>
@@ -127,8 +128,8 @@
     <section id="slideSection">
       <!-- header and subtitle -->
       <grid-container id="slideHeader">
-        <h1 id="header">
-          Special offers</h1>
+        <h2 class="index_sectionHeaders">
+          Special offers</h2>
         <i class="fa-solid fa-tag" aria-hidden="true" id="slideIcon"></i>
         <h2 id="subHeader">
           Get them while they last</h2>
@@ -137,15 +138,16 @@
         <!-- slide -->
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" src='/images/images_coffee/coffee_6.jpg' alt="coffee">
+            <img class="fadeAnnimation slideImage" id="slideImage" src='/images/images_coffee/coffee_6.jpg'
+              alt="coffee">
             <discount-container>
               <p class="aleo-bold center">99% off</p>
             </discount-container>
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
-              <p id="offerText"><span id="slidePrice">Original price: $1</span>
+            <p id="offerText"><span id="slidePrice">Original price: $1</span>
               <span id="slideDiscount">Now only: $0.1</span>
             </p>
             <button id="slideButton" class="general_button" aria-label="view coffee button"
@@ -251,108 +253,108 @@
     </section>
     <!-- Products section -->
     <section id="allProducts">
-      <h1>
+      <h2 class="index_sectionHeaders">
         All our products
-      </h1>
+      </h2>
       <slide-container id="slide">
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" draggable="false" src='/images/images_coffee/coffee_6.jpg'
+            <img class="fadeAnnimation slideImage" draggable="false" src='/images/images_coffee/coffee_6.jpg'
               alt="coffee">
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
               Frappuccino
             </p>
-            <button onclick="general_showProduct(coffee6)" id="slideButton" class="general_button"
-              aria-label="view coffee button">View now!</button>
+            <button onclick="general_showProduct(coffee6)" class="general_button" aria-label="view coffee button">View
+              now!</button>
           </hover-item>
         </slide-coffee>
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" draggable="false" src='/images/images_coffee/coffee_5.jpg'
+            <img class="fadeAnnimation slideImage" draggable="false" src='/images/images_coffee/coffee_5.jpg'
               alt="coffee">
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
               Mocha
             </p>
-            <button onclick="general_showProduct(coffee5)" id="slideButton" class="general_button"
-              aria-label="view coffee button">View now!</button>
+            <button onclick="general_showProduct(coffee5)" class="general_button" aria-label="view coffee button">View
+              now!</button>
           </hover-item>
         </slide-coffee>
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" draggable="false" src='/images/images_coffee/coffee_4.jpg'
+            <img class="fadeAnnimation slideImage" draggable="false" src='/images/images_coffee/coffee_4.jpg'
               alt="coffee">
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
               Americano
             </p>
-            <button onclick="general_showProduct(coffee4)" id="slideButton" class="general_button"
-              aria-label="view coffee button">View now!</button>
+            <button onclick="general_showProduct(coffee4)" class="general_button" aria-label="view coffee button">View
+              now!</button>
           </hover-item>
         </slide-coffee>
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" draggable="false" src='/images/images_coffee/coffee_3.jpg'
+            <img class="fadeAnnimation slideImage" draggable="false" src='/images/images_coffee/coffee_3.jpg'
               alt="coffee">
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
               Espresso
             </p>
-            <button onclick="general_showProduct(coffee3)" id="slideButton" class="general_button"
-              aria-label="view coffee button">View now!</button>
+            <button onclick="general_showProduct(coffee3)" class="general_button" aria-label="view coffee button">View
+              now!</button>
           </hover-item>
         </slide-coffee>
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" draggable="false" src='/images/images_coffee/coffee_2.jpg'
+            <img class="fadeAnnimation slideImage" draggable="false" src='/images/images_coffee/coffee_2.jpg'
               alt="coffee">
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
               Cappuccino
             </p>
-            <button onclick="general_showProduct(coffee2)" id="slideButton" class="general_button"
-              aria-label="view coffee button">View now!</button>
+            <button onclick="general_showProduct(coffee2)" class="general_button" aria-label="view coffee button">View
+              now!</button>
           </hover-item>
         </slide-coffee>
         <slide-coffee class="fadeAnnimation">
           <container-filter class="darkFilter">
-            <img class="fadeAnnimation" id="slideImage" src='/images/images_coffee/coffee_1.jpg' alt="coffee">
+            <img class="fadeAnnimation slideImage" src='/images/images_coffee/coffee_1.jpg' alt="coffee">
           </container-filter>
           <!-- whats displayed when user hovers over slide -->
-          <hover-item id="slideHover" class="center">
+          <hover-item class="slideHover center">
             <p>
               Latte
             </p>
-            <button onclick="general_showProduct(coffee1)" id="slideButton" class="general_button"
-              aria-label="view coffee button">View now!</button>
+            <button onclick="general_showProduct(coffee1)" class="general_button" aria-label="view coffee button">View
+              now!</button>
           </hover-item>
         </slide-coffee>
       </slide-container>
     </section>
     <!-- Recommended section -->
     <section id="recommendedSection">
-      <h1>
+      <h2 class="index_sectionHeaders">
         Recommended
-      </h1>
+      </h2>
       <flex-container id="productsContainer">
         <!-- product 1 -->
         <flex-container>
           <container-product id="index_product1">
             <img src='/images/images_coffee/coffee_1.jpg' alt="coffee">
             <flex-container>
-              <p><span-bold>- Latte:</span-bold> <span-thin>$3.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint
+              <p><span-bold>Latte:</span-bold> <span-thin>$3.99</span-thin></p>
+              <p><span-bold>About:</span-bold> <span-thin>This coffee is a blend of medium roast beans with a hint
                   of
                   chocolate and caramel notes.</span-thin></p>
             </flex-container>
@@ -365,8 +367,8 @@
           <container-product id="index_product2">
             <img src='/images/images_coffee/coffee_2.jpg' alt="coffee">
             <flex-container>
-              <p><span-bold>- Cappuccino:</span-bold> <span-thin>$2.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
+              <p><span-bold>Cappuccino:</span-bold> <span-thin>$2.99</span-thin></p>
+              <p><span-bold>About:</span-bold> <span-thin>This coffee is a bold blend with a smooth finish and hints
                   of
                   dark chocolate.</span-thin></p>
             </flex-container>
@@ -379,8 +381,8 @@
           <container-product id="index_product3">
             <img src='/images/images_coffee/coffee_3.jpg' alt="coffee">
             <flex-container>
-              <p><span-bold>- Espresso:</span-bold> <span-thin>$3.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
+              <p><span-bold>Espresso:</span-bold> <span-thin>$3.99</span-thin></p>
+              <p><span-bold>About:</span-bold> <span-thin>This coffee is a bright and fruity blend with notes of
                   citrus
                   and berries.</span-thin></p>
             </flex-container>
@@ -393,8 +395,8 @@
           <container-product id="index_product4">
             <img src='/images/images_coffee/coffee_4.jpg' alt="coffee">
             <flex-container>
-              <p><span-bold>- Americano:</span-bold> <span-thin>$4.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
+              <p><span-bold>Americano:</span-bold> <span-thin>$4.99</span-thin></p>
+              <p><span-bold>About:</span-bold> <span-thin>This coffee is a rich and full-bodied blend with notes of
                   dark
                   chocolate and nuts.</span-thin></p>
             </flex-container>
@@ -407,8 +409,8 @@
           <container-product id="index_product5">
             <img src='/images/images_coffee/coffee_5.jpg' alt="coffee">
             <flex-container>
-              <p><span-bold>- Mocha:</span-bold> <span-thin>$5.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
+              <p><span-bold>Mocha:</span-bold> <span-thin>$5.99</span-thin></p>
+              <p><span-bold>About:</span-bold> <span-thin>This coffee is a smooth and balanced blend with a hint of
                   sweetness.</span-thin></p>
             </flex-container>
           </container-product>
@@ -420,8 +422,8 @@
           <container-product id="index_product6">
             <img src='/images/images_coffee/coffee_6.jpg' alt="coffee">
             <flex-container>
-              <p><span-bold>- Frappuccino:</span-bold> <span-thin>$6.99</span-thin></p>
-              <p><span-bold>- About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
+              <p><span-bold>Frappuccino:</span-bold> <span-thin>$6.99</span-thin></p>
+              <p><span-bold>About:</span-bold> <span-thin>This coffee is a decaffeinated blend with a smooth and
                   mellow
                   flavor.</span-thin></p>
             </flex-container>
@@ -446,7 +448,8 @@
       <flex-container id="footer_links">
         <p class="aleo-bold text_underline">Links</p>
         <a href="https://hvhs.school.nz" target="_blank">Terms & service</a>
-        <a href="https://www.google.co.nz/maps/place/Hutt+Valley+High+School/@-41.2160906,174.8993626,16z/data=!3m1!4b1!4m6!3m5!1s0x6d38aa57e5ac1415:0xc606c1b8f3785888!8m2!3d-41.2160947!4d174.9019429!16zL20vMGN0c2Iy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Our loucation</a>
+        <a href="https://www.google.co.nz/maps/place/Hutt+Valley+High+School/@-41.2160906,174.8993626,16z/data=!3m1!4b1!4m6!3m5!1s0x6d38aa57e5ac1415:0xc606c1b8f3785888!8m2!3d-41.2160947!4d174.9019429!16zL20vMGN0c2Iy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank">Our loucation</a>
         <a href="https://hvhs.school.nz" target="_blank">Our school</a>
         <a href="https://hvhs.school.nz/staff-directory/" target="_blank">Our team</a>
         <a href="https://www.instagram.com/hvhsofficial/" target="_blank">Follow us</a>
@@ -455,7 +458,8 @@
         <p class="aleo-bold text_underline">Newsletter</p>
         <p>Subscribe to our newsletter to be the first to know about new products, sales, and promotions.</p>
         <input type="text" id="footer_email" placeholder="email@example.com" name="email">
-        <button onclick="alert('This feature is not yet avaliable.')"aria-label="subscribe button" class="general_button">Subscribe</button>
+        <button onclick="alert('This feature is not yet avaliable.')" aria-label="subscribe button"
+          class="general_button">Subscribe</button>
       </flex-container>
     </grid-container>
     <p id="footer_credit" class="aleo-bold">© Copyright 2024, HVHS | Martin Jin</p>
