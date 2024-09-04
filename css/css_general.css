@@ -565,3 +565,7 @@ input:focus::placeholder {
   width: fit-content;
   margin: var(--buttonMargin) auto auto auto;
 }
+
+#footer_newsletter label {
+  display: none;
+}
