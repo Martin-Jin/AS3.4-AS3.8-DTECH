@@ -24,7 +24,12 @@ p {
   width: 100%;
 }
 
-h1,
+.header {
+  margin: auto;
+  width: fit-content;
+}
+
+.header,
 h3,
 h2 {
   color: var(--backGroundDark);
@@ -81,9 +86,12 @@ form flex-container {
   align-items: center;
 }
 
+#cartHeader {
+  grid-area: header;
+}
+
 #cartHeader,
 #checkOutHeader {
-  grid-area: header;
   border-color: var(--subtitle);
 }
 

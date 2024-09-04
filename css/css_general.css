@@ -81,6 +81,7 @@ body {
 .aleo-general,
 p,
 h1,
+.header, 
 h2,
 h3,
 button,
@@ -121,8 +122,9 @@ a {
   width: fit-content;
   margin: auto;
 }
+  
 
-h1 {
+h1, .header {
   font-size: var(--headerSize);
   color: var(--header);
 }

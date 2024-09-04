@@ -81,11 +81,6 @@ nav {
   margin: 0;
 }
 
-.index_sectionHeaders {
-  font-size: var(--headerSize);
-  color: var(--header);
-  font-weight: 400;
-}
 
 #subHeader {
   font-size: var(--IndexSubSize);

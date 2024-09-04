@@ -21,10 +21,6 @@ const QUANTITY = document.getElementById("amount");
 /**************************************************************/
 general_displayCard();
 
-//Loading defered styles
-general_deferLinks.push({ href: "/css/mediaQueries/mediaQueries_coffee.css", rel: "stylesheet" });
-general_loadDeferLinks();
-
 document.addEventListener('DOMContentLoaded', () => {
   //Incrementing the amount of coffee bought
   INCREMENT.addEventListener('click', () => {
