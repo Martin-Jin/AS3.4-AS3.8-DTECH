@@ -50,3 +50,10 @@
     text-align: right !important;
   }
 }
+
+/* Hide status for mobile users as it takes up too much space */
+@media screen and (min-width: 450px) {
+  .order_total {
+    display: block;
+  }
+}

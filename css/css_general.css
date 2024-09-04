@@ -38,7 +38,7 @@
   /*-- borders --*/
   --UIborder: 0.5rem;
   /*-- font sizes --*/
-  --headerSize: 3rem;
+  --headerSize: 12.5vw;
   --subheaderSize: calc(0.7 * var(--headerSize));
   --pLarge: calc(0.42 * var(--headerSize));
   --pSmall: calc(0.8 * var(--pSize));
@@ -81,14 +81,15 @@ body {
 .aleo-general,
 p,
 h1,
-.header, 
+.header,
 h2,
 h3,
 button,
 radio-button,
 a,
 input,
-label, table {
+label,
+table {
   text-align: center;
   display: block;
   font-family: "Aleo", serif;
@@ -122,9 +123,10 @@ a {
   width: fit-content;
   margin: auto;
 }
-  
 
-h1, .header {
+
+h1,
+.header {
   font-size: var(--headerSize);
   color: var(--header);
 }
@@ -182,6 +184,7 @@ is displayed for the next screen size up --*/
 }
 
 nav {
+  z-index: 1;
   overflow: visible;
   height: var(--navBarSize);
   display: flex;

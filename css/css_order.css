@@ -220,6 +220,7 @@ order-container img {
 }
 
 .order_total {
+  display: none;
   grid-area: total;
 }
 
