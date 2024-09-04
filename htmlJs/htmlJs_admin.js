@@ -81,7 +81,7 @@ function admin_displayAll(snapshot) {
           console.log(order);
           let row = `
         <tr id="${"row" + index}">
-          <td id="${"img" + index}"><img src="${order.value.photo}"></td>
+          <td id="${"img" + index}"><img alt="coffee" src="${order.value.photo}"></td>
           <td id="${"order id" + index}">${order.key}</td>
           <td id="${"user" + index}">${name}</td>
           <td id=" ${"size" + index}">${order.value.size}</td>
@@ -97,7 +97,7 @@ function admin_displayAll(snapshot) {
           console.log(order);
           let row = `
         <tr id="${"row" + index}">
-          <td id="${"img" + index}"><img src="${order.value.photo}"></td>
+          <td id="${"img" + index}"><img alt="coffee" src="${order.value.photo}"></td>
           <td id="${"order id" + index}">${order.key}</td>
           <td id="${"user" + index}">${name}</td>
           <td id=" ${"size" + index}">${order.value.size}</td>
