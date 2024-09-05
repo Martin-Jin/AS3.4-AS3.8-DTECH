@@ -25,7 +25,7 @@
   --productSize: calc(var(--UISize) * 4);
   /*-- headers --*/
   --headerWidth: calc(var(--UISize) * 12);
-  --subtitleWidth: calc(var(--headerWidth) * 0.8)
+  --subtitleWidth: calc(var(--headerWidth) * 0.8);
   --IndexSubSize: calc(var(--UISize) * 0.3);
   /*-- icons --*/
   --indexIconSize: calc(1.7 * var(--IndexSubSize));
