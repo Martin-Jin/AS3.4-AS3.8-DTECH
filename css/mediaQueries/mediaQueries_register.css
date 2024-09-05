@@ -12,4 +12,7 @@
     max-width: max-content;
     width: fit-content;
   }
+  #genders {
+    flex-direction: row;
+  }
 }

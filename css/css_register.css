@@ -4,7 +4,7 @@
 /*-- variables *******************************************--*/
 :root {
   /*-- padding --*/
-  --formPadding: calc(var(--UIpadding) * 3.5);
+  --formPadding: calc(var(--UIpadding) * 3);
   --pagePadding: calc(var(--UIpadding) * 5);
 }
 
@@ -19,7 +19,9 @@
 
 /*-- genders *******************************************--*/
 #genders {
+  width: fit-content;
   justify-content: left;
+  flex-direction: column;
 }
 
 #address {
